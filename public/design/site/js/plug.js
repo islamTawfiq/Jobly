@@ -43,11 +43,11 @@ $(document).ready(function () {
   
   });
 
-  UnoDropZone.init();
+  // UnoDropZone.init();
 
-  $(".addNewExperience").click(function(){
-    $(".appendTo").appendTo('appendMe');
-  });
+  // $(".addNewExperience").click(function(){
+  //   $(".appendTo").appendTo('appendMe');
+  // });
   // $(".addNewExperience").click(function(){
   //   $(".appendMe").append('<div class="col-lg-8 appendTo"><div class="row"><div class="col-lg-6 mb-3"><select class="selectpicker form-control"><option disabled selected>Number Of Years</option><option>' + 1 + '</option><option>' + 2 + '</option></select></div><div class="col-lg-6 mb-3"><select class="selectpicker form-control"><option disabled selected>Country</option><option>'+ 1 + '</option><option>'+ 2 +'</option></select></div></div></div>');
   // });

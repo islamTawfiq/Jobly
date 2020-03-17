@@ -105,6 +105,8 @@
                                                     <div class="col-xl-3 col-md-6 col-12">
                                                             @include('admin.components.uploud.file', ['name' =>'img4','label'=>trans('web.image'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img4)])
                                                     </div>
+                                                  
+
                                           
                                                     <div class="col-12 mt-2">
                                                         <button type="submit" class="btn btn-primary mr-1 mb-1">{{trans('web.submit')}}</button>

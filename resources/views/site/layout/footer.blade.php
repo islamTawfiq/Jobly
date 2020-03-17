@@ -9,16 +9,16 @@
                     <p class="h5">Menu</p>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
-                            <a href="maids.html">Nannies</a>
+                            <a href="{{url('/filter')}}">Nannies</a>
                         </li>
                         <li>
                             <a href="#">How it Works</a>
                         </li>
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="{{url('/about-us')}}">About</a>
                         </li>
                     </ul>
                 </div>
@@ -29,7 +29,7 @@
                             <a href="#">Help</a>
                         </li>
                         <li>
-                            <a href="contactUs.html">Contact Us</a>
+                            <a href="{{url('/contact-us')}}">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                             <a href="#">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="termsAndCondition.html">Terms & Condition</a>
+                            <a href="{{url('/terms&conditions')}}">Terms & Condition</a>
                         </li>
                     </ul>
                 </div>

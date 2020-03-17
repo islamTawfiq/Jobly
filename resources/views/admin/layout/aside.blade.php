@@ -65,6 +65,10 @@
                               'icon'=>'feather icon-circle',
                               'url'=>url('admin/contact-us'),
                               ],[
+                              'name'=>trans('web.terms'),
+                              'icon'=>'feather icon-circle',
+                              'url'=>url('admin/terms&conditions'),
+                              ],[
                               'name'=>trans('web.homeBackground'),
                               'icon'=>'feather icon-circle',
                               'url'=>url('admin/home-background'),

@@ -1,19 +1,18 @@
 @extends('site.layout.index')
 @section('content')
 
-    @include('site.layout.navbars.mainNav')
-
       <div class="signIn">
         <div class="container">
             <p class="h4 mb-3">Sign In</p>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="sponsorRegister">
-                        <form class="form-group">
+                        <form class="form-group" method="post" action="{{route('login')}}">
+                            @csrf
                             <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
-                            <input type="text" class="form-control" placeholder="Your Mobile Number">
+                            <input type="text" name="phone" class="form-control" placeholder="Your Mobile Number" required>
                             <label><i class="fas fa-star-of-life"></i> Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password">
+                            <input type="password" name="password" class="form-control" placeholder="Your Password" required>
                             <div class="mt-4">
                                 <button class="btn btn-primary float-right">Sign In</button>
                             </div>

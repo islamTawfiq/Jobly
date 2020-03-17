@@ -21,6 +21,8 @@
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/lightslider.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/wickedpicker.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/jpreview.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('design/admin/css/plugins/extensions/toastr.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/extensions/toastr.css')}}">
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/media.css')}}" />

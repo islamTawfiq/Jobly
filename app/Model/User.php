@@ -13,8 +13,13 @@ class User extends Authenticatable
     protected $appends = ['admin_group_name','user_main_image'];
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
+        'phone',
+        'whatsapp',
         'email',
         'password',
+        'user_image',
         'status',
         'admin_group',
         'user_type_id'

@@ -22,18 +22,33 @@
 </div>
 <div class="col-lg-3 topRightMenu">
     <div class="sign ml-lg-auto">
-        <a href="{{url('login')}}" class="">Sign In</a>
-        <div class="dropdown show d-inline-block">
-            <a class="btn btn-primary" href="" role="button" id="signUp" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Sign Up <i class="fas fa-caret-down"></i>
-            </a>
-
-            <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>
-                <a class="dropdown-item" href="{{url('broker-register')}}">Sign up as Broker</a>
-                <a class="dropdown-item" href="agencyRegistration.html">Sign up as Agency</a>
+        @auth
+            <div class="dropdown show d-inline-block">
+                <a class="btn btn-primary" href="" role="button" id="signUp" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{ auth()->user()->name }} <i class="fas fa-caret-down"></i>
+                </a>
+    
+                <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
+                    <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
+                </div>
             </div>
-        </div>
+        @endauth
+        @guest
+            <a href="{{url('login')}}" class="">Sign In</a>
+            <div class="dropdown show d-inline-block">
+                <a class="btn btn-primary" href="" role="button" id="signUp" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Sign Up <i class="fas fa-caret-down"></i>
+                </a>
+    
+                <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
+                    <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>
+                    <a class="dropdown-item" href="{{url('broker-register')}}">Sign up as Broker</a>
+                    <a class="dropdown-item" href="agencyRegistration.html">Sign up as Agency</a>
+                </div>
+            </div>
+        @endguest
+    
     </div>
 </div>

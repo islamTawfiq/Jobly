@@ -7,30 +7,19 @@ class ContactUs extends Model
 {
     protected $table = 'contact_us';
     protected $fillable = [
-        'title_ar',
-        'title_en',
-        'body_ar',
-        'body_en',
-        'status',
+        'mobile',
+        'text_ar',
+        'text_en',
     ];
 
-    public function getTitleAttribute(){
+    public function getTextAttribute(){
         $attribute='';
         if (session('lang' ) == 'en'){
-            $attribute=$this->title_en;
+            $attribute=$this->text_en;
         }elseif (session('lang' ) == 'ar'){
-            $attribute=$this->title_ar;
+            $attribute=$this->text_ar;
         }
         return $attribute;
     }
 
-    public function getBodyAttribute(){
-        $attribute='';
-        if (session('lang' ) == 'en'){
-            $attribute=$this->body_en;
-        }elseif (session('lang' ) == 'ar'){
-            $attribute=$this->body_ar;
-        }
-        return $attribute;
-    }
 }

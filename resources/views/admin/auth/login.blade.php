@@ -37,7 +37,7 @@
                                         <p class="px-2">{{trans('web.welcomeBackLoginPage')}}</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
-                                                <form method="POST" action="{{ route('login') }}">
+                                                <form method="POST" action="{{ route('doLogin') }}">
                                                     @csrf
                                                     <fieldset
                                                         class="form-label-group form-group position-relative has-icon-left">

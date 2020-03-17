@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
+     *z
      * @var string
      */
     protected $redirectTo = '/admin';

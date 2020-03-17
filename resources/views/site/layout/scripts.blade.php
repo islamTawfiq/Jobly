@@ -8,12 +8,13 @@
     <script src="{{url('design/site/js/lightslider.js')}}"></script>
     <script src="{{url('design/site/js/wickedpicker.min.js')}}"></script>
     <script src="{{url('design/site/js/jpreview.js')}}"></script>
+    <script src="{{url('design/admin/vendors/js/extensions/toastr.min.js')}}"></script>
     <!-- plug -->
     <script src="{{url('design/site/js/plug.js')}}"></script>
 <!-- End Scripts JS-->
 @yield('page_js')
 {{-- <script src="{{url('design/admin/js/edit.js')}}"></script> --}}
-{{-- @include('site.layout.scripts.index') --}}
+@include('site.layout.scripts.index')
 <!-- END: inputs JS-->
 @if (session('lang') == 'en')
 @else

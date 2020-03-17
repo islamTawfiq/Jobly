@@ -234,6 +234,9 @@ return [
     'guest'=>'Guest',
     'imageAr'=> 'image In Arabic',
     'imageEn' => 'Image In English',
+    'mobile' => 'mobile',
+    'terms' => 'terms and conditions', 
+
     ''=>'',
     ''=>'',
     ''=>'',

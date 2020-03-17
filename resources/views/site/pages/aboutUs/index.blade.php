@@ -15,8 +15,8 @@
         <!-- aboutAfricanNannies -->
         <div class="aboutAfricanNannies text-center">
             <div class="container">
-                <p class="h3">African Nannies</p>
-                <p class="aboutAfricanNanniesText"></p>
+                <p class="h3">{!! $item->title !!}</p>
+                <p class="aboutAfricanNanniesText">{!! $item->body !!}</p>
                 <div class="whoWeAre">
                     <div class="container">
                         <div class="row">
@@ -24,19 +24,29 @@
                             <div class="col-lg-8">
                                 <div class="slideWho">
                                     <ul class="vertical">
-                                        <li data-thumb="{{ url('storage' . $item->img1) }}">
-                                            <img src="{{ url('storage' . $item->img1) }}" />
-                                        </li>
-                                        <li data-thumb="{{ url('storage' . $item->img2) }}">
-                                            <img src="{{ url('storage' . $item->img2) }}" />
-                                        </li>
-                                        <li data-thumb="{{ url('storage' . $item->img3) }}">
-                                            <img src="{{ url('storage' . $item->img3) }}" />
-                                        </li>
-                                        <li data-thumb="{{ url('storage' . $item->img4) }}">
-                                            <img src="{{ url('storage' . $item->img4) }}" />
-                                        </li>
-                                      
+                                        
+                                        {{-- @if (!empty($item->img1)) --}}
+                                        <li data-thumb="{{ $item->first_image }}">
+                                            <img src="{{ $item->first_image }}" />
+                                        </li>            
+                                        {{-- @endif --}}
+                                        {{-- @if (!empty($item->img2)) --}}
+                                        <li data-thumb="{{ $item->second_image }}">
+                                            <img src="{{ $item->second_image }}" />
+                                        </li>            
+                                        {{-- @endif --}}
+                                        {{-- @if (!empty($item->img3)) --}}
+                                        <li data-thumb="{{ $item->third_image }}">
+                                            <img src="{{ $item->third_image }}" />
+                                        </li>            
+                                        {{-- @endif --}}
+                                        {{-- @if (!empty($item->img4)) --}}
+                                        <li data-thumb="{{ $item->fourth_image }}">
+                                            <img src="{{ $item->fourth_image }}" />
+                                        </li>            
+                                        {{-- @endif --}}
+                                        
+                                                               
                                      
                                     </ul>
                                 </div>

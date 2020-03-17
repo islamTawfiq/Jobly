@@ -10,12 +10,9 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title_ar')->nullable();
-            $table->string('title_en')->nullable();
-            $table->longText('body_ar')->nullable();
-            $table->longText('body_en')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->integer('status')->default(0)->nullable();
+            $table->string('text_ar')->nullable();
+            $table->string('text_en')->nullable();
+            $table->string('mobile')->nullable();
             $table->timestamps();
         });
     }

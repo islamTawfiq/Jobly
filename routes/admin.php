@@ -37,6 +37,9 @@ Route::PATCH('about-us','pages\aboutUs\aboutUsController@update');
 Route::get('contact-us','pages\contactUs\contactUsController@index');
 Route::PATCH('contact-us','pages\contactUs\contactUsController@update');
 
+Route::get('terms&conditions','pages\terms\termsController@index');
+Route::PATCH('terms&conditions','pages\terms\termsController@update');
+
 // Route::get('home-background','pages\homeBackground\homeBackgroundController@index');
 // Route::PATCH('home-background','pages\homeBackground\homeBackgroundController@update');
 

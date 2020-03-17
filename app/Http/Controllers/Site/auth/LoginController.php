@@ -5,8 +5,9 @@ namespace App\Http\Controllers\site\auth;
 use App\Http\Controllers\Controller;
 use App\Model\SocialAccount;
 use App\Model\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Socialite;
 
@@ -18,6 +19,20 @@ class LoginController extends Controller
             return redirect('/');
         } else {
             return view('auth.login');
+        }
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('phone', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('/')->with('success' , 'Hello');
+        } else {
+            
+            return redirect()->back();
+            
         }
     }
 
