@@ -30,7 +30,7 @@ class RegisterController extends Controller
                 'phone'           => 'required|regex:/(01)[0-9]{9}/|unique:users,phone',
                 'whatsapp'        => 'required|string',
                 'email'           => 'required|email|unique:users,email',
-                'password'        => 'required|min:6',
+                'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
 
             ]);
@@ -41,7 +41,7 @@ class RegisterController extends Controller
             $data['status'] = 0;
             $user = User::create($data);
             Auth::login($user);
-            return redirect('/')->with('success', 'مرحبا بك , شكرا للتسجيل في هير موسي ,  سيتم مراجعه بيانات الصالون الخاصه بك , برجاء استكمال بيانات الصالون حتي يتم قبول عضويتك');
+            return redirect('/broker-dashboard/my-cv')->with('success', 'hello');
         }
     }
 

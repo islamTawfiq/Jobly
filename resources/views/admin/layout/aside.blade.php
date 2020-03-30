@@ -14,6 +14,9 @@
             @include('admin.components.navItems.singleitem', ['url' => url('admin'),'name'=>trans('web.home'),'icon'=>'feather icon-home'])
             {{-- @if (auth()->User()->group_id->settigs_show == 1) --}}
             @include('admin.components.navItems.singleitem', ['url' => url('admin/settings'),'name'=>trans('web.settings'),'icon'=>'feather icon-settings'])
+
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/skills'),'name'=>trans('web.skills'),'icon'=>'feather icon-circle'])
+
             {{-- @endif --}}
             {{-- @if (auth()->User()->group_id->admins_show == 1 || auth()->User()->group_id->admin_groups_show == 1 ||auth()->User()->group_id->clients_show == 1 ) --}}
             <li class=" navigation-header"><span>{{trans('web.users')}}</span></li>

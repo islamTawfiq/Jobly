@@ -16,9 +16,17 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/filter', function () {
-        return view('site.filter.filter');
-    });
+
+
+    Route::get('/filter','site\filter\filterController@index');
+    Route::get('/profile/{id}','site\nannyProfile\profileController@index');
+
+
+    // broker dashboard
+    Route::get('/broker-dashboard/my-cv','site\dashboard\broker\myCvController@index');
+    Route::get('/broker-dashboard/add-cv','site\dashboard\broker\addCvController@index');
+    Route::post('/broker-dashboard/add-cv','site\dashboard\broker\addCvController@addCv');
+
     // pages
     Route::get('/about-us','site\pages\aboutUs\aboutUsController@index');
     Route::get('/contact-us','site\pages\contactUs\contactUsController@index');
@@ -31,7 +39,6 @@ Route::post('/login', 'site\auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/broker-register', 'site\auth\RegisterController@ShowBrokerRegister')->name('brokerRegister');
 Route::post('/broker-register', 'site\auth\RegisterController@BrokerRegister');
-// Route::post('/client-register', 'site\auth\RegisterController@clientRegister');
 // Route::get('/forgot-password', 'Admin\auth\AuthController@forgotPassword');
 
 

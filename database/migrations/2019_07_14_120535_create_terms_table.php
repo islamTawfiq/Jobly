@@ -22,3 +22,4 @@ class CreateTermsTable extends Migration
         Schema::dropIfExists('terms');
     }
 }
+

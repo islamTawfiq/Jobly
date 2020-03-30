@@ -9,9 +9,6 @@
 <html class="loading" lang="{{session('lang') == 'en' ? 'en' : 'ar'}}" data-textdirection="{{session('lang') == 'en' ? 'ltr' : 'rtl'}}" >
 @include('site.layout.header', ['settings' => $settings])
 <body class="overFlow">
-{{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form> --}}
 {{-- @include('site.layout.nav', ['settings' => $settings,'homeBackground'=>$homeBackground]) --}}
 
 @if(url('/') == url()->current())

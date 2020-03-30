@@ -31,6 +31,8 @@ Route::resource('admin-groups','users\admins\AdminGroupsController');
 
 Route::resource('settings','settings\SettingsController');
 
+Route::resource('skills','skills\SkillsController');
+
 Route::get('about-us','pages\aboutUs\aboutUsController@index');
 Route::PATCH('about-us','pages\aboutUs\aboutUsController@update');
 

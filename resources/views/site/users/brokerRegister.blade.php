@@ -29,7 +29,7 @@
                                 <input type="password" name="password" class="form-control" placeholder="Your password">
                                
                                 <label><i class="fas fa-star-of-life"></i> Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Your confirm password">
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Your confirm password">
                                
                                 <!-- upload image -->
                                 <label><i class="fas fa-star-of-life"></i> National ID <span class="font-weight-bold">(Attach photos)</span></label>

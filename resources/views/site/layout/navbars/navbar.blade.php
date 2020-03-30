@@ -28,8 +28,14 @@
                     aria-haspopup="true" aria-expanded="false">
                     {{ auth()->user()->name }} <i class="fas fa-caret-down"></i>
                 </a>
-    
+
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
+                    @if ( auth()->user()->user_type_id == 2 )
+                    <a class="dropdown-item" href="{{url('/admin')}}">Admin</a>
+                    @endif
+                    @if ( auth()->user()->user_type_id == 0 )
+                    <a class="dropdown-item" href="{{url('/broker-dashboard/my-cv')}}">Broker Dashboard</a>
+                    @endif
                     <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                 </div>
             </div>
@@ -41,7 +47,7 @@
                     aria-haspopup="true" aria-expanded="false">
                     Sign Up <i class="fas fa-caret-down"></i>
                 </a>
-    
+
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
                     <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>
                     <a class="dropdown-item" href="{{url('broker-register')}}">Sign up as Broker</a>
@@ -49,6 +55,6 @@
                 </div>
             </div>
         @endguest
-    
+
     </div>
 </div>

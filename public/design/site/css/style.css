@@ -811,12 +811,11 @@ label.upload-photo {
     position: relative;
 }
 #topNavbarInDashboard .logo img {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    position: absolute;
-    top: -1px;
-    left: -31px;
+    width: 90px;
+    /* height: 70px; */
+    /* position: absolute; */
+    /* top: -1px; */
+    /* left: -31px; */
 }
 #topNavbarInDashboard .logo span {
     color:  #fff;

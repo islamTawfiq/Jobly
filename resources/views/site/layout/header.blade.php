@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/jpreview.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/css/plugins/extensions/toastr.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/extensions/toastr.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/dropify/dropify.min.css')}}">
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/media.css')}}" />

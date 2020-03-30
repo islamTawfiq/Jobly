@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Site\Pages\aboutUs;
+namespace App\Http\Controllers\Site\dashboard\broker;
 
 use App\Http\Controllers\Controller;
-use App\Model\AboutUs;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class aboutUsController extends Controller
+class myCvController extends Controller
 {
 
     // public function __construct()
@@ -20,8 +19,7 @@ class aboutUsController extends Controller
 
     public function index()
     {
-        $item = AboutUs::first();
-        return view('site.pages.aboutUs.index', compact('item'));
+        return view('site.brokerDashborad.myCvs');
     }
 
 

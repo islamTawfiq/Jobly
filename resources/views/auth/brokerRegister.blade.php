@@ -11,26 +11,26 @@
                             <form action="{{url('/broker-register')}}" method="POST" enctype="multipart/form-data" class="form-group">
                                 @csrf
                                 <label><i class="fas fa-star-of-life"></i> First Name</label>
-                                <input type="text" name="first_name" class="form-control" placeholder="Your first name">
+                                <input type="text" name="first_name" value="{{ old('first_name') }}" required class="form-control" placeholder="Your first name">
 
                                 <label><i class="fas fa-star-of-life"></i> Last Name</label>
-                                <input type="text" name="last_name" class="form-control" placeholder="Your last name">
+                                <input type="text" name="last_name" value="{{ old('last_name') }}" required class="form-control" placeholder="Your last name">
 
                                 <label><i class="fas fa-star-of-life"></i> Phone Number</label>
-                                <input type="text" name="phone" class="form-control" placeholder="Your phone number">
+                                <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control" placeholder="Your phone number">
 
                                 <label><i class="fas fa-star-of-life"></i> WhatsApp Number</label>
-                                <input type="text" name="whatsapp" class="form-control" placeholder="Your whatsapp number">
-                              
+                                <input type="text" name="whatsapp" value="{{ old('whatsapp') }}" required class="form-control" placeholder="Your whatsapp number">
+
                                 <label>Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Your email">
-                              
+                                <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">
+
                                 <label><i class="fas fa-star-of-life"></i> Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Your password">
-                               
+                                <input type="password" name="password" required class="form-control" placeholder="Your password">
+
                                 <label><i class="fas fa-star-of-life"></i> Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Your confirm password">
-                               
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Your confirm password">
+
                                 <!-- upload image -->
                                 <label><i class="fas fa-star-of-life"></i> National ID <span class="font-weight-bold">(Attach photos)</span></label>
                                 <div class="container mt-2">
@@ -39,7 +39,7 @@
                                             <label for="preview-contain" class="upload-photo mb-2">
                                                 <img src="{{url('design/site/images/photo-camera.png')}}" alt="camera">
                                             </label>
-                                            <input type="file" name="user_image" id="preview-contain" class="form-control attach" multiple
+                                            <input type="file" name="user_image"  id="preview-contain" class="form-control attach" multiple
                                                 data-jpreview-container="#preview">
                                         </div>
                                         <div class="col-sm-10">
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                 </div>
-                           
+
                                 <!-- Submit -->
                                 <div>
                                     <button class="btn btn-primary float-right">Submit</button>

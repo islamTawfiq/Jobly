@@ -9,6 +9,7 @@
     <script src="{{url('design/site/js/wickedpicker.min.js')}}"></script>
     <script src="{{url('design/site/js/jpreview.js')}}"></script>
     <script src="{{url('design/admin/vendors/js/extensions/toastr.min.js')}}"></script>
+    <script src="{{url('design/admin/vendors/js/dropify/dropify.min.js')}}"></script>
     <!-- plug -->
     <script src="{{url('design/site/js/plug.js')}}"></script>
 <!-- End Scripts JS-->
