@@ -47,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminRoutes();
+        
+        $this->mapBrokerRoutes();
+
+        $this->mapAgencyRoutes();
 
         //
     }
@@ -71,6 +75,20 @@ class RouteServiceProvider extends ServiceProvider
             ->prefix('admin')
             ->namespace($this->namespace."\Admin")
             ->group(base_path('routes/admin.php'));
+    }
+    protected function mapAgencyRoutes()
+    {
+        Route::middleware(['web','agency'])
+            ->prefix('agency-dashboard')
+            ->namespace($this->namespace."\site")
+            ->group(base_path('routes/agency.php'));
+    }
+    protected function mapBrokerRoutes()
+    {
+        Route::middleware(['web','broker'])
+            ->prefix('broker-dashboard')
+            ->namespace($this->namespace."\site")
+            ->group(base_path('routes/broker.php'));
     }
 
     /**

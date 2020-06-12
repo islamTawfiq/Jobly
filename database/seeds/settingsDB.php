@@ -9,8 +9,8 @@ class settingsDB extends Seeder
     {
 
        $add = new Settings;
-       $add->title_ar           = 'Arabic Title';
-       $add->title_en           = 'English Title';
+       $add->title_ar           = 'جوبلي';
+       $add->title_en           = 'Jobly';
        $add->fullName           = 'Full Name';
        $add->address            = 'Address Here';
        $add->mobileNumber       = '01118065363';

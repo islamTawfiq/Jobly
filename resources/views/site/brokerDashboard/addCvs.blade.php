@@ -164,7 +164,7 @@
                                                         <div class="col-lg-4">
                                                             <label>Education</label>
                                                             <select name="education" class="selectpicker form-control">
-                                                                <option selected disable>select education</option>
+                                                                <option selected disabled >Select education</option>
                                                                 <option value="High School" @if (old('education') == "High School") {{ 'selected' }} @endif>High School</option>
                                                                 <option value="Mid Level" @if (old('education') == "Mid Level") {{ 'selected' }} @endif>Mid Level</option>
                                                                 <option value="None" @if (old('education') == "None") {{ 'selected' }} @endif>None</option>
@@ -228,23 +228,24 @@
                                     'id'   => '',
                                     'class' => 'mt-1',
                                     'value' => '',
-                                    'label' => 'About Nanny (50 words only)',
+                                    'label' => 'About Nanny (150 words only)',
                                     'placeholder' => 'Write here…',
+                                    'maxlength' => '150',
                                     ])
                                 </div>
                             </div>
                             <div class="basicInformation">
-                                <p class="h5">Skills ( 6 Max)</p>
+                                <p class="h5">Skills</p>
                                 <div class="skills pl-lg-5">
                                     <div class="container">
                                         <div class="row">
 
                                             @foreach ($skills as $item)
                                                 <div class="col-4 col-lg-3 custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="{{$item->skill}}"
-                                                        name="skills[]"  value="{{$item->skill}}"
-                                                        {{ (is_array(old('skills')) && in_array( $item->skill, old('skills'))) ? ' checked' : '' }} >
-                                                    <label class="custom-control-label" for="{{$item->skill}}">{{$item->skill}}</label>
+                                                    <input type="checkbox" class="custom-control-input" id="{{ $item->skill_en }}"
+                                                        name="skills[]"  value="{{ $item->skill_en }}"
+                                                        {{ (is_array(old('skills')) && in_array( $item->skill_en, old('skills'))) ? ' checked' : '' }} >
+                                                    <label class="custom-control-label" for="{{ $item->skill_en }}"> {{ $item->skill_en }} </label>
                                                 </div>
                                             @endforeach
 

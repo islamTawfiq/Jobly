@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateNanniesTable extends Migration
 {
     /**
@@ -15,6 +16,7 @@ class CreateNanniesTable extends Migration
     {
         Schema::create('nannies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('status')->default(0);
             $table->string('main_image')->nullable();
             $table->string('name')->nullable();
             $table->string('first_name')->nullable();
@@ -37,6 +39,12 @@ class CreateNanniesTable extends Migration
             $table->longText('about')->nullable();
             $table->string('skills')->nullable();
             $table->string('gallery')->nullable();
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
+            $table->bigInteger('agency_id')->unsigned()->nullable();
+            $table->foreign('agency_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('broker_id')->unsigned();
+            $table->foreign('broker_id')->references('id')->on('users')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

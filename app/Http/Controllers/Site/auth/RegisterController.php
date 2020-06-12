@@ -20,6 +20,13 @@ class RegisterController extends Controller
             return view('auth.brokerRegister');
         }
     }
+    public  function  ShowAgencyRegister(){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            return view('auth.agencyRegister');
+        }
+    }
     public  function  BrokerRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
@@ -37,11 +44,35 @@ class RegisterController extends Controller
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
-            $data['user_type_id'] = 1;
+            $data['user_type_id'] = 2;
             $data['status'] = 0;
             $user = User::create($data);
             Auth::login($user);
-            return redirect('/broker-dashboard/my-cv')->with('success', 'hello');
+            return redirect('/broker-dashboard/all-cvs')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+        }
+    }
+    public  function  AgencyRegister(Request $request){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            $data = $request->validate([
+                'agency_name'     => 'required|string',
+                'manager_name'    => 'required|string',
+                'phone'           => 'required|regex:/(01)[0-9]{9}/|unique:users,phone',
+                'telephone'       => 'required|string',
+                'email'           => 'required|email|unique:users,email',
+                'password'        => 'required|min:6|confirmed',
+                'user_image'      => 'required|nullable|image',
+
+            ]);
+            $data['name'] = $data['agency_name'];
+            $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
+            $data['password'] = Hash::make($request->password);
+            $data['user_type_id'] = 3;
+            $data['status'] = 0;
+            $user = User::create($data);
+            Auth::login($user);
+            return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
         }
     }
 

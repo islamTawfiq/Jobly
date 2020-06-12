@@ -23,13 +23,18 @@ Route::post('/theme_color','cookie\ThemeCookieController@themeColor');
 | Resources Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('agencies','users\agencies\AgenciesController');
-Route::resource('sponsors','users\sponsors\SponsorsController');
-Route::resource('brokers','users\brokers\BrokersController');
+// Route::resource('agencies','users\agencies\AgenciesController');
+// Route::resource('sponsors','users\sponsors\SponsorsController');
+// Route::resource('brokers','users\brokers\BrokersController');
 Route::resource('admins','users\admins\AdminsController');
+Route::resource('agencies','users\agencies\AgenciesController');
+Route::resource('brokers','users\brokers\BrokersController');
+Route::post('/agencies/change-status','users\agencies\AgenciesController@ChangeStatus');
+Route::post('/brokers/change-status','users\brokers\BrokersController@ChangeStatus');
 Route::resource('admin-groups','users\admins\AdminGroupsController');
 
 Route::resource('settings','settings\SettingsController');
+Route::resource('nannies','nannies\NanniesController');
 
 Route::resource('skills','skills\SkillsController');
 

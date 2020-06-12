@@ -3,8 +3,7 @@
 namespace App\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Str;
+
 
 class User extends Authenticatable
 {
@@ -15,8 +14,11 @@ class User extends Authenticatable
         'name',
         'first_name',
         'last_name',
+        'agency_name',
+        'manager_name',
         'phone',
         'whatsapp',
+        'telephone',
         'email',
         'password',
         'user_image',
@@ -80,6 +82,23 @@ class User extends Authenticatable
     }
 
 
+    public function nannies()
+    {
+        return $this->hasMany('App\Model\Nanny', 'broker_id');
+    }
+    public function agency_reserve()
+    {
+        return $this->hasMany('App\Model\Nanny', 'agency_id');
+    }
+
+
+    // public function getAgencyDataAttribute(){
+    //     $attribute='';
+    //     if ($this->agency_reserve()){
+    //         $attribute = $this->broker->name;
+    //     }
+    //     return $attribute;
+    // }
 
 
 

@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function login()
     {
         if (auth()->check()) {
-            if (auth()->User()->user_type_id == 2) {
+            if (auth()->User()->user_type_id == 1) {
              return   redirect(url('admin'));
             } else {
                 return   redirect(url(''));
@@ -30,9 +30,9 @@ class AuthController extends Controller
             // Authentication passed...
             return redirect()->intended('/admin')->with('success' , 'Hello');
         } else {
-            
+
             return redirect()->back();
-            
+
         }
     }
 
@@ -40,7 +40,7 @@ class AuthController extends Controller
     public function register()
     {
         if (auth()->check()) {
-            if (auth()->User()->user_type_id == 2) {
+            if (auth()->User()->user_type_id == 1) {
                 return   redirect(url('admin'));
             } else {
                 return   redirect(url(''));
@@ -53,7 +53,7 @@ class AuthController extends Controller
     public function forgotPassword()
     {
         if (auth()->check()) {
-            if (auth()->User()->user_type_id == 2) {
+            if (auth()->User()->user_type_id == 1) {
                 return   redirect(url('admin'));
             } else {
                 return   redirect(url(''));

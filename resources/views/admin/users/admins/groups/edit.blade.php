@@ -118,6 +118,7 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+
                                                             <tr>
                                                                 <td>{{trans('web.settings')}}</td>
                                                                 <td>
@@ -143,52 +144,6 @@
                                                                 </td>
 
                                                                 <td></td>
-                                                            </tr>
-
-
-                                                            <tr>
-                                                                <td>{{trans('web.clients')}}</td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'clients_show',
-                                                                        'id' => 'clients_show',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => $item->clients_show == '1' ? true : false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'clients_add',
-                                                                        'id' => 'clients_add',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => $item->clients_add == '1' ? true : false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'clients_edit',
-                                                                        'id' => 'clients_edit',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                      'checked' => $item->clients_edit == '1' ? true : false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'clients_delete',
-                                                                        'id' => 'clients_delete',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                         'checked' => $item->clients_delete == '1' ? true : false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
                                                             </tr>
 
 
@@ -285,45 +240,180 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('web.categories')}}</td>
+                                                                <td>{{trans('Agencies')}}</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
-                                                                        'name' => 'categories_show',
-                                                                        'id' => 'categories_show',
+                                                                        'name' => 'agencies_show',
+                                                                        'id' => 'agencies_show',
                                                                         'value' => '1',
                                                                         'label' => '',
-                                                                         'checked' => $item->categories_show == '1' ? true : false,
+                                                                        'checked' => $item->agencies_show == '1' ? true : false,
                                                                         'disabled' => false,
                                                                         ])
                                                                 </td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
-                                                                        'name' => 'categories_add',
-                                                                        'id' => 'categories_add',
+                                                                        'name' => 'agencies_add',
+                                                                        'id' => 'agencies_add',
                                                                         'value' => '1',
                                                                         'label' => '',
-                                                                         'checked' => $item->categories_add == '1' ? true : false,
+                                                                        'checked' => $item->agencies_add == '1' ? true : false,
                                                                         'disabled' => false,
                                                                         ])
                                                                 </td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
-                                                                        'name' => 'categories_edit',
-                                                                        'id' => 'categories_edit',
+                                                                        'name' => 'agencies_edit',
+                                                                        'id' => 'agencies_edit',
                                                                         'value' => '1',
                                                                         'label' => '',
-                                                                        'checked' => $item->categories_edit == '1' ? true : false,
+                                                                      'checked' => $item->agencies_edit == '1' ? true : false,
                                                                         'disabled' => false,
                                                                         ])
                                                                 </td>
 
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
-                                                                        'name' => 'categories_delete',
-                                                                        'id' => 'categories_delete',
+                                                                        'name' => 'agencies_delete',
+                                                                        'id' => 'agencies_delete',
                                                                         'value' => '1',
                                                                         'label' => '',
-                                                                         'checked' => $item->categories_delete == '1' ? true : false,
+                                                                         'checked' => $item->agencies_delete == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>{{trans('Brokers')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'brokers_show',
+                                                                        'id' => 'brokers_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => $item->brokers_show == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'brokers_add',
+                                                                        'id' => 'brokers_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => $item->brokers_add == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'brokers_edit',
+                                                                        'id' => 'brokers_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                      'checked' => $item->brokers_edit == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'brokers_delete',
+                                                                        'id' => 'brokers_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->brokers_delete == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>{{trans('Skills')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'skills_show',
+                                                                        'id' => 'skills_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->skills_show == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'skills_add',
+                                                                        'id' => 'skills_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->skills_add == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'skills_edit',
+                                                                        'id' => 'skills_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => $item->skills_edit == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'skills_delete',
+                                                                        'id' => 'skills_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->skills_delete == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>{{trans('Nannies')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'nannies_show',
+                                                                        'id' => 'nannies_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->nannies_show == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'nannies_add',
+                                                                        'id' => 'nannies_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->nannies_add == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'nannies_edit',
+                                                                        'id' => 'nannies_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => $item->nannies_edit == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'nannies_delete',
+                                                                        'id' => 'nannies_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->nannies_delete == '1' ? true : false,
                                                                         'disabled' => false,
                                                                         ])
                                                                 </td>
@@ -370,6 +460,96 @@
                                                                         'value' => '1',
                                                                         'label' => '',
                                                                          'checked' => $item->contact_delete == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>{{trans('About')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'about_show',
+                                                                        'id' => 'about_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->about_show == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'about_add',
+                                                                        'id' => 'about_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->about_add == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'about_edit',
+                                                                        'id' => 'about_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->about_edit == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'about_delete',
+                                                                        'id' => 'about_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->about_delete == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>{{trans('Terms And Conditions')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'terms_show',
+                                                                        'id' => 'terms_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->terms_show == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'terms_add',
+                                                                        'id' => 'terms_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->terms_add == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'terms_edit',
+                                                                        'id' => 'terms_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->terms_edit == '1' ? true : false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'terms_delete',
+                                                                        'id' => 'terms_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                         'checked' => $item->terms_delete == '1' ? true : false,
                                                                         'disabled' => false,
                                                                         ])
                                                                 </td>

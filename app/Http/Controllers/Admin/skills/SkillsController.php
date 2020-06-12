@@ -11,12 +11,12 @@ class SkillsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:categories_show', ['only' => 'index', 'show']);
-        $this->middleware('permission:categories_add', ['only' => 'store', 'create']);
-        $this->middleware('permission:categories_edit', ['only' => 'edit', 'update']);
-        $this->middleware('permission:categories_delete', ['only' => 'destroy']);
+        $this->middleware('permission:skills_show', ['only' => 'index', 'show']);
+        $this->middleware('permission:skills_add', ['only' => 'store', 'create']);
+        $this->middleware('permission:skills_edit', ['only' => 'edit', 'update']);
+        $this->middleware('permission:skills_delete', ['only' => 'destroy']);
     }
-    
+
     public function index(Request $request)
     {
         if ($request->ajax()){

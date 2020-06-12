@@ -13,10 +13,10 @@ class contactUsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:clients_show', ['only' => 'index', 'show']);
-        $this->middleware('permission:clients_add', ['only' => 'store', 'create']);
-        $this->middleware('permission:clients_edit', ['only' => 'edit', 'update']);
-        $this->middleware('permission:clients_delete', ['only' => 'destroy']);
+        $this->middleware('permission:contact_show', ['only' => 'index', 'show']);
+        $this->middleware('permission:contact_add', ['only' => 'store', 'create']);
+        $this->middleware('permission:contact_edit', ['only' => 'edit', 'update']);
+        $this->middleware('permission:contact_delete', ['only' => 'destroy']);
     }
 
     public function index()
@@ -30,10 +30,9 @@ class contactUsController extends Controller
 
        $item = ContactUs::first();
        $data = $request->validate([
-           'title_ar' => 'sometimes|string',
-           'title_en' => 'sometimes|string',
-           'body_ar' => 'sometimes|string',
-           'body_en' => 'sometimes|string',
+           'mobile' => 'sometimes|string',
+           'text_ar' => 'sometimes|string',
+           'text_en' => 'sometimes|string',
        ]);
 
 

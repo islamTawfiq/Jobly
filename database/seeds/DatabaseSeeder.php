@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactUsDB::class);
         $this->call(AboutUsDB::class);
         $this->call(TermsDB::class);
+        $this->call(SkillsDB::class);
     }
 }

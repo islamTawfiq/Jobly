@@ -11,9 +11,56 @@
                     <p class="text-white mb-2">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>{{$nanny->country}}</span>
-                        <a href="JavaScript:void(0);" onclick="bookInterview()"
-                            class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Book / Request Interview</a>
+                        @if (auth()->user()->user_type_id != 2 && $nanny->status != 1 )
+                        <a href="JavaScript:void(0);" data-toggle="modal" data-target="#exampleModalCenter"
+                        class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Book / Request Interview</a>
+                        {{--  <a href="JavaScript:void(0);" onclick="bookInterview()"
+                        class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Book / Request Interview</a>  --}}
+                        @endif
+                        @if ( $nanny->status == 1 )
+                            <a href="JavaScript:void(0);" style="cursor: unset"
+                            class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Reserved</a>
+                        @endif
+
+                        <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Request an interview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+          <form action="{{ url('/reservation/' . $nanny->id ) }}" method="POST">
+              @csrf
+              {{--  <h2 class="myCustomTitle text-center">Request an interview</h2>  --}}
+              <div class="row">
+                   <div class="col-md-6">
+                       <p class="text-left mb-0">Date</p>
+                       <input type="date" class="form-control" name="date">
+                   </div>
+                   <div class="col-md-6">
+                       <p class="text-left mb-0">Time</p>
+                       <input type="time" class="form-control" name="time">
+                   </div>
+             </div>
+            <hr class="mt-4">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+      </div>
+      {{--  <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>  --}}
+    </div>
+  </div>
+</div>
                     </p>
+                    @if ( auth()->user()->user_type_id != 2 )
                     <span class="watchlist favourit">
                         <a href="#" class="listing-favorite-icon">
                             <i class="fas fa-star"></i>
@@ -30,12 +77,7 @@
                             <i class="fas fa-cloud-download-alt"></i> Download CV
                         </a>
                     </span>
-                    <!-- <span class="watchlist">
-                        <a href="#" class="listing-exclamation-icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                            Report
-                        </a>
-                    </span> -->
+                    @endif
                 </div>
             </div>
         </div>
@@ -49,9 +91,17 @@
             <div class="col-md-3">
                 <div class="person">
                     <div class="profilPhoto">
-                        <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="profile photo">
+                        <a class="openMainImage" href="{{ url( 'storage/' . $nanny->main_image) }}">
+                            <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="profile photo">
+                        </a>
+                        @if (auth()->user()->user_type_id != 2 && $nanny->status != 1)
                         <a href="JavaScript:void(0);" onclick="bookInterview()"
-                            class="btn btn-primary mt-3 ml-1 customBook">Book / Request Interview</a>
+                        class="btn btn-primary mt-3 ml-1 customBook">Book / Request Interview</a>
+                        @endif
+                        @if ( $nanny->status == 1 )
+                        <a href="JavaScript:void(0);" style="cursor: unset"
+                        class="btn btn-primary mt-3 ml-1 customBook">Reserved</a>
+                    @endif
                     </div>
                     <div class="personDetailes">
                         <div class="container">
@@ -132,7 +182,13 @@
                                             <span>Experience</span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="spanDetailes">{{$nanny->experience}} Years</span>
+                                            <span class="spanDetailes">{{$nanny->experience}}
+                                                @if ($nanny->experience > 1)
+                                                    Years
+                                                @else
+                                                    Year
+                                                @endif
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -178,8 +234,14 @@
                         </div>
                     </div>
                 </div>
+                @if (auth()->user()->user_type_id != 2 && $nanny->status != 1)
                 <a href="JavaScript:void(0);" onclick="bookInterview()"
-                    class="btn btn-primary mt-3 ml-1 d-none d-md-block">Book / Request Interview</a>
+                class="btn btn-primary mt-3 ml-1 d-none d-md-block">Book / Request Interview</a>
+                @endif
+                @if ( $nanny->status == 1 )
+                <a href="JavaScript:void(0);" style="cursor: unset"
+                class="btn btn-primary mt-3 ml-1 d-none d-md-block">Reserved</a>
+                @endif
             </div>
             <div class="col-md-9">
                 <ul class="nav nav-pills mb-3 p-2" id="pills-tab" role="tablist">
@@ -229,7 +291,9 @@
                                 <div class="row">
                                     @foreach ($images as $image)
                                         <div class="col-6 col-lg-3">
-                                            <img src="{{ url( '/gallery/' . $image) }}" alt="images">
+                                            <a class="openImage" href="{{ url( '/gallery/' . $image) }}">
+                                                <img src="{{ url( '/gallery/' . $image) }}" alt="images">
+                                            </a>
                                         </div>
                                     @endforeach
                                 </div>
@@ -244,145 +308,66 @@
 
 <!-- more nannies -->
 <div class="moreNannies text-center">
+    @if ($randomNannies->count() >= 3)
     <p class="h3 mb-2 mt-2 mb-lg-3 font-weight-bold">More Nannies</p>
     <div class="container">
         <div class="row">
-
             <div class="col-12">
                 <div class="row">
+                    @foreach ($randomNannies as $randomNanny)
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="row">
                                 <div class="col-5 imageCard">
-                                    <a href="profile.html">
-                                        <img src="images/africa1.jpeg" alt="">
+                                    <a href="{{ $randomNanny->id }}">
+                                        <img src="{{ url('storage/' . $randomNanny->main_image) }}" alt="">
                                     </a>
                                 </div>
                                 <div class="col-7 cardDetail">
-                                    <a href="profile.html">
-                                        <p class="h3 mb-0">Johna Badma</p>
+                                    <a href="{{ $randomNanny->id }}">
+                                        <p class="h3 mb-0">{{ $randomNanny->name }}</p>
                                     </a>
                                     <p class="text-muted m-0">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <span>South African</span>
+                                        <span>{{ $randomNanny->country }}</span>
                                     </p>
                                     <table>
                                         <tr>
                                             <td>Job:</td>
-                                            <td>Designer</td>
+                                            <td>{{ $randomNanny->job }}</td>
                                         </tr>
                                         <tr>
                                             <td>Age:</td>
-                                            <td>24</td>
+                                            <td>{{ $randomNanny->age }}</td>
                                         </tr>
                                         <tr>
                                             <td>Experience:</td>
-                                            <td>4 Years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Languages:</td>
-                                            <td>English, Arabic</td>
+                                            <td>{{ $randomNanny->experience }}
+                                                @if ($randomNanny->experience > 1)
+                                                     Years
+                                                @else
+                                                     Year
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Salary:</td>
-                                            <td>900 QAR</td>
+                                            <td>{{ $randomNanny->salary }} QAR</td>
                                         </tr>
                                     </table>
-                                    <a href="#" class="btn btn-primary mt-1">Details</a>
+                                    <a href="{{ $randomNanny->id }}" class="btn btn-primary mt-1">Details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-5 imageCard">
-                                    <a href="profile.html">
-                                        <img src="images/africa1.jpeg" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-7 cardDetail">
-                                    <a href="profile.html">
-                                        <p class="h3 mb-0">Johna Badma</p>
-                                    </a>
-                                    <p class="text-muted m-0">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>South African</span>
-                                    </p>
-                                    <table>
-                                        <tr>
-                                            <td>Job:</td>
-                                            <td>Designer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Age:</td>
-                                            <td>24</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Experience:</td>
-                                            <td>4 Years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Languages:</td>
-                                            <td>English, Arabic</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Salary:</td>
-                                            <td>900 QAR</td>
-                                        </tr>
-                                    </table>
-                                    <a href="#" class="btn btn-primary mt-1">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-5 imageCard">
-                                    <a href="profile.html">
-                                        <img src="images/africa1.jpeg" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-7 cardDetail">
-                                    <a href="profile.html">
-                                        <p class="h3 mb-0">Johna Badma</p>
-                                    </a>
-                                    <p class="text-muted m-0">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>South African</span>
-                                    </p>
-                                    <table>
-                                        <tr>
-                                            <td>Job:</td>
-                                            <td>Designer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Age:</td>
-                                            <td>24</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Experience:</td>
-                                            <td>4 Years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Languages:</td>
-                                            <td>English, Arabic</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Salary:</td>
-                                            <td>900 QAR</td>
-                                        </tr>
-                                    </table>
-                                    <a href="#" class="btn btn-primary mt-1">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 @stop
+
+

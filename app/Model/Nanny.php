@@ -3,11 +3,13 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Nanny extends Model
 {
 
-    protected $appends = [''];
+
+    protected $appends = ['broker_name','about_nanny'];
     protected $fillable = [
         'main_image',
         'name',
@@ -31,6 +33,41 @@ class Nanny extends Model
         'about',
         'skills',
         'gallery',
+        'date',
+        'time',
+        'status',
+        'agency_id',
+        'broker_id',
     ];
+
+
+    public function broker()
+    {
+        return $this->belongsTo('App\Model\User', 'broker_id');
+    }
+    public function agency()
+    {
+        return $this->belongsTo('App\Model\User', 'agency_id');
+    }
+
+
+    public function getBrokerNameAttribute(){
+        $attribute='';
+        if ($this->broker()){
+            $attribute = $this->broker->name;
+        }
+        return $attribute;
+    }
+
+    public function getAboutNannyAttribute(){
+        $attribute = Str::words($this->about, 14, '...');
+        return $attribute;
+    }
+
+
+
+
+
+
 
 }

@@ -133,61 +133,7 @@
                         <p class="text-muted ml-3">4 Results...</p>
                         <div class="col-12">
                             {{-- card --}}
-                            @foreach ($nannies as $nanny)
-
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-4 col-sm-5 col-lg-4 imgCard">
-                                            <a href="{{url( '/profile/' . $nanny->id )}}">
-                                                <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-8 col-sm-7 col-lg-4 cardDetail">
-                                            <a href="{{url( '/profile/' . $nanny->id )}}">
-                                                <p class="h3 mb-0">{{$nanny->name}}</p>
-                                            </a>
-                                            <p class="text-muted m-0">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>{{$nanny->country}}</span>
-                                            </p>
-                                            <table>
-                                                <tr>
-                                                    <td>Job:</td>
-                                                    <td>{{$nanny->job}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Age:</td>
-                                                    <td>{{$nanny->age}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Experience:</td>
-                                                    <td>{{$nanny->experience}}</td>
-                                                </tr>
-                                                {{--  <tr>
-                                                    <td>Languages:</td>
-                                                    <td>English, Arabic</td>
-                                                </tr>  --}}
-                                                <tr>
-                                                    <td>Salary:</td>
-                                                    <td>{{ $nanny->salary }} QAR</td>
-                                                </tr>
-                                            </table>
-                                            <a href="{{url( '/profile/' . $nanny->id )}}" class="btn btn-primary mt-1">Details</a>
-                                        </div>
-                                        <div class="col-12 col-lg-4 whoIam pt-3">
-                                            <p class="h4">Who I am</p>
-                                            <p>
-                                                {{ Str::limit($nanny->about, 120) }}
-                                                @if ( strlen($nanny->about) > 120 )
-                                                    <a href="#">Read More</a>
-                                                @endif
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            @endforeach
+                            @include('site.components.card.cv')
                             {{-- end card --}}
                         </div>
 

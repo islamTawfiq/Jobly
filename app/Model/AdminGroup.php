@@ -15,10 +15,25 @@ class AdminGroup extends Model
         'settings_show',
         'settings_edit',
 
-        'clients_show',
-        'clients_add',
-        'clients_edit',
-        'clients_delete',
+        'agencies_show',
+        'agencies_add',
+        'agencies_edit',
+        'agencies_delete',
+
+        'brokers_show',
+        'brokers_add',
+        'brokers_edit',
+        'brokers_delete',
+
+        'skills_show',
+        'skills_add',
+        'skills_edit',
+        'skills_delete',
+
+        'nannies_show',
+        'nannies_add',
+        'nannies_edit',
+        'nannies_delete',
 
         'admins_show',
         'admins_add',
@@ -30,15 +45,20 @@ class AdminGroup extends Model
         'admin_groups_edit',
         'admin_groups_delete',
 
-        'categories_show',
-        'categories_add',
-        'categories_edit',
-        'categories_delete',
+        'about_show',
+        'about_add',
+        'about_edit',
+        'about_delete',
 
         'contact_show',
         'contact_add',
         'contact_edit',
         'contact_delete',
+
+        'terms_show',
+        'terms_add',
+        'terms_edit',
+        'terms_delete',
 
         'icons_show',
         'icons_add',

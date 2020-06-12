@@ -12,7 +12,6 @@
             <ul class="navbar-nav m-auto">
                 <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="{{url('/filter')}}" class="nav-link">Nannies</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">How it Works</a></li>
                 <li class="nav-item"><a href="{{url('/about-us')}}" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="{{url('/contact-us')}}" class="nav-link">Contact us/inquiry</a>
                 </li>
@@ -24,17 +23,26 @@
     <div class="sign ml-lg-auto">
         @auth
             <div class="dropdown show d-inline-block">
+                @if ( auth()->user()->status == 1 )
                 <a class="btn btn-primary" href="" role="button" id="signUp" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     {{ auth()->user()->name }} <i class="fas fa-caret-down"></i>
                 </a>
+                @else
+                <a class="btn btn-primary">
+                    Pending
+                </a>
+                @endif
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                    @if ( auth()->user()->user_type_id == 2 )
+                    @if ( auth()->user()->user_type_id == 1 )
                     <a class="dropdown-item" href="{{url('/admin')}}">Admin</a>
                     @endif
-                    @if ( auth()->user()->user_type_id == 0 )
+                    @if ( auth()->user()->user_type_id == 2 )
                     <a class="dropdown-item" href="{{url('/broker-dashboard/my-cv')}}">Broker Dashboard</a>
+                    @endif
+                    @if ( auth()->user()->user_type_id == 3 )
+                    <a class="dropdown-item" href="{{url('/agency-dashboard/edit-profile')}}">Agency Dashboard</a>
                     @endif
                     <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                 </div>
@@ -50,8 +58,8 @@
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
                     <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>
-                    <a class="dropdown-item" href="{{url('broker-register')}}">Sign up as Broker</a>
-                    <a class="dropdown-item" href="agencyRegistration.html">Sign up as Agency</a>
+                    <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as Broker</a>
+                    <a class="dropdown-item" href="{{ url('/agency-register') }}">Sign up as Agency</a>
                 </div>
             </div>
         @endguest

@@ -1,5 +1,5 @@
 @extends('admin.components.tables.table')
-@section('pageName','Clients')
+@section('pageName','Admins')
 @section('thead')
     <tr>
         <th>{{trans('web.id')}}</th>

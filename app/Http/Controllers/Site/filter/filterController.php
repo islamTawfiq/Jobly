@@ -12,7 +12,10 @@ class filterController extends Controller
     public function index()
     {
         $nannies = Nanny::get();
-        return view('site.filter.filter', compact('nannies'));
+
+        $n = Nanny::with('broker')->get();
+
+        return view('site.filter.filter', compact('nannies','n'));
     }
 
 

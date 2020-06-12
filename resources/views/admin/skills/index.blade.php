@@ -8,7 +8,7 @@
     </tr>
 
 @stop
-@if (auth()->User()->group->categories_add == 1)
+@if (auth()->User()->group->skills_add == 1)
 @section('modal')
     @include('admin.skills.create',['id'=>'createmodal','name'=>trans('Create New Skill'),'action'=>url()->current()])
 @stop
@@ -39,7 +39,7 @@
                 bInfo: true,
                 pageLength: 15,
                 buttons: [
-                        @if (auth()->User()->group->categories_add == 1)
+                        @if (auth()->User()->group->skills_add == 1)
                     {
                         text: "<i class='feather icon-plus'></i>{{trans('web.addNew')}}",
                         action: function () {
@@ -70,10 +70,10 @@
                         "mRender": function (data, type, row) {
                             var data1 = '',
                                 data2 = '' ;
-                                @if (auth()->User()->group->categories_edit == 1 )
+                                @if (auth()->User()->group->skills_edit == 1 )
                             var data1 = '<a href="{{url()->current()}}/' + row.id + '/edit" class="action-edit"><i class="feather icon-edit"></i></a>';
                                 @endif
-                                @if (auth()->User()->group->categories_delete == 1 )
+                                @if (auth()->User()->group->skills_delete == 1 )
                             var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
                                 @endif
                                 return data1 + data2;

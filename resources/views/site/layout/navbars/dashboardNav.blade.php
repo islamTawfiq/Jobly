@@ -4,14 +4,14 @@
             <div class="col-10">
                 <div class="logo">
                     <img src="{{$settings->main_logo}}" alt="logo"/>
-                    @if (auth()->user()->user_type_id == 1)
+                    @if (auth()->user()->user_type_id == 2)
                     <span> | <strong>Broker Dashboard</strong></span>
-                    @elseif (auth()->user()->user_type_id == 2)
-                    <span> | <strong>Agency Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 3)
+                    <span> | <strong>Agency Dashboard</strong></span>
+                    @elseif (auth()->user()->user_type_id == 4)
                     <span> | <strong>Sponsor Dashboard</strong></span>
                     @endif
-                    
+
                 </div>
             </div>
             <div class="col-2 topRightMenu  dashboardHead">

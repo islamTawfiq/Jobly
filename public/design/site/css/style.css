@@ -690,8 +690,8 @@ footer .linksInFooter i {
     padding-bottom: 30px;
 }
 .signIn {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 .sponsorRegister p.h4 {
     font-weight: 700 !important;
@@ -1226,4 +1226,7 @@ label.upload-photo {
 }
 .watchlist {
     margin-right: 15px;
+}
+.noCvs img {
+    width: 100%;
 }

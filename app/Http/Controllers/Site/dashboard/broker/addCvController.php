@@ -15,7 +15,7 @@ class addCvController extends Controller
     public function index()
     {
         $skills = Skills::get();
-        return view('site.brokerDashborad.addCvs', compact('skills'));
+        return view('site.brokerDashboard.addCvs', compact('skills'));
     }
 
     public  function  addCv (Request $request){
@@ -44,26 +44,29 @@ class addCvController extends Controller
                 'gallery'        => 'required',
                 'gallery.*'      => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
+            $data['broker_id'] = auth()->user()->id;
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
             $request->hasFile('main_image') ?  $data['main_image'] = $this->storeFile($request->main_image, 'Nannies') : '';
 
             if($request->hasfile('gallery'))
             {
 
-               foreach($request->file('gallery') as $image)
-               {
+                foreach($request->file('gallery') as $image)
+                {
                    $name=$image->getClientOriginalName();
                    $image->move(public_path().'/gallery/', $name);
                    $gallery[] = $name;
-               }
+                }
             }
 
             $data['gallery'] = implode( "," , $gallery );
             $data['skills'] = implode( "," , $data['skills'] );
-            $user = Nanny::create($data);
-            return redirect('/broker-dashboard/add-cv')->with('success', 'cv created successfully');
-    }
+            Nanny::create($data);
+            return redirect('/broker-dashboard/all-cvs')->with('success', 'cv created successfully');
+        }
 
 
 
 }
+
+

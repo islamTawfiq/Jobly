@@ -10,9 +10,9 @@
                         <form class="form-group" method="post" action="{{route('login')}}">
                             @csrf
                             <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Your Mobile Number" required>
+                            <input type="text" value="{{ old('phone') }}" name="phone" class="form-control" placeholder="Your Mobile Number" required>
                             <label><i class="fas fa-star-of-life"></i> Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Your Password" required>
+                            <input type="password"  name="password" class="form-control" placeholder="Your Password" required>
                             <div class="mt-4">
                                 <button class="btn btn-primary float-right">Sign In</button>
                             </div>

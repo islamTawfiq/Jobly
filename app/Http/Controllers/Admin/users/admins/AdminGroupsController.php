@@ -30,10 +30,25 @@ class AdminGroupsController extends Controller
             'settings_show'=>'sometimes|nullable|in:1,0',
             'settings_edit'=>'sometimes|nullable|in:1,0',
 
-            'clients_show'=>'sometimes|nullable|in:1,0',
-            'clients_add'=>'sometimes|nullable|in:1,0',
-            'clients_edit'=>'sometimes|nullable|in:1,0',
-            'clients_delete'=>'sometimes|nullable|in:1,0',
+            'agencies_show'=>'sometimes|nullable|in:1,0',
+            'agencies_add'=>'sometimes|nullable|in:1,0',
+            'agencies_edit'=>'sometimes|nullable|in:1,0',
+            'agencies_delete'=>'sometimes|nullable|in:1,0',
+
+            'brokers_show'=>'sometimes|nullable|in:1,0',
+            'brokers_add'=>'sometimes|nullable|in:1,0',
+            'brokers_edit'=>'sometimes|nullable|in:1,0',
+            'brokers_delete'=>'sometimes|nullable|in:1,0',
+
+            'skills_show'=>'sometimes|nullable|in:1,0',
+            'skills_add'=>'sometimes|nullable|in:1,0',
+            'skills_edit'=>'sometimes|nullable|in:1,0',
+            'skills_delete'=>'sometimes|nullable|in:1,0',
+
+            'nannies_show'=>'sometimes|nullable|in:1,0',
+            'nannies_add'=>'sometimes|nullable|in:1,0',
+            'nannies_edit'=>'sometimes|nullable|in:1,0',
+            'nannies_delete'=>'sometimes|nullable|in:1,0',
 
             'admins_show'=>'sometimes|nullable|in:1,0',
             'admins_add'=>'sometimes|nullable|in:1,0',
@@ -45,15 +60,20 @@ class AdminGroupsController extends Controller
             'admin_groups_edit'=>'sometimes|nullable|in:1,0',
             'admin_groups_delete'=>'sometimes|nullable|in:1,0',
 
-            'categories_show'=>'sometimes|nullable|in:1,0',
-            'categories_add'=>'sometimes|nullable|in:1,0',
-            'categories_edit'=>'sometimes|nullable|in:1,0',
-            'categories_delete'=>'sometimes|nullable|in:1,0',
+            'about_show'=>'sometimes|nullable|in:1,0',
+            'about_add'=>'sometimes|nullable|in:1,0',
+            'about_edit'=>'sometimes|nullable|in:1,0',
+            'about_delete'=>'sometimes|nullable|in:1,0',
 
             'contact_show'=>'sometimes|nullable|in:1,0',
             'contact_add'=>'sometimes|nullable|in:1,0',
             'contact_edit'=>'sometimes|nullable|in:1,0',
             'contact_delete'=>'sometimes|nullable|in:1,0',
+
+            'terms_show'=>'sometimes|nullable|in:1,0',
+            'terms_add'=>'sometimes|nullable|in:1,0',
+            'terms_edit'=>'sometimes|nullable|in:1,0',
+            'terms_delete'=>'sometimes|nullable|in:1,0',
 
             'icons_show'=>'sometimes|nullable|in:1,0',
             'icons_add'=>'sometimes|nullable|in:1,0',

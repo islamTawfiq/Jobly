@@ -14,10 +14,10 @@ class aboutUsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:clients_show', ['only' => 'index', 'show']);
-        $this->middleware('permission:clients_add', ['only' => 'store', 'create']);
-        $this->middleware('permission:clients_edit', ['only' => 'edit', 'update']);
-        $this->middleware('permission:clients_delete', ['only' => 'destroy']);
+        $this->middleware('permission:about_show', ['only' => 'index', 'show']);
+        $this->middleware('permission:about_add', ['only' => 'store', 'create']);
+        $this->middleware('permission:about_edit', ['only' => 'edit', 'update']);
+        $this->middleware('permission:about_delete', ['only' => 'destroy']);
     }
 
     public function index()
@@ -42,7 +42,7 @@ class aboutUsController extends Controller
        ]);
 
 
-      
+
 
        $request->hasFile('img1') ? $data['img1'] = $this->storeFile($request->img1, 'about-us') : '';
        $request->hasFile('img2') ? $data['img2'] = $this->storeFile($request->img2, 'about-us') : '';

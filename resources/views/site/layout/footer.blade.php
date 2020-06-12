@@ -15,9 +15,6 @@
                             <a href="{{url('/filter')}}">Nannies</a>
                         </li>
                         <li>
-                            <a href="#">How it Works</a>
-                        </li>
-                        <li>
                             <a href="{{url('/about-us')}}">About</a>
                         </li>
                     </ul>
@@ -26,9 +23,6 @@
                     <p class="h5">Quick Link</p>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#">Help</a>
-                        </li>
-                        <li>
                             <a href="{{url('/contact-us')}}">Contact Us</a>
                         </li>
                     </ul>
@@ -36,9 +30,6 @@
                 <div class="col-4 col-md-2 linksInFooter">
                     <p class="h5">More</p>
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
                         <li>
                             <a href="{{url('/terms&conditions')}}">Terms & Condition</a>
                         </li>
