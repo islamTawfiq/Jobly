@@ -8,9 +8,9 @@
 @endif
 
 @foreach ($nannies as $nanny)
-<div class="card  {{ $nanny->count() == 1 ? 'm-5' : '' }}">
+<div class="card  {{ $nannies->count() == 1 ? 'm-5' : '' }}">
     <div class="row">
-        <div class="col-4 col-sm-5 col-lg-4 imgCard">
+        <div class="{{ url()->current() == url('broker-dashboard/all-cvs') ? '' : 'col-4' }} col-sm-5 col-lg-4 imgCard">
             <a href="{{url( '/profile/' . $nanny->id )}}">
                 <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="">
             </a>
@@ -66,14 +66,7 @@
                 @endif
             </p>
             @if ( url()->current() == url('/broker-dashboard/all-cvs') )
-            {{--  Edite  --}}
             <a class="btn btn-info" href="{{ url ( url()->current() . '/' . $nanny->id . '/edit' ) }}">Edit</a>
-            {{--  Delete  --}}
-            {{--  <form action="{{ url(url()->current() . '/' . $nanny->id ) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <button type="submit" class="btn btn-danger delete-confirm">Delete</button>
-                </form>  --}}
             <a href="{{ url()->current() . '/' . $nanny->id }}" class="btn btn-danger delete-confirm">Delete</a>
             @endif
         </div>

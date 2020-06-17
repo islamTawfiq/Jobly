@@ -24,7 +24,7 @@ class addCvController extends Controller
                 'main_image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'first_name'     => 'required|string',
                 'last_name'      => 'required|string',
-                'mobile'         => 'required|regex:/(01)[0-9]{9}/|unique:nannies,mobile',
+                'mobile'         => 'required|unique:nannies,mobile',
                 'country'        => 'required|string',
                 'city'           => 'required|string',
                 'age'            => 'required|integer',

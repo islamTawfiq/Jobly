@@ -2,27 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Model\AboutUs;
+use App\Model\Nanny;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
-    {      
-        // return view('site.home.index');
+    {
+        $nannies = Nanny::get();
+        $about = AboutUs::first();
+        return view('site.home.index', compact('nannies','about'));
     }
 }

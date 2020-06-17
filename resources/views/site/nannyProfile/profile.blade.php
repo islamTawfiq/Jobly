@@ -8,58 +8,48 @@
             <div class="col-lg-9">
                 <div class="profileInfo text-center text-md-left">
                     <p class="h2 mb-2 text-white">{{$nanny->name}}</p>
-                    <p class="text-white mb-2">
+                    <div class="text-white mb-2">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>{{$nanny->country}}</span>
-                        @if (auth()->user()->user_type_id != 2 && $nanny->status != 1 )
-                        <a href="JavaScript:void(0);" data-toggle="modal" data-target="#exampleModalCenter"
-                        class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Book / Request Interview</a>
-                        {{--  <a href="JavaScript:void(0);" onclick="bookInterview()"
-                        class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Book / Request Interview</a>  --}}
-                        @endif
-                        @if ( $nanny->status == 1 )
-                            <a href="JavaScript:void(0);" style="cursor: unset"
-                            class="btn btn-primary btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0">Reserved</a>
-                        @endif
+
+                        @include('site.components.buttons.book', [
+                            'class' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',
+                            'reserved' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',
+                            ])
 
                         <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Request an interview</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body">
-          <form action="{{ url('/reservation/' . $nanny->id ) }}" method="POST">
-              @csrf
-              {{--  <h2 class="myCustomTitle text-center">Request an interview</h2>  --}}
-              <div class="row">
-                   <div class="col-md-6">
-                       <p class="text-left mb-0">Date</p>
-                       <input type="date" class="form-control" name="date">
-                   </div>
-                   <div class="col-md-6">
-                       <p class="text-left mb-0">Time</p>
-                       <input type="time" class="form-control" name="time">
-                   </div>
-             </div>
-            <hr class="mt-4">
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
-      </div>
-      {{--  <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save</button>
-      </div>  --}}
-    </div>
-  </div>
-</div>
-                    </p>
+                        <div class="modal fade" id="bookNanny" tabindex="-1" role="dialog" aria-labelledby="bookNannyTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title requestInterview" id="bookNannyLongTitle">Request an interview</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ url('/reservation/' . $nanny->id ) }}" method="POST">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="text-left mb-0">Date</p>
+                                                    <input type="date" class="form-control" name="date">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="text-left mb-0">Time</p>
+                                                    <input type="time" class="form-control" name="time">
+                                                </div>
+                                            </div>
+                                            <hr class="mt-4">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @if ( auth()->user()->user_type_id != 2 )
                     <span class="watchlist favourit">
                         <a href="#" class="listing-favorite-icon">
@@ -94,14 +84,12 @@
                         <a class="openMainImage" href="{{ url( 'storage/' . $nanny->main_image) }}">
                             <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="profile photo">
                         </a>
-                        @if (auth()->user()->user_type_id != 2 && $nanny->status != 1)
-                        <a href="JavaScript:void(0);" onclick="bookInterview()"
-                        class="btn btn-primary mt-3 ml-1 customBook">Book / Request Interview</a>
-                        @endif
-                        @if ( $nanny->status == 1 )
-                        <a href="JavaScript:void(0);" style="cursor: unset"
-                        class="btn btn-primary mt-3 ml-1 customBook">Reserved</a>
-                    @endif
+
+                        @include('site.components.buttons.book', [
+                            'class' => 'mt-3 ml-1 customBook',
+                            'reserved' => 'mt-3 ml-1 customBook',
+                            ])
+
                     </div>
                     <div class="personDetailes">
                         <div class="container">
@@ -192,25 +180,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{--  <div class="col-12 personData">
-                                    <div class="row">
-                                        <div class="col-12 mb-1">
-                                            <span>Experience</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span class="font-weight-bold">Qatar</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span class="spanDetailes">3 Years</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span class="font-weight-bold">Oman</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span class="spanDetailes">2 Years</span>
-                                        </div>
-                                    </div>
-                                </div>  --}}
+
                                 <div class="col-12 personData">
                                     <div class="row">
                                         <div class="col-12 mb-1">
@@ -234,14 +204,12 @@
                         </div>
                     </div>
                 </div>
-                @if (auth()->user()->user_type_id != 2 && $nanny->status != 1)
-                <a href="JavaScript:void(0);" onclick="bookInterview()"
-                class="btn btn-primary mt-3 ml-1 d-none d-md-block">Book / Request Interview</a>
-                @endif
-                @if ( $nanny->status == 1 )
-                <a href="JavaScript:void(0);" style="cursor: unset"
-                class="btn btn-primary mt-3 ml-1 d-none d-md-block">Reserved</a>
-                @endif
+
+                @include('site.components.buttons.book', [
+                    'class' => 'mt-3 ml-1 d-none d-md-block',
+                    'reserved' => 'mt-3 ml-1 d-none d-md-block',
+                    ])
+
             </div>
             <div class="col-md-9">
                 <ul class="nav nav-pills mb-3 p-2" id="pills-tab" role="tablist">
@@ -276,10 +244,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 text-center mt-3 mb-0 d-md-none">
-                                        <a href="JavaScript:void(0);" onclick="bookInterview()"
-                                            class="btn btn-primary">Book / Request Interview</a>
-                                    </div>
+
                                 </div>
                             </doiv>
                         </div>
@@ -300,7 +265,14 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+            </div>
+            <div class="col-12 text-center mt-3 mb-0 d-md-none">
+                @include('site.components.buttons.book', [
+                    'class' => '',
+                    'reserved' => '',
+                    ])
             </div>
         </div>
     </div>

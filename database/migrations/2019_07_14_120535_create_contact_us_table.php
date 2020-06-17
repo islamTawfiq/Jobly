@@ -10,8 +10,7 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('text_ar')->nullable();
-            $table->string('text_en')->nullable();
+            $table->string('text')->nullable();
             $table->string('mobile')->nullable();
             $table->timestamps();
         });

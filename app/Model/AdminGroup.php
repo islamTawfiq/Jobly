@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class AdminGroup extends Model
 {
     protected $fillable = [
-        'name_ar',
-        'name_en',
-        'description_ar',
-        'description_en',
+        'name',
+        'description',
 
         'settings_show',
         'settings_edit',
@@ -67,13 +65,4 @@ class AdminGroup extends Model
 
         ];
 
-    public function getNameAttribute(){
-        $attribute='';
-        if (session('lang' ) == 'en'){
-            $attribute=$this->name_en;
-        }elseif (session('lang' ) == 'ar'){
-            $attribute=$this->name_ar;
-        }
-        return $attribute;
-    }
 }

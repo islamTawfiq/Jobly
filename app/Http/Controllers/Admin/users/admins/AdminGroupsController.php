@@ -22,10 +22,8 @@ class AdminGroupsController extends Controller
     }
     public function validate_value($request){
         $rule=[
-            'name_ar'=>'sometimes|nullable|string',
-            'name_en'=>'sometimes|nullable|string',
-            'description_ar'=>'sometimes|nullable|string',
-            'description_en'=>'sometimes|nullable|string',
+            'name'=>'sometimes|nullable|string',
+            'description'=>'sometimes|nullable|string',
 
             'settings_show'=>'sometimes|nullable|in:1,0',
             'settings_edit'=>'sometimes|nullable|in:1,0',
@@ -85,17 +83,15 @@ class AdminGroupsController extends Controller
         foreach ($rule as $k => $v){
             if (empty($request->$k)){
                 $new_data[$k]= '0' ;
-                if ($k !== $request->name_ar or $k !== $request->description_ar ){
+                if ($k !== $request->name or $k !== $request->description ){
 
                 }
             }else{
                 $new_data[$k]= $request->$k ;
             }
         }
-        $new_data['name_en'] =$data['name_en'];
-        $new_data['name_ar'] =$data['name_ar'];
-        $new_data['description_ar'] = $data['description_ar'];
-        $new_data['description_en'] = $data['description_en'];
+        $new_data['name'] =$data['name'];
+        $new_data['description'] = $data['description'];
         return $new_data;
     }
     public function index(Request $request)
@@ -134,7 +130,7 @@ class AdminGroupsController extends Controller
     public function destroy($id)
     {
         $item = AdminGroup::findorfail($id)->delete();
-        if ($item){
+        if ( AdminGroup::find($id) ){
             return response()->json(false,404);
         }else{
             return response()->json(true,202);

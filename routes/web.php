@@ -8,10 +8,8 @@
 Route::get('/admin/login', 'Admin\auth\AuthController@login');
 Route::post('/admin/login', 'Admin\auth\AuthController@doLogin')->name('doLogin');
 
-Route::get('/', function () {
-    return view('site.home.index');
-});
 // pages
+Route::get('/','HomeController@index');
 Route::get('/about-us','site\pages\aboutUs\aboutUsController@index');
 Route::get('/contact-us','site\pages\contactUs\contactUsController@index');
 Route::get('/terms&conditions','site\pages\terms\termsController@index');

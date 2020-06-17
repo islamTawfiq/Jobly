@@ -245,10 +245,10 @@
 
                                             @foreach ($skills as $item)
                                                 <div class="col-4 col-lg-3 custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="{{$item->skill_en}}"
-                                                        name="skills[]"  value="{{$item->skill_en}}"
-                                                        {{ (is_array(old('skills')) && in_array( $item->skill_en, old('skills'))) || in_array( $item->skill_en, $arrSkill) ? ' checked' : '' }} >
-                                                    <label class="custom-control-label" for="{{$item->skill_en}}">{{$item->skill_en}}</label>
+                                                    <input type="checkbox" class="custom-control-input" id="{{$item->skill}}"
+                                                        name="skills[]"  value="{{$item->skill}}"
+                                                        {{ (is_array(old('skills')) && in_array( $item->skill, old('skills'))) || in_array( $item->skill, $arrSkill) ? ' checked' : '' }} >
+                                                    <label class="custom-control-label" for="{{$item->skill}}">{{$item->skill}}</label>
                                                 </div>
                                             @endforeach
 

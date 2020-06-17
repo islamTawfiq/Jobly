@@ -1,16 +1,16 @@
 @extends('admin.components.tables.table')
-@section('pageName',trans('Skills'))
+@section('pageName','Skills')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Actions</th>
     </tr>
 
 @stop
 @if (auth()->User()->group->skills_add == 1)
 @section('modal')
-    @include('admin.skills.create',['id'=>'createmodal','name'=>trans('Create New Skill'),'action'=>url()->current()])
+    @include('admin.skills.create',['id'=>'createmodal','name'=>'Create New Skill','action'=>url()->current()])
 @stop
 @endif
 @section('table_scripts')
@@ -31,7 +31,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -41,7 +41,7 @@
                 buttons: [
                         @if (auth()->User()->group->skills_add == 1)
                     {
-                        text: "<i class='feather icon-plus'></i>{{trans('web.addNew')}}",
+                        text: "<i class='feather icon-plus'></i>Add New",
                         action: function () {
                             $(this).removeClass("btn-secondary");
                             $(".add-new-data").addClass("show");

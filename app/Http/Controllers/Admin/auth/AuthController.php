@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/admin')->with('success' , 'Hello');
+            return redirect()->intended('/admin')->with('success' , 'Welcome To Jobly Admin');
         } else {
 
             return redirect()->back();

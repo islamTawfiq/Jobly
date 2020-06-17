@@ -108,8 +108,8 @@
                                                         ])
                                                     </div>
                                                     <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">{{trans('web.submit')}}</button>
-                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{trans('web.reset')}}</button>
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
+                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
                                                     </div>
                                                 </div>
                                             </div>

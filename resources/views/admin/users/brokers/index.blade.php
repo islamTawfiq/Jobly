@@ -45,17 +45,7 @@
                 bInfo: true,
                 pageLength: 15,
                 buttons: [
-                        @if (auth()->User()->group_id->brokers_add == 1)
-                    {
-                        text: "<i class='feather icon-plus'></i>{{trans('web.addNew')}}",
-                        action: function () {
-                            $(this).removeClass("btn-secondary");
-                            $(".add-new-data").addClass("show");
-                            $(".overlay-bg").addClass("show");
-                        },
-                        className: "btn btn-white  buttons mb-1  waves-effect waves-light"
-                    },
-                        @endif
+         
                     {extend:'copy',text:'<i class="feather icon-copy"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'csv',text:'<i class="fa fa-file-archive-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'excel',text:'<i class="fa fa-file-excel-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
@@ -95,19 +85,15 @@
                     {
 
                         "mRender": function (data, type, row) {
-                            var data1 = '',
+                            var
+                                data3 = '' ,
                                 data2 = '' ;
-                            data3 = '' ;
-                                @if (auth()->User()->group->brokers_edit == 1 )
-                            var data1 = '<a href="{{url()->current()}}/' + row.id + '/edit" class="action-edit"><i class="feather icon-edit"></i></a>';
-                                @endif
+
+                                var data3 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-status"><i class="feather icon-pause action-status"></i></a>';
                                 @if (auth()->User()->group->brokers_delete == 1 )
-                            var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
+                                var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
                                 @endif
-                                @if (auth()->User()->group->brokers_delete == 1 )
-                            var data3 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-status"><i class="feather icon-pause action-status"></i></a>';
-                            @endif
-                                return data1 + data2 + data3;
+                                return data3 + data2;
                         }, orderable: false, searchable: false
                     }
                 ],

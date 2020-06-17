@@ -20,13 +20,6 @@ class profileController extends Controller
         $skills = explode( "," , $nanny->skills );
         $images = explode( "," , $nanny->gallery );
 
-        // $reservation = Reservation::where('id', $id)->get();
-
-        // $n = \App\Model\nanny::where('id' , $id)->with('reservation')->first();
-
-
-        // dd($n);
-
         return view('site.nannyProfile.profile', compact('nanny','skills','images','randomNannies'));
     }
 

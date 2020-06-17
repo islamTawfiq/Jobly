@@ -57,7 +57,7 @@
                 </a>
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                    <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>
+                    {{--  <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>  --}}
                     <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as Broker</a>
                     <a class="dropdown-item" href="{{ url('/agency-register') }}">Sign up as Agency</a>
                 </div>

@@ -23,11 +23,11 @@ class editProfileController extends Controller
         $data = $request->validate([
             'agency_name'     => 'required|string',
             'manager_name'    => 'required|string',
-            'phone'           => 'required|regex:/(01)[0-9]{9}/',
+            'phone'           => 'required',
             'telephone'       => 'required|string',
             'email'           => 'required|email|',
         ]);
-        
+
         if ($request->has('password') && request('password') != null) {
             $data['password'] = $request->validate([
                 'password' => 'required|confirmed|min:6',

@@ -15,9 +15,9 @@
         {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => trans('web.contactUs') .' : ' ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Contact Us' .' : ' ,'items'=>[
             [
-            'name'=>trans('web.contactUs'),
+            'name'=>'Contact Us',
             'url'=>url('/admin/contact-us'),
             ]
             ]
@@ -28,7 +28,7 @@
                         <div class="col-md-12 col-12 mx-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> {{trans('web.contactUs') .' '}}</h4>
+                                    <h4 class="card-title">Contact Us</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -44,8 +44,8 @@
                                                         'type' => 'number',
                                                         'class' => 'mobile',
                                                         'value' => $item->mobile,
-                                                        'label' => trans('web.mobile'),
-                                                        'placeholder' => trans('web.mobile'),
+                                                        'label' => 'Mobile',
+                                                        'placeholder' => 'Mobile',
                                                         'disabled' => false,
                                                         ])
 
@@ -54,34 +54,20 @@
 
                                                     <div class="col-xl-12 col-md-12 col-12 mb-2">
                                                         @include('admin.components.inputs.textEditor', [
-                                                        'name' => 'text_ar',
-                                                        'id' => 'text_ar',
+                                                        'name' => 'text',
+                                                        'id' => 'text',
                                                         'type' => 'text',
-                                                        'class' => 'text_ar',
-                                                        'value' => $item->text_ar,
-                                                        'label' => trans('web.bodyAr'),
+                                                        'class' => 'text',
+                                                        'value' => $item->text,
+                                                        'label' => 'Body',
                                                         'icon' =>'fa fa-paragraph',
-                                                        'placeholder' => trans('web.teamArabicExcerpt'),
-                                                        'disabled' => false,
-                                                        ])
-                                                    </div>
-
-                                                    <div class="col-xl-12 col-md-12 col-12">
-                                                        @include('admin.components.inputs.textEditor', [
-                                                        'name' => 'text_en',
-                                                        'id' => 'text_en',
-                                                        'type' => 'text',
-                                                        'class' => 'text_en',
-                                                        'value' => $item->text_en,
-                                                        'label' => trans('web.bodyEn'),
-                                                        'icon' =>'fa fa-paragraph',
-                                                        'placeholder' => trans('web.teamArabicExcerpt'),
+                                                        'placeholder' => 'Body',
                                                         'disabled' => false,
                                                         ])
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">{{trans('web.submit')}}</button>
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>

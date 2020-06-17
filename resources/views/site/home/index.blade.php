@@ -1,9 +1,6 @@
 @extends('site.layout.index')
 @section('content')
     <main>
-
-        {{-- @include('site.layout.navbars.homeNav') --}}
-
         <!-- letsStart -->
         <div class="letStart text-center">
             <div class="imgAbs">
@@ -64,7 +61,7 @@
         <div class="countNannyProfile">
             <div class="afterBack">
                 <div class="countText">
-                    <p>+ 765 Nanny Profile</p>
+                    <p>+ {{ count($nannies) }} Nanny Profile</p>
                 </div>
             </div>
         </div>
@@ -76,27 +73,26 @@
                     <div class="col-lg-7">
                         <div class="slideWho">
                             <ul class="vertical">
-                                <li data-thumb="{{url('design/site/images/slide1.png')}}">
-                                    <img src="{{url('design/site/images/slide1.png')}}" />
+                                <li data-thumb="{{ $about->first_image }}">
+                                    <img src="{{ $about->first_image }}" />
                                 </li>
-                                <li data-thumb="{{url('design/site/images/slide2.png')}}">
-                                    <img src="{{url('design/site/images/slide2.png')}}" />
+                                <li data-thumb="{{ $about->second_image }}">
+                                    <img src="{{ $about->second_image }}" />
                                 </li>
-                                <li data-thumb="{{url('design/site/images/slide3.png')}}">
-                                    <img src="{{url('design/site/images/slide3.png')}}" />
+                                <li data-thumb="{{ $about->third_image }}">
+                                    <img src="{{ $about->third_image }}" />
                                 </li>
-                                <li data-thumb="{{url('design/site/images/slide2.png')}}">
-                                    <img src="{{url('design/site/images/slide2.png')}}" />
+                                <li data-thumb="{{ $about->fourth_image }}">
+                                    <img src="{{ $about->fourth_image }}" />
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="textWhoWeAre">
-                            <p class="h4">Who We Are</p>
-                            <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt neque
-                                adipisci nulla quasi dolore fugit velit officiis, quia culpa possimus.</p>
-                            <a href="about.html" class="btn btn-primary">More</a>
+                            <p class="h4">{!! $about->title !!}</p>
+                            <p class="text-muted">{!! $about->body !!}</p>
+                            <a href="{{ url('/about-us') }}" class="btn btn-primary">More</a>
                         </div>
                     </div>
                 </div>

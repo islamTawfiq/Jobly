@@ -63,10 +63,8 @@
                     {
                         "mRender": function (data, type, row) {
                             @if(session('lang') == 'en')
-                                return row.name_en;
-                                @else
-                                    return row.name_ar;
-                                @endif
+                                return row.name;
+                            @endif
                         }
                     },
                     {data: 'created_at' , name: 'created_at'},

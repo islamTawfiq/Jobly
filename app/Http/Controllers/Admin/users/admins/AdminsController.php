@@ -38,7 +38,9 @@ class AdminsController extends Controller
             'password' => 'required|confirmed|min:6',
             'admin_group' => 'required|integer',
         ]);
+        $data['password'] = Hash::make($request->password);
         $data['user_type_id'] = 1;
+        $data['status'] = 1;
         User::create($data);
         return redirect()->back()->with('success', trans('web.adminHaveBeenCreatedSuccessfully'));
     }
@@ -78,7 +80,7 @@ class AdminsController extends Controller
     public function destroy($id)
     {
         $item = User::findorfail($id)->delete();
-        if ($item) {
+        if (User::find($id)) {
             return response()->json(false, 404);
         } else {
             return response()->json(true, 202);

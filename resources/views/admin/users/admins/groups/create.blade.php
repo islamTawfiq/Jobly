@@ -37,28 +37,14 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 @include('admin.components.inputs.text', [
-                                                                'name' => 'name_ar',
-                                                                'id' => 'name_ar',
-                                                                'type' => 'text',
-                                                                'class' => '',
-                                                                'value' => '',
-                                                                'label' => trans('web.arabicGroupName'),
-                                                                'icon' =>'feather icon-user',
-                                                                'placeholder' => trans('web.arabicGroupName'),
-                                                                'disabled' => false,
-                                                                'required' => true,
-                                                                ])
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                @include('admin.components.inputs.text', [
-                                                               'name' => 'name_en',
-                                                               'id' => 'name_en',
+                                                               'name' => 'name',
+                                                               'id' => 'name',
                                                                'type' => 'text',
                                                                'class' => '',
                                                                'value' => '',
-                                                               'label' => trans('web.englishGroupName'),
+                                                               'label' => 'Group Name',
                                                                'icon' =>'feather icon-user',
-                                                               'placeholder' =>trans('web.englishGroupName'),
+                                                               'placeholder' => 'Group Name',
                                                                'disabled' => false,
                                                                'required' => true,
                                                                ])
@@ -67,36 +53,19 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 @include('admin.components.inputs.textarea', [
-                                                                 'name' => 'description_ar',
-                                                                 'id' => 'description_ar',
+                                                                 'name' => 'description',
+                                                                 'id' => 'description',
                                                                  'type' => 'text',
                                                                  'class' => '',
                                                                  'value' => '',
-                                                                 'label' => trans('web.arabicGroupDescription'),
+                                                                 'label' => 'Group Description',
                                                                  'icon' =>'icon-phone',
-                                                                 'placeholder' => trans('web.arabicGroupDescription'),
-                                                                 'disabled' => false,
-                                                                 ])
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                @include('admin.components.inputs.textarea', [
-                                                                 'name' => 'description_en',
-                                                                 'id' => 'description_en',
-                                                                 'type' => 'text',
-                                                                 'class' => '',
-                                                                 'value' => '',
-                                                                 'label' => trans('web.englishGroupDescription'),
-                                                                 'icon' =>'icon-phone',
-                                                                 'placeholder' => trans('web.englishGroupDescription'),
+                                                                 'placeholder' => 'Group Description',
                                                                  'disabled' => false,
                                                                  ])
                                                             </div>
                                                         </div>
-
                                                         <hr class="divider">
-
-
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -553,53 +522,6 @@
                                                                 </td>
                                                             </tr>
 
-
-
-                                                            <tr>
-                                                                <td>{{trans('web.icons')}}</td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'icons_show',
-                                                                        'id' => 'icons_show',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'icons_add',
-                                                                        'id' => 'icons_add',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'icons_edit',
-                                                                        'id' => 'icons_edit',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-
-                                                                <td>
-                                                                    @include('admin.components.inputs.check', [
-                                                                        'name' => 'icons_delete',
-                                                                        'id' => 'icons_delete',
-                                                                        'value' => '1',
-                                                                        'label' => '',
-                                                                        'checked' => false,
-                                                                        'disabled' => false,
-                                                                        ])
-                                                                </td>
-                                                            </tr>
-
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -607,7 +529,6 @@
                                                 <div
                                                     class="col-12 d-flex flex-sm-row flex-column justify-content-start mt-1">
                                                     <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">{{trans('web.saveChanges')}}</button>
-                                                    <button type="reset" class="btn btn-outline-warning">{{trans('web.reset')}} </button>
                                                 </div>
                                             </div>
                                         </form>

@@ -11,7 +11,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             @include('admin.components.navItems.singleitem', ['url' => url('admin'),'name'=>trans('web.home'),'icon'=>'feather icon-home'])
-            @if (auth()->User()->group_id->settigs_show == 1)
+            @if (auth()->User()->group_id->settings_show == 1)
             @include('admin.components.navItems.singleitem', ['url' => url('admin/settings'),'name'=>trans('web.settings'),'icon'=>'feather icon-settings'])
             @endif
             @if (auth()->User()->group_id->skills_show == 1)
@@ -31,11 +31,6 @@
                   'name'=>'Brokers',
                   'icon'=>'feather icon-circle',
                   'url'=>url('admin/brokers'),
-                  ],
-                  [
-                   'name'=>'Sponsors',
-                   'icon'=>'feather icon-circle',
-                   'url'=>url('admin/sponsors'),
                   ]
                   ]])
             @endif
@@ -77,7 +72,7 @@
 
 
 
-            @if (auth()->User()->group_id->icons_show == 1)
+            {{--  @if (auth()->User()->group_id->icons_show == 1)
                 <li class=" navigation-header"><span>{{trans('web.uiElements')}}</span></li>
             @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>'Icons','icon'=>'feather icon-eye','items'=>[
             [
@@ -91,6 +86,6 @@
             ],
             ]])
             @endif
-        </ul>
+        </ul>  --}}
     </div>
 </div>

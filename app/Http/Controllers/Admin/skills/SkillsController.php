@@ -28,8 +28,7 @@ class SkillsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'skill_en' => 'sometimes|nullable|string',
-            'skill_ar' => 'sometimes|nullable|string',
+            'skill' => 'sometimes|nullable|string',
         ]);
         Skills::create($data);
         return redirect()->back()->with('success', trans('created successfully'));
@@ -46,8 +45,7 @@ class SkillsController extends Controller
 
         $item = Skills::findorfail($id);
         $data = $request->validate([
-            'skill_en' => 'sometimes|nullable|string',
-            'skill_ar' => 'sometimes|nullable|string',
+            'skill' => 'sometimes|nullable|string',
         ]);
 
         $item->update($data);

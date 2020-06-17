@@ -8,24 +8,19 @@ class SkillsDB extends Seeder
 {
     public function run()
     {
-        $data['skill_en'] = "Driving";
-        $data['skill_ar'] = "القياده";
+        $data['skill'] = "Driving";
         Skills::create($data);
 
-        $data['skill_en'] = "Cooking";
-        $data['skill_ar'] = "الطبخ";
+        $data['skill'] = "Cooking";
         Skills::create($data);
 
-        $data['skill_en'] = "Ironing";
-        $data['skill_ar'] = "كى الملابس";
+        $data['skill'] = "Ironing";
         Skills::create($data);
 
-        $data['skill_en'] = "Cleaning";
-        $data['skill_ar'] = "التنظيف";
+        $data['skill'] = "Cleaning";
         Skills::create($data);
 
-        $data['skill_en'] = "Tutoring";
-        $data['skill_ar'] = "التدريس";
+        $data['skill'] = "Tutoring";
         Skills::create($data);
 
     }

@@ -16,42 +16,26 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-12">
                         @include('admin.components.inputs.text', [
-                        'name' => 'skill_en',
+                        'name' => 'skill',
                         'id' => '',
                         'type' => 'text',
                         'class' => '',
                         'value' => '',
-                        'label' => 'skill in english',
+                        'label' => 'skill',
                         'icon' =>'feather icon-user',
-                        'placeholder' => 'skill in english',
+                        'placeholder' => 'skill',
                         'disabled' => false,
                         ])
                     </div>
-                    
-                    <div class="col-xl-12 col-md-12 col-12">
-                        @include('admin.components.inputs.text', [
-                        'name' => 'skill_ar',
-                        'id' => '',
-                        'type' => 'text',
-                        'class' => '',
-                        'value' => '',
-                        'label' => 'skill in arabic',
-                        'icon' =>'feather icon-user',
-                        'placeholder' => 'skill in arabic',
-                        'disabled' => false,
-                        ])
-                    </div>
-
-                 
                 </div>
             </div>
         </div>
         <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
             <div class="add-data-btn">
-                <button type="submit" class="btn btn-primary">{{trans('web.addData')}}</button>
+                <button type="submit" class="btn btn-primary">Add Data</button>
             </div>
             <div class="cancel-data-btn">
-                <button type="button"  class="btn btn-outline-danger">{{trans('web.cancel')}}</button>
+                <button type="button"  class="btn btn-outline-danger">Cancel</button>
             </div>
         </div>
     </div>

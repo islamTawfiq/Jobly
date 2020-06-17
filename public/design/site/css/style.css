@@ -318,7 +318,7 @@ footer .linksInFooter i {
 .profileInfo p span {
     font-size: 15px;
 }
-.profileInfo p i {
+.profileInfo div i {
     font-size: 23px;
 }
 /* Gallery */
@@ -1229,4 +1229,12 @@ label.upload-photo {
 }
 .noCvs img {
     width: 100%;
+}
+.orderedNanny {
+    font-weight: bold !important;
+    font-size: 20px !important;
+    color: #ef7f65;
+}
+.requestInterview {
+    color: #ef7f65;
 }

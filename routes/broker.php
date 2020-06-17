@@ -7,6 +7,7 @@
  Route::get('my-cv','dashboard\broker\myCvController@index');
  Route::get('add-cv','dashboard\broker\addCvController@index');
  Route::post('add-cv','dashboard\broker\addCvController@addCv');
+ Route::get('client-orders','dashboard\broker\clientOrdersController@index');
 
  Route::resource('all-cvs','dashboard\broker\allCvController')->except([
       'store', 'show','destroy'

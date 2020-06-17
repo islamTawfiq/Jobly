@@ -34,7 +34,7 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
-                'phone'           => 'required|regex:/(01)[0-9]{9}/|unique:users,phone',
+                'phone'           => 'required|unique:users,phone',
                 'whatsapp'        => 'required|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
@@ -58,7 +58,7 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'agency_name'     => 'required|string',
                 'manager_name'    => 'required|string',
-                'phone'           => 'required|regex:/(01)[0-9]{9}/|unique:users,phone',
+                'phone'           => 'required|unique:users,phone',
                 'telephone'       => 'required|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',

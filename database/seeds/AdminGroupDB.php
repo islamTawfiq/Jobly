@@ -9,13 +9,8 @@ class AdminGroupDB extends Seeder
 
     public function run()
     {
-        $adminGroup['name_ar'] = 'سوبر ادمن';
-        $adminGroup['name_en'] ='Super Admin';
-
-        $adminGroup['description_ar'] = 'يملك جميع الصلاحيات ';
-        $adminGroup['description_en'] = 'Have All Privilege';
-
-
+        $adminGroup['name'] ='Super Admin';
+        $adminGroup['description'] = 'Have All Privilege';
 
         $adminGroup['settings_show'] = '1';
         $adminGroup['settings_edit'] = '1';

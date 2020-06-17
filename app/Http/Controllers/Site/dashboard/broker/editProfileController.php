@@ -23,7 +23,7 @@ class editProfileController extends Controller
         $data = $request->validate([
             'first_name'      => 'required|string',
             'last_name'       => 'required|string',
-            'phone'           => 'required|regex:/(01)[0-9]{9}/',
+            'phone'           => 'required',
             'whatsapp'        => 'required|string',
             'email'           => 'required|email',
         ]);

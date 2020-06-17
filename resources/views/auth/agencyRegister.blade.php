@@ -52,7 +52,7 @@
                                 <!-- Submit -->
                                 <div>
                                     <button class="btn btn-primary float-right">Submit</button>
-                                    <span>Already have an account?<a href="login.html"> Click here</a></span>
+                                    <span>Already have an account?<a href="{{ url('/login') }}"> Click here</a></span>
                                 </div>
                             </form>
                         </div>

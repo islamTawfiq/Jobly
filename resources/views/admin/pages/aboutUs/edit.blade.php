@@ -15,9 +15,9 @@
         {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => trans('web.aboutUs') .' : ' ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'About Us' .' : ' ,'items'=>[
             [
-            'name'=>trans('web.aboutUs'),
+            'name'=>'About Us',
             'url'=>url('/admin/about-us'),
             ]
             ]
@@ -28,7 +28,7 @@
                         <div class="col-md-12 col-12 mx-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> {{trans('web.aboutUs') .' '}}</h4>
+                                    <h4 class="card-title">About Us</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -39,78 +39,47 @@
                                                 <div class="row">
                                                     <div class="col-xl-6 col-md-6 col-6">
                                                         @include('admin.components.inputs.text', [
-                                                        'name' => 'title_ar',
-                                                        'id' => 'title_ar',
+                                                        'name' => 'title',
+                                                        'id' => 'title',
                                                         'type' => 'text',
-                                                        'class' => 'title_ar',
-                                                        'value' => $item->title_ar,
-                                                        'label' => trans('web.titleAr'),
-                                                        'placeholder' => trans('web.titleAr'),
+                                                        'class' => 'title',
+                                                        'value' => $item->title,
+                                                        'label' => 'Title',
+                                                        'placeholder' => 'Title',
                                                         'disabled' => false,
                                                         ])
 
-                                                    </div>
-
-
-                                                    <div class="col-xl-6 col-md-6 col-6">
-                                                        @include('admin.components.inputs.text', [
-                                                        'name' => 'title_en',
-                                                        'id' => 'title_en',
-                                                        'type' => 'text',
-                                                        'class' => 'title_ar',
-                                                        'value' => $item->title_en,
-                                                        'label' => trans('web.titleEn'),
-                                                        'placeholder' => trans('web.titleEn'),
-                                                        'disabled' => false,
-                                                        ])
                                                     </div>
 
                                                     <div class="col-xl-12 col-md-12 col-12 mt-2">
                                                         @include('admin.components.inputs.textEditor', [
-                                                        'name' => 'body_ar',
-                                                        'id' => 'body_ar',
+                                                        'name' => 'body',
+                                                        'id' => 'body',
                                                         'type' => 'text',
-                                                        'class' => 'body_ar',
-                                                        'value' => $item->body_ar,
-                                                        'label' => trans('web.bodyAr'),
+                                                        'class' => 'body',
+                                                        'value' => $item->body,
+                                                        'label' => 'Body',
                                                         'icon' =>'fa fa-paragraph',
-                                                        'placeholder' => trans('web.teamArabicExcerpt'),
-                                                        'disabled' => false,
-                                                        ])
-                                                    </div>
-
-                                                    <div class="col-xl-12 col-md-12 col-12 mt-2">
-                                                        @include('admin.components.inputs.textEditor', [
-                                                        'name' => 'body_en',
-                                                        'id' => 'body_en',
-                                                        'type' => 'text',
-                                                        'class' => 'body_en',
-                                                        'value' => $item->body_en,
-                                                        'label' => trans('web.bodyEn'),
-                                                        'icon' =>'fa fa-paragraph',
-                                                        'placeholder' => trans('web.teamArabicExcerpt'),
+                                                        'placeholder' => 'Body',
                                                         'disabled' => false,
                                                         ])
                                                     </div>
 
                                                     <div class="col-xl-3 col-md-6 col-12">
-                                                            @include('admin.components.uploud.file', ['name' =>'img1','label'=>trans('web.image'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img1)])
+                                                            @include('admin.components.uploud.file', ['name' =>'img1','label'=>'Image1','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img1)])
                                                     </div>
                                                     <div class="col-xl-3 col-md-6 col-12">
-                                                            @include('admin.components.uploud.file', ['name' =>'img2','label'=>trans('web.image'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img2)])
+                                                            @include('admin.components.uploud.file', ['name' =>'img2','label'=>'Image2','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img2)])
                                                     </div>
                                                     <div class="col-xl-3 col-md-6 col-12">
-                                                            @include('admin.components.uploud.file', ['name' =>'img3','label'=>trans('web.image'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img3)])
+                                                            @include('admin.components.uploud.file', ['name' =>'img3','label'=>'Image3','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img3)])
                                                     </div>
                                                     <div class="col-xl-3 col-md-6 col-12">
-                                                            @include('admin.components.uploud.file', ['name' =>'img4','label'=>trans('web.image'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img4)])
+                                                            @include('admin.components.uploud.file', ['name' =>'img4','label'=>'Image4','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>url('storage' . $item->img4)])
                                                     </div>
-                                                  
 
-                                          
                                                     <div class="col-12 mt-2">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">{{trans('web.submit')}}</button>
-                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{trans('web.reset')}}</button>
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>

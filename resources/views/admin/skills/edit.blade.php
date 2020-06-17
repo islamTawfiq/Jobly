@@ -41,28 +41,14 @@
                                                         <div class="row">
                                                             <div class="col-xl-6 col-md-12 col-12">
                                                                 @include('admin.components.inputs.text', [
-                                                                'name' => 'skill_en',
+                                                                'name' => 'skill',
                                                                 'id' => '',
                                                                 'type' => 'text',
                                                                 'class' => '',
-                                                                'value' => $item->skill_en,
-                                                                'label' => 'skill in english',
+                                                                'value' => $item->skill,
+                                                                'label' => 'skill',
                                                                 'icon' =>'feather icon-user',
-                                                                'placeholder' => 'skill in english',
-                                                                'disabled' => false,
-                                                                ])
-                                                            </div>
-                                                            
-                                                            <div class="col-xl-6 col-md-12 col-12">
-                                                                @include('admin.components.inputs.text', [
-                                                                'name' => 'skill_ar',
-                                                                'id' => '',
-                                                                'type' => 'text',
-                                                                'class' => '',
-                                                                'value' => $item->skill_ar,
-                                                                'label' => 'skill in arabic',
-                                                                'icon' =>'feather icon-user',
-                                                                'placeholder' => 'skill in arabic',
+                                                                'placeholder' => 'skill',
                                                                 'disabled' => false,
                                                                 ])
                                                             </div>
@@ -71,8 +57,7 @@
                                                 </div>
                                                 <div
                                                     class="col-12 d-flex flex-sm-row flex-column justify-content-start mt-1">
-                                                    <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">{{trans('web.saveChanges')}}</button>
-                                                    <button type="reset" class="btn btn-outline-warning">{{trans('web.reset')}} </button>
+                                                    <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save Chanches</button>
                                                 </div>
                                             </div>
                                         </form>

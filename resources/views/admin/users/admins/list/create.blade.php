@@ -92,10 +92,10 @@
         </div>
         <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
             <div class="add-data-btn">
-                <button type="submit" class="btn btn-primary">{{trans('web.addData')}}</button>
+                <button type="submit" class="btn btn-primary">Add Data</button>
             </div>
             <div class="cancel-data-btn">
-                <button type="button"  class="btn btn-outline-danger">{{trans('web.Cancel')}}</button>
+                <button type="button"  class="btn btn-outline-danger">Cancel</button>
             </div>
         </div>
     </div>

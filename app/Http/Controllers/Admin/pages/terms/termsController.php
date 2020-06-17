@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin\pages\terms;
 
 use App\Http\Controllers\Controller;
 use App\Model\Terms;
-use Carbon\Carbon;
-use DataTables;
 use Illuminate\Http\Request;
 
 class termsController extends Controller
@@ -30,10 +28,8 @@ class termsController extends Controller
 
        $item = Terms::first();
        $data = $request->validate([
-           'title_ar' => 'sometimes|string',
-           'title_en' => 'sometimes|string',
-           'body_ar' => 'sometimes|string',
-           'body_en' => 'sometimes|string',
+           'title' => 'sometimes|string',
+           'body'  => 'sometimes|string',
        ]);
 
        $item->update($data);

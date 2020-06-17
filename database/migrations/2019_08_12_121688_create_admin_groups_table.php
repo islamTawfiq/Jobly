@@ -11,10 +11,8 @@ class CreateAdminGroupsTable extends Migration
         Schema::create('admin_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name_ar')->nullable();
-            $table->string('name_en')->nullable();
-            $table->longText('description_ar')->nullable();
-            $table->longText('description_en')->nullable();
+            $table->string('name')->nullable();
+            $table->longText('description')->nullable();
 
             $table->enum('settings_show', [0, 1])->default(0);
             $table->enum('settings_edit', [0, 1])->default(0);
