@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\site\auth;
 
 use App\Http\Controllers\Controller;
-use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller

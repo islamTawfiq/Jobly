@@ -33,7 +33,7 @@ class profileController extends Controller
         $data['agency_id'] = auth()->user()->id;
         $data['status'] = 1;
         $item->update($data);
-        return redirect()->back()->with('success', 'Reserve created successfully');
+        return redirect()->back()->with('success', 'You Confirm the interview, we will give you the feedback shortly');
     }
 
 

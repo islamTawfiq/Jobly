@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+    
     public  function  ShowBrokerRegister(){
         if (auth()->check()){
             return redirect('/');
@@ -20,6 +21,7 @@ class RegisterController extends Controller
             return view('auth.brokerRegister');
         }
     }
+
     public  function  ShowAgencyRegister(){
         if (auth()->check()){
             return redirect('/');
@@ -27,6 +29,7 @@ class RegisterController extends Controller
             return view('auth.agencyRegister');
         }
     }
+
     public  function  BrokerRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
@@ -51,6 +54,7 @@ class RegisterController extends Controller
             return redirect('/broker-dashboard/all-cvs')->with('success', 'Thanks, Please Waite To Accept Your Acount');
         }
     }
+
     public  function  AgencyRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
@@ -75,28 +79,5 @@ class RegisterController extends Controller
             return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
         }
     }
-
-    // public  function  clientRegister(Request $request){
-    //     if (auth()->check()){
-    //         return redirect('/');
-    //     }else{
-    //         $data = $request->validate([
-    //             'first_name' => 'required|string',
-    //             'last_name' => 'required|string',
-    //             'city' => 'required|string',
-    //             'notes' => 'sometimes|nullable|string',
-    //             'email' => 'required|email|unique:users,email',
-    //             'first_phone' => 'required|regex:/(01)[0-9]{9}/|unique:users,first_phone',
-    //             'password' => 'required|min:6',
-    //         ]);
-    //         $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
-    //         $data['password'] = Hash::make($request->password);
-    //         $data['user_type_id'] = 0;
-    //         $user = User::create($data);
-    //         Auth::login($user);
-    //         return redirect('/')->with('success', 'مرحبا بك , شكرا للتسجيل في هير موسي');
-    //     }
-    // }
-
 
 }
