@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\site\auth;
 
 use App\Http\Controllers\Controller;
+use App\Model\SendCode;
 use App\Model\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    
+
     public  function  ShowBrokerRegister(){
         if (auth()->check()){
             return redirect('/');
@@ -49,9 +50,13 @@ class RegisterController extends Controller
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 2;
             $data['status'] = 0;
-            $user = User::create($data);
+            $data['active'] = 0;
+            if($data) {
+                $data['code'] = SendCode::sendCode($data['phone']);
+                $user = User::create($data);
+            }
             Auth::login($user);
-            return redirect('/broker-dashboard/all-cvs')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+            return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
         }
     }
 

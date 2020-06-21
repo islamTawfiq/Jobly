@@ -22,7 +22,7 @@ class BrokersController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $users = User::where('user_type_id', 2)->latest()->get();
+            $users = User::where('user_type_id', 2)->where('active', 1)->latest()->get();
             return DataTables::of($users)->make(true);
         }
         return view('admin.users.brokers.index');

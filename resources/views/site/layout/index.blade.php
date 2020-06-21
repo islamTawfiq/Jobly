@@ -13,11 +13,15 @@
 
 @if(url('/') == url()->current())
 @include('site.layout.navbars.homeNav', ['settings' => $settings])
+@elseif(url('/verify') == url()->current())
 @else
 @include('site.layout.navbars.mainNav', ['settings' => $settings])
 @endif
 
 @yield('content')
+@if(url('/verify') == url()->current())
+@else
 @include('site.layout.footer', ['settings' => $settings])
+@endif
 </body>
 </html>

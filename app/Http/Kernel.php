@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'permission' => \App\Http\Middleware\AdminGroups::class,
         'customizer' => \App\Http\Middleware\Customizer::class,
         'lang' => \App\Http\Middleware\Lang::class,
+        'verify' => \App\Http\Middleware\Verify::class,
     ];
 
     /**

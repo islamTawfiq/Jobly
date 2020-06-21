@@ -15,6 +15,7 @@ class AdminDB extends Seeder
         $admin['user_type_id'] = 1;
         $admin['admin_group'] = 1;
         $admin['status'] = 1;
+        $admin['active'] = 1;
         User::create($admin);
 
 

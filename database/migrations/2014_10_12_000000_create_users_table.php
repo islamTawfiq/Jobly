@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('user_type_id')->default(0);
             $table->integer('status')->default(0);
+            $table->string('code')->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('admin_group')->default(0);
             $table->rememberToken();
             $table->timestamps();

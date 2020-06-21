@@ -32,8 +32,10 @@ Route::post('/broker-register', 'site\auth\RegisterController@BrokerRegister');
 // Agency Register
 Route::get('/agency-register', 'site\auth\RegisterController@ShowAgencyRegister')->name('agencyRegister');
 Route::post('/agency-register', 'site\auth\RegisterController@AgencyRegister');
-// Route::get('/forgot-password', 'Admin\auth\AuthController@forgotPassword')
-
+// Verify
+Route::get('/verify', 'site\auth\verify\verifyController@getVerify')->name('getVerify');
+Route::post('/verify', 'site\auth\verify\verifyController@postVerify')->name('Verify');
+// clear
 Route::get('/clear', function () {
     Artisan::call('view:clear');
     Artisan::call('cache:clear');
