@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'agency' => \App\Http\Middleware\Agency::class,
         'broker' => \App\Http\Middleware\Broker::class,
+        'sponsor' => \App\Http\Middleware\Sponsor::class,
         'permission' => \App\Http\Middleware\AdminGroups::class,
         'customizer' => \App\Http\Middleware\Customizer::class,
         'lang' => \App\Http\Middleware\Lang::class,

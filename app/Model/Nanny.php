@@ -16,8 +16,8 @@ class Nanny extends Model
         'first_name',
         'last_name',
         'mobile',
-        'country',
-        'city',
+        'country_id',
+        'city_id',
         'age',
         'religion',
         'children',
@@ -61,6 +61,21 @@ class Nanny extends Model
 
     public function getAboutNannyAttribute(){
         $attribute = Str::words($this->about, 14, '...');
+        return $attribute;
+    }
+
+    public function county()
+    {
+        return $this->hasOne(Country::class, 'id', 'country_id');
+    }
+
+    public function getCountryNameAttribute()
+    {
+
+        $attribute = '';
+        if ($this->county) {
+            $attribute = $this->county->name;
+        }
         return $attribute;
     }
 

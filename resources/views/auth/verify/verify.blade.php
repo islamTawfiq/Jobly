@@ -23,16 +23,10 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="#">Request New Code</a>
-                        @include('site.components.inputs.text', [
-                            'name' => 'phone',
-                            'id' => '',
-                            'type' => 'hidden',
-                            'class' => '',
-                            'value' =>  '{{ request()->phone }}',
-                            'label' => '',
-                            'placeholder' => '',
-                            ])
+                        <form method="POST" action="{{ url('/verify/new-code') }}">
+                            @csrf
+                            <button class="newCode" type="submit">Request New Code</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@
                         <div class="searchInNannies">
                             <p class="h5">Search in 750 Nannies and more...</p>
                             <hr>
-                            <form>
+                            <form action="{{url('/filter-nannies')}}" method="get">
                                 <div class="mb-lg-3 mb-2">
                                     <label class="mr-2 mb-0">Nationality</label>
                                     <select class="selectpicker">
@@ -30,7 +30,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary form-control">Search</button>
+                                    <button class="btn btn-primary btn-search form-control">Search</button>
                                 </div>
                             </form>
                         </div>

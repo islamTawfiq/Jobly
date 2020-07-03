@@ -31,6 +31,14 @@ class RegisterController extends Controller
         }
     }
 
+    public  function  ShowSponsorRegister(){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            return view('auth.sponsorRegister');
+        }
+    }
+
     public  function  BrokerRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
@@ -60,6 +68,7 @@ class RegisterController extends Controller
         }
     }
 
+
     public  function  AgencyRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
@@ -82,6 +91,32 @@ class RegisterController extends Controller
             $user = User::create($data);
             Auth::login($user);
             return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+        }
+    }
+
+    public  function  SponsorRegister(Request $request){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            $data = $request->validate([
+                'first_name'      => 'required|string',
+                'last_name'       => 'required|string',
+                'phone'           => 'required|unique:users,phone',
+                'email'           => 'required|email|unique:users,email',
+                'password'        => 'required|min:6|confirmed',
+
+            ]);
+            $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
+            $data['password'] = Hash::make($request->password);
+            $data['user_type_id'] = 4;
+            $data['status'] = 0;
+            $data['active'] = 0;
+            if($data) {
+                $data['code'] = SendCode::sendCode($data['phone']);
+                $user = User::create($data);
+            }
+            Auth::login($user);
+            return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
         }
     }
 

@@ -47,10 +47,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminRoutes();
-        
+
         $this->mapBrokerRoutes();
 
         $this->mapAgencyRoutes();
+
+        $this->mapSponsorRoutes();
 
         //
     }
@@ -82,6 +84,13 @@ class RouteServiceProvider extends ServiceProvider
             ->prefix('agency-dashboard')
             ->namespace($this->namespace."\site")
             ->group(base_path('routes/agency.php'));
+    }
+    protected function mapSponsorRoutes()
+    {
+        Route::middleware(['web','sponsor'])
+            ->prefix('sponsor-dashboard')
+            ->namespace($this->namespace."\site")
+            ->group(base_path('routes/sponsor.php'));
     }
     protected function mapBrokerRoutes()
     {

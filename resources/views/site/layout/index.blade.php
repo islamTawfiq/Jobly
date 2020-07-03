@@ -20,6 +20,7 @@
 
 @yield('content')
 @if(url('/verify') == url()->current())
+@include('site.layout.scripts')
 @else
 @include('site.layout.footer', ['settings' => $settings])
 @endif

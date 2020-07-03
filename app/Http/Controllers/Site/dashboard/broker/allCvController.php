@@ -15,7 +15,7 @@ class allCvController extends Controller
     {
 
         $user = Auth()->user();
-        $nannies = $user->nannies;
+        $nannies = $user->nannies()->paginate(1);
         $skills = Skills::get();
         return view('site.brokerDashboard.allCvs', compact('nannies'));
     }

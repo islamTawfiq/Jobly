@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/bootstrap.min.css')}}" >
     <link rel="stylesheet" type="text/css"  href="{{url('design/site/css/all.css')}}" >
+    <link rel="stylesheet" type="text/css"  href="{{url('design/site/css/jquery-ui.min.css')}}" >
+    <link rel="stylesheet" type="text/css"  href="{{url('design/site/css/jquery-ui.theme.min.css')}}" >
     <!-- libraries -->
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/bootstrap-select.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/sweetalert2.min.css')}}" />

@@ -42,7 +42,11 @@
                                         <img src="{{ url( 'storage/' . $nanny->main_image) }}" class="mr-3" alt="african">
                                     </div>
                                     <div class="col-12 col-md-10 col-lg-9">
-                                        <h5 class="mt-0">{{ $nanny->agency->agency_name }} request an interview with
+                                        <h5 class="mt-0">@if ( $nanny->agency->name )
+                                            {{ $nanny->agency->name }} (Sponsor)
+                                            @elseif ( $nanny->agency->agency_name )
+                                            {{ $nanny->agency->agency_name }} (Agency)
+                                        @endif request an interview with
                                             <span>
                                                 <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->id }}">{{ $nanny->name }}</a>
                                             </span>
@@ -70,22 +74,34 @@
                                                 </button>
                                               </div>
                                               <div class="modal-body">
+                                                  @if ($nanny->agency->agency_name)
                                                   <div>
-                                                      <p class="d-inline-block">Agency Name : </p>
-                                                      <span class="font-weight-bold">{{ $nanny->agency->agency_name }}</span>
+                                                    <p class="d-inline-block">Agency Name : </p>
+                                                    <span class="font-weight-bold">{{ $nanny->agency->agency_name }}</span>
                                                   </div>
+                                                  @endif
+                                                  @if ($nanny->agency->manager_name)
                                                   <div>
                                                     <p class="d-inline-block">Manager Name : </p>
                                                     <span class="font-weight-bold">{{ $nanny->agency->manager_name }}</span>
                                                   </div>
+                                                  @endif
+                                                  @if ($nanny->agency->name)
+                                                  <div>
+                                                    <p class="d-inline-block">Name : </p>
+                                                    <span class="font-weight-bold">{{ $nanny->agency->name }}</span>
+                                                  </div>
+                                                  @endif
                                                   <div>
                                                     <p class="d-inline-block">Mobil Number : </p>
                                                     <span class="font-weight-bold">{{ $nanny->agency->phone }}</span>
                                                   </div>
+                                                  @if ($nanny->agency->telephone)
                                                   <div>
                                                     <p class="d-inline-block">Telephone : </p>
                                                     <span class="font-weight-bold">{{ $nanny->agency->telephone }}</span>
                                                   </div>
+                                                  @endif
                                                   <div>
                                                     <p class="d-inline-block">Email : </p>
                                                     <span class="font-weight-bold">{{ $nanny->agency->email }}</span>

@@ -10,8 +10,8 @@
                     <p class="h2 mb-2 text-white">{{$nanny->name}}</p>
                     <div class="text-white mb-2">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>{{$nanny->country}}</span>
-  
+                        <span>{{$nanny->country_name}}</span>
+
                         @include('site.components.buttons.book', [
                             'class' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',
                             'reserved' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',

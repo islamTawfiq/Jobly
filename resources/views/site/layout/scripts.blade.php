@@ -1,5 +1,6 @@
 <!-- BEGIN: Scripts JS-->
     <script src="{{url('design/site/js/jquery.js')}}"></script>
+    <script src="{{url('design/site/js/jquery-ui.min.js')}}"></script>
     <script src="{{url('design/site/js/popper.min.js')}}"></script>
     <script src="{{url('design/site/js/bootstrap.min.js')}}"></script>
     <!-- libraries -->

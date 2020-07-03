@@ -1,4 +1,33 @@
 @extends('site.layout.dashboard')
+@section('page_js')
+<script>
+    $(document).ready(function () {
+        $('#country_id').change(function () {
+            var country_id = $(this).val();
+            if (country_id) {
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('countries/getStates')}}?country_id=" + country_id,
+                    success: function (res) {
+                        if (res) {
+                            $("#city_id").empty();
+                            $("#city_id").append('<option value="" >Choose City</option>');
+                            $.each(res, function (key, value) {
+                                $("#city_id").append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        } else {
+                            $("#city_id").empty();
+                        }
+                    }
+                });
+            } else {
+                $("#city_id").empty();
+            }
+        });
+    });
+</script>
+@stop
 @section('content')
     <main>
 
@@ -60,27 +89,19 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'country',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' => '',
-                                                            'label' => 'Country',
-                                                            'placeholder' => 'Your Country',
-                                                            ])
+                                                            <label>Country</label>
+                                                            <select class="form-control" id="country_id" name="country_id">
+                                                                <option value="">Choose Country</option>
+                                                                @foreach(\App\Model\Country::all() as $country)
+                                                                    <option value="{{$country->id}}">{{$country->name}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
-
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'city',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' => '',
-                                                            'label' => 'City',
-                                                            'placeholder' => 'Your City',
-                                                            ])
+                                                            <label>City</label>
+                                                            <select class="form-control" id="city_id" name="city_id">
+                                                                <option>Choose City</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="col-lg-4">
@@ -165,8 +186,12 @@
                                                             <label>Education</label>
                                                             <select name="education" class="selectpicker form-control">
                                                                 <option selected disabled >Select education</option>
+                                                                <option value="Bachelor's Degree" @if (old('education') == "Bachelor's Degree") {{ 'selected' }} @endif> Bachelor's Degree </option>
+                                                                <option value="Master's Degree" @if (old('education') == "Master's Degree") {{ 'selected' }} @endif>Master's Degree</option>
+                                                                <option value="Doctorate Degree" @if (old('education') == "Doctorate Degree") {{ 'selected' }} @endif>Doctorate Degree</option>
                                                                 <option value="High School" @if (old('education') == "High School") {{ 'selected' }} @endif>High School</option>
-                                                                <option value="Mid Level" @if (old('education') == "Mid Level") {{ 'selected' }} @endif>Mid Level</option>
+                                                                <option value="Vocational" @if (old('education') == "Vocational") {{ 'selected' }} @endif>Vocational</option>
+                                                                <option value="Diploma" @if (old('education') == "Diploma") {{ 'selected' }} @endif>Diploma</option>
                                                                 <option value="None" @if (old('education') == "None") {{ 'selected' }} @endif>None</option>
                                                             </select>
                                                         </div>

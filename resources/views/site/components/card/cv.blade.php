@@ -21,7 +21,7 @@
             </a>
             <p class="text-muted m-0">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>{{$nanny->country}}</span>
+                <span>{{$nanny->country_name}}</span>
             </p>
             <table>
                 <tr>
@@ -74,3 +74,12 @@
 </div>
 
 @endforeach
+
+{{--  <div class="pagination">  --}}
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {{ $nannies->links() }}
+        </div>
+    </div>
+{{--  </div>  --}}

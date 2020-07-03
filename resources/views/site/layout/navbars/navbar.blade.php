@@ -44,6 +44,9 @@
                     @if ( auth()->user()->user_type_id == 3 )
                     <a class="dropdown-item" href="{{url('/agency-dashboard/edit-profile')}}">Agency Dashboard</a>
                     @endif
+                    @if ( auth()->user()->user_type_id == 4 )
+                    <a class="dropdown-item" href="{{url('/sponsor-dashboard/edit-profile')}}">Sponsor Dashboard</a>
+                    @endif
                     <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                 </div>
             </div>
@@ -57,9 +60,9 @@
                 </a>
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                    {{--  <a class="dropdown-item" href="sponsorRegistration.html">Sign up as Sponsor</a>  --}}
                     <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as Broker</a>
                     <a class="dropdown-item" href="{{ url('/agency-register') }}">Sign up as Agency</a>
+                    <a class="dropdown-item" href="{{ url('/sponsor-register') }}">Sign up as Sponsor</a>
                 </div>
             </div>
         @endguest

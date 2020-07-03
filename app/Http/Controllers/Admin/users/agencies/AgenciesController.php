@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Model\User;
 use DataTables;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class AgenciesController extends Controller
 {
@@ -22,7 +21,7 @@ class AgenciesController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $users = User::where('user_type_id', 3)->where('active', 1)->latest()->get();
+            $users = User::where(['user_type_id' => 3 , 'active' => 1])->latest()->get();
             return DataTables::of($users)->make(true);
         }
         return view('admin.users.agencies.index');

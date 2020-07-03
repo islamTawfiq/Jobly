@@ -5,6 +5,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn">&times;</a>
     <ul>
+        {{-- Broker --}}
     @if (auth()->user()->user_type_id == 2)
         <li>
             <a href="{{url('/broker-dashboard/edit-profile')}}"
@@ -34,6 +35,7 @@
         <li><a href="">My Payments</a></li>
         <li><a href="">My Documents</a></li>  --}}
     @endif
+    {{-- Agency --}}
     @if (auth()->user()->user_type_id == 3)
         <li>
             <a href="{{ url('/agency-dashboard/edit-profile') }}"
@@ -48,6 +50,22 @@
                 class="badge badge-danger">4</span></li>
         <li><a href="agencyDashboardMyPayments.html">My Payments</a></li>
         <li><a href="agencyDashboardMyDocuments.html">My Documents</a></li>  --}}
+    @endif
+    {{-- Sponsor --}}
+    @if (auth()->user()->user_type_id == 4)
+    <li>
+        <a href="{{ url('/sponsor-dashboard/edit-profile') }}"
+        class="{{ url()->current() == url('/sponsor-dashboard/edit-profile') ? 'active' : '' }}">MyProfile </a>
+    </li>
+    <li>
+        <a href="{{ url('/sponsor-dashboard/my-orders') }}"
+        class="{{ url()->current() == url('/sponsor-dashboard/my-orders') ? 'active' : '' }}">My Orders </a>
+    </li>
+    {{--  <li><a href="sponsorDashboardMyPackage.html">My Package</a></li>
+    <li><a href="sponsorDashboardMyNotifications.html">My Notifications/Inbox</a> <span
+            class="badge badge-danger">4</span></li>
+    <li><a href="sponsorDashboardMyPayments.html">My Payments</a></li>
+    <li><a href="sponsorDashboardMyDocuments.html">My Documents</a></li>  --}}
     @endif
     </ul>
 

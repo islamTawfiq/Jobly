@@ -197,37 +197,29 @@ table tr td:last-child {
     color: #EF7F65;
     font-weight: 500;
 }
-.pagination {
+
+  .pagination {
     text-align: center;
-    display: block;
     margin-bottom: 20px;
     margin-top: 30px;
   }
-  .pagination a {
+  .pagination li .page-link {
     font-weight: bold;
     font-size: 20px;
     background: #ccc;
     color: #fff;
     margin: 12px;
-    padding: 3px 8px 3px 12px;
+    padding: .5rem .75rem;
+    line-height: 1.25;
     border-radius: 50%;
     transition: all .2s ease-in-out;
   }
-  .pagination a.active,
-  .pagination a:hover:not(.active) {
-    background: #EF7F65;
+  .pagination li.active .page-link,
+  .pagination li:hover:not(.active) .page-link {
+    background: #EF7F65 !important;
     color: #fff;
   }
-  .pagination a:first-child,
-  .pagination a:last-child {
-      background: none;
-      color: #555;
-  }
-  .pagination a:first-child:hover,
-  .pagination a:last-child:hover {
-      color: #000;
-      background: none;
-  }
+
 /* footer */
 footer {
     padding-top: 20px;
@@ -1238,3 +1230,52 @@ label.upload-photo {
 .requestInterview {
     color: #ef7f65;
 }
+.newCode {
+    border: 0;
+    outline: 0;
+    background: none;
+    font-size: 14px;
+    color: #EF7F65;
+}
+.btn-search {
+    padding: 0px 30px !important;
+    font-weight: bold;
+}
+
+.text-filter{
+    font-weight: 600;
+    font-size: 18px;
+    color: #000 !important;
+}
+.filter .ui-widget.ui-widget-content {
+    width: 100%;
+    border: 1px solid #c5c5c5 !important;
+}
+.ui-widget-header{
+    background-color:#EF7F65;
+    border-radius: 0;
+}
+#amount{
+    padding: 0;
+    outline: none!important;
+}
+.range-filter{
+    padding: 0px 20px 0 20px
+}
+.ui-state-default{
+    background: black !important;
+    width: 10px !important;
+    border: none ;
+    border-radius: 20px;
+    outline: black!important;
+    padding: 0 !important;
+}
+.ui-state-default:focus{
+    outline: none!important;
+    border: none;
+}
+
+
+
+
+
