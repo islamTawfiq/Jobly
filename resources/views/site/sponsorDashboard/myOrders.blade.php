@@ -34,8 +34,8 @@
                                                 PM</span></p>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
-                                        <a href="" class="btn btn-primary btnDashboard">Book Interview</a>
-                                        <a href="" class="btn btn-primary btnDashboard">Replace</a>
+                                        {{--  <a href="" class="btn btn-primary btnDashboard">Book Interview</a>  --}}
+                                        <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-primary btnDashboard">Reject</a>
                                     </div>
                                 </div>
                             </div>

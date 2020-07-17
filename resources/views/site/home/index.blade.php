@@ -2,6 +2,7 @@
 @section('content')
     <main>
         <!-- letsStart -->
+
         <div class="letStart text-center">
             <div class="imgAbs">
                 <img src="{{url('design/site/images/abs.png')}}" alt="abs">
@@ -29,7 +30,7 @@
                                 <span>Lorem ipsum dolor sit amet.</span>
                             </div>
                             <div class="signStart">
-                                <a href="sponsorRegistration.html" class="btn btn-primary">Sign In</a>
+                                <a href="{{ url('/sponsor-register') }}" class="btn btn-primary">Sign In</a>
                             </div>
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                                 <span>Lorem ipsum dolor sit amet.</span>
                             </div>
                             <div class="signStart">
-                                <a href="agencyRegistration.html" class="btn btn-primary">Sign In</a>
+                                <a href="{{ url('/agency-register') }}" class="btn btn-primary">Sign In</a>
                             </div>
                         </div>
                     </div>

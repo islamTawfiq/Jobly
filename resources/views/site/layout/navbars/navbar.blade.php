@@ -23,7 +23,7 @@
     <div class="sign ml-lg-auto">
         @auth
             <div class="dropdown show d-inline-block">
-                @if ( auth()->user()->status == 1 )
+                @if ( auth()->user()->status == 1 and auth()->user()->active == 1 )
                 <a class="btn btn-primary" href="" role="button" id="signUp" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     {{ auth()->user()->name }} <i class="fas fa-caret-down"></i>

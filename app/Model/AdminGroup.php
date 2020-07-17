@@ -23,6 +23,11 @@ class AdminGroup extends Model
         'brokers_edit',
         'brokers_delete',
 
+        'sponsors_show',
+        'sponsors_add',
+        'sponsors_edit',
+        'sponsors_delete',
+
         'skills_show',
         'skills_add',
         'skills_edit',

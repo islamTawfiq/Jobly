@@ -15,11 +15,11 @@
 
     </tr>
 @stop
-@if (auth()->User()->group_id->agencies_add == 1)
+{{--  @if (auth()->User()->group_id->agencies_add == 1)
 @section('modal')
     @include('admin.users.admins.list.create',['id'=>'createmodal','name'=>trans('create new Agencies'),'action'=>url()->current()])
 @stop
-@endif
+@endif  --}}
 @section('table_scripts')
     <script>
         $(document).ready(function () {
@@ -46,7 +46,7 @@
                 bInfo: true,
                 pageLength: 15,
                 buttons: [
-              
+
                     {extend:'copy',text:'<i class="feather icon-copy"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'csv',text:'<i class="fa fa-file-archive-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'excel',text:'<i class="fa fa-file-excel-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},

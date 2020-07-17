@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Admin\users\admins;
 
 use App\Http\Controllers\Controller;
-use App\Model\User;
-use Carbon\Carbon;
 use DataTables;
 use Illuminate\Http\Request;
 use App\Model\AdminGroup;
-use Illuminate\Support\Facades\Hash;
 
 class AdminGroupsController extends Controller
 {
@@ -37,6 +34,11 @@ class AdminGroupsController extends Controller
             'brokers_add'=>'sometimes|nullable|in:1,0',
             'brokers_edit'=>'sometimes|nullable|in:1,0',
             'brokers_delete'=>'sometimes|nullable|in:1,0',
+
+            'sponsors_show'=>'sometimes|nullable|in:1,0',
+            'sponsors_add'=>'sometimes|nullable|in:1,0',
+            'sponsors_edit'=>'sometimes|nullable|in:1,0',
+            'sponsors_delete'=>'sometimes|nullable|in:1,0',
 
             'skills_show'=>'sometimes|nullable|in:1,0',
             'skills_add'=>'sometimes|nullable|in:1,0',

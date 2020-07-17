@@ -23,15 +23,16 @@ Route::post('/theme_color','cookie\ThemeCookieController@themeColor');
 | Resources Routes
 |--------------------------------------------------------------------------
 */
-// Route::resource('agencies','users\agencies\AgenciesController');
-// Route::resource('sponsors','users\sponsors\SponsorsController');
-// Route::resource('brokers','users\brokers\BrokersController');
+Route::resource('admin-groups','users\admins\AdminGroupsController');
+
 Route::resource('admins','users\admins\AdminsController');
 Route::resource('agencies','users\agencies\AgenciesController');
 Route::resource('brokers','users\brokers\BrokersController');
+Route::resource('sponsors','users\sponsors\SponsorsController');
+
 Route::post('/agencies/change-status','users\agencies\AgenciesController@ChangeStatus');
 Route::post('/brokers/change-status','users\brokers\BrokersController@ChangeStatus');
-Route::resource('admin-groups','users\admins\AdminGroupsController');
+Route::post('/sponsors/change-status','users\sponsors\SponsorsController@ChangeStatus');
 
 Route::resource('settings','settings\SettingsController');
 Route::resource('nannies','nannies\NanniesController');
@@ -46,11 +47,6 @@ Route::PATCH('contact-us','pages\contactUs\contactUsController@update');
 
 Route::get('terms&conditions','pages\terms\termsController@index');
 Route::PATCH('terms&conditions','pages\terms\termsController@update');
-
-// Route::get('home-background','pages\homeBackground\homeBackgroundController@index');
-// Route::PATCH('home-background','pages\homeBackground\homeBackgroundController@update');
-
-
 /*
 |--------------------------------------------------------------------------
 | views Routes

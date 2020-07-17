@@ -11,7 +11,7 @@
                     success: function (res) {
                         if (res) {
                             $("#city_id").empty();
-                            $("#city_id").append('<option value="" >Choose City</option>');
+                            $("#city_id").append('<option selected disabled >Choose City</option>');
                             $.each(res, function (key, value) {
                                 $("#city_id").append('<option value="' + key + '">' + value + '</option>');
                             });
@@ -91,8 +91,9 @@
                                                         <div class="col-lg-6">
                                                             <label>Country</label>
                                                             <select class="form-control" id="country_id" name="country_id">
-                                                                <option value="">Choose Country</option>
+                                                                <option selected disabled >Choose Country</option>
                                                                 @foreach(\App\Model\Country::all() as $country)
+                                                                    {{--  <option value="{{$country->id}}" @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>  --}}
                                                                     <option value="{{$country->id}}">{{$country->name}}</option>
                                                                 @endforeach
                                                             </select>
@@ -100,7 +101,7 @@
                                                         <div class="col-lg-6">
                                                             <label>City</label>
                                                             <select class="form-control" id="city_id" name="city_id">
-                                                                <option>Choose City</option>
+                                                                <option selected disabled >Choose City</option>
                                                             </select>
                                                         </div>
 
@@ -138,15 +139,15 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'job',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' => '',
-                                                            'label' => 'Job',
-                                                            'placeholder' => 'Your Job',
-                                                            ])
+                                                            <label>Job</label>
+                                                            <select name="job" class="selectpicker form-control">
+                                                                <option selected disabled >Select Job</option>
+                                                                <option value="Driver" @if (old('job') == "Driver") {{ 'selected' }} @endif>Driver</option>
+                                                                <option value="Farmer" @if (old('job') == "Farmer") {{ 'selected' }} @endif>Farmer</option>
+                                                                <option value="Guard" @if (old('job') == "Guard") {{ 'selected' }} @endif>Guard</option>
+                                                                <option value="Servants" @if (old('job') == "Servants") {{ 'selected' }} @endif>Servants</option>
+                                                                <option value="Cleaning" @if (old('job') == "Cleaning") {{ 'selected' }} @endif>Cleaning</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="col-lg-6">
@@ -161,7 +162,7 @@
                                                             ])
                                                         </div>
 
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-6">
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'experience',
                                                             'id' => '',
@@ -173,7 +174,7 @@
                                                             ])
                                                         </div>
 
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-6">
                                                             <label>Marital Status</label>
                                                             <select name="marital_status" class="selectpicker form-control">
                                                                 <option selected disabled >Select Religion</option>
@@ -182,7 +183,7 @@
                                                             </select>
                                                         </div>
 
-                                                        <div class="col-lg-4">
+                                                        {{--  <div class="col-lg-4">
                                                             <label>Education</label>
                                                             <select name="education" class="selectpicker form-control">
                                                                 <option selected disabled >Select education</option>
@@ -194,7 +195,7 @@
                                                                 <option value="Diploma" @if (old('education') == "Diploma") {{ 'selected' }} @endif>Diploma</option>
                                                                 <option value="None" @if (old('education') == "None") {{ 'selected' }} @endif>None</option>
                                                             </select>
-                                                        </div>
+                                                        </div>  --}}
 
                                                         <div class="col-lg-6 height">
                                                             <label class="mt-2 mt-lg-2">Height</label>

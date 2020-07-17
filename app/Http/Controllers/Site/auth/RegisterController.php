@@ -58,16 +58,17 @@ class RegisterController extends Controller
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 2;
             $data['status'] = 0;
-            $data['active'] = 0;
-            if($data) {
-                $data['code'] = SendCode::sendCode($data['phone']);
-                $user = User::create($data);
-            }
+            $data['active'] = 1;
+            // if($data) {
+            //     $data['code'] = SendCode::sendCode($data['phone']);
+            //     $user = User::create($data);
+            // }
+            $user = User::create($data);
             Auth::login($user);
-            return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
+            // return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
+            return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
         }
     }
-
 
     public  function  AgencyRegister(Request $request){
         if (auth()->check()){
@@ -88,6 +89,7 @@ class RegisterController extends Controller
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 3;
             $data['status'] = 0;
+            $data['active'] = 1;
             $user = User::create($data);
             Auth::login($user);
             return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
@@ -97,7 +99,7 @@ class RegisterController extends Controller
     public  function  SponsorRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
-        }else{
+        } else{
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
@@ -110,13 +112,16 @@ class RegisterController extends Controller
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 4;
             $data['status'] = 0;
-            $data['active'] = 0;
-            if($data) {
-                $data['code'] = SendCode::sendCode($data['phone']);
-                $user = User::create($data);
-            }
+            $data['active'] = 1;
+            // if($data) {
+            //     $data['code'] = SendCode::sendCode($data['phone']);
+            //     $user = User::create($data);
+            // }
+            $user = User::create($data);
             Auth::login($user);
-            return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
+            // return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
+            return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+
         }
     }
 

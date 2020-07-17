@@ -1,4 +1,33 @@
 @extends('site.layout.dashboard')
+@section('page_js')
+<script>
+    $(document).ready(function () {
+        $('#country_id').change(function () {
+            var country_id = $(this).val();
+            if (country_id) {
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('countries/getStates')}}?country_id=" + country_id,
+                    success: function (res) {
+                        if (res) {
+                            $("#city_id").empty();
+                            $("#city_id").append('<option selected disabled >Choose City</option>');
+                            $.each(res, function (key, value) {
+                                $("#city_id").append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        } else {
+                            $("#city_id").empty();
+                        }
+                    }
+                });
+            } else {
+                $("#city_id").empty();
+            }
+        });
+    });
+</script>
+@stop
 @section('content')
     <main>
 
@@ -61,27 +90,18 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'country',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' =>  $nanny->country,
-                                                            'label' => 'Country',
-                                                            'placeholder' => 'Your Country',
-                                                            ])
+                                                            <label>Country</label>
+                                                            <select class="form-control" id="country_id" name="country_id">
+                                                                <option selected disabled >Choose Country</option>
+                                                                @foreach(\App\Model\Country::all() as $country)
+                                                                    <option value="{{$country->id}}" @if ( old('country_id') or $nanny->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>                                                                @endforeach
+                                                            </select>
                                                         </div>
-
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'city',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' =>  $nanny->city,
-                                                            'label' => 'City',
-                                                            'placeholder' => 'Your City',
-                                                            ])
+                                                            <label>City</label>
+                                                            <select class="form-control" id="city_id" name="city_id">
+                                                                <option selected disabled >Choose City</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="col-lg-4">
@@ -118,15 +138,15 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            @include('site.components.inputs.text', [
-                                                            'name' => 'job',
-                                                            'id' => '',
-                                                            'type' => 'text',
-                                                            'class' => '',
-                                                            'value' => $nanny->job,
-                                                            'label' => 'Job',
-                                                            'placeholder' => 'Your Job',
-                                                            ])
+                                                            <label>Job</label>
+                                                            <select name="job" class="selectpicker form-control">
+                                                                <option selected disabled >select job</option>
+                                                                <option value="Driver" @if (old('job') or $nanny->job == "Driver") {{ 'selected' }} @endif>Driver</option>
+                                                                <option value="Farmer" @if (old('job') or $nanny->job == "Farmer") {{ 'selected' }} @endif>Farmer</option>
+                                                                <option value="Guard" @if (old('job') or $nanny->job == "Guard") {{ 'selected' }} @endif>Guard</option>
+                                                                <option value="Servants" @if (old('job') or $nanny->job == "Servants") {{ 'selected' }} @endif>Servants</option>
+                                                                <option value="Cleaning" @if (old('job') or $nanny->job == "Cleaning") {{ 'selected' }} @endif>Cleaning</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="col-lg-6">
@@ -141,7 +161,7 @@
                                                             ])
                                                         </div>
 
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-6">
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'experience',
                                                             'id' => '',
@@ -153,22 +173,12 @@
                                                             ])
                                                         </div>
 
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-6">
                                                             <label>Marital Status</label>
                                                             <select name="marital_status" class="selectpicker form-control">
                                                                 <option selected disabled >Select Religion</option>
                                                                 <option value="Married" @if (old('marital_status') or $nanny->marital_status == "Married") {{ 'selected' }} @endif>Married</option>
                                                                 <option value="Single" @if (old('marital_status') or $nanny->marital_status == "Single") {{ 'selected' }} @endif>Single</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-lg-4">
-                                                            <label>Education</label>
-                                                            <select name="education" class="selectpicker form-control">
-                                                                <option selected disabled >select education</option>
-                                                                <option value="High School" @if (old('education') or $nanny->education == "High School") {{ 'selected' }} @endif>High School</option>
-                                                                <option value="Mid Level" @if (old('education') or $nanny->education == "Mid Level") {{ 'selected' }} @endif>Mid Level</option>
-                                                                <option value="None" @if (old('education') or $nanny->education == "None") {{ 'selected' }} @endif>None</option>
                                                             </select>
                                                         </div>
 

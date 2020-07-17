@@ -9,7 +9,7 @@ class Nanny extends Model
 {
 
 
-    protected $appends = ['broker_name','about_nanny'];
+    protected $appends = ['broker_name','about_nanny','country_name'];
     protected $fillable = [
         'main_image',
         'name',
@@ -25,7 +25,7 @@ class Nanny extends Model
         'salary',
         'experience',
         'marital_status',
-        'education',
+        // 'education',
         'height',
         'weight',
         'arabic_lang',

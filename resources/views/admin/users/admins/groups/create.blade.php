@@ -294,6 +294,51 @@
                                                                 </td>
                                                             </tr>
 
+                                                            <tr>
+                                                                <td>{{trans('Sponsors')}}</td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'sponsors_show',
+                                                                        'id' => 'sponsors_show',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'sponsors_add',
+                                                                        'id' => 'sponsors_add',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'sponsors_edit',
+                                                                        'id' => 'sponsors_edit',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+
+                                                                <td>
+                                                                    @include('admin.components.inputs.check', [
+                                                                        'name' => 'sponsors_delete',
+                                                                        'id' => 'sponsors_delete',
+                                                                        'value' => '1',
+                                                                        'label' => '',
+                                                                        'checked' => false,
+                                                                        'disabled' => false,
+                                                                        ])
+                                                                </td>
+                                                            </tr>
+
 
                                                             <tr>
                                                                 <td>{{trans('Skills')}}</td>

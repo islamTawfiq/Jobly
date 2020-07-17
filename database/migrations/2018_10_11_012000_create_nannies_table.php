@@ -16,7 +16,6 @@ class CreateNanniesTable extends Migration
     {
         Schema::create('nannies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('status')->default(0);
             $table->string('main_image')->nullable();
             $table->string('name')->nullable();
             $table->string('first_name')->nullable();
@@ -31,7 +30,7 @@ class CreateNanniesTable extends Migration
             $table->integer('salary')->nullable();
             $table->integer('experience')->nullable();
             $table->string('marital_status')->nullable();
-            $table->string('education')->nullable();
+            // $table->string('education')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->string('arabic_lang')->nullable();
@@ -45,6 +44,7 @@ class CreateNanniesTable extends Migration
             $table->foreign('agency_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('broker_id')->unsigned();
             $table->foreign('broker_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

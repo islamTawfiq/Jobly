@@ -19,5 +19,21 @@ class clientOrdersController extends Controller
         // $allNanny = Nanny::get();
         return view('site.brokerDashboard.clientOrders', compact('nannies'));
     }
+    public function confirmNanny($id)
+    {
+        $nanny = Nanny::findorfail($id);
+        $nanny->status = 2;
+        // $nanny->agency_id = null;
+        $nanny->save();
+        return redirect()->back()->with('success', 'Interview Confirmed Successfully');
+    }
+    public function rejectNanny($id)
+    {
+        $nanny = Nanny::findorfail($id);
+        $nanny->status = 0;
+        $nanny->agency_id = null;
+        $nanny->save();
+        return redirect()->back()->with('success', 'Nanny rejected successfully');
+    }
 
 }

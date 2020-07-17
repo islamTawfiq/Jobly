@@ -10,7 +10,7 @@
                     <div class="col-12 col-lg-6 text-center text-lg-left">
                         <p class="h5 mt-2">You have {{ count($nannies) }} {{ (count($nannies) > 1 ) ? 'requests' : 'request' }} </p>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    {{--  <div class="col-12 col-lg-6">
                         <div class="requestStatus">
                             <div class="container">
                                 <div class="row">
@@ -22,7 +22,7 @@
                                     <div class="col colorStatus">
                                         <span class="waitingStatus"></span>
                                         <span class="font-weight-bold">0</span>
-                                        <span class="text-muted">Waiting</span>
+                                        <span class="text-muted">Cancled</span>
                                     </div>
                                     <div class="col colorStatus">
                                         <span class="pendingStatus"></span>
@@ -32,7 +32,17 @@
                                 </div>
                             </div>
                         </div>
+                    </div>  --}}
+                    @if ($nannies->count() == 0)
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="noCvs col-6">
+                                <img src="{{url('design/site/images/no.jpg')}}" alt="">
+                            </div>
+                        </div>
                     </div>
+                    @endif
                     @foreach ($nannies as $nanny)
                     <div class="col-12">
                         <div class="requestAnInterview text-center text-md-left" @if ($nannies->count() == 1) {{ 'style=margin-bottom:200px' }} @elseif($nannies->count() == 2) {{ 'style=margin-bottom:12px;margin-top:12px' }} @endif >
@@ -42,11 +52,13 @@
                                         <img src="{{ url( 'storage/' . $nanny->main_image) }}" class="mr-3" alt="african">
                                     </div>
                                     <div class="col-12 col-md-10 col-lg-9">
-                                        <h5 class="mt-0">@if ( $nanny->agency->name )
-                                            {{ $nanny->agency->name }} (Sponsor)
+                                        <h5 class="mt-0">
+                                            @if ( $nanny->agency->name )
+                                                {{ $nanny->agency->name }} (Sponsor)
                                             @elseif ( $nanny->agency->agency_name )
-                                            {{ $nanny->agency->agency_name }} (Agency)
-                                        @endif request an interview with
+                                                {{ $nanny->agency->agency_name }} (Agency)
+                                            @endif
+                                                request an interview with
                                             <span>
                                                 <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->id }}">{{ $nanny->name }}</a>
                                             </span>
@@ -56,15 +68,14 @@
                                         <p>Phne Number <span> +{{ $nanny->agency->phone }}</span></p>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
-                                        <a href="" class="btn btn-primary pl-3 pr-3">Contact Candidate</a>
-                                        <a href="" class="btn btnCancel">Cancel</a>
-                                        <a href="" class="contactsToClient">send contacts to client or feedback</a>
+                                        <a href="{{ url('/broker-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
+                                        <a href="{{ url('/broker-dashboard/reject/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
                                     </div>
                                     <div class="col-12">
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#details">See All Details</button>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="detailsCenterTitle" aria-hidden="true">
+                                        {{--  <!-- Button trigger modal -->  --}}
+                                        <button type="button" class="btn btn-primary mt-2 mt-md-0" style="font-size: 13px" data-toggle="modal" data-target="#details-{{ $nanny->id }}">See All Details</button>
+                                        {{--  <!-- Modal -->  --}}
+                                        <div class="modal fade" id="details-{{ $nanny->id }}" tabindex="-1" role="dialog" aria-labelledby="detailsCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">

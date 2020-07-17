@@ -4,7 +4,6 @@
 
         @include('site.components.dashboard.topMain', ['pageName' => 'My Orders'])
 
-
         <!-- myOrders -->
         <div class="myOrder">
             <div class="container">
@@ -30,12 +29,16 @@
                                         <h5 class="mt-0">You are request an interview with <strong>{{ $nanny->name }}</strong>
                                             from <strong>{{ $nanny->broker->name }}</strong>
                                         </h5>
-                                        <p class="mb-0">Interview date & time: <span>{{ $nanny->date }} - {{ $nanny->time }}
-                                                PM</span></p>
+                                        <p class="mb-0">
+                                            Interview date & time:
+                                            <span>{{ $nanny->date }} - {{ \Carbon\Carbon::createFromFormat('H:i:s',$nanny->time)->format('g:i a') }}</span>
+                                        </p>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
-                                        <a href="" class="btn btn-primary btnDashboard">Book Interview</a>
-                                        <a href="" class="btn btn-primary btnDashboard">Replace</a>
+                                        @if($nanny->status == 1)
+                                            <p class="text-danger" style="font-size: 14px">Your request is still pending approval</p>
+                                        @endif
+                                        <a href="{{ url('/agency-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-primary btnDashboard">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,39 +46,6 @@
                         </div>
                     </div>
                     @endforeach
-                    {{-- <div class="col-12">
-                        <form>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 mt-1">
-                                        <label> Upload File <span class="font-weight-bold">(Attach
-                                                photos)</span></label>
-                                        <div class="container mt-2">
-                                            <div class="row">
-                                                <div class="col-sm-2">
-                                                    <label for="preview-contain" class="upload-photo mb-2">
-                                                        <img src="{{ url('design/site/images/photo-camera.png') }}" alt="camera">
-                                                    </label>
-                                                    <input type="file" id="preview-contain" class="form-control attach"
-                                                        multiple data-jpreview-container="#preview">
-                                                </div>
-                                                <div class="col-sm-10">
-                                                    <!-- image preview -->
-                                                    <div id="preview" class="jpreview-container"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" placeholder="Your Message">
-                                    </div>
-                                    <div class="col-lg-3 col-12 text-right">
-                                        <button type="submit" class="btn btn-primary">Send Message</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div> --}}
                 </div>
             </div>
         </div>

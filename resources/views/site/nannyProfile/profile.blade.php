@@ -157,10 +157,10 @@
                                 <div class="col-12 personData">
                                     <div class="row">
                                         <div class="col-6">
-                                            <span>Education</span>
+                                            <span>Mobile</span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="spanDetailes">{{$nanny->education}}</span>
+                                            <span class="spanDetailes">{{$nanny->mobile}}</span>
                                         </div>
                                     </div>
                                 </div>

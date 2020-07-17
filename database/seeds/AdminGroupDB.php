@@ -25,6 +25,11 @@ class AdminGroupDB extends Seeder
         $adminGroup['brokers_edit'] =  '1';
         $adminGroup['brokers_delete'] = '1';
 
+        $adminGroup['sponsors_show'] = '1';
+        $adminGroup['sponsors_add'] = '1';
+        $adminGroup['sponsors_edit'] =  '1';
+        $adminGroup['sponsors_delete'] = '1';
+
         $adminGroup['skills_show'] = '1';
         $adminGroup['skills_add'] = '1';
         $adminGroup['skills_edit'] =  '1';

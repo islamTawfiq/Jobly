@@ -10,23 +10,27 @@
                         <p class="h3">Get Your Nanny Now</p>
                         <p>Lorem, ipsum dolor sit amet consectetur.</p>
                         <div class="searchInNannies">
-                            <p class="h5">Search in 750 Nannies and more...</p>
+                            <?php $nanny = \App\Model\Nanny::all(); ?>
+                            <p class="h5">Search in {{ count($nanny) }} Nannies and more...</p>
                             <hr>
-                            <form action="{{url('/filter-nannies')}}" method="get">
+                            <form action="{{url('/filter')}}" method="post">
+                                @csrf
                                 <div class="mb-lg-3 mb-2">
-                                    <label class="mr-2 mb-0">Nationality</label>
-                                    <select class="selectpicker">
-                                        <option>South Africa</option>
-                                        <option>Cameron</option>
-                                        <option>Kenyan</option>
+                                    <select class="form-control" name="country_id">
+                                        <option selected disabled >Choose Country</option>
+                                        @foreach(\App\Model\Country::all() as $country)
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="mr-4 mb-0">Job Title</label>
-                                    <select class="selectpicker">
-                                        <option>South Africa</option>
-                                        <option>Cameron</option>
-                                        <option>Kenyan</option>
+                                    <select class="form-control" name="job">
+                                        <option selected disabled >Job Title</option>
+                                        <option {{request('job') == 'Driver' ? 'selected' : ''}}>Driver</option>
+                                        <option {{request('job') == 'Farmer' ? 'selected' : ''}}>Farmer</option>
+                                        <option {{request('job') == 'Guard' ? 'selected' : ''}}>Guard</option>
+                                        <option {{request('job') == 'Servants' ? 'selected' : ''}}>Servants</option>
+                                        <option {{request('job') == 'Cleaning' ? 'selected' : ''}}>Cleaning</option>
                                     </select>
                                 </div>
                                 <div>

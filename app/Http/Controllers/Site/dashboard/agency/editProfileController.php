@@ -20,6 +20,7 @@ class editProfileController extends Controller
     public function update(Request $request)
     {
         $user = auth()->User();
+        // $phone = $user->phone;
         $data = $request->validate([
             'agency_name'     => 'required|string',
             'manager_name'    => 'required|string',
@@ -34,6 +35,12 @@ class editProfileController extends Controller
             ]);
             $data['password'] = Hash::make($request->password);
         }
+        // if ( $phone != $data['phone'] && $data['phone'] != null ) {
+        //     $data['code'] = SendCode::sendCode($data['phone']);
+        //     $data['active'] = 0 ;
+        //     $user->update($data);
+        //     return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
+        // }
          $user->update($data);
          return redirect()->back()->with('success', trans('updated successfully'));
 }

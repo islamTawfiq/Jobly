@@ -15,7 +15,7 @@ class allCvController extends Controller
     {
 
         $user = Auth()->user();
-        $nannies = $user->nannies()->paginate(1);
+        $nannies = $user->nannies()->paginate(10);
         $skills = Skills::get();
         return view('site.brokerDashboard.allCvs', compact('nannies'));
     }
@@ -41,8 +41,8 @@ class allCvController extends Controller
             'first_name'     => 'required|string',
             'last_name'      => 'required|string',
             'mobile'         => 'required|regex:/(01)[0-9]{9}/|unique:nannies,mobile,' . $id,
-            'country'        => 'required|string',
-            'city'           => 'required|string',
+            'country_id'     => 'required|string',
+            'city_id'        => 'sometimes|string',
             'age'            => 'required|integer',
             'religion'       => 'required|string',
             'children'       => 'required|integer',
@@ -50,7 +50,7 @@ class allCvController extends Controller
             'salary'         => 'required|integer',
             'experience'     => 'required|integer',
             'marital_status' => 'required|string',
-            'education'      => 'required|string',
+            // 'education'      => 'required|string',
             'height'         => 'required|integer',
             'weight'         => 'required|integer',
             'arabic_lang'    => 'required|string',

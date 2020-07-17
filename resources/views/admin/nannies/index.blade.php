@@ -7,7 +7,6 @@
         <th>{{trans('web.name')}}</th>
         <th>{{trans('web.mobile')}}</th>
         <th>{{trans('country')}}</th>
-        <th>{{trans('city')}}</th>
         <th>{{trans('age')}}</th>
         <th>{{trans('religion')}}</th>
         <th>{{trans('children')}}</th>
@@ -26,11 +25,11 @@
     </tr>
 
 @stop
-@if (auth()->User()->group->nannies_add == 1)
+{{--  @if (auth()->User()->group->nannies_add == 1)
 @section('modal')
     @include('admin.nannies.create',['id'=>'createmodal','name'=>trans('Create New Nanny'),'action'=>url()->current()])
 @stop
-@endif
+@endif  --}}
 @section('table_scripts')
     <script>
         $(document).ready(function () {
@@ -57,7 +56,7 @@
                 bInfo: true,
                 pageLength: 15,
                 buttons: [
-          
+
                     {extend:'copy',text:'<i class="feather icon-copy"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'csv',text:'<i class="fa fa-file-archive-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'excel',text:'<i class="fa fa-file-excel-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
@@ -81,8 +80,7 @@
                     },
                     {data: 'name', name: 'name'},
                     {data: 'mobile', name: 'mobile'},
-                    {data: 'country', name: 'country'},
-                    {data: 'city', name: 'city'},
+                    {data: 'country_name', name: 'country_name'},
                     {data: 'age', name: 'age'},
                     {data: 'religion', name: 'religion'},
                     {data: 'children', name: 'children'},

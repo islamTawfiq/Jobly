@@ -18,8 +18,8 @@ Route::get('/countries/getStates', 'Site\countries\CountriesController@getStates
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/filter','site\filter\filterController@index');
-    Route::get('/filter-nannies','site\filter\filterController@filter');
+    Route::post('/filter','site\filter\filterController@filterNanny');
+    Route::get('/filter','site\filter\filterController@filter');
     Route::get('/profile/{id}','site\nannyProfile\profileController@index');
     // reservation
     Route::post('/reservation/{id}','site\nannyProfile\profileController@reservation');
@@ -39,9 +39,9 @@ Route::post('/agency-register', 'site\auth\RegisterController@AgencyRegister');
 Route::get('/sponsor-register', 'site\auth\RegisterController@ShowSponsorRegister')->name('sponsorRegister');
 Route::post('/sponsor-register', 'site\auth\RegisterController@SponsorRegister');
 // Verify
-Route::get('/verify', 'site\auth\verify\verifyController@getVerify')->name('getVerify');
-Route::post('/verify', 'site\auth\verify\verifyController@postVerify')->name('Verify');
-Route::post('/verify/new-code', 'site\auth\verify\verifyController@newCode')->name('NewVerify');
+// Route::get('/verify', 'site\auth\verify\verifyController@getVerify')->name('getVerify');
+// Route::post('/verify', 'site\auth\verify\verifyController@postVerify')->name('Verify');
+// Route::post('/verify/new-code', 'site\auth\verify\verifyController@newCode')->name('NewVerify');
 // clear
 Route::get('/clear', function () {
     Artisan::call('view:clear');

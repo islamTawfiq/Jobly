@@ -1,4 +1,4 @@
-@if ($nannies->count() == 0)
+@if ( $nannies->count() == 0 && url()->current() == url('/broker-dashboard/all-cvs') )
 <div class="row">
     <div class="col-3"></div>
     <div class="noCvs col-6">
@@ -72,14 +72,21 @@
         </div>
     </div>
 </div>
-
 @endforeach
 
-{{--  <div class="pagination">  --}}
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            {{ $nannies->links() }}
-        </div>
+{{-- @if ( url()->current() == url('/filter-nannies') )
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        {{ $nannies->setPath( url('/filter-nannies?') . $text  )->render() }}
     </div>
-{{--  </div>  --}}
+</div>
+@endif --}}
+
+@if ( url()->current() == url('/broker-dashboard/all-cvs') )
+<div class="row">
+    <div class="links">
+        {{ $nannies->links() }}
+    </div>
+</div>
+@endif

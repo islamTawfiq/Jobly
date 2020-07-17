@@ -30,10 +30,11 @@
              class="{{ url()->current() == url('/broker-dashboard/client-orders') ? 'active' : '' }}">Client Orders
             </a>
         </li>
-        {{--  <li><a href="">My Notifications/Inbox</a> <span
-                class="badge badge-danger">4</span></li>
-        <li><a href="">My Payments</a></li>
-        <li><a href="">My Documents</a></li>  --}}
+        <li>
+            <a href="{{url('/broker-dashboard/interviews')}}"
+             class="{{ url()->current() == url('/broker-dashboard/interviews') ? 'active' : '' }}">My Interviews
+            </a>
+        </li>
     @endif
     {{-- Agency --}}
     @if (auth()->user()->user_type_id == 3)
@@ -45,11 +46,10 @@
             <a href="{{ url('/agency-dashboard/my-orders') }}"
             class="{{ url()->current() == url('/agency-dashboard/my-orders') ? 'active' : '' }}">My Orders </a>
         </li>
-        {{--  <li><a href="agencyDashboardMyPackage.html">My Package</a></li>
-        <li><a href="agencyDashboardMyNotifications.html">My Notifications/Inbox</a> <span
-                class="badge badge-danger">4</span></li>
-        <li><a href="agencyDashboardMyPayments.html">My Payments</a></li>
-        <li><a href="agencyDashboardMyDocuments.html">My Documents</a></li>  --}}
+        <li>
+            <a href="{{ url('/agency-dashboard/interviews') }}"
+            class="{{ url()->current() == url('/agency-dashboard/interviews') ? 'active' : '' }}">My Interviews </a>
+        </li>
     @endif
     {{-- Sponsor --}}
     @if (auth()->user()->user_type_id == 4)
@@ -61,11 +61,6 @@
         <a href="{{ url('/sponsor-dashboard/my-orders') }}"
         class="{{ url()->current() == url('/sponsor-dashboard/my-orders') ? 'active' : '' }}">My Orders </a>
     </li>
-    {{--  <li><a href="sponsorDashboardMyPackage.html">My Package</a></li>
-    <li><a href="sponsorDashboardMyNotifications.html">My Notifications/Inbox</a> <span
-            class="badge badge-danger">4</span></li>
-    <li><a href="sponsorDashboardMyPayments.html">My Payments</a></li>
-    <li><a href="sponsorDashboardMyDocuments.html">My Documents</a></li>  --}}
     @endif
     </ul>
 

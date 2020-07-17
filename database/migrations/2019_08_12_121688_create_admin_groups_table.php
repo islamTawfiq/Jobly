@@ -27,6 +27,11 @@ class CreateAdminGroupsTable extends Migration
             $table->enum('brokers_edit', [0, 1])->default(0);
             $table->enum('brokers_delete', [0, 1])->default(0);
 
+            $table->enum('sponsors_show', [0, 1])->default(0);
+            $table->enum('sponsors_add', [0, 1])->default(0);
+            $table->enum('sponsors_edit', [0, 1])->default(0);
+            $table->enum('sponsors_delete', [0, 1])->default(0);
+
             $table->enum('skills_show', [0, 1])->default(0);
             $table->enum('skills_add', [0, 1])->default(0);
             $table->enum('skills_edit', [0, 1])->default(0);

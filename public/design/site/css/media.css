@@ -152,7 +152,7 @@
         margin-bottom: 10px;
     }
     .person {
-        margin-top: 20px;
+        margin-top: -20px !important;
     }
     .filterSelect {
         margin-bottom: 5px !important;
@@ -239,6 +239,13 @@
     }
 }
 @media screen and (max-width:575px) {
+    .age {
+        margin-top: 5px;
+    }
+    #amount,
+    .age {
+        font-size: 12px !important;
+    }
     .profileDetailes .person img {
         height: 360px;
     }
