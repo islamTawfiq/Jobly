@@ -31,10 +31,10 @@
                                     <div class="card rounded-0 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">{{trans('web.login')}}</h4>
+                                                <h4 class="mb-0">Login</h4>
                                             </div>
                                         </div>
-                                        <p class="px-2">{{trans('web.welcomeBackLoginPage')}}</p>
+                                        <p class="px-2">Welcome back, please login to your account</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
                                                 <form method="POST" action="{{ route('doLogin') }}">
@@ -44,7 +44,7 @@
                                                         <input type="text" name="email"
                                                                class="form-control @error('email') is-invalid @enderror"
                                                                id="email"
-                                                               placeholder="{{trans('web.userName')}}" value="{{ old('email') }}"
+                                                               placeholder="User Name" value="{{ old('email') }}"
                                                                autocomplete="email" autofocus required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
@@ -60,7 +60,7 @@
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
                                                         <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                                                               placeholder="{{trans('web.password')}}"  name="password"
+                                                               placeholder="Password"  name="password"
                                                                required autocomplete="current-password" >
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
@@ -72,43 +72,8 @@
                                                         @enderror
                                                         <label for="password">{{ __('Password') }}</label>
                                                     </fieldset>
-                                                    <div
-                                                        class="form-group d-flex justify-content-between align-items-center">
-                                                        <div class="text-left">
-                                                            <fieldset class="checkbox">
-                                                                <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                    <input class="form-check-input" type="checkbox" name="remember"
-                                                                           id="remember"  {{ old('remember') ? 'checked' : '' }}>
-                                                                    <span class="vs-checkbox">
-                                                                        <span class="vs-checkbox--check">
-                                                                            <i class="vs-icon feather icon-check"></i>
-                                                                        </span>
-                                                                    </span>
-                                                                    <span class="">{{trans('web.rememberMe')}}</span>
-                                                                </div>
-                                                            </fieldset>
-                                                        </div>
-                                                        @if (Route::has('password.request'))
-                                                        <div class="text-right">
-{{--                                                            <a href="{{url('admin/forgot-password')}}" class="card-link">{{ __('Forgot Your Password?') }}</a>--}}
-                                                        </div>
-                                                        @endif
-                                                    </div>
-                                                    <a href="{{url('admin/register')}}"
-                                                       class="btn btn-outline-primary float-left btn-inline">{{trans('web.register')}}</a>
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline">{{ __('Login') }}</button>
+                                                    <button type="submit" class="btn btn-primary float-right btn-inline mb-2">{{ __('Login') }}</button>
                                                 </form>
-                                            </div>
-                                        </div>
-                                        <div class="login-footer">
-                                            <div class="divider">
-                                                <div class="divider-text">{{trans('web.or')}}</div>
-                                            </div>
-                                            <div class="footer-btn d-inline">
-                                                <a href="" class="btn btn-facebook"><span class="fa fa-facebook"></span></a>
-                                                <a href="" class="btn btn-twitter white"><span class="fa fa-twitter"></span></a>
-                                                <a href="" class="btn btn-google"><span class="fa fa-google"></span></a>
-                                                <a href="" class="btn btn-github"><span class="fa fa-github-alt"></span></a>
                                             </div>
                                         </div>
                                     </div>

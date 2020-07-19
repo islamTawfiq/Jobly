@@ -42,7 +42,7 @@ class AdminsController extends Controller
         $data['user_type_id'] = 1;
         $data['status'] = 1;
         User::create($data);
-        return redirect()->back()->with('success', trans('web.adminHaveBeenCreatedSuccessfully'));
+        return redirect()->back()->with('success', 'Admin Have Been Created Successfully');
     }
 
     public function show($id)
@@ -73,7 +73,7 @@ class AdminsController extends Controller
             $data['password'] = Hash::make($request->password);
         }
         $item->update($data);
-        return redirect()->back()->with('success', trans('web.adminHaveBeenUpdatedSuccessfully'));
+        return redirect()->back()->with('success', 'Admin Have Been Updated Successfully');
 
     }
 

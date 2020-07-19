@@ -30,7 +30,7 @@ class profileController extends Controller
             'time'           => 'required|date_format:H:i',
             'date'           => 'required|date',
         ]);
-        $data['agency_id'] = auth()->user()->id;
+        $data['reserve_id'] = auth()->user()->id;
         $data['status'] = 1;
         $item->update($data);
         return redirect()->back()->with('success', 'You Confirm the interview, we will give you the feedback shortly');

@@ -12,14 +12,15 @@ class myOrdersController extends Controller
     public function index()
     {
         $user = Auth()->user();
-        $nannies = $user->agency_reserve->where('status', 1);
+        $nannies = $user->nanny_reserve->where('status', 1);
         return view('site.sponsorDashboard.myOrders', compact('nannies'));
     }
     public function rejectNanny($id)
     {
         $nanny = Nanny::findorfail($id);
         $nanny->status = 0;
-        $nanny->agency_id = null;
+        $nanny->date = null;
+        $nanny->time = null;
         $nanny->save();
         return redirect()->back()->with('success', 'Nanny rejected successfully');
     }

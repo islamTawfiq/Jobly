@@ -18,23 +18,20 @@
                     <ul class="nav navbar-nav bookmark-icons">
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('')}}"
                                                                   data-toggle="tooltip" data-placement="top"
-                                                                  title="{{trans('web.viewSite')}}"><i
+                                                                  title="View Site"><i
                                     class="ficon feather icon-globe"></i></a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('')}}"
                                                                   data-toggle="tooltip" data-placement="top"
-                                                                  title="{{trans('web.home')}}"><i
+                                                                  title="Home"><i
                                     class="ficon feather icon-home"></i></a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('admin/settings')}}"
                                                                   data-toggle="tooltip" data-placement="top"
-                                                                  title="{{trans('web.settings')}}"><i
+                                                                  title="Settings"><i
                                     class="ficon feather icon-settings"></i></a></li>
-                        {{-- <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('admin/clients')}}"
-                                                                  data-toggle="tooltip" data-placement="top"
-                                                                  title="{{trans('web.clients')}}"><i
-                                    class="ficon feather icon-users"></i></a></li> --}}
+
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('admin/admins')}}"
                                                                   data-toggle="tooltip" data-placement="top"
-                                                                  title="{{trans('web.admins')}}"><i class="ficon fa fa-user-secret"></i></a>
+                                                                  title="Admins"><i class="ficon fa fa-user-secret"></i></a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav">
@@ -69,9 +66,9 @@
                             <span><img class="round" src="{{url('design/admin/img/avatar.png')}}" alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{url('admin/user/edit')}}"><i class="feather icon-user"></i>{{trans('web.editProfile')}}</a>
+                            <a class="dropdown-item" href="{{url('admin/user/edit')}}"><i class="feather icon-user"></i>Edit Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{url('/logout')}}"><i class="feather icon-power"></i>{{trans('web.logout')}}</a>
+                            <a class="dropdown-item" href="{{url('/logout')}}"><i class="feather icon-power"></i>Logout</a>
                         </div>
                     </li>
                 </ul>

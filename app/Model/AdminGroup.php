@@ -63,11 +63,6 @@ class AdminGroup extends Model
         'terms_edit',
         'terms_delete',
 
-        'icons_show',
-        'icons_add',
-        'icons_edit',
-        'icons_delete',
-
         ];
 
 }

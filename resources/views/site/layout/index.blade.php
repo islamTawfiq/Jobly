@@ -2,7 +2,7 @@
     $settings = \App\Model\Settings::first();
 @endphp
     <!DOCTYPE html>
-<html class="loading" lang="{{session('lang') == 'en' ? 'en' : 'ar'}}" data-textdirection="{{session('lang') == 'en' ? 'ltr' : 'rtl'}}" >
+<html class="loading" lang="en" data-textdirection="ltr" >
 @include('site.layout.header', ['settings' => $settings])
 <body class="overFlow">
 

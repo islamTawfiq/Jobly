@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 class Nanny extends Model
 {
 
-
     protected $appends = ['broker_name','about_nanny','country_name'];
     protected $fillable = [
         'main_image',
@@ -36,7 +35,7 @@ class Nanny extends Model
         'date',
         'time',
         'status',
-        'agency_id',
+        'reserve_id',
         'broker_id',
     ];
 
@@ -45,9 +44,9 @@ class Nanny extends Model
     {
         return $this->belongsTo('App\Model\User', 'broker_id');
     }
-    public function agency()
+    public function reserve()
     {
-        return $this->belongsTo('App\Model\User', 'agency_id');
+        return $this->belongsTo('App\Model\User', 'reserve_id');
     }
 
 

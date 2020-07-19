@@ -27,19 +27,6 @@ class AgenciesController extends Controller
         return view('admin.users.agencies.index');
     }
 
-
-    public function store(Request $request)
-    {
-        // $data = $request->validate([
-        //     'name' => 'required|string',
-        //     'email' => 'required|email|unique:users,email',
-        //     'password' => 'required|confirmed|min:6',
-        // ]);
-        // $data['user_type_id'] = 3;
-        // User::create($data);
-        // return redirect()->back()->with('success', trans('web.adminHaveBeenCreatedSuccessfully'));
-    }
-
     public function show($id)
     {
         //
@@ -49,26 +36,6 @@ class AgenciesController extends Controller
     {
         $item = User::findorfail($id);
         return view('admin.users.agencies.edit', compact('item'));
-    }
-
-    public function update(Request $request, $id)
-    {
-
-        // $item = User::findorfail($id);
-        // $data = $request->validate([
-        //     'name' => 'required|string',
-        //     'email' => 'required|email|unique:users,email,' . $item->id,
-        // ]);
-
-        // if ($request->has('password') && request('password') != null) {
-        //     $data['password'] = $request->validate([
-        //         'password' => 'required|confirmed|min:6',
-        //     ]);
-        //     $data['password'] = Hash::make($request->password);
-        // }
-        // $item->update($data);
-        // return redirect()->back()->with('success', trans('web.adminHaveBeenUpdatedSuccessfully'));
-
     }
 
     public function destroy($id)

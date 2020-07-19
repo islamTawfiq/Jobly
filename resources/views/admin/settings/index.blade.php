@@ -1,11 +1,6 @@
 @extends('admin.layout.index')
 @section('page_css')
-    @if (session('lang') == 'en')
-        <link rel="stylesheet" type="text/css" href="{{url('design/admin/css/plugins/forms/wizard.css')}}">
-    @else
-        <link rel="stylesheet" type="text/css" href="{{url('design/admin/css-rtl/plugins/forms/wizard.css')}}">
-    @endif
-
+    <link rel="stylesheet" type="text/css" href="{{url('design/admin/css/plugins/forms/wizard.css')}}">
 @stop
 @section('page_js')
     <script src="{{url('design/admin/vendors/js/extensions/jquery.steps.min.js')}}"></script>
@@ -20,7 +15,7 @@
 {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-             @include('admin.layout.panels.breadcrumb', ['pageName' => trans('web.siteSettings') ,'items'=>[
+             @include('admin.layout.panels.breadcrumb', ['pageName' => 'Site Settings' ,'items'=>[
             [
             'name'=>'',
             'url'=>'',
@@ -37,39 +32,23 @@
                                     <div class="card-body">
                                         <form action="{{url()->current()}}" method="post" class="steps-validation wizard-circle" enctype="multipart/form-data">
                                         @csrf
-                                            <h6><i class="step-icon feather icon-info"></i>{{trans('web.siteInformation')}}</h6>
+                                            <h6><i class="step-icon feather icon-info"></i>Site Information</h6>
                                             <fieldset>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
-                                                          'name' => 'title_ar',
-                                                          'id' => 'title_ar',
+                                                          'name' => 'title',
+                                                          'id' => 'title',
                                                           'type' => 'text',
-                                                          'class' => 'title_ar',
-                                                          'value' => $settings->title_ar,
-                                                          'label' => trans('web.arabicTitle'),
+                                                          'class' => 'title',
+                                                          'value' => $settings->title,
+                                                          'label' => 'Title',
                                                           'icon' =>'fa fa-sort-alpha-asc',
-                                                          'placeholder' => trans('web.arabicTitle'),
+                                                          'placeholder' => 'Title',
                                                           'disabled' => false,
                                                           'required' => true,
                                                           ])
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        @include('admin.components.inputs.text', [
-                                                          'name' => 'title_en',
-                                                          'id' => 'title_en',
-                                                          'type' => 'text',
-                                                          'class' => 'title_en',
-                                                          'value' => $settings->title_en,
-                                                          'label' => trans('web.englishTitle'),
-                                                          'icon' =>'fa fa-sort-alpha-asc',
-                                                          'placeholder' => trans('web.englishTitle'),
-                                                          'disabled' => false,
-                                                          'required' => true,
-                                                          ])
-                                                    </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
                                                         'name' => 'fullName',
@@ -77,13 +56,15 @@
                                                         'type' => 'text',
                                                         'class' => 'fullName',
                                                         'value' => $settings->fullName,
-                                                        'label' => trans('web.fullName'),
+                                                        'label' => 'Full Name',
                                                         'icon' =>'fa fa-sort-alpha-asc',
-                                                        'placeholder' => trans('web.fullName'),
+                                                        'placeholder' => 'Full Name',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
                                                        'name' => 'address',
@@ -91,15 +72,13 @@
                                                        'type' => 'text',
                                                        'class' => 'address',
                                                        'value' => $settings->address,
-                                                       'label' => trans('web.address'),
+                                                       'label' => 'Address',
                                                        'icon' =>'feather icon-type',
-                                                       'placeholder' => trans('web.address'),
+                                                       'placeholder' => 'Address',
                                                        'disabled' => false,
                                                        'required' => true,
                                                        ])
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
                                                           'name' => 'mail',
@@ -107,13 +86,15 @@
                                                           'type' => 'email',
                                                           'class' => 'mail',
                                                           'value' => $settings->mail,
-                                                          'label' => trans('web.siteEmail'),
+                                                          'label' => 'Site Email',
                                                           'icon' =>'feather icon-mail',
-                                                          'placeholder' => trans('web.siteEmail'),
+                                                          'placeholder' => 'Site Email',
                                                           'disabled' => false,
                                                           'required' => true,
                                                           ])
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
                                                          'name' => 'mobileNumber',
@@ -121,15 +102,13 @@
                                                          'type' => 'number',
                                                          'class' => 'mobileNumber',
                                                          'value' => $settings->mobileNumber,
-                                                         'label' => trans('web.siteMobileNumber'),
+                                                         'label' => 'Site Mobile Number',
                                                          'icon' =>'fa fa-sort-numeric-asc',
-                                                         'placeholder' => trans('web.siteMobileNumber'),
+                                                         'placeholder' => 'Site Mobile Number',
                                                          'disabled' => false,
                                                          'required' => true,
                                                          ])
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         @include('admin.components.inputs.text', [
                                                          'name' => 'fax',
@@ -137,9 +116,9 @@
                                                          'type' => 'number',
                                                          'class' => 'fax',
                                                          'value' => $settings->fax,
-                                                         'label' => trans('web.siteFax'),
+                                                         'label' => 'Site Fax',
                                                          'icon' =>'fa fa-fax',
-                                                         'placeholder' => trans('web.siteFax'),
+                                                         'placeholder' => 'Site Fax',
                                                          'disabled' => false,
                                                          'required' => true,
                                                          ])
@@ -147,7 +126,7 @@
                                                 </div>
                                             </fieldset>
 
-                                            <h6><i class="step-icon feather icon-github"></i>{{trans('web.siteSocialMedia')}}</h6>
+                                            <h6><i class="step-icon feather icon-github"></i>Site Social Media</h6>
                                             <fieldset>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -157,9 +136,9 @@
                                                         'type' => 'url',
                                                         'class' => 'twitterUrl',
                                                         'value' => $settings->twitterUrl,
-                                                        'label' => trans('web.twitterUrl'),
+                                                        'label' => 'Twitter Url',
                                                         'icon' =>'feather icon-twitter',
-                                                        'placeholder' => trans('web.twitterUrl'),
+                                                        'placeholder' => 'Twitter Url',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -171,9 +150,9 @@
                                                        'type' => 'url',
                                                        'class' => 'linkedInUrl',
                                                        'value' => $settings->linkedInUrl,
-                                                       'label' => trans('web.linkedInUrl'),
+                                                       'label' => 'LinkedIn Url',
                                                        'icon' =>'fa fa-linkedin',
-                                                       'placeholder' => trans('web.linkedInUrl'),
+                                                       'placeholder' => 'LinkedIn Url',
                                                        'disabled' => false,
                                                        'required' => true,
                                                        ])
@@ -187,9 +166,9 @@
                                                        'type' => 'url',
                                                        'class' => 'instagramUrl',
                                                        'value' => $settings->instagramUrl,
-                                                       'label' => trans('web.instagramUrl'),
+                                                       'label' => 'Instagram Url',
                                                        'icon' =>'feather icon-instagram',
-                                                       'placeholder' => trans('web.instagramUrl'),
+                                                       'placeholder' => 'Instagram Url',
                                                        'disabled' => false,
                                                        'required' => true,
                                                        ])
@@ -201,9 +180,9 @@
                                                        'type' => 'url',
                                                        'class' => 'facebookUrl',
                                                        'value' => $settings->facebookUrl,
-                                                       'label' => trans('web.faceBookUrl'),
+                                                       'label' => 'FaceBook Url',
                                                        'icon' =>'feather icon-facebook',
-                                                       'placeholder' =>  trans('web.faceBookUrl'),
+                                                       'placeholder' =>  'FaceBook Url',
                                                        'disabled' => false,
                                                        'required' => true,
                                                        ])
@@ -218,9 +197,9 @@
                                                         'type' => 'url',
                                                         'class' => 'gitHupUrl',
                                                         'value' => $settings->gitHupUrl,
-                                                        'label' =>  trans('web.gitHupUrl'),
+                                                        'label' =>  'GitHup Url',
                                                         'icon' =>'feather icon-github',
-                                                        'placeholder' => trans('web.gitHupUrl'),
+                                                        'placeholder' => 'GitHup Url',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -232,9 +211,9 @@
                                                         'type' => 'url',
                                                         'class' => 'youtubeUrl',
                                                         'value' => $settings->youtubeUrl,
-                                                        'label' => trans('web.youtubeUrl'),
+                                                        'label' => 'Youtube Url',
                                                         'icon' =>'fa fa-youtube',
-                                                        'placeholder' => trans('web.youtubeUrl'),
+                                                        'placeholder' => 'Youtube Url',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -242,76 +221,47 @@
                                                 </div>
                                             </fieldset>
 
-                                            <h6><i class="step-icon  fa fa-slideshare"></i>{{trans('web.siteIdentity')}}</h6>
+                                            <h6><i class="step-icon  fa fa-slideshare"></i>Site Identity</h6>
                                             <fieldset>
                                                 <div class="row">
-                                                    <div class="col-md-4">
-                                                        @include('admin.components.uploud.file', ['name' =>'logo','label'=>trans('web.logo'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>$settings->main_logo])
+                                                    <div class="col-md-6">
+                                                        @include('admin.components.uploud.file', ['name' =>'logo','label'=>'Logo','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>$settings->main_logo])
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        @include('admin.components.uploud.file', ['name' =>'footerLogo','label'=>trans('web.anotherLogo'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=> $settings->main_footer_logo])
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        @include('admin.components.uploud.file', ['name' =>'icon','label'=>trans('web.icon'),'max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>$settings->main_icon])
+                                                    <div class="col-md-6">
+                                                        @include('admin.components.uploud.file', ['name' =>'icon','label'=>'Icon','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'value'=>$settings->main_icon])
                                                     </div>
                                                 </div>
                                             </fieldset>
 
-                                            <h6><i class="step-icon feather icon-image"></i> {{trans('web.siteSEO')}}</h6>
+                                            <h6><i class="step-icon feather icon-image"></i> Site SEO</h6>
                                             <fieldset>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         @include('admin.components.inputs.textarea', [
-                                                      'name' => 'keyWords_ar',
-                                                      'id' => 'keyWords_ar',
+                                                      'name' => 'keyWords',
+                                                      'id' => 'keyWords',
                                                       'type' => 'text',
                                                       'class' => '',
-                                                      'value' => $settings->keyWords_ar,
-                                                      'label' => trans('web.arabicKeyWords'),
+                                                      'value' => $settings->keyWords,
+                                                      'label' => 'KeyWords',
                                                       'icon' =>'icon-phone',
-                                                      'placeholder' =>  trans('web.arabicKeyWords'),
-                                                      'disabled' => false,
-                                                      ])
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        @include('admin.components.inputs.textarea', [
-                                                      'name' => 'keyWords_en',
-                                                      'id' => 'keyWords_en',
-                                                      'type' => 'text',
-                                                      'class' => '',
-                                                      'value' => $settings->keyWords_en,
-                                                      'label' => trans('web.englishKeyWords'),
-                                                      'icon' =>'icon-phone',
-                                                      'placeholder' => trans('web.englishKeyWords'),
+                                                      'placeholder' => 'KeyWords',
                                                       'disabled' => false,
                                                       ])
                                                     </div>
                                                 </div>
                                                 <div class="divider divider-text"></div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         @include('admin.components.inputs.textarea', [
-                                                      'name' => 'description_ar',
-                                                      'id' => 'description_ar',
+                                                      'name' => 'description',
+                                                      'id' => 'description',
                                                       'type' => 'text',
                                                       'class' => '',
-                                                      'value' => $settings->description_ar,
-                                                      'label' =>  trans('web.arabicDescription'),
+                                                      'value' => $settings->description,
+                                                      'label' => 'Description',
                                                       'icon' =>'icon-phone',
-                                                      'placeholder' => trans('web.arabicDescription'),
-                                                      'disabled' => false,
-                                                      ])
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        @include('admin.components.inputs.textarea', [
-                                                      'name' => 'description_en',
-                                                      'id' => 'description_en',
-                                                      'type' => 'text',
-                                                      'class' => '',
-                                                      'value' => $settings->description_en,
-                                                      'label' => trans('web.englishDescription'),
-                                                      'icon' =>'icon-phone',
-                                                      'placeholder' => trans('web.englishDescription'),
+                                                      'placeholder' => 'Description',
                                                       'disabled' => false,
                                                       ])
                                                     </div>

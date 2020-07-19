@@ -9,8 +9,7 @@ class settingsDB extends Seeder
     {
 
        $add = new Settings;
-       $add->title_ar           = 'جوبلي';
-       $add->title_en           = 'Jobly';
+       $add->title              = 'Jobly';
        $add->fullName           = 'Full Name';
        $add->address            = 'Address Here';
        $add->mobileNumber       = '01118065363';
@@ -24,12 +23,9 @@ class settingsDB extends Seeder
        $add->youtubeUrl         = 'https://youtube.com';
        $add->gitHupUrl          = 'https://github.com/';
        $add->logo               = '';
-       $add->footerLogo         = url('design/admin/img/logo.png');
        $add->icon               = '';
-       $add->keyWords_ar        = 'Key Word Of Your admin (Help Full With Seo)';
-       $add->keyWords_en        = 'Key Word Of Your admin (Help Full With Seo)';
-       $add->description_ar     = 'Description Of Your admin (Help Full With Seo)';
-       $add->description_en     = 'Description Of Your admin (Help Full With Seo)';
+       $add->keyWords           = 'Key Word Of Your admin (Help Full With Seo)';
+       $add->description        = 'Description Of Your admin (Help Full With Seo)';
        $add->save();
     }
 }

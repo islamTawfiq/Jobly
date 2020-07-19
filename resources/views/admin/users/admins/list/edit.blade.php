@@ -15,9 +15,9 @@
 {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => trans('web.editAdmin').' : '.$item->name ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edit Admin'.' : '.$item->name ,'items'=>[
             [
-            'name'=>trans('web.editAdmin'),
+            'name'=>'Edit Admin',
             'url'=>url('/admin/admins'),
             ]
             ]
@@ -28,7 +28,7 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{trans('web.editAdmin')}} {{$item->name}}</h4>
+                                    <h4 class="card-title">Edit Admin {{$item->name}}</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -44,9 +44,9 @@
                                                         'type' => 'text',
                                                         'class' => '',
                                                         'value' => $item->name,
-                                                        'label' =>trans('web.adminName'),
+                                                        'label' => 'Admin Name',
                                                         'icon' =>'feather icon-user',
-                                                        'placeholder' => trans('web.adminName'),
+                                                        'placeholder' => 'Admin Name',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -58,9 +58,9 @@
                                                         'type' => 'email',
                                                         'class' => '',
                                                         'value' => $item->email,
-                                                        'label' => trans('web.adminEmail'),
+                                                        'label' => 'Admin Email',
                                                         'icon' =>'feather icon-mail',
-                                                        'placeholder' => trans('web.adminEmail'),
+                                                        'placeholder' => 'Admin Email',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -71,10 +71,10 @@
                                                         'id' => 'admin_group',
                                                         'class' => 'danger',
                                                         'value' => '',
-                                                        'label' => trans('web.adminGroup'),
+                                                        'label' => 'Admin Group',
                                                         'oldcheaked' => $item->admin_group,
                                                         'items' => \App\Model\AdminGroup::get(),
-                                                        'placeholder' =>trans('web.adminGroup.'),
+                                                        'placeholder' => 'Admin Group',
                                                         'checked' => false,
                                                         'disabled' => false,
                                                         ])
@@ -86,9 +86,9 @@
                                                         'type' => 'password',
                                                         'class' => '',
                                                         'value' => '',
-                                                        'label' => trans('web.adminPassword'),
+                                                        'label' => 'Admin Password',
                                                         'icon' =>'feather icon-lock',
-                                                        'placeholder' => trans('web.doNotTypeAnyThingIfYouDontWantToChangePassword'),
+                                                        'placeholder' => 'Do Not Type Any Thing If You Dont Want To Change Password',
                                                         'disabled' => false,
                                                         'required' => false,
                                                         ])
@@ -100,9 +100,9 @@
                                                         'type' => 'password',
                                                         'class' => '',
                                                         'value' => '',
-                                                        'label' => trans('web.adminPasswordConfirmation'),
+                                                        'label' => 'Admin Password Confirmation',
                                                         'icon' =>'feather icon-lock',
-                                                        'placeholder' =>trans('web.adminPasswordConfirmation'),
+                                                        'placeholder' => 'Admin Password Confirmation',
                                                         'disabled' => false,
                                                         'required' => false,
                                                         ])

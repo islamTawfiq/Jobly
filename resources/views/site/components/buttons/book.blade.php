@@ -1,4 +1,4 @@
-@if (auth()->user()->user_type_id != 2 && $nanny->status == 0 )
+@if (auth()->user()->user_type_id != 2 && auth()->user()->user_type_id != 5 && $nanny->status == 0 )
 <a href="JavaScript:void(0);" data-toggle="modal" data-target="#bookNanny"
 class="btn btn-primary {{ $class }}">Book / Request Interview</a>
 @endif

@@ -7,9 +7,11 @@
                     @if (auth()->user()->user_type_id == 2)
                     <span> | <strong>Broker Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 3)
-                    <span> | <strong>Agency Dashboard</strong></span>
+                    <span> | <strong>Import Agency Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 4)
                     <span> | <strong>Sponsor Dashboard</strong></span>
+                    @elseif (auth()->user()->user_type_id == 5)
+                    <span> | <strong>Export Agency Dashboard</strong></span>
                     @endif
 
                 </div>

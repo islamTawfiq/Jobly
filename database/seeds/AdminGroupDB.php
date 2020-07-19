@@ -66,10 +66,6 @@ class AdminGroupDB extends Seeder
         $adminGroup['admin_groups_edit'] =  '1';
         $adminGroup['admin_groups_delete'] =  '1';
 
-        $adminGroup['icons_show'] = '1';
-        $adminGroup['icons_add'] = '1';
-        $adminGroup['icons_edit'] =  '1';
-        $adminGroup['icons_delete'] =  '1';
         AdminGroup::create($adminGroup);
 
 

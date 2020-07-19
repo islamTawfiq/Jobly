@@ -25,6 +25,8 @@ class editProfileController extends Controller
         $data = $request->validate([
             'first_name'      => 'required|string',
             'last_name'       => 'required|string',
+            'country'       => 'required|string',
+            'address'       => 'required|string',
             'phone'           => 'required',
             'whatsapp'        => 'required|string',
             'email'           => 'required|email',
@@ -43,6 +45,6 @@ class editProfileController extends Controller
         //     return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
         // }
          $user->update($data);
-         return redirect()->back()->with('success', trans('updated successfully'));
+         return redirect()->back()->with('success', 'Updated Successfully');
     }
 }

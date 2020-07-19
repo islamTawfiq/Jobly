@@ -7,9 +7,6 @@
 
 <script src="{{url('design/admin/js/scripts/ui/data-list-view.js')}}"></script>
 
-
-
-
 <script src="{{url('design/admin/vendors/js/tables/datatable/buttons.flash.min.js')}}"></script>
 <script src="{{url('design/admin/vendors/js/tables/datatable/jszip.min.js')}}"></script>
 <script src="{{url('design/admin/vendors/js/tables/datatable/pdfmake.min.js')}}"></script>

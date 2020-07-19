@@ -50,7 +50,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapBrokerRoutes();
 
-        $this->mapAgencyRoutes();
+        $this->mapImportAgencyRoutes();
+
+        $this->mapExportAgencyRoutes();
 
         $this->mapSponsorRoutes();
 
@@ -73,30 +75,37 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes()
     {
-        Route::middleware(['web','admin','lang','customizer'])
+        Route::middleware(['web','admin','customizer'])
             ->prefix('admin')
             ->namespace($this->namespace."\Admin")
             ->group(base_path('routes/admin.php'));
     }
-    protected function mapAgencyRoutes()
+    protected function mapImportAgencyRoutes()
     {
-        Route::middleware(['web','agency'])
-            ->prefix('agency-dashboard')
-            ->namespace($this->namespace."\site")
-            ->group(base_path('routes/agency.php'));
+        Route::middleware(['web','importAgency'])
+            ->prefix('import-agency-dashboard')
+            ->namespace($this->namespace."\Site\dashboard\importAgency")
+            ->group(base_path('routes/importAgency.php'));
+    }
+    protected function mapExportAgencyRoutes()
+    {
+        Route::middleware(['web','exportAgency'])
+            ->prefix('export-agency-dashboard')
+            ->namespace($this->namespace."\Site\dashboard\ExportAgency")
+            ->group(base_path('routes/exportAgency.php'));
     }
     protected function mapSponsorRoutes()
     {
         Route::middleware(['web','sponsor'])
             ->prefix('sponsor-dashboard')
-            ->namespace($this->namespace."\site")
+            ->namespace($this->namespace."\site\dashboard\sponsor")
             ->group(base_path('routes/sponsor.php'));
     }
     protected function mapBrokerRoutes()
     {
         Route::middleware(['web','broker'])
             ->prefix('broker-dashboard')
-            ->namespace($this->namespace."\site")
+            ->namespace($this->namespace."\site\dashboard\broker")
             ->group(base_path('routes/broker.php'));
     }
 

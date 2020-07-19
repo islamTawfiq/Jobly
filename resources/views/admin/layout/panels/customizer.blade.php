@@ -7,12 +7,12 @@
         <i class="feather icon-settings fa fa-spin fa-fw white"></i>
     </a>
     <div class="customizer-content p-2">
-        <h4 class="text-uppercase mb-0">{{trans('web.webSiteCustomizer')}}</h4>
-        <small>{{trans('web.previewInRealTime')}}</small>
+        <h4 class="text-uppercase mb-0">Web Site Customizer</h4>
+        <small>Preview In RealTime</small>
         <hr>
         {{-- Menu Colors Starts --}}
         <div id="customizer-theme-colors">
-            <h5>{{trans('web.menuColors')}}</h5>
+            <h5>Menu Colors</h5>
             <ul class="list-inline unstyled-list">
                 <li class="color-box bg-primary {{request()->cookie('theme_color') == 'theme-primary' ? 'selected' : ''}} " data-color="theme-primary"></li>
                 <li class="color-box bg-success {{request()->cookie('theme_color') == 'theme-success' ? 'selected' : ''}} " data-color="theme-success"></li>
@@ -25,7 +25,7 @@
         {{-- Menu Colors Ends --}}
         <hr>
         {{-- Theme options starts --}}
-        <h5 class="mt-1">{{trans('web.themeLayout')}}</h5>
+        <h5 class="mt-1">Theme Layout</h5>
         <div class="theme-layouts">
             <div class="d-flex justify-content-start">
                 <div class="mx-50">
@@ -36,7 +36,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.light')}}</span>
+                            <span class="">Light</span>
                         </div>
                     </fieldset>
                 </div>
@@ -48,7 +48,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.dark')}}</span>
+                            <span class="">Dark</span>
                         </div>
                     </fieldset>
                 </div>
@@ -60,7 +60,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.semiDark')}}</span>
+                            <span class="">Semi Dark</span>
                         </div>
                     </fieldset>
                 </div>
@@ -73,7 +73,7 @@
         <div id="collapse-sidebar">
             <div class="collapse-sidebar d-flex justify-content-between">
                 <div class="collapse-option-title">
-                    <h5 class="pt-25">{{trans('web.collapseSidebar')}}</h5>
+                    <h5 class="pt-25">Collapse Sidebar</h5>
                 </div>
                 <div class="collapse-option-switch">
                     <div class="custom-control custom-switch">
@@ -88,7 +88,7 @@
 
         {{-- Navbar colors starts --}}
         <div id="customizer-navbar-colors">
-            <h5>{{trans('web.navbarColors')}}</h5>
+            <h5>Navbar Colors</h5>
             <ul class="list-inline unstyled-list">
                 <li class="color-box bg-white border {{request()->cookie('navbar_color') == '' ? 'selected' : ''}} " data-navbar-default=""  ></li>
                 <li class="color-box bg-primary {{request()->cookie('navbar_color') == 'bg-primary' ? 'selected' : ''}} " data-navbar-color="bg-primary"  ></li>
@@ -103,8 +103,8 @@
         {{-- Navbar colors ends --}}
         {{-- Navbar Type Starts --}}
         <div id="navbar-type">
-            <h5 class="navbar_type">{{trans('web.navbarType')}}</h5>
-            <h5 class="menu_type d-none">{{trans('web.menuType')}}</h5>
+            <h5 class="navbar_type">Navbar Type</h5>
+            <h5 class="menu_type d-none">Menu Type</h5>
             <div class="navbar-type d-flex justify-content-between">
                 <div class="mx-50">
                     <fieldset>
@@ -114,7 +114,7 @@
                         <span class="vs-radio--border"></span>
                         <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.hidden')}}</span>
+                            <span class="">Hidden</span>
                         </div>
                     </fieldset>
                 </div>
@@ -126,7 +126,7 @@
                         <span class="vs-radio--border"></span>
                         <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.static')}}</span>
+                            <span class="">Static</span>
                         </div>
                     </fieldset>
                 </div>
@@ -138,7 +138,7 @@
                         <span class="vs-radio--border"></span>
                         <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.sticky')}}</span>
+                            <span class="">Sticky</span>
                         </div>
                     </fieldset>
                 </div>
@@ -150,7 +150,7 @@
                         <span class="vs-radio--border"></span>
                         <span class="vs-radio--circle"></span>
                     </span>
-                            <span class="">{{trans('web.floating')}}</span>
+                            <span class="">Floating</span>
                         </div>
                     </fieldset>
                 </div>
@@ -160,7 +160,7 @@
         {{-- Navbar Type Starts --}}
 
         {{-- Footer Type Starts --}}
-        <h5>{{trans('web.footerType')}}</h5>
+        <h5>Footer Type</h5>
         <div class="footer-type d-flex justify-content-start">
             <div class="mx-50">
                 <fieldset>
@@ -170,7 +170,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                 </span>
-                        <span class="">{{trans('web.hidden')}}</span>
+                        <span class="">Hidden</span>
                     </div>
                 </fieldset>
             </div>
@@ -182,7 +182,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                 </span>
-                        <span class="">{{trans('web.static')}}</span>
+                        <span class="">Static</span>
                     </div>
                 </fieldset>
             </div>
@@ -194,7 +194,7 @@
                     <span class="vs-radio--border"></span>
                     <span class="vs-radio--circle"></span>
                 </span>
-                        <span class="">{{trans('web.sticky')}}</span>
+                        <span class="">Sticky</span>
                     </div>
                 </fieldset>
             </div>
@@ -205,7 +205,7 @@
         {{-- Hide Scroll To Top Starts--}}
         <div class="hide-scroll-to-top d-flex justify-content-between py-25">
             <div class="hide-scroll-title">
-                <h5 class="pt-25">{{trans('web.hideScrollToTop')}}</h5>
+                <h5 class="pt-25">Hide Scroll To Top</h5>
             </div>
             <div class="hide-scroll-top-switch">
                 <div class="custom-control custom-switch">

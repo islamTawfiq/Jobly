@@ -10,11 +10,27 @@
                         <div class="sponsorRegister">
                             <form action="{{url('/agency-register')}}" method="POST" enctype="multipart/form-data" class="form-group">
                                 @csrf
+                                <div class="row mb-3 mt-3">
+                                    <div class="col-sm-4">
+                                        <input type="checkbox" name="user_type_id" id="import" value="3">
+                                        <label for="import">We import Labor</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="checkbox" name="user_type_id" id="export" value="5">
+                                        <label for="export">We export Labor</label>
+                                    </div>
+                                </div>
                                 <label><i class="fas fa-star-of-life"></i> Agency Name</label>
                                 <input type="text" name="agency_name" value="{{ old('agency_name') }}" required class="form-control" placeholder="Your Agency name">
 
                                 <label><i class="fas fa-star-of-life"></i> Manager Name</label>
                                 <input type="text" name="manager_name" value="{{ old('manager_name') }}" required class="form-control" placeholder="Manger name">
+
+                                <label><i class="fas fa-star-of-life"></i> Country</label>
+                                <input type="text" name="country" value="{{ old('country') }}" required class="form-control" placeholder="Country">
+
+                                <label><i class="fas fa-star-of-life"></i> Address</label>
+                                <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="Address">
 
                                 <label><i class="fas fa-star-of-life"></i> Direct Mobile Number</label>
                                 <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control" placeholder="Your Agency mobile number">

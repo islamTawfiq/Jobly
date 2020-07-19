@@ -70,20 +70,20 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="table-responsive border rounded px-1 ">
-                                                        <h6 class="border-bottom py-1 mx-1 mb-0 font-medium-2"><i class="feather icon-lock mr-50 "></i>{{trans('web.permission')}}</h6>
+                                                        <h6 class="border-bottom py-1 mx-1 mb-0 font-medium-2"><i class="feather icon-lock mr-50 "></i>Permission</h6>
                                                         <table class="table table-borderless">
                                                             <thead>
                                                             <tr>
-                                                                <th>{{trans('web.module')}}</th>
-                                                                <th>{{trans('web.read')}}</th>
-                                                                <th>{{trans('web.create')}}</th>
-                                                                <th>{{trans('web.edit')}}</th>
-                                                                <th>{{trans('web.delete')}}</th>
+                                                                <th>Module</th>
+                                                                <th>Read</th>
+                                                                <th>Create</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr>
-                                                                <td>{{trans('web.settings')}}</td>
+                                                                <td>Settings</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'settings_show',
@@ -111,7 +111,7 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('web.admins')}}</td>
+                                                                <td>Admins</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'admins_show',
@@ -158,7 +158,7 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('web.adminGroups')}}</td>
+                                                                <td>Admin Groups</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'admin_groups_show',
@@ -205,7 +205,7 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('Agencies')}}</td>
+                                                                <td>Agencies</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'agencies_show',
@@ -250,7 +250,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>{{trans('Brokers')}}</td>
+                                                                <td>Brokers</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'brokers_show',
@@ -295,7 +295,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>{{trans('Sponsors')}}</td>
+                                                                <td>Sponsors</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'sponsors_show',
@@ -341,7 +341,7 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('Skills')}}</td>
+                                                                <td>Skills</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'skills_show',
@@ -386,7 +386,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>{{trans('Nannies')}}</td>
+                                                                <td>Nannies</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'nannies_show',
@@ -433,7 +433,7 @@
 
 
                                                             <tr>
-                                                                <td>{{trans('web.contact')}}</td>
+                                                                <td>Contact Us</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'contact_show',
@@ -478,7 +478,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>{{trans('About')}}</td>
+                                                                <td>About Us</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'about_show',
@@ -523,7 +523,7 @@
                                                             </tr>
 
                                                             <tr>
-                                                                <td>{{trans('Terms And Conditions')}}</td>
+                                                                <td>Terms And Conditions</td>
                                                                 <td>
                                                                     @include('admin.components.inputs.check', [
                                                                         'name' => 'terms_show',
@@ -573,7 +573,7 @@
                                                 </div>
                                                 <div
                                                     class="col-12 d-flex flex-sm-row flex-column justify-content-start mt-1">
-                                                    <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">{{trans('web.saveChanges')}}</button>
+                                                    <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save</button>
                                                 </div>
                                             </div>
                                         </form>

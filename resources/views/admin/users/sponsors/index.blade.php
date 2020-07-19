@@ -2,12 +2,14 @@
 @section('pageName','Sponsors')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('phone')}}</th>
-        <th>{{trans('web.status')}}</th>
-        <th>{{trans('web.registeredAt')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Registered At</th>
+        <th>Actions</th>
 
     </tr>
 @stop
@@ -34,7 +36,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -57,14 +59,16 @@
                 "columns": [
                     {data: 'id' , name: 'id'},
                     {data: 'name' , name: 'name'},
+                    {data: 'country' , name: 'country'},
+                    {data: 'address' , name: 'address'},
                     {data: 'phone' , name: 'phone'},
                     {
                     className:'my_class',
                     "mRender": function (data, type, row) {
                         if (row.status == 0) {
-                            return '<div class="chip chip-danger"> <div class="chip-body"> <div class="chip-text">{{trans("web.pending")}}</div> </div> </div>';
+                            return '<div class="chip chip-danger"> <div class="chip-body"> <div class="chip-text">Pending</div> </div> </div>';
                         }else if(row.status == 1){
-                            return '<div class="chip chip-success"> <div class="chip-body"> <div class="chip-text">{{trans("web.accepted")}}</div> </div> </div>';
+                            return '<div class="chip chip-success"> <div class="chip-body"> <div class="chip-text">Accepted</div> </div> </div>';
                         }
                     }
                 },

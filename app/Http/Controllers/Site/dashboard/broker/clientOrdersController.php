@@ -23,7 +23,7 @@ class clientOrdersController extends Controller
     {
         $nanny = Nanny::findorfail($id);
         $nanny->status = 2;
-        // $nanny->agency_id = null;
+        // $nanny->reserve_id = null;
         $nanny->save();
         return redirect()->back()->with('success', 'Interview Confirmed Successfully');
     }
@@ -31,7 +31,7 @@ class clientOrdersController extends Controller
     {
         $nanny = Nanny::findorfail($id);
         $nanny->status = 0;
-        $nanny->agency_id = null;
+        $nanny->reserve_id = null;
         $nanny->save();
         return redirect()->back()->with('success', 'Nanny rejected successfully');
     }

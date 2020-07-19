@@ -2,16 +2,18 @@
 @section('pageName','Agencies')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('manager Name')}}</th>
-        <th>{{trans('web.mobile')}}</th>
-        <th>{{trans('phone')}}</th>
-        <th>{{trans('web.email')}}</th>
-        <th>{{trans('official Documentation')}}</th>
-        <th>{{trans('web.status')}}</th>
-        <th>{{trans('web.registeredAt')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Manager Name</th>
+        <th>Country</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Official Documentation</th>
+        <th>Status</th>
+        <th>Registered At</th>
+        <th>Actions</th>
 
     </tr>
 @stop
@@ -38,7 +40,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -62,6 +64,8 @@
                     {data: 'id' , name: 'id'},
                     {data: 'agency_name' , name: 'agency_name'},
                     {data: 'manager_name' , name: 'manager_name'},
+                    {data: 'country' , name: 'country'},
+                    {data: 'address' , name: 'address'},
                     {data: 'phone' , name: 'phone'},
                     {data: 'telephone' , name: 'telephone'},
                     {data: 'email' , name: 'email'},
@@ -76,9 +80,9 @@
                     className:'my_class',
                     "mRender": function (data, type, row) {
                         if (row.status == 0) {
-                            return '<div class="chip chip-danger"> <div class="chip-body"> <div class="chip-text">{{trans("web.pending")}}</div> </div> </div>';
+                            return '<div class="chip chip-danger"> <div class="chip-body"> <div class="chip-text">Pending</div> </div> </div>';
                         }else if(row.status == 1){
-                            return '<div class="chip chip-success"> <div class="chip-body"> <div class="chip-text">{{trans("web.accepted")}}</div> </div> </div>';
+                            return '<div class="chip chip-success"> <div class="chip-body"> <div class="chip-text">Accepted</div> </div> </div>';
                         }
                     }
                 },

@@ -19,7 +19,4 @@
 {{-- <script src="{{url('design/admin/js/edit.js')}}"></script> --}}
 @include('site.layout.scripts.index')
 <!-- END: inputs JS-->
-@if (session('lang') == 'en')
-@else
-@endif
 @yield('main_js')

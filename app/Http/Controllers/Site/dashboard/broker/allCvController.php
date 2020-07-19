@@ -79,7 +79,7 @@ class allCvController extends Controller
         $data['skills'] = implode( "," , $data['skills'] );
 
         $item->update($data);
-        return redirect()->back()->with('success', trans('Nanny updated successfully'));
+        return redirect()->back()->with('success', 'Nanny Updated Successfully');
 
     }
 
@@ -87,7 +87,7 @@ class allCvController extends Controller
     {
         $item = Nanny::findorfail($id);
         $item->delete();
-        return redirect()->back()->with('success', 'Nanny deleted successfully');
+        return redirect()->back()->with('success', 'Nanny Deleted Successfully');
 
     }
 

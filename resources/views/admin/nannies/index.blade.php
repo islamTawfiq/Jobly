@@ -1,27 +1,26 @@
 @extends('admin.components.tables.table')
-@section('pageName',trans('Nannies'))
+@section('pageName','Nannies')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.image')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('web.mobile')}}</th>
-        <th>{{trans('country')}}</th>
-        <th>{{trans('age')}}</th>
-        <th>{{trans('religion')}}</th>
-        <th>{{trans('children')}}</th>
-        <th>{{trans('job')}}</th>
-        <th>{{trans('salary')}}</th>
-        <th>{{trans('experience')}}</th>
-        <th>{{trans('marital status')}}</th>
-        <th>{{trans('education')}}</th>
-        <th>{{trans('height')}}</th>
-        <th>{{trans('weight')}}</th>
-        <th>{{trans('arabic')}}</th>
-        <th>{{trans('english')}}</th>
-        <th>{{trans('skills')}}</th>
-        <th>{{trans('broker name')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Country</th>
+        <th>Age</th>
+        <th>Religion</th>
+        <th>Children</th>
+        <th>Job</th>
+        <th>Salary</th>
+        <th>Experience</th>
+        <th>Marital Status</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Arabic</th>
+        <th>English</th>
+        <th>Skills</th>
+        <th>Broker Name</th>
+        <th>Actions</th>
     </tr>
 
 @stop
@@ -48,7 +47,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -88,7 +87,6 @@
                     {data: 'salary', name: 'salary'},
                     {data: 'experience', name: 'experience'},
                     {data: 'marital_status', name: 'marital_status'},
-                    {data: 'education', name: 'education'},
                     {data: 'height', name: 'height'},
                     {data: 'weight', name: 'weight'},
                     {data: 'arabic_lang', name: 'arabic_lang'},

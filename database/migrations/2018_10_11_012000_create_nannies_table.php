@@ -40,8 +40,8 @@ class CreateNanniesTable extends Migration
             $table->string('gallery')->nullable();
             $table->date('date')->nullable();
             $table->time('time')->nullable();
-            $table->bigInteger('agency_id')->unsigned()->nullable();
-            $table->foreign('agency_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('reserve_id')->unsigned()->nullable();
+            $table->foreign('reserve_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('broker_id')->unsigned();
             $table->foreign('broker_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('status')->default(0);

@@ -16,6 +16,12 @@
                                 <label><i class="fas fa-star-of-life"></i> Last Name</label>
                                 <input type="text" name="last_name" value="{{ old('last_name') }}" required class="form-control" placeholder="Your last name">
 
+                                <label><i class="fas fa-star-of-life"></i> Country</label>
+                                <input type="text" name="country" value="{{ old('country') }}" required class="form-control" placeholder="Country">
+
+                                <label><i class="fas fa-star-of-life"></i> Address</label>
+                                <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="Address">
+
                                 <label><i class="fas fa-star-of-life"></i> Phone Number</label>
                                 <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control" placeholder="Your phone number">
 

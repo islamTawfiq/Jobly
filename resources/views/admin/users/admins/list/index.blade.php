@@ -2,18 +2,18 @@
 @section('pageName','Admins')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('web.email')}}</th>
-        <th>{{trans('web.adminGroup')}}</th>
-        <th>{{trans('web.registeredAt')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Admin Group</th>
+        <th>Registered At</th>
+        <th>Actions</th>
 
     </tr>
 @stop
 @if (auth()->User()->group_id->admins_add == 1)
 @section('modal')
-    @include('admin.users.admins.list.create',['id'=>'createmodal','name'=>trans('web.createNewAdmin'),'action'=>url()->current()])
+    @include('admin.users.admins.list.create',['id'=>'createmodal','name'=>'Create New Admin','action'=>url()->current()])
 @stop
 @endif
 @section('table_scripts')
@@ -34,7 +34,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -44,7 +44,7 @@
                 buttons: [
                         @if (auth()->User()->group_id->admins_add == 1)
                     {
-                        text: "<i class='feather icon-plus'></i>{{trans('web.addNew')}}",
+                        text: "<i class='feather icon-plus'></i>Add New",
                         action: function () {
                             $(this).removeClass("btn-secondary");
                             $(".add-new-data").addClass("show");

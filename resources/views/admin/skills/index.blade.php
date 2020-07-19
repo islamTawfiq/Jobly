@@ -6,7 +6,6 @@
         <th>Name</th>
         <th>Actions</th>
     </tr>
-
 @stop
 @if (auth()->User()->group->skills_add == 1)
 @section('modal')

@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Model;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 
 class User extends Authenticatable
 {
-    // use Notifiable, HasApiTokens;
-
     protected $appends = ['admin_group_name','user_main_image'];
     protected $fillable = [
         'name',
@@ -16,6 +12,8 @@ class User extends Authenticatable
         'last_name',
         'agency_name',
         'manager_name',
+        'country',
+        'address',
         'phone',
         'whatsapp',
         'telephone',
@@ -62,11 +60,7 @@ class User extends Authenticatable
         $attribute = '';
         if ($this->admin_group) {
             if ($this->group()) {
-                if (session('lang') == 'en') {
-                    $attribute = $this->group->name_en;
-                } elseif (session('lang') == 'ar') {
-                    $attribute = $this->group->name_ar;
-                }
+                $attribute = $this->group->name;
             }
         }
         return $attribute;
@@ -88,20 +82,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Nanny', 'broker_id');
     }
-    public function agency_reserve()
+
+    public function nanny_reserve()
     {
-        return $this->hasMany('App\Model\Nanny', 'agency_id');
+        return $this->hasMany('App\Model\Nanny', 'reserve_id');
     }
-
-
-    // public function getAgencyDataAttribute(){
-    //     $attribute='';
-    //     if ($this->agency_reserve()){
-    //         $attribute = $this->broker->name;
-    //     }
-    //     return $attribute;
-    // }
-
-
 
 }

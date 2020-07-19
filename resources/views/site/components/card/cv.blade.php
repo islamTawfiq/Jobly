@@ -1,4 +1,5 @@
-@if ( $nannies->count() == 0 && url()->current() == url('/broker-dashboard/all-cvs') )
+@if ( $nannies->count() == 0 )
+@if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
 <div class="row">
     <div class="col-3"></div>
     <div class="noCvs col-6">
@@ -6,11 +7,12 @@
     </div>
 </div>
 @endif
+@endif
 
 @foreach ($nannies as $nanny)
 <div class="card  {{ $nannies->count() == 1 ? 'm-5' : '' }}">
     <div class="row">
-        <div class="{{ url()->current() == url('broker-dashboard/all-cvs') ? '' : 'col-4' }} col-sm-5 col-lg-4 imgCard">
+        <div class="{{ url()->current() == url('broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') ? '' : 'col-4' }} col-sm-5 col-lg-4 imgCard">
             <a href="{{url( '/profile/' . $nanny->id )}}">
                 <img src="{{ url( 'storage/' . $nanny->main_image) }}" alt="">
             </a>
@@ -65,7 +67,7 @@
                     <a href="{{url( '/profile/' . $nanny->id )}}">Read More</a>
                 @endif
             </p>
-            @if ( url()->current() == url('/broker-dashboard/all-cvs') )
+            @if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
             <a class="btn btn-info" href="{{ url ( url()->current() . '/' . $nanny->id . '/edit' ) }}">Edit</a>
             <a href="{{ url()->current() . '/' . $nanny->id }}" class="btn btn-danger delete-confirm">Delete</a>
             @endif
@@ -83,7 +85,7 @@
 </div>
 @endif --}}
 
-@if ( url()->current() == url('/broker-dashboard/all-cvs') )
+@if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
 <div class="row">
     <div class="links">
         {{ $nannies->links() }}

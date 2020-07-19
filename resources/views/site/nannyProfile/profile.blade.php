@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    @if ( auth()->user()->user_type_id != 2 )
+                    @if ( auth()->user()->user_type_id != 2 and auth()->user()->user_type_id != 5 )
                     <span class="watchlist favourit">
                         <a href="#" class="listing-favorite-icon">
                             <i class="fas fa-star"></i>

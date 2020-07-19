@@ -112,7 +112,7 @@ class AdminGroupsController extends Controller
     public function store(Request $request)
     {
         AdminGroup::create($this->validate_value($request));
-        return redirect()->back()->with('success', trans('web.groupHaveBeenCreatedSuccessfully'));
+        return redirect()->back()->with('success', 'Group Have Been Created Successfully');
     }
 
 
@@ -126,7 +126,7 @@ class AdminGroupsController extends Controller
     {
         $item = AdminGroup::findOrFail($id);
         $item->update($this->validate_value($request));
-        return redirect()->back()->with('success',trans('web.groupHaveBeenEditedSuccessfully'));
+        return redirect()->back()->with('success', 'Group Have Been Edited Successfully');
     }
 
     public function destroy($id)

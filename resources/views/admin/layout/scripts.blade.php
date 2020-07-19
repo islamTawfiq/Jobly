@@ -1,5 +1,4 @@
 <!-- BEGIN: Vendor JS-->
-
 <script src="{{url('design/admin/vendors/js/vendors.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->
 <script src="{{url('design/admin/vendors/js/extensions/toastr.min.js')}}"></script>
@@ -27,10 +26,5 @@
 
 @include('admin.layout.scripts.index')
 <!-- END: inputs JS-->
-@if (session('lang') == 'en')
-    <script src="{{url('design/admin/js/main.js')}}"></script>
-@else
-    <script src="{{url('design/admin/js/main-rtl.js')}}"></script>
-@endif
-
+<script src="{{url('design/admin/js/main.js')}}"></script>
 @yield('main_js')

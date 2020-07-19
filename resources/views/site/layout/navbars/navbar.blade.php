@@ -42,10 +42,13 @@
                     <a class="dropdown-item" href="{{url('/broker-dashboard/my-cv')}}">Broker Dashboard</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 3 )
-                    <a class="dropdown-item" href="{{url('/agency-dashboard/edit-profile')}}">Agency Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/import-agency-dashboard/edit-profile')}}">Agency Dashboard</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 4 )
                     <a class="dropdown-item" href="{{url('/sponsor-dashboard/edit-profile')}}">Sponsor Dashboard</a>
+                    @endif
+                    @if ( auth()->user()->user_type_id == 5 )
+                    <a class="dropdown-item" href="{{url('/export-agency-dashboard/edit-profile')}}">Agency Dashboard</a>
                     @endif
                     <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                 </div>

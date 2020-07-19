@@ -15,7 +15,7 @@
     {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => trans('web.editUser') . ' : '.$item->name ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edit User' . ' : '.$item->name ,'items'=>[
             [
             'name'=>'Users',
             'url'=>url('/admin/clients'),
@@ -28,7 +28,7 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{trans('web.editUser') . ' ' . $item->name}}</h4>
+                                    <h4 class="card-title">{{ Edit User . ' ' . $item->name}}</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -44,9 +44,9 @@
                                                         'type' => 'text',
                                                         'class' => '',
                                                         'value' => $item->name,
-                                                        'label' =>trans('web.clientName'),
+                                                        'label' => 'Client Name',
                                                         'icon' =>'feather icon-user',
-                                                        'placeholder' => trans('web.clientName'),
+                                                        'placeholder' => 'Client Name',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -58,9 +58,9 @@
                                                         'type' => 'email',
                                                         'class' => '',
                                                         'value' => $item->email,
-                                                        'label' => trans('web.clientEmail'),
+                                                        'label' => 'Client Email',
                                                         'icon' =>'feather icon-mail',
-                                                        'placeholder' =>trans('web.clientEmail'),
+                                                        'placeholder' => 'Client Email',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])
@@ -72,9 +72,9 @@
                                                         'type' => 'password',
                                                         'class' => '',
                                                         'value' => '',
-                                                        'label' =>trans('web.clientPassword'),
+                                                        'label' => 'Client Password',
                                                         'icon' =>'feather icon-lock',
-                                                        'placeholder' =>trans('web.doNotTypeAnyThingIfYouDontWantToChangePassword'),
+                                                        'placeholder' => 'Do Not Type Any Thing If You Dont Want To Change Password',
                                                         'disabled' => false,
                                                         'required' => false,
                                                         ])
@@ -86,16 +86,16 @@
                                                         'type' => 'password',
                                                         'class' => '',
                                                         'value' => '',
-                                                        'label' =>trans('web.clientPasswordConfirmation'),
+                                                        'label' => 'Client Password Confirmation',
                                                         'icon' =>'feather icon-lock',
-                                                        'placeholder' =>trans('web.clientPasswordConfirmation'),
+                                                        'placeholder' => 'Client Password Confirmation',
                                                         'disabled' => false,
                                                         'required' => false,
                                                         ])
                                                     </div>
                                                     <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">{{trans('web.submit')}}</button>
-                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{trans('web.reset')}}</button>
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
+                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
                                                     </div>
                                                 </div>
                                             </div>

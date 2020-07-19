@@ -53,10 +53,10 @@
                                     </div>
                                     <div class="col-12 col-md-10 col-lg-9">
                                         <h5 class="mt-0">
-                                            @if ( $nanny->agency->name )
-                                                {{ $nanny->agency->name }} (Sponsor)
-                                            @elseif ( $nanny->agency->agency_name )
-                                                {{ $nanny->agency->agency_name }} (Agency)
+                                            @if ( $nanny->reserve->user_type_id == 4 )
+                                                {{ $nanny->reserve->name }} (Sponsor)
+                                            @elseif ( $nanny->reserve->user_type_id == 3 )
+                                                {{ $nanny->reserve->agency_name }} (Agency)
                                             @endif
                                                 request an interview with
                                             <span>
@@ -65,7 +65,7 @@
                                             .
                                         </h5>
                                         <p class="mb-0">Interview date & time: <span>{{ $nanny->date }}, {{ $nanny->time }}</span></p>
-                                        <p>Phne Number <span> +{{ $nanny->agency->phone }}</span></p>
+                                        <p>Phne Number <span> +{{ $nanny->reserve->phone }}</span></p>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
                                         <a href="{{ url('/broker-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
@@ -85,37 +85,37 @@
                                                 </button>
                                               </div>
                                               <div class="modal-body">
-                                                  @if ($nanny->agency->agency_name)
+                                                  @if ($nanny->reserve->agency_name)
                                                   <div>
                                                     <p class="d-inline-block">Agency Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->agency_name }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->agency_name }}</span>
                                                   </div>
                                                   @endif
-                                                  @if ($nanny->agency->manager_name)
+                                                  @if ($nanny->reserve->manager_name)
                                                   <div>
                                                     <p class="d-inline-block">Manager Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->manager_name }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->manager_name }}</span>
                                                   </div>
                                                   @endif
-                                                  @if ($nanny->agency->name)
+                                                  @if ($nanny->reserve->name)
                                                   <div>
                                                     <p class="d-inline-block">Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->name }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->name }}</span>
                                                   </div>
                                                   @endif
                                                   <div>
                                                     <p class="d-inline-block">Mobil Number : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->phone }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->phone }}</span>
                                                   </div>
-                                                  @if ($nanny->agency->telephone)
+                                                  @if ($nanny->reserve->telephone)
                                                   <div>
                                                     <p class="d-inline-block">Telephone : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->telephone }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->telephone }}</span>
                                                   </div>
                                                   @endif
                                                   <div>
                                                     <p class="d-inline-block">Email : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->agency->email }}</span>
+                                                    <span class="font-weight-bold">{{ $nanny->reserve->email }}</span>
                                                   </div>
                                               </div>
                                               <div class="modal-footer">

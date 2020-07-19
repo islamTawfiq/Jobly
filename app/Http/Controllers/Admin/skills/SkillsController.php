@@ -31,7 +31,7 @@ class SkillsController extends Controller
             'skill' => 'sometimes|nullable|string',
         ]);
         Skills::create($data);
-        return redirect()->back()->with('success', trans('created successfully'));
+        return redirect()->back()->with('success', 'Created Successfully');
     }
 
     public function edit($id)
@@ -49,7 +49,7 @@ class SkillsController extends Controller
         ]);
 
         $item->update($data);
-        return redirect()->back()->with('success', trans('updated successfully'));
+        return redirect()->back()->with('success', 'Updated Successfully');
 
     }
 

@@ -1,11 +1,11 @@
 @extends('admin.components.tables.table')
-@section('pageName',trans('web.adminGroups'))
+@section('pageName','Admin Groups')
 @section('thead')
     <tr>
-        <th>{{trans('web.id')}}</th>
-        <th>{{trans('web.name')}}</th>
-        <th>{{trans('web.createdAt')}}</th>
-        <th>{{trans('web.actions')}}</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Created At</th>
+        <th>Actions</th>
     </tr>
 
 @stop
@@ -27,7 +27,7 @@
                     sLengthMenu: "_MENU_",
                     sSearch: ""
                 },
-                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'{{trans('web.showAll')}}']],
+                aLengthMenu: [[15, 50, 100, 200, 500, 1000,-1], [15, 50, 100, 200, 500, 1000,'Show All']],
                 select: {
                     style: "multi"
                 },
@@ -38,7 +38,7 @@
                         @if (auth()->User()->group_id->admin_groups_add == 1)
                     {
 
-                        text: "<i class='feather icon-plus'></i>{{trans('web.addNew')}}",
+                        text: "<i class='feather icon-plus'></i>Add New",
                         action: function () {
 
                             $(".overlay-bg").addClass("show");
@@ -62,9 +62,7 @@
                     {data: 'id' , name: 'id'},
                     {
                         "mRender": function (data, type, row) {
-                            @if(session('lang') == 'en')
                                 return row.name;
-                            @endif
                         }
                     },
                     {data: 'created_at' , name: 'created_at'},

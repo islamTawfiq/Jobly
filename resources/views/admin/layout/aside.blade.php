@@ -11,22 +11,22 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            @include('admin.components.navItems.singleitem', ['url' => url('admin'),'name'=>trans('web.home'),'icon'=>'feather icon-home'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin'),'name'=>'Home','icon'=>'feather icon-home'])
 
             @if (auth()->User()->group_id->settings_show == 1)
-            @include('admin.components.navItems.singleitem', ['url' => url('admin/settings'),'name'=>trans('web.settings'),'icon'=>'feather icon-settings'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/settings'),'name'=>'Settings','icon'=>'feather icon-settings'])
             @endif
 
             @if (auth()->User()->group_id->skills_show == 1)
-            @include('admin.components.navItems.singleitem', ['url' => url('admin/skills'),'name'=>trans('skills'),'icon'=>'feather icon-circle'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/skills'),'name'=>'Skills','icon'=>'feather icon-circle'])
             @endif
 
             @if (auth()->User()->group_id->nannies_show == 1)
-            @include('admin.components.navItems.singleitem', ['url' => url('admin/nannies'),'name'=>trans('nannies'),'icon'=>'feather icon-circle'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/nannies'),'name'=>'Nannies','icon'=>'feather icon-circle'])
             @endif
 
             @if (auth()->User()->group_id->agencies_show == 1 || auth()->User()->group_id->brokers_show == 1 )
-            <li class=" navigation-header"><span>{{trans('web.users')}}</span></li>
+            <li class=" navigation-header"><span>Users</span></li>
             @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>'All Users','icon'=>'feather icon-users','items'=>[
                 [
                 'name'=>'Agencies',
@@ -45,7 +45,7 @@
             @endif
 
             @if (auth()->User()->group_id->admins_show == 1 || auth()->User()->group_id->admin_groups_show == 1)
-            @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>trans('web.admins'),'icon'=>'feather icon-user-check','items'=>[
+            @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>'Admins','icon'=>'feather icon-user-check','items'=>[
                 [
                 'name'=>'List Admins',
                 'icon'=>'feather icon-circle',
@@ -59,17 +59,17 @@
             @endif
 
             @if (auth()->User()->group_id->about_show == 1 || auth()->User()->group_id->contact_show == 1 || auth()->User()->group_id->terms_show == 1)
-            @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>trans('pages'),'icon'=>'feather icon-user-check','items'=>[
+            @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>'Pages','icon'=>'feather icon-user-check','items'=>[
                 [
-                'name'=>trans('web.aboutUs'),
+                'name'=>'About Us',
                 'icon'=>'feather icon-circle',
                 'url'=>url('admin/about-us'),
                 ],[
-                'name'=>trans('web.contactUs'),
+                'name'=>'Contact Us',
                 'icon'=>'feather icon-circle',
                 'url'=>url('admin/contact-us'),
                 ],[
-                'name'=>trans('web.terms'),
+                'name'=>'Terms And Conditions',
                 'icon'=>'feather icon-circle',
                 'url'=>url('admin/terms&conditions'),
                 ]

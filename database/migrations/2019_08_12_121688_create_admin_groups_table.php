@@ -67,11 +67,6 @@ class CreateAdminGroupsTable extends Migration
             $table->enum('admin_groups_edit', [0, 1])->default(0);
             $table->enum('admin_groups_delete', [0, 1])->default(0);
 
-            $table->enum('icons_show', [0, 1])->default(0);
-            $table->enum('icons_add', [0, 1])->default(0);
-            $table->enum('icons_edit', [0, 1])->default(0);
-            $table->enum('icons_delete', [0, 1])->default(0);
-
             $table->timestamps();
         });
     }

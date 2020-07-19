@@ -46,6 +46,8 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
+                'country'         => 'required|string',
+                'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'whatsapp'        => 'required|string',
                 'email'           => 'required|email|unique:users,email',
@@ -77,17 +79,20 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'agency_name'     => 'required|string',
                 'manager_name'    => 'required|string',
+                'country'         => 'required|string',
+                'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'telephone'       => 'required|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
+                'user_type_id'    => 'required',
 
             ]);
             $data['name'] = $data['agency_name'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
-            $data['user_type_id'] = 3;
+            // $data['user_type_id'] = 3;
             $data['status'] = 0;
             $data['active'] = 1;
             $user = User::create($data);
@@ -103,6 +108,8 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
+                'country'         => 'required|string',
+                'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',

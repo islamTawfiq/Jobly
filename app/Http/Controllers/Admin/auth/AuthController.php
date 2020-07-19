@@ -83,6 +83,6 @@ class AuthController extends Controller
             $data['password'] = Hash::make($request->password);
         }
         $item->update($data);
-        return redirect()->back()->with('success', trans('web.yourAccountUpdatedSuccessfully'));
+        return redirect()->back()->with('success', 'Your Account Updated Successfully');
     }
 }

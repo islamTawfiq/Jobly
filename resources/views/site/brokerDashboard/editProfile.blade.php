@@ -34,6 +34,28 @@
                         </div>
                         <div class="col-12">
                             @include('site.components.inputs.text', [
+                                'name' => 'country',
+                                'id' => '',
+                                'type' => 'text',
+                                'class' => '',
+                                'value' =>  $user->country,
+                                'label' => '* Country',
+                                'placeholder' => 'Country',
+                                ])
+                        </div>
+                        <div class="col-12">
+                            @include('site.components.inputs.text', [
+                                'name' => 'address',
+                                'id' => '',
+                                'type' => 'text',
+                                'class' => '',
+                                'value' =>  $user->address,
+                                'label' => '* Address',
+                                'placeholder' => 'Address',
+                                ])
+                        </div>
+                        <div class="col-12">
+                            @include('site.components.inputs.text', [
                                 'name' => 'phone',
                                 'id' => '',
                                 'type' => 'text',

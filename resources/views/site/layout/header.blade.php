@@ -31,11 +31,6 @@
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/media.css')}}" />
     <!-- END: Styles CSS-->
-    @if (session('lang') == 'en')
-
-    @else
-
-    @endif
 
     @yield('page_css')
     <link rel="stylesheet" type="text/css" href="{{url('design/site/css/style.css')}}" >

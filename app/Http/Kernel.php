@@ -62,12 +62,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\Admin::class,
-        'agency' => \App\Http\Middleware\Agency::class,
+        'importAgency' => \App\Http\Middleware\ImportAgency::class,
+        'exportAgency' => \App\Http\Middleware\ExportAgency::class,
         'broker' => \App\Http\Middleware\Broker::class,
         'sponsor' => \App\Http\Middleware\Sponsor::class,
         'permission' => \App\Http\Middleware\AdminGroups::class,
         'customizer' => \App\Http\Middleware\Customizer::class,
-        'lang' => \App\Http\Middleware\Lang::class,
         'verify' => \App\Http\Middleware\Verify::class,
     ];
 

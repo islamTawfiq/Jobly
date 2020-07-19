@@ -21,9 +21,9 @@
                         'type' => 'text',
                         'class' => '',
                         'value' => '',
-                        'label' => trans('web.adminName'),
+                        'label' => 'Admin Name',
                         'icon' =>'feather icon-user',
-                        'placeholder' => trans('web.adminName'),
+                        'placeholder' => 'Admin Name',
                         'disabled' => false,
                         ])
                     </div>
@@ -35,9 +35,9 @@
                         'type' => 'email',
                         'class' => '',
                         'value' => '',
-                        'label' => trans('web.adminEmail'),
+                        'label' => 'Admin Email',
                         'icon' =>'feather icon-mail',
-                        'placeholder' =>trans('web.adminEmail'),
+                        'placeholder' => 'Admin Email',
                         'disabled' => false,
                         ])
                     </div>
@@ -48,10 +48,10 @@
                         'id' => 'admin_group',
                         'class' => 'danger',
                         'value' => '',
-                        'label' => trans('web.adminGroup'),
+                        'label' => 'Admin Group',
                         'oldcheaked' => '',
                         'items' => \App\Model\AdminGroup::get(),
-                        'placeholder' =>trans('web.adminGroup.'),
+                        'placeholder' => 'Admin Group',
                         'checked' => false,
                         'disabled' => false,
                         ])
@@ -65,9 +65,9 @@
                         'type' => 'password',
                         'class' => '',
                         'value' => '',
-                        'label' =>trans('web.adminPassword'),
+                        'label' => 'Admin Password',
                         'icon' =>'feather icon-lock',
-                        'placeholder' => trans('web.adminPassword'),
+                        'placeholder' => 'Admin Password',
                         'disabled' => false,
                         ])
                     </div>
@@ -79,9 +79,9 @@
                         'type' => 'password',
                         'class' => '',
                         'value' => '',
-                        'label' =>trans('web.adminPasswordConfirmation') ,
+                        'label' => 'Admin Password Confirmation' ,
                         'icon' =>'feather icon-lock',
-                        'placeholder' => trans('web.adminPasswordConfirmation'),
+                        'placeholder' => 'Admin Password Confirmation',
                         'disabled' => false,
                         ])
                     </div>
