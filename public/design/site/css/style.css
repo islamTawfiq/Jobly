@@ -14,17 +14,21 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #EF7F65;
 }
+.btn {
+    border-radius: 25px !important;
+    padding: 3px 20px !important;
+    color: #fff !important;
+}
 .btn.btn-primary {
     background: #EF7F65 !important;
     border: 1px solid #EF7F65 !important;
-    border-radius: 25px;
-    padding: 4px 30px;
     color: #fff !important;
 }
 .btn-info {
     border-radius: 25px;
-    padding: 4px 30px;
+    padding: 3px 20px;
 }
+
 /* .btn {
     border-radius: 25px;
     padding: 2px 20px;
@@ -1154,6 +1158,9 @@ label.upload-photo {
     font-size: 15px;
     font-weight: 600;
 }
+.addNewCv a.btn.btn-primary {
+    padding: 4px 30px;
+}
 .addNewCv a i {
     position: absolute;
     left: 1px;
@@ -1217,11 +1224,6 @@ label.upload-photo {
     background: transparent;
     border: 0;
     outline: 0;
-}
-.btnDashboard {
-    padding: 1px 15px !important;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 .watchlist {
     margin-right: 15px;

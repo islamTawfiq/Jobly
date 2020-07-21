@@ -64,7 +64,7 @@
                                 'label' => '* Mobile Number',
                                 'placeholder' => 'Mobile Number',
                                 ])
-                            <a href="#" class="editMobile">Edit</a>
+                            <span class="editMobile">Edit</span>
                             <span class="float-right needNewConfirm">Need New Confirm</span>
                         </div>
                         <div class="col-12">

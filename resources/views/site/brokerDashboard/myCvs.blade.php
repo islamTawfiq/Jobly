@@ -18,11 +18,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="myPayments">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" style="margin-bottom: 175px !important">
                         <table class="table table-striped table-bordered text-center mt-3">
                             <thead>
                                 <tr>
@@ -32,42 +32,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($nannies as $nanny)
                                 <tr>
-                                    <td>Joliana Jofain</th>
-                                    <td>Hired</td>
-                                    <td>Khaber Agency</td>
+                                    <td>{{ $nanny->name }}</th>
+                                    <td>
+                                        @if ($nanny->status != 3)
+                                            <span class="text-danger">Pending</span>
+                                        @elseif($nanny->status == 3)
+                                            <span class="text-success">Hired</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ $nanny->reserve->name }}
+                                        @if ($nanny->reserve->user_type_id == 3)
+                                            <span class="text-info">(Agency)</span>
+                                        @elseif($nanny->reserve->user_type_id == 4)
+                                            <span class="text-info">(Sponsor)</span>
+                                        @endif
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Joliana Jofain</td>
-                                    <td>Hired</td>
-                                    <td>Khaber Agency</td>
-                                </tr>
-                                <tr>
-                                    <td>Joliana Jofain</td>
-                                    <td>Waiting</td>
-                                    <td>Khaber Agency</td>
-                                </tr>
-                                <tr>
-                                    <td>Joliana Jofain</td>
-                                    <td>Rejected</td>
-                                    <td>Khaber Agency</td>
-                                </tr>
-                                <tr>
-                                    <td>Joliana Jofain</td>
-                                    <td>Canceled</td>
-                                    <td>Khaber Agency</td>
-                                </tr>
-                                <tr>
-                                    <td>Joliana Jofain</td>
-                                    <td>Hired</td>
-                                    <td>Khaber Agency</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="links">
+                        {{ $nannies->links() }}
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </main>
 @stop

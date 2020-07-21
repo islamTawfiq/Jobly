@@ -18,7 +18,7 @@
             @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edit User' . ' : '.$item->name ,'items'=>[
             [
             'name'=>'Users',
-            'url'=>url('/admin/clients'),
+            'url'=>url('/admin/user'),
             ]
             ]
             ])
@@ -28,7 +28,7 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{ Edit User . ' ' . $item->name}}</h4>
+                                    <h4 class="card-title">Edit User : {{$item->name}}</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -44,9 +44,9 @@
                                                         'type' => 'text',
                                                         'class' => '',
                                                         'value' => $item->name,
-                                                        'label' => 'Client Name',
+                                                        'label' => 'Name',
                                                         'icon' =>'feather icon-user',
-                                                        'placeholder' => 'Client Name',
+                                                        'placeholder' => 'Name',
                                                         'disabled' => false,
                                                         'required' => true,
                                                         ])

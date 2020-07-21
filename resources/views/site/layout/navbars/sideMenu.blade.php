@@ -9,8 +9,7 @@
     @if (auth()->user()->user_type_id == 2)
         <li>
             <a href="{{url('/broker-dashboard/edit-profile')}}"
-            class="{{ url()->current() == url('/broker-dashboard/edit-profile') ? 'active' : '' }}">My Profile
-            </a>
+            class="{{ url()->current() == url('/broker-dashboard/edit-profile') ? 'active' : '' }}">Edit Profile</a>
         </li>
         <li>
             <a href="{{url('/broker-dashboard/all-cvs')}}"
@@ -27,20 +26,17 @@
         </li>
         <li>
             <a href="{{url('/broker-dashboard/client-orders')}}"
-             class="{{ url()->current() == url('/broker-dashboard/client-orders') ? 'active' : '' }}">Client Orders
-            </a>
+             class="{{ url()->current() == url('/broker-dashboard/client-orders') ? 'active' : '' }}">Client Orders</a>
         </li>
         <li>
             <a href="{{url('/broker-dashboard/interviews')}}"
-             class="{{ url()->current() == url('/broker-dashboard/interviews') ? 'active' : '' }}">My Interviews
-            </a>
+             class="{{ url()->current() == url('/broker-dashboard/interviews') ? 'active' : '' }}">My Interviews</a>
         </li>
     @endif
     @if (auth()->user()->user_type_id == 5)
         <li>
             <a href="{{url('/export-agency-dashboard/edit-profile')}}"
-            class="{{ url()->current() == url('/export-agency-dashboard/edit-profile') ? 'active' : '' }}">My Profile
-            </a>
+            class="{{ url()->current() == url('/export-agency-dashboard/edit-profile') ? 'active' : '' }}">Edit Profile</a>
         </li>
         <li>
             <a href="{{url('/export-agency-dashboard/all-cvs')}}"
@@ -70,7 +66,7 @@
     @if (auth()->user()->user_type_id == 3)
         <li>
             <a href="{{ url('/import-agency-dashboard/edit-profile') }}"
-            class="{{ url()->current() == url('/import-agency-dashboard/edit-profile') ? 'active' : '' }}">MyProfile </a>
+            class="{{ url()->current() == url('/import-agency-dashboard/edit-profile') ? 'active' : '' }}">Edit Profile </a>
         </li>
         <li>
             <a href="{{ url('/import-agency-dashboard/my-orders') }}"
@@ -80,12 +76,20 @@
             <a href="{{ url('/import-agency-dashboard/interviews') }}"
             class="{{ url()->current() == url('/import-agency-dashboard/interviews') ? 'active' : '' }}">My Interviews </a>
         </li>
+        <li>
+            <a href="{{ url('/import-agency-dashboard/my-package') }}"
+            class="{{ url()->current() == url('/import-agency-dashboard/my-package') ? 'active' : '' }}">My Package </a>
+        </li>
+        <li>
+            <a href="{{ url('/import-agency-dashboard/my-payments') }}"
+            class="{{ url()->current() == url('/import-agency-dashboard/my-payments') ? 'active' : '' }}">My Payments </a>
+        </li>
     @endif
     {{-- Sponsor --}}
     @if (auth()->user()->user_type_id == 4)
     <li>
         <a href="{{ url('/sponsor-dashboard/edit-profile') }}"
-        class="{{ url()->current() == url('/sponsor-dashboard/edit-profile') ? 'active' : '' }}">MyProfile </a>
+        class="{{ url()->current() == url('/sponsor-dashboard/edit-profile') ? 'active' : '' }}">Edit Profile </a>
     </li>
     <li>
         <a href="{{ url('/sponsor-dashboard/my-orders') }}"
@@ -94,6 +98,14 @@
     <li>
         <a href="{{ url('/sponsor-dashboard/interviews') }}"
         class="{{ url()->current() == url('/sponsor-dashboard/interviews') ? 'active' : '' }}">My Interviews </a>
+    </li>
+    <li>
+        <a href="{{ url('/sponsor-dashboard/my-package') }}"
+        class="{{ url()->current() == url('/sponsor-dashboard/my-package') ? 'active' : '' }}">My Package </a>
+    </li>
+    <li>
+        <a href="{{ url('/sponsor-dashboard/my-payments') }}"
+        class="{{ url()->current() == url('/sponsor-dashboard/my-payments') ? 'active' : '' }}">My Payments </a>
     </li>
     @endif
     </ul>

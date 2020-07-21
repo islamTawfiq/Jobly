@@ -68,8 +68,29 @@
                 @endif
             </p>
             @if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
+            {{-- edit --}}
             <a class="btn btn-info" href="{{ url ( url()->current() . '/' . $nanny->id . '/edit' ) }}">Edit</a>
-            <a href="{{ url()->current() . '/' . $nanny->id }}" class="btn btn-danger delete-confirm">Delete</a>
+            {{-- delete --}}
+            <a href="JavaScript:void(0);" data-toggle="modal" data-target="#deleteNanny{{ $nanny->id }}" class="btn btn-danger">Delete</a>
+            {{-- modal --}}
+            <div class="modal fade" id="deleteNanny{{ $nanny->id }}" tabindex="-1" role="dialog" aria-labelledby="bookNannyTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content text-center">
+                        <div class="modal-header" style="margin: auto">
+                            <div class="text-center">
+                                <p><i class="fas fa-question-circle fa-5x requestInterview"></i></p>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="modal-title ">Are You Sure Delete {{ $nanny->name }} ?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url()->current() . '/' . $nanny->id }}" class="btn btn-success delete-confirm">Yes, Delete it</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endif
         </div>
     </div>

@@ -40,7 +40,7 @@ class allCvController extends Controller
             'main_image'     => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'first_name'     => 'required|string',
             'last_name'      => 'required|string',
-            'mobile'         => 'required|regex:/(01)[0-9]{9}/|unique:nannies,mobile,' . $id,
+            'mobile'         => 'required|unique:nannies,mobile,' . $id,
             'country_id'     => 'required|string',
             'city_id'        => 'sometimes|string',
             'age'            => 'required|integer',

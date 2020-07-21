@@ -7,6 +7,9 @@ Route::PATCH('edit-profile','editProfileController@update');
 Route::get('my-orders','myOrdersController@index');
 Route::get('cancel/{id}','myOrdersController@rejectNanny');
 
+Route::get('my-package','myPackageController@index');
+Route::get('my-payments','myPaymentsController@index');
+
 Route::get('interviews','interviewsController@index');
 
 Route::get('cancel/{id}','interviewsController@rejectNanny');

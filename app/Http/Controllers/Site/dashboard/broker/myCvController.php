@@ -11,8 +11,9 @@ class myCvController extends Controller
 
     public function index()
     {
-        
-        return view('site.brokerDashboard.myCvs');
+        $user = Auth()->user();
+        $nannies = $user->nannies()->where('status', '<>' , 0)->paginate(10);
+        return view('site.brokerDashboard.myCvs', compact('nannies'));
     }
 
 
