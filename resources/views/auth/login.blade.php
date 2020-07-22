@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4">
-                    <div class="loginWithSocial">
+                    {{--  <div class="loginWithSocial">
                         <p>Login with social links</p>
                         <a href="" class="loginFacebook">
                             <img src="{{url('design/site/images/facebook.png')}}" alt="facebook">
@@ -31,7 +31,7 @@
                             <img src="{{url('design/site/images/search.png')}}" alt="google">
                             <span>Login with Google</span>
                         </a>
-                    </div>
+                    </div>  --}}
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ use App\Model\User;
 use DataTables;
 use Illuminate\Http\Request;
 
-class AgenciesController extends Controller
+class importAgenciesController extends Controller
 {
 
     public function __construct()
@@ -24,18 +24,7 @@ class AgenciesController extends Controller
             $users = User::where(['user_type_id' => 3 , 'active' => 1])->latest()->get();
             return DataTables::of($users)->make(true);
         }
-        return view('admin.users.agencies.index');
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        $item = User::findorfail($id);
-        return view('admin.users.agencies.edit', compact('item'));
+        return view('admin.users.agencies.importAgency');
     }
 
     public function destroy($id)

@@ -21,9 +21,10 @@
                                 <img src="{{url('design/site/images/help.png')}}" alt="help">
                             </div>
                             <p class="h5 mb-4">Need Help</p>
-                            <form>
-                                <input type="email" class="form-control" placeholder="Your email">
-                                <textarea class="form-control" rows="5" placeholder="Your question"></textarea>
+                            <form action="{{ url('/send-emails')}}" method="POST">
+                                @csrf
+                                <input type="email" name="email" class="form-control" placeholder="Your email">
+                                <textarea class="form-control" name="question" rows="5" placeholder="Your question"></textarea>
                                 <button class="btn btn-primary sendEmail">Send Email</button>
                             </form>
                         </div>
@@ -44,6 +45,6 @@
         </div>
 
 
-        
+
     </main>
 @stop

@@ -22,6 +22,10 @@
             @endif
 
             @if (auth()->User()->group_id->nannies_show == 1)
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/help'),'name'=>'Help','icon'=>'feather icon-circle'])
+            @endif
+
+            @if (auth()->User()->group_id->nannies_show == 1)
             @include('admin.components.navItems.singleitem', ['url' => url('admin/nannies'),'name'=>'Nannies','icon'=>'feather icon-circle'])
             @endif
 
@@ -29,9 +33,13 @@
             <li class=" navigation-header"><span>Users</span></li>
             @include('admin.components.navItems.multiitem', ['url' => 'javascript:void(0)','name'=>'All Users','icon'=>'feather icon-users','items'=>[
                 [
-                'name'=>'Agencies',
+                'name'=>'Export Agencies',
                 'icon'=>'feather icon-circle',
-                'url'=>url('admin/agencies'),
+                'url'=>url('admin/export-agencies'),
+                ],[
+                'name'=>'Import Agencies',
+                'icon'=>'feather icon-circle',
+                'url'=>url('admin/import-agencies'),
                 ],[
                 'name'=>'Brokers',
                 'icon'=>'feather icon-circle',

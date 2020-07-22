@@ -14,6 +14,8 @@ Route::get('/about-us','site\pages\aboutUs\aboutUsController@index');
 Route::get('/contact-us','site\pages\contactUs\contactUsController@index');
 Route::get('/terms&conditions','site\pages\terms\termsController@index');
 
+Route::post('/send-emails','site\help\helpController@help');
+
 Route::get('/countries/getStates', 'Site\countries\CountriesController@getStates');
 
 Route::group(['middleware' => ['auth']], function () {

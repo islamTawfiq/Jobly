@@ -26,7 +26,8 @@ Route::post('/theme_color','cookie\ThemeCookieController@themeColor');
 Route::resource('admin-groups','users\admins\AdminGroupsController');
 
 Route::resource('admins','users\admins\AdminsController');
-Route::resource('agencies','users\agencies\AgenciesController');
+Route::resource('export-agencies','users\agencies\exportAgenciesController');
+Route::resource('import-agencies','users\agencies\importAgenciesController');
 Route::resource('brokers','users\brokers\BrokersController');
 Route::resource('sponsors','users\sponsors\SponsorsController');
 
@@ -36,8 +37,8 @@ Route::post('/sponsors/change-status','users\sponsors\SponsorsController@ChangeS
 
 Route::resource('settings','settings\SettingsController');
 Route::resource('nannies','nannies\NanniesController');
-
 Route::resource('skills','skills\SkillsController');
+Route::resource('help','help\helpController');
 
 Route::get('about-us','pages\aboutUs\aboutUsController@index');
 Route::PATCH('about-us','pages\aboutUs\aboutUsController@update');

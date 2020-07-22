@@ -23,6 +23,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12" style="margin-bottom: 175px !important">
+                        @if ( $nannies->count() == 0 )
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="noCvs col-6">
+                                <img src="{{url('design/site/images/no.jpg')}}" alt="">
+                            </div>
+                        </div>
+                        @elseif ( $nannies->count() > 0 )
                         <table class="table table-striped table-bordered text-center mt-3">
                             <thead>
                                 <tr>
@@ -58,6 +66,7 @@
                     <div class="links">
                         {{ $nannies->links() }}
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

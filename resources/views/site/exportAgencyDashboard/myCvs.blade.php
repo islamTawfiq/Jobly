@@ -30,7 +30,7 @@
                                 <img src="{{url('design/site/images/no.jpg')}}" alt="">
                             </div>
                         </div>
-                        @endif
+                        @elseif ( $nannies->count() > 0 )
                         <table class="table table-striped table-bordered text-center mt-3">
                             <thead>
                                 <tr>
@@ -66,6 +66,7 @@
                     <div class="links">
                         {{ $nannies->links() }}
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
