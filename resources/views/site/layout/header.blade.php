@@ -2,12 +2,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="{{$settings->site_description}}">
-    <meta name="keywords" content="{{$settings->site_key_words}}">
-    <meta name="author" content="Vector|01118065363">
-    <title>@yield('title',$settings->site_title)</title>
+    <meta name="description" content="{{$settings->description}}">
+    <meta name="keywords" content="{{$settings->keyWords}}">
+    <meta name="author" content="Vector|01068193395">
+    <title>@yield('title',$settings->title)</title>
     <link rel="apple-touch-icon" href="{{$settings->main_icon}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{$settings->main_icon}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $settings->main_icon }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Styles CSS-->

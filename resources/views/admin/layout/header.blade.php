@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="author" content="Vector|01118065363">
-    <title>@yield('title')</title>
-    <link rel="apple-touch-icon" href="">
-    <link rel="shortcut icon" type="image/x-icon" href="">
+    <meta name="author" content="Vector|01068193395">
+    <title>@yield('title',$settings->title)</title>
+    <link rel="apple-touch-icon" href="{{$settings->main_icon}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $settings->main_icon }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/vendors.min.css')}}">
