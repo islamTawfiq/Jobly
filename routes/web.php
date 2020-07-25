@@ -10,40 +10,40 @@ Route::post('/admin/login', 'Admin\auth\AuthController@doLogin')->name('doLogin'
 
 // pages
 Route::get('/','HomeController@index');
-Route::get('/about-us','site\pages\aboutUs\aboutUsController@index');
-Route::get('/contact-us','site\pages\contactUs\contactUsController@index');
-Route::get('/terms&conditions','site\pages\terms\termsController@index');
+Route::get('/about-us','Site\pages\aboutUs\aboutUsController@index');
+Route::get('/contact-us','Site\pages\contactUs\contactUsController@index');
+Route::get('/terms&conditions','Site\pages\terms\termsController@index');
 
-Route::post('/send-emails','site\help\helpController@help');
+Route::post('/send-emails','Site\help\helpController@help');
 
 Route::get('/countries/getStates', 'Site\countries\CountriesController@getStates');
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::post('/filter','site\filter\filterController@filterNanny');
-    Route::get('/filter','site\filter\filterController@filter');
-    Route::get('/profile/{id}','site\nannyProfile\profileController@index');
+    Route::post('/filter','Site\filter\filterController@filterNanny');
+    Route::get('/filter','Site\filter\filterController@filter');
+    Route::get('/profile/{id}','Site\nannyProfile\profileController@index');
     // reservation
-    Route::post('/reservation/{id}','site\nannyProfile\profileController@reservation');
+    Route::post('/reservation/{id}','Site\nannyProfile\profileController@reservation');
 
 });
 
-Route::get('/login', 'site\auth\LoginController@ShowLoginPage');
-Route::post('/login', 'site\auth\LoginController@login')->name('login');
+Route::get('/login', 'Site\auth\LoginController@ShowLoginPage');
+Route::post('/login', 'Site\auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 // Broker Register
-Route::get('/broker-register', 'site\auth\RegisterController@ShowBrokerRegister')->name('brokerRegister');
-Route::post('/broker-register', 'site\auth\RegisterController@BrokerRegister');
+Route::get('/broker-register', 'Site\auth\RegisterController@ShowBrokerRegister')->name('brokerRegister');
+Route::post('/broker-register', 'Site\auth\RegisterController@BrokerRegister');
 // Agency Register
-Route::get('/agency-register', 'site\auth\RegisterController@ShowAgencyRegister')->name('agencyRegister');
-Route::post('/agency-register', 'site\auth\RegisterController@AgencyRegister');
+Route::get('/agency-register', 'Site\auth\RegisterController@ShowAgencyRegister')->name('agencyRegister');
+Route::post('/agency-register', 'Site\auth\RegisterController@AgencyRegister');
 // Sponsor Register
-Route::get('/sponsor-register', 'site\auth\RegisterController@ShowSponsorRegister')->name('sponsorRegister');
-Route::post('/sponsor-register', 'site\auth\RegisterController@SponsorRegister');
+Route::get('/sponsor-register', 'Site\auth\RegisterController@ShowSponsorRegister')->name('sponsorRegister');
+Route::post('/sponsor-register', 'Site\auth\RegisterController@SponsorRegister');
 // Verify
-// Route::get('/verify', 'site\auth\verify\verifyController@getVerify')->name('getVerify');
-// Route::post('/verify', 'site\auth\verify\verifyController@postVerify')->name('Verify');
-// Route::post('/verify/new-code', 'site\auth\verify\verifyController@newCode')->name('NewVerify');
+// Route::get('/verify', 'Site\auth\verify\verifyController@getVerify')->name('getVerify');
+// Route::post('/verify', 'Site\auth\verify\verifyController@postVerify')->name('Verify');
+// Route::post('/verify/new-code', 'Site\auth\verify\verifyController@newCode')->name('NewVerify');
 // clear
 Route::get('/clear', function () {
     Artisan::call('view:clear');

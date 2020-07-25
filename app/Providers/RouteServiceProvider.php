@@ -98,14 +98,14 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web','sponsor'])
             ->prefix('sponsor-dashboard')
-            ->namespace($this->namespace."\site\dashboard\sponsor")
+            ->namespace($this->namespace."\Site\dashboard\sponsor")
             ->group(base_path('routes/sponsor.php'));
     }
     protected function mapBrokerRoutes()
     {
         Route::middleware(['web','broker'])
             ->prefix('broker-dashboard')
-            ->namespace($this->namespace."\site\dashboard\broker")
+            ->namespace($this->namespace."\Site\dashboard\broker")
             ->group(base_path('routes/broker.php'));
     }
 
