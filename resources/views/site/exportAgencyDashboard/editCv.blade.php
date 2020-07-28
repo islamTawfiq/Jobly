@@ -1,5 +1,5 @@
 @extends('site.layout.dashboard')
-@section('page_js')
+{{--  @section('page_js')
 <script>
     $(document).ready(function () {
         $('#country_id').change(function () {
@@ -27,7 +27,7 @@
         });
     });
 </script>
-@stop
+@stop  --}}
 @section('content')
     <main>
 
@@ -65,6 +65,7 @@
                                                             'disabled' => false,
                                                             ])
                                                         </div>
+
                                                         <div class="col-12">
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'last_name',
@@ -97,11 +98,17 @@
                                                                     <option value="{{$country->id}}" @if ( old('country_id') or $nanny->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>                                                                @endforeach
                                                             </select>
                                                         </div>
+
                                                         <div class="col-lg-6">
-                                                            <label>City</label>
-                                                            <select class="form-control" id="city_id" name="city_id">
-                                                                <option selected disabled >Choose City</option>
-                                                            </select>
+                                                            @include('site.components.inputs.text', [
+                                                                'name' => 'city',
+                                                                'id' => '',
+                                                                'type' => 'text',
+                                                                'class' => '',
+                                                                'value' => $nanny->city,
+                                                                'label' => 'City',
+                                                                'placeholder' => 'Your City',
+                                                                ])
                                                         </div>
 
                                                         <div class="col-lg-4">
@@ -122,6 +129,7 @@
                                                                 <option selected disabled >Select Religion</option>
                                                                 <option value="Muslim" @if (old('religion') or $nanny->religion == "Muslim") {{ 'selected' }} @endif>Muslim</option>
                                                                 <option value="Christian" @if (old('religion') or $nanny->religion == "Christian") {{ 'selected' }} @endif>Christian</option>
+                                                                <option value="Any" @if (old('religion') or $nanny->religion == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -140,12 +148,10 @@
                                                         <div class="col-lg-6">
                                                             <label>Job</label>
                                                             <select name="job" class="selectpicker form-control">
-                                                                <option selected disabled >select job</option>
-                                                                <option value="Driver" @if (old('job') or $nanny->job == "Driver") {{ 'selected' }} @endif>Driver</option>
-                                                                <option value="Farmer" @if (old('job') or $nanny->job == "Farmer") {{ 'selected' }} @endif>Farmer</option>
-                                                                <option value="Guard" @if (old('job') or $nanny->job == "Guard") {{ 'selected' }} @endif>Guard</option>
-                                                                <option value="Servants" @if (old('job') or $nanny->job == "Servants") {{ 'selected' }} @endif>Servants</option>
-                                                                <option value="Cleaning" @if (old('job') or $nanny->job == "Cleaning") {{ 'selected' }} @endif>Cleaning</option>
+                                                                <option selected disabled >Select Job</option>
+                                                                @foreach(\App\Model\Job::all() as $job)
+                                                                <option value="{{ $job->id }}" @if (old('job') or $nanny->job == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
 
@@ -179,6 +185,7 @@
                                                                 <option selected disabled >Select Religion</option>
                                                                 <option value="Married" @if (old('marital_status') or $nanny->marital_status == "Married") {{ 'selected' }} @endif>Married</option>
                                                                 <option value="Single" @if (old('marital_status') or $nanny->marital_status == "Single") {{ 'selected' }} @endif>Single</option>
+                                                                <option value="Any" @if (old('marital_status') or $nanny->marital_status == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -298,7 +305,5 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 @stop

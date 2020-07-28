@@ -38,6 +38,8 @@ Route::post('/sponsors/change-status','users\sponsors\SponsorsController@ChangeS
 Route::resource('settings','settings\SettingsController');
 Route::resource('nannies','nannies\NanniesController');
 Route::resource('skills','skills\SkillsController');
+Route::resource('jobs','jobs\JobsController');
+Route::resource('countries','countries\CountriesController');
 Route::resource('help','help\helpController');
 
 Route::get('about-us','pages\aboutUs\aboutUsController@index');

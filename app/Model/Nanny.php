@@ -16,7 +16,7 @@ class Nanny extends Model
         'last_name',
         'mobile',
         'country_id',
-        'city_id',
+        'city',
         'age',
         'religion',
         'children',

@@ -3,6 +3,7 @@
     <main>
         <!-- letsStart -->
 
+        @guest
         <div class="letStart text-center">
             <div class="imgAbs">
                 <img src="{{url('design/site/images/abs.png')}}" alt="abs">
@@ -16,7 +17,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <div class="toStart">
-                            <p class="h5">I am a Sponsor <br> I want to hire a nanny</p>
+                            <p class="h5">I am a Sponsor <br> I want to hire a domestic workers</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
                                 <span>Lorem ipsum dolor sit amet.</span>
@@ -36,7 +37,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="toStart">
-                            <p class="h5">We are agency <br> We want to join now</p>
+                            <p class="h5">We are Manpower agency <br> We want to join now</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
                                 <span>Lorem ipsum dolor sit amet.</span>
@@ -57,15 +58,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- start countNannyProfile -->
-        <div class="countNannyProfile">
-            <div class="afterBack">
-                <div class="countText">
-                    <p>+ {{ count($nannies) }} Nanny Profile</p>
-                </div>
-            </div>
-        </div>
+        @endguest
 
         <!-- start whoWeAre -->
         <div class="whoWeAre">
@@ -100,7 +93,14 @@
             </div>
         </div>
 
-        <hr>
+        <!-- start countNannyProfile -->
+        <div class="countNannyProfile">
+            <div class="afterBack">
+                <div class="countText">
+                    <p>+ {{ count($nannies) }} Nanny Profile</p>
+                </div>
+            </div>
+        </div>
 
         <!-- ourCustomer -->
         <div class="ourCustomer">
@@ -111,7 +111,6 @@
                             <p class="h4">What Our Customers Says</p>
                             <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt neque
                                 adipisci nulla quasi dolore fugit velit officiis, quia culpa possimus.</p>
-                            <a href="" class="btn btn-primary">More</a>
                         </div>
                     </div>
                     <div class="col-lg-7">

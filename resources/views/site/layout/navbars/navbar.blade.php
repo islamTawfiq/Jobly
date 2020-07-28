@@ -1,7 +1,11 @@
 <div class="col-lg-9">
     <nav class="navbar navbar-expand-lg navbar-light" id="ftco-navbar">
         <a class="navbar-brand" href="{{url('/')}}">
+            @if ( url()->current() == url('/') )
+            <img src="{{ url('design/site/images/logo.png') }}" alt="logo"/>
+            @else
             <img src="{{$settings->main_logo}}" alt="logo"/>
+            @endif
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +15,10 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{url('/filter')}}" class="nav-link">Nannies</a></li>
+                <li class="nav-item"><a href="{{url('/filter')}}" class="nav-link">Domestic Workers</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Local Domestic Workers</a></li>
                 <li class="nav-item"><a href="{{url('/about-us')}}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{url('/contact-us')}}" class="nav-link">Contact us/inquiry</a>
+                <li class="nav-item"><a href="{{url('/contact-us')}}" class="nav-link">Contact us</a>
                 </li>
             </ul>
         </div>
@@ -64,7 +69,8 @@
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
                     <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as Broker</a>
-                    <a class="dropdown-item" href="{{ url('/agency-register') }}">Sign up as Agency</a>
+                    <a class="dropdown-item" href="{{ url('/export-agency-register') }}">Sign up as Export Workers</a>
+                    <a class="dropdown-item" href="{{ url('/import-agency-register') }}">Sign up as Import Workers</a>
                     <a class="dropdown-item" href="{{ url('/sponsor-register') }}">Sign up as Sponsor</a>
                 </div>
             </div>

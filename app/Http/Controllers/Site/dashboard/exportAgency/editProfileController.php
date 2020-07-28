@@ -25,12 +25,14 @@ class editProfileController extends Controller
         $data = $request->validate([
             'agency_name'     => 'required|string',
             'manager_name'    => 'required|string',
-            'country'       => 'required|string',
-            'address'       => 'required|string',
-            'phone'           => 'required',
+            'country_id'      => 'required|integer',
+            'address'         => 'required|string',
+            'phone'           => 'required|string',
             'telephone'       => 'required|string',
             'email'           => 'required|email|',
         ]);
+
+        $data['name'] = $data['agency_name'];
 
         if ($request->has('password') && request('password') != null) {
             $data['password'] = $request->validate([

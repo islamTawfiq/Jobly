@@ -1,8 +1,6 @@
 @extends('site.layout.index')
 @section('content')
     <main>
-
-
     <!-- termsAndCondition -->
     <div class="termsAndCondition">
         <div class="container">
@@ -12,8 +10,5 @@
             </div>
         </div>
     </div>
-
-
-        
     </main>
 @stop

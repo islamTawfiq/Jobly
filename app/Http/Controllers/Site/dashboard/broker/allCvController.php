@@ -42,7 +42,7 @@ class allCvController extends Controller
             'last_name'      => 'required|string',
             'mobile'         => 'required|unique:nannies,mobile,' . $id,
             'country_id'     => 'required|string',
-            'city_id'        => 'sometimes|string',
+            'city'           => 'required|string',
             'age'            => 'required|integer',
             'religion'       => 'required|string',
             'children'       => 'required|integer',

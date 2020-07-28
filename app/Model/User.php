@@ -12,7 +12,7 @@ class User extends Authenticatable
         'last_name',
         'agency_name',
         'manager_name',
-        'country',
+        'country_id',
         'address',
         'phone',
         'whatsapp',

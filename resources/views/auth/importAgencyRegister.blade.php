@@ -13,19 +13,17 @@
     <main>
         <div class="signUpFamily">
             <div class="container">
-                <p class="h4 mb-3">Broker Register</p>
+                <p class="h4 mb-3">Import Agency Register</p>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sponsorRegister">
-                            <form action="{{url('/broker-register')}}" method="POST" enctype="multipart/form-data" class="form-group">
+                            <form action="{{ url()->current() }}" method="POST" enctype="multipart/form-data" class="form-group">
                                 @csrf
-                                <div>
-                                    <label><i class="fas fa-star-of-life"></i> Name</label>
-                                </div>
-                                <div class="fullName mb-2">
-                                    <input type="text" name="first_name" value="{{ old('first_name') }}" required class="first" placeholder="Your first name">
-                                    <input type="text" name="last_name" value="{{ old('last_name') }}" required class="last" placeholder="Your last name">
-                                </div>
+                                <label><i class="fas fa-star-of-life"></i> Agency Name</label>
+                                <input type="text" name="agency_name" value="{{ old('agency_name') }}" required class="form-control" placeholder="Your Agency name">
+
+                                <label><i class="fas fa-star-of-life"></i> Manager Name</label>
+                                <input type="text" name="manager_name" value="{{ old('manager_name') }}" required class="form-control" placeholder="Manger name">
 
                                 <label><i class="fas fa-star-of-life"></i> Country</label>
                                 <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
@@ -39,25 +37,25 @@
                                 </select>
 
                                 <label><i class="fas fa-star-of-life"></i> City</label>
-                                <input type="text" name="address" value="{{ old('address') }}" class="form-control" placeholder="City" required>
+                                <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="City">
 
-                                <label><i class="fas fa-star-of-life"></i> Phone Number</label>
-                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Your phone number" required>
+                                <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
+                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Agency Mobile Number" required>
 
-                                <label><i class="fas fa-star-of-life"></i> WhatsApp Number</label>
-                                <input type="number" name="whatsapp" value="{{ old('whatsapp') }}" class="form-control" placeholder="Your whatsapp number" required>
+                                <label><i class="fas fa-star-of-life"></i> Telephone</label>
+                                <input type="number" name="telephone" value="{{ old('telephone') }}" required class="form-control" placeholder="Your Telephone">
 
                                 <label><i class="fas fa-star-of-life"></i> Email</label>
-                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Your email" required>
+                                <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Your password" required>
+                                <input type="password" name="password" required class="form-control" placeholder="Your password">
 
                                 <label><i class="fas fa-star-of-life"></i> Confirm Password</label>
                                 <input type="password" name="password_confirmation" class="form-control" placeholder="Your confirm password">
 
                                 <!-- upload image -->
-                                <label><i class="fas fa-star-of-life"></i> National ID <span class="font-weight-bold">(Attach photos)</span></label>
+                                <label><i class="fas fa-star-of-life"></i> Agency Official Documentation <span class="font-weight-bold">(Attach photos)</span></label>
                                 <div class="container mt-2">
                                     <div class="row">
                                         <div class="col-sm-2">

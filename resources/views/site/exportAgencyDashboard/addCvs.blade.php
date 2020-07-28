@@ -1,5 +1,5 @@
 @extends('site.layout.dashboard')
-@section('page_js')
+{{--  @section('page_js')
 <script>
     $(document).ready(function () {
         $('#country_id').change(function () {
@@ -27,7 +27,7 @@
         });
     });
 </script>
-@stop
+@stop  --}}
 @section('content')
     <main>
 
@@ -93,16 +93,25 @@
                                                             <select class="form-control" id="country_id" name="country_id">
                                                                 <option selected disabled >Choose Country</option>
                                                                 @foreach(\App\Model\Country::all() as $country)
-                                                                    {{--  <option value="{{$country->id}}" @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>  --}}
-                                                                    <option value="{{$country->id}}">{{$country->name}}</option>
+                                                                    <option value="{{$country->id}}" @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
+
                                                         <div class="col-lg-6">
-                                                            <label>City</label>
+                                                            {{--  <label>City</label>
                                                             <select class="form-control" id="city_id" name="city_id">
                                                                 <option selected disabled >Choose City</option>
-                                                            </select>
+                                                            </select>  --}}
+                                                            @include('site.components.inputs.text', [
+                                                                'name' => 'city',
+                                                                'id' => '',
+                                                                'type' => 'text',
+                                                                'class' => '',
+                                                                'value' => '',
+                                                                'label' => 'City',
+                                                                'placeholder' => 'Your City',
+                                                                ])
                                                         </div>
 
                                                         <div class="col-lg-4">
@@ -123,6 +132,7 @@
                                                                 <option selected disabled >Select Religion</option>
                                                                 <option value="Muslim" @if (old('religion') == "Muslim") {{ 'selected' }} @endif>Muslim</option>
                                                                 <option value="Christian" @if (old('religion') == "Christian") {{ 'selected' }} @endif>Christian</option>
+                                                                <option value="Any" @if (old('religion') == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -142,11 +152,8 @@
                                                             <label>Job</label>
                                                             <select name="job" class="selectpicker form-control">
                                                                 <option selected disabled >Select Job</option>
-                                                                <option value="Driver" @if (old('job') == "Driver") {{ 'selected' }} @endif>Driver</option>
-                                                                <option value="Farmer" @if (old('job') == "Farmer") {{ 'selected' }} @endif>Farmer</option>
-                                                                <option value="Guard" @if (old('job') == "Guard") {{ 'selected' }} @endif>Guard</option>
-                                                                <option value="Servants" @if (old('job') == "Servants") {{ 'selected' }} @endif>Servants</option>
-                                                                <option value="Cleaning" @if (old('job') == "Cleaning") {{ 'selected' }} @endif>Cleaning</option>
+                                                                @foreach(\App\Model\Job::all() as $job)
+                                                                <option value="{{ $job->id }}" @if (old('job') == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>                                                                @endforeach
                                                             </select>
                                                         </div>
 
@@ -180,6 +187,7 @@
                                                                 <option selected disabled >Select Religion</option>
                                                                 <option value="Married" @if (old('marital_status') == "Married") {{ 'selected' }} @endif>Married</option>
                                                                 <option value="Single" @if (old('marital_status') == "Single") {{ 'selected' }} @endif>Single</option>
+                                                                <option value="Any" @if (old('marital_status') == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -244,10 +252,6 @@
                                 </div>
                             </div>
                             <div class="basicInformation p-3 pr-5">
-                                {{--  <div>
-                                    <label class="mb-1">About me (25 words only)</label>
-                                    <textarea class="form-control" placeholder="Write here…"></textarea>
-                                </div>  --}}
                                 <div>
                                     @include('site.components.inputs.textarea', [
                                     'name' => 'about',

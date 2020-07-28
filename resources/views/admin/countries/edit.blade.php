@@ -7,10 +7,10 @@
         {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edite Skill'.' : '.$item->name ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edite Country'.' : '.$item->name ,'items'=>[
            [
-           'name'=>'skills',
-           'url'=>url('/admin/skills'),
+           'name'=>'countries',
+           'url'=>url('/admin/countries'),
            ]
            ]
            ])
@@ -33,14 +33,27 @@
                                                         <div class="row">
                                                             <div class="col-xl-6 col-md-12 col-12">
                                                                 @include('admin.components.inputs.text', [
-                                                                'name' => 'skill',
+                                                                'name' => 'name',
                                                                 'id' => '',
                                                                 'type' => 'text',
                                                                 'class' => '',
-                                                                'value' => $item->skill,
-                                                                'label' => 'skill',
+                                                                'value' => $item->name,
+                                                                'label' => 'country name',
                                                                 'icon' =>'feather icon-user',
-                                                                'placeholder' => 'skill',
+                                                                'placeholder' => 'country name',
+                                                                'disabled' => false,
+                                                                ])
+                                                            </div>
+                                                            <div class="col-xl-6 col-md-12 col-12">
+                                                                @include('admin.components.inputs.text', [
+                                                                'name' => 'phonecode',
+                                                                'id' => '',
+                                                                'type' => 'number',
+                                                                'class' => '',
+                                                                'value' => $item->phonecode,
+                                                                'label' => 'phone code',
+                                                                'icon' =>'feather icon-user',
+                                                                'placeholder' => 'phone code',
                                                                 'disabled' => false,
                                                                 ])
                                                             </div>

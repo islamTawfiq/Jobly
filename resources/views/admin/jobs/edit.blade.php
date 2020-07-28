@@ -7,10 +7,10 @@
         {{request()->cookie('navbar_type') == 'navbar-static' ? 'd-none' : ''}}
             "></div>
         <div class="content-wrapper">
-            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edite Skill'.' : '.$item->name ,'items'=>[
+            @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edite Job'.' : '.$item->name ,'items'=>[
            [
-           'name'=>'skills',
-           'url'=>url('/admin/skills'),
+           'name'=>'jobs',
+           'url'=>url('/admin/jobs'),
            ]
            ]
            ])
@@ -33,14 +33,14 @@
                                                         <div class="row">
                                                             <div class="col-xl-6 col-md-12 col-12">
                                                                 @include('admin.components.inputs.text', [
-                                                                'name' => 'skill',
+                                                                'name' => 'title',
                                                                 'id' => '',
                                                                 'type' => 'text',
                                                                 'class' => '',
-                                                                'value' => $item->skill,
-                                                                'label' => 'skill',
+                                                                'value' => $item->title,
+                                                                'label' => 'job title',
                                                                 'icon' =>'feather icon-user',
-                                                                'placeholder' => 'skill',
+                                                                'placeholder' => 'job title',
                                                                 'disabled' => false,
                                                                 ])
                                                             </div>

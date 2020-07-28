@@ -33,7 +33,6 @@
     <!-- END: Styles CSS-->
 
     @yield('page_css')
-    <link rel="stylesheet" type="text/css" href="{{url('design/site/css/style.css')}}" >
 
     @yield('main_css')
 </head>

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('agency_name')->nullable();
             $table->string('manager_name')->nullable();
-            $table->string('country')->nullable();
+            $table->string('country_id')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();

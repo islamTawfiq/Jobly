@@ -82,6 +82,7 @@ label {
     margin-left: 15px;
 }
 .mySignUpDrop {
+    font-size: 14px !important;
     top: 10px !important;
     border-radius: 8px !important;
     box-shadow: 2px 3px 13px -7px rgba(0, 0, 0, 0.6);
@@ -130,12 +131,12 @@ label {
     background-color: #ddd !important;
 }
 .bootstrap-select>.dropdown-toggle {
-    background-color: #fff;
-    border: 1px solid #DDDDDD;
+    background-color: #fff !important;
+    border: 1px solid #DDDDDD !important;
     border-radius: 40px;
     padding-top: 2px;
     padding-bottom: 2px;
-    color: #999;
+    color: #999 !important;
 }
 .filterSelect label {
     font-size: 14px;
@@ -341,6 +342,7 @@ footer .linksInFooter i {
 .nav-link {
     color: #6c757d !important;
     font-weight: bold;
+    font-size: 14px;
 }
 .gallery img {
     width: 100%;
@@ -408,6 +410,7 @@ footer .linksInFooter i {
 .homeBackground .navbar-light .navbar-nav .nav-link {
     color: #fff !important;
     font-weight: 400;
+    font-size: 14px !important;
 }
 .navbar-light .navbar-nav .active>.nav-link {
     font-weight: bold;
@@ -466,7 +469,8 @@ footer .linksInFooter i {
     /* position: relative !important; */
     padding-top: 50px;
     background: #F8F9FFA8;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c5c5c5;
 }
 .pCont {
     color: #3B190076;
@@ -526,7 +530,7 @@ footer .linksInFooter i {
 /* start whoWeAre */
 .whoWeAre {
     padding-top: 40px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 .lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
     margin-right: 12px;
@@ -554,8 +558,8 @@ footer .linksInFooter i {
     font-weight: bold;
 }
 .ourCustomer {
-    padding-top: 20px;
-    padding-bottom: 25px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .customerSlider {
     padding: 25px;
@@ -633,7 +637,8 @@ footer .linksInFooter i {
 }
 /* termsAndCondition */
 .termsAndCondition {
-    padding: 40px 180px;
+    padding: 40px 20px;
+    margin: 35px auto;
 }
 .terms {
     border: 1px solid rgba(0, 0, 0, .2);
@@ -1285,7 +1290,36 @@ label.upload-photo {
     outline: none!important;
     border: none;
 }
+.fullName {
+    width: 100%;
+}
+.fullName input {
+    height: 35px !important;
+    line-height: 35px !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 2px 3px 13px -7px rgba(0, 0, 0, 0.5) !important;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    width: 49% !important;
+    margin: 0 !important;
+}
+.fullName input.first {
+    /* border-right: 0 !important; */
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
 
+}
+.fullName input.last {
+    /* border-right: 0 !important; */
+    border-top-right-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
+}
 
 
 

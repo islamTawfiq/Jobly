@@ -16,7 +16,7 @@
                             <form action="{{url('/filter')}}" method="post">
                                 @csrf
                                 <div class="mb-lg-3 mb-2">
-                                    <select class="form-control" name="country_id">
+                                    <select class="form-control selectpicker" data-live-search="true" name="country_id">
                                         <option selected disabled >Choose Country</option>
                                         @foreach(\App\Model\Country::all() as $country)
                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -24,13 +24,11 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-control" name="job">
+                                    <select class="form-control selectpicker" data-live-search="true" name="job">
                                         <option selected disabled >Job Title</option>
-                                        <option {{request('job') == 'Driver' ? 'selected' : ''}}>Driver</option>
-                                        <option {{request('job') == 'Farmer' ? 'selected' : ''}}>Farmer</option>
-                                        <option {{request('job') == 'Guard' ? 'selected' : ''}}>Guard</option>
-                                        <option {{request('job') == 'Servants' ? 'selected' : ''}}>Servants</option>
-                                        <option {{request('job') == 'Cleaning' ? 'selected' : ''}}>Cleaning</option>
+                                        @foreach(\App\Model\Job::all() as $job)
+                                            <option value="{{ $job->id }}">{{ $job->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div>

@@ -1,7 +1,16 @@
 @extends('site.layout.index')
+@section('page_js')
+<script>
+    let countryList = document.getElementById("countryList") //select list with id countryList
+    let phoneCode = document.getElementById('phonecode') //span with id phonecode
+
+    countryList.addEventListener('change', function(){
+     phoneCode.value = this.options[this.selectedIndex].getAttribute("phonecode");
+    });
+</script>
+@stop
 @section('content')
     <main>
-
         <div class="signUpFamily">
             <div class="container">
                 <p class="h4 mb-3">Sponsor Register</p>
@@ -17,15 +26,24 @@
                                 <input type="text" name="last_name" value="{{ old('last_name') }}" required class="form-control" placeholder="Your last name">
 
                                 <label><i class="fas fa-star-of-life"></i> Country</label>
-                                <input type="text" name="country" value="{{ old('country') }}" required class="form-control" placeholder="Country">
+                                <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
+                                    <option selected disabled>Choose Country</option>
+                                    @foreach(\App\Model\Country::all() as $country)
+                                       <option phonecode="{{ $country->phonecode }}"
+                                               value="{{ $country->id }}"
+                                               id="shop-country">{{ $country->name }}
+                                      </option>
+                                    @endforeach
+                                </select>
 
-                                <label><i class="fas fa-star-of-life"></i> Address</label>
-                                <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="Address">
+                                <label><i class="fas fa-star-of-life"></i> City</label>
+                                <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="City">
 
-                                <label><i class="fas fa-star-of-life"></i> Phone Number</label>
-                                <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control" placeholder="Your phone number">
 
-                                <label>Email</label>
+                                <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
+                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Agency Mobile Number" required>
+
+                                <label><i class="fas fa-star-of-life"></i> Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>

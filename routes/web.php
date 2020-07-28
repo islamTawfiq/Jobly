@@ -18,14 +18,13 @@ Route::post('/send-emails','Site\help\helpController@help');
 
 Route::get('/countries/getStates', 'Site\countries\CountriesController@getStates');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::post('/filter','Site\filter\filterController@filterNanny');
+Route::get('/filter','Site\filter\filterController@filter');
+Route::get('/profile/{id}','Site\nannyProfile\profileController@index');
 
-    Route::post('/filter','Site\filter\filterController@filterNanny');
-    Route::get('/filter','Site\filter\filterController@filter');
-    Route::get('/profile/{id}','Site\nannyProfile\profileController@index');
+Route::group(['middleware' => ['auth']], function () {
     // reservation
     Route::post('/reservation/{id}','Site\nannyProfile\profileController@reservation');
-
 });
 
 Route::get('/login', 'Site\auth\LoginController@ShowLoginPage');
@@ -34,9 +33,12 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 // Broker Register
 Route::get('/broker-register', 'Site\auth\RegisterController@ShowBrokerRegister')->name('brokerRegister');
 Route::post('/broker-register', 'Site\auth\RegisterController@BrokerRegister');
-// Agency Register
-Route::get('/agency-register', 'Site\auth\RegisterController@ShowAgencyRegister')->name('agencyRegister');
-Route::post('/agency-register', 'Site\auth\RegisterController@AgencyRegister');
+// Import Agency Register
+Route::get('/import-agency-register', 'Site\auth\RegisterController@ShowImportAgencyRegister')->name('importAgencyRegister');
+Route::post('/import-agency-register', 'Site\auth\RegisterController@ImportAgencyRegister');
+// Export Agency Register
+Route::get('/export-agency-register', 'Site\auth\RegisterController@ShowExportAgencyRegister')->name('exportAgencyRegister');
+Route::post('/export-agency-register', 'Site\auth\RegisterController@ExportAgencyRegister');
 // Sponsor Register
 Route::get('/sponsor-register', 'Site\auth\RegisterController@ShowSponsorRegister')->name('sponsorRegister');
 Route::post('/sponsor-register', 'Site\auth\RegisterController@SponsorRegister');

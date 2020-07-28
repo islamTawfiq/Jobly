@@ -26,7 +26,7 @@ class addCvController extends Controller
                 'last_name'      => 'required|string',
                 'mobile'         => 'required|unique:nannies,mobile',
                 'country_id'     => 'required|integer',
-                'city_id'        => 'sometimes|integer',
+                'city'           => 'required|string',
                 'age'            => 'required|integer',
                 'religion'       => 'required|string',
                 'children'       => 'required|integer',

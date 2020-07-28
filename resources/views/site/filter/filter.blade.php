@@ -30,7 +30,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-12 filterSelect mb-3">
                                         <label class="ml-1 mb-0">Nationality</label>
-                                        <select class="selectpicker" name="country_id">
+                                        <select class="form-control selectpicker" data-live-search="true" name="country_id">
                                             <option selected disabled >Choose Country</option>
                                             @foreach(\App\Model\Country::all() as $country)
                                                 <option {{ request('religion') == $country->id ? 'selected' : ''}} value="{{ $country->id }}">{{ $country->name }}</option>
@@ -41,11 +41,9 @@
                                         <label class="ml-1 mb-0">Job Title</label>
                                         <select class="selectpicker" name="job">
                                             <option selected disabled >Job Title</option>
-                                            <option {{request('job') == 'Driver' ? 'selected' : ''}}>Driver</option>
-                                            <option {{request('job') == 'Farmer' ? 'selected' : ''}}>Farmer</option>
-                                            <option {{request('job') == 'Guard' ? 'selected' : ''}}>Guard</option>
-                                            <option {{request('job') == 'Servants' ? 'selected' : ''}}>Servants</option>
-                                            <option {{request('job') == 'Cleaning' ? 'selected' : ''}}>Cleaning</option>
+                                            @foreach(\App\Model\Job::all() as $job)
+                                                <option {{ request('job') == $job->id ? 'selected' : ''}} value="{{ $job->id }}">{{ $job->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-sm-6 col-lg-12 filterSelect mb-3">
@@ -54,6 +52,7 @@
                                             <option selected disabled >Religion</option>
                                             <option {{request('religion') == 'Muslim' ? 'selected' : ''}}>Muslim</option>
                                             <option {{request('religion') == 'Christian' ? 'selected' : ''}}>Christian</option>
+                                            <option {{request('religion') == 'Any' ? 'selected' : ''}}>Any</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-6 col-lg-12 filterSelect mb-3">
@@ -62,6 +61,7 @@
                                             <option selected disabled >Marital Status</option>
                                             <option {{request('marital_status') == 'Single' ? 'selected' : ''}}>Single</option>
                                             <option {{request('marital_status') == 'Married' ? 'selected' : ''}}>Married</option>
+                                            <option {{request('marital_status') == 'Any' ? 'selected' : ''}}>Any</option>
                                         </select>
                                     </div>
                                     <div class="col-12 filterSelect mb-1 ml-1">
@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <button class="btn btn-primary mb-3 ml-4 ml-lg-0 nannyFilter float-right float-lg-left">Filter</button>
-                                <a href="{{ url()->current() }}" class="btn btn-info mb-3 ml-4 ml-lg-0">Reset</a>
+                                <a href="{{ url()->current() }}" class="btn btn-info mb-3 ml-4 ml-lg-1">Reset</a>
                             </div>
                         </div>
                     </form>

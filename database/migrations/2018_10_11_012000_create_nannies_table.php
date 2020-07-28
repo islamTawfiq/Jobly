@@ -22,7 +22,7 @@ class CreateNanniesTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('mobile')->nullable();
             $table->integer('country_id')->nullable();
-            $table->integer('city_id')->nullable();
+            $table->string('city')->nullable();
             $table->integer('age')->nullable();
             $table->string('religion')->nullable();
             $table->integer('children')->nullable();

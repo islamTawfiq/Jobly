@@ -1,4 +1,14 @@
 @extends('site.layout.dashboard')
+@section('page_js')
+<script>
+    let countryList = document.getElementById("countryList") //select list with id countryList
+    let phoneCode = document.getElementById('phonecode') //span with id phonecode
+
+    countryList.addEventListener('change', function(){
+     phoneCode.value = this.options[this.selectedIndex].getAttribute("phonecode");
+    });
+</script>
+@stop
 @section('content')
     <main>
 
@@ -32,17 +42,28 @@
                                 'placeholder' => 'Last name',
                                 ])
                         </div>
+
                         <div class="col-12">
-                            @include('site.components.inputs.text', [
-                                'name' => 'country',
-                                'id' => '',
-                                'type' => 'text',
-                                'class' => '',
-                                'value' =>  $user->country,
-                                'label' => '* Country',
-                                'placeholder' => 'Country',
-                                ])
+                            <label>* Country</label>
+                            {{--  <select class="form-control" id="country_id" name="country_id">
+                                <option selected disabled >Choose Country</option>
+                                @foreach(\App\Model\Country::all() as $country)
+                                    <option value="{{$country->id}}" @if ( old('country_id') or $user->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>
+                                @endforeach
+                            </select>  --}}
+                            <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
+                                <option selected disabled>Choose Country</option>
+                                @foreach(\App\Model\Country::all() as $country)
+                                   <option phonecode="{{ $country->phonecode }}"
+                                        value="{{$country->id}}"
+                                        @if ( old('country_id') or $user->country_id == $country->id ) {{ 'selected' }} @endif
+                                        id="shop-country" >
+                                        {{$country->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
+
                         <div class="col-12">
                             @include('site.components.inputs.text', [
                                 'name' => 'address',
@@ -57,8 +78,8 @@
                         <div class="col-12">
                             @include('site.components.inputs.text', [
                                 'name' => 'phone',
-                                'id' => '',
-                                'type' => 'text',
+                                'id' => 'phonecode',
+                                'type' => 'number',
                                 'class' => '',
                                 'value' =>  $user->phone,
                                 'label' => '* Mobile Number',
@@ -71,7 +92,7 @@
                             @include('site.components.inputs.text', [
                                 'name' => 'whatsapp',
                                 'id' => '',
-                                'type' => 'text',
+                                'type' => 'number',
                                 'class' => '',
                                 'value' =>  $user->whatsapp,
                                 'label' => '* WhatsApp Number',

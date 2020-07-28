@@ -237,6 +237,9 @@
     #topNavbarInDashboard .mySignUpDrop:after {
         left: 75%;
     }
+    .carousel-item p {
+        font-size: 14px !important;
+    }
 }
 @media screen and (max-width:575px) {
     .age {
@@ -424,5 +427,12 @@
     }
     .watchlist {
         margin-right: 5px;
+    }
+    .carousel-item p {
+        font-size: 11px !important;
+        letter-spacing: 0 !important;
+    }
+    .carousel-indicators li {
+        margin: 3px;
     }
 }

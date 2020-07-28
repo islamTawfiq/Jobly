@@ -23,11 +23,19 @@ class RegisterController extends Controller
         }
     }
 
-    public  function  ShowAgencyRegister(){
+    public  function  ShowImportAgencyRegister(){
         if (auth()->check()){
             return redirect('/');
         }else{
-            return view('auth.agencyRegister');
+            return view('auth.importAgencyRegister');
+        }
+    }
+
+    public  function  ShowExportAgencyRegister(){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            return view('auth.exportAgencyRegister');
         }
     }
 
@@ -46,7 +54,7 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
-                'country'         => 'required|string',
+                'country_id'      => 'required|string',
                 'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'whatsapp'        => 'required|string',
@@ -72,27 +80,52 @@ class RegisterController extends Controller
         }
     }
 
-    public  function  AgencyRegister(Request $request){
+    public  function  ImportAgencyRegister(Request $request){
         if (auth()->check()){
             return redirect('/');
         }else{
             $data = $request->validate([
                 'agency_name'     => 'required|string',
                 'manager_name'    => 'required|string',
-                'country'         => 'required|string',
+                'country_id'      => 'required|string',
                 'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'telephone'       => 'required|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
-                'user_type_id'    => 'required',
-
             ]);
             $data['name'] = $data['agency_name'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
-            // $data['user_type_id'] = 3;
+            $data['user_type_id'] = 3;
+            $data['status'] = 0;
+            $data['active'] = 1;
+            $user = User::create($data);
+            Auth::login($user);
+            return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+        }
+    }
+
+    public  function  ExportAgencyRegister(Request $request){
+        if (auth()->check()){
+            return redirect('/');
+        }else{
+            $data = $request->validate([
+                'agency_name'     => 'required|string',
+                'manager_name'    => 'required|string',
+                'country_id'      => 'required|string',
+                'address'         => 'required|string',
+                'phone'           => 'required|unique:users,phone',
+                'telephone'       => 'required|string',
+                'email'           => 'required|email|unique:users,email',
+                'password'        => 'required|min:6|confirmed',
+                'user_image'      => 'required|nullable|image',
+            ]);
+            $data['name'] = $data['agency_name'];
+            $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
+            $data['password'] = Hash::make($request->password);
+            $data['user_type_id'] = 5;
             $data['status'] = 0;
             $data['active'] = 1;
             $user = User::create($data);
@@ -108,7 +141,7 @@ class RegisterController extends Controller
             $data = $request->validate([
                 'first_name'      => 'required|string',
                 'last_name'       => 'required|string',
-                'country'         => 'required|string',
+                'country_id'      => 'required|string',
                 'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'email'           => 'required|email|unique:users,email',
@@ -118,7 +151,7 @@ class RegisterController extends Controller
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 4;
-            $data['status'] = 0;
+            $data['status'] = 1;
             $data['active'] = 1;
             // if($data) {
             //     $data['code'] = SendCode::sendCode($data['phone']);
@@ -127,7 +160,7 @@ class RegisterController extends Controller
             $user = User::create($data);
             Auth::login($user);
             // return redirect('/verify')->with('success', 'Thanks, Please Verify Code');
-            return redirect('/')->with('success', 'Thanks, Please Waite To Accept Your Acount');
+            return redirect('/')->with('success', 'Thanks, Welcome to jobly');
 
         }
     }
