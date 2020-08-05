@@ -92,10 +92,11 @@
 
                                                         <div class="col-lg-6">
                                                             <label>Country</label>
-                                                            <select class="form-control" id="country_id" name="country_id">
+                                                            <select class="form-control selectpicker mb-2" data-live-search="true" id="country_id" name="country_id">
                                                                 <option selected disabled >Choose Country</option>
                                                                 @foreach(\App\Model\Country::all() as $country)
-                                                                    <option value="{{$country->id}}" @if ( old('country_id') or $nanny->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>                                                                @endforeach
+                                                                    <option value="{{$country->id}}"
+                                                                        @if ( $nanny->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>                                                                @endforeach
                                                             </select>
                                                         </div>
 
@@ -127,9 +128,9 @@
                                                             <label class="mt-0 mt-lg-0">Religion</label>
                                                             <select name="religion" class="selectpicker form-control">
                                                                 <option selected disabled >Select Religion</option>
-                                                                <option value="Muslim" @if (old('religion') or $nanny->religion == "Muslim") {{ 'selected' }} @endif>Muslim</option>
-                                                                <option value="Christian" @if (old('religion') or $nanny->religion == "Christian") {{ 'selected' }} @endif>Christian</option>
-                                                                <option value="Any" @if (old('religion') or $nanny->religion == "Any") {{ 'selected' }} @endif>Any</option>
+                                                                <option value="Muslim" @if ($nanny->religion == "Muslim") {{ 'selected' }} @endif>Muslim</option>
+                                                                <option value="Christian" @if ($nanny->religion == "Christian") {{ 'selected' }} @endif>Christian</option>
+                                                                <option value="Any" @if ($nanny->religion == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -147,10 +148,10 @@
 
                                                         <div class="col-lg-6">
                                                             <label>Job</label>
-                                                            <select name="job" class="selectpicker form-control">
+                                                            <select name="job_id" class="selectpicker form-control">
                                                                 <option selected disabled >Select Job</option>
                                                                 @foreach(\App\Model\Job::all() as $job)
-                                                                <option value="{{ $job->id }}" @if (old('job') or $nanny->job == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>
+                                                                <option value="{{ $job->id }}" @if ($nanny->job_id == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -183,9 +184,9 @@
                                                             <label>Marital Status</label>
                                                             <select name="marital_status" class="selectpicker form-control">
                                                                 <option selected disabled >Select Religion</option>
-                                                                <option value="Married" @if (old('marital_status') or $nanny->marital_status == "Married") {{ 'selected' }} @endif>Married</option>
-                                                                <option value="Single" @if (old('marital_status') or $nanny->marital_status == "Single") {{ 'selected' }} @endif>Single</option>
-                                                                <option value="Any" @if (old('marital_status') or $nanny->marital_status == "Any") {{ 'selected' }} @endif>Any</option>
+                                                                <option value="Married" @if ($nanny->marital_status == "Married") {{ 'selected' }} @endif>Married</option>
+                                                                <option value="Single" @if ($nanny->marital_status == "Single") {{ 'selected' }} @endif>Single</option>
+                                                                <option value="Any" @if ($nanny->marital_status == "Any") {{ 'selected' }} @endif>Any</option>
                                                             </select>
                                                         </div>
 
@@ -212,20 +213,20 @@
                                                                     <label>Arabic</label>
                                                                     <select name="arabic_lang" class="selectpicker form-control">
                                                                         <option selected disabled >your level</option>
-                                                                        <option value="Mother tongue" @if (old('arabic_lang') or $nanny->arabic_lang == "Mother tongue") {{ 'selected' }} @endif>Mother tongue</option>
-                                                                        <option value="Good" @if (old('arabic_lang') or $nanny->arabic_lang == "Good") {{ 'selected' }} @endif>Good</option>
-                                                                        <option value="Excellent" @if (old('arabic_lang') or $nanny->arabic_lang == "Excellent") {{ 'selected' }} @endif>Excellent</option>
-                                                                        <option value="Fluent" @if (old('arabic_lang') or $nanny->arabic_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
+                                                                        <option value="Mother tongue" @if ($nanny->arabic_lang == "Mother tongue") {{ 'selected' }} @endif>Mother tongue</option>
+                                                                        <option value="Good" @if ($nanny->arabic_lang == "Good") {{ 'selected' }} @endif>Good</option>
+                                                                        <option value="Excellent" @if ($nanny->arabic_lang == "Excellent") {{ 'selected' }} @endif>Excellent</option>
+                                                                        <option value="Fluent" @if ($nanny->arabic_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-6 col-lg-6">
                                                                     <label>English</label>
                                                                     <select name="english_lang" class="selectpicker form-control">
                                                                         <option selected disabled >your level</option>
-                                                                        <option value="Mother tongue" @if (old('english_lang') or $nanny->english_lang == "Mother tongue") {{ 'selected' }} @endif>Mother tongue</option>
-                                                                        <option value="Good" @if (old('english_lang') or $nanny->english_lang == "Good") {{ 'selected' }} @endif>Good</option>
-                                                                        <option value="Excellent" @if (old('english_lang') or $nanny->english_lang == "Excellent") {{ 'selected' }} @endif>Excellent</option>
-                                                                        <option value="Fluent" @if (old('english_lang') or $nanny->english_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
+                                                                        <option value="Mother tongue" @if ($nanny->english_lang == "Mother tongue") {{ 'selected' }} @endif>Mother tongue</option>
+                                                                        <option value="Good" @if ($nanny->english_lang == "Good") {{ 'selected' }} @endif>Good</option>
+                                                                        <option value="Excellent" @if ($nanny->english_lang == "Excellent") {{ 'selected' }} @endif>Excellent</option>
+                                                                        <option value="Fluent" @if ($nanny->english_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
                                                                     </select>
                                                                 </div>
                                                             </div>

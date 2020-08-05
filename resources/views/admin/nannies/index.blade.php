@@ -83,7 +83,7 @@
                     {data: 'age', name: 'age'},
                     {data: 'religion', name: 'religion'},
                     {data: 'children', name: 'children'},
-                    {data: 'job', name: 'job'},
+                    {data: 'job_name', name: 'job_name'},
                     {data: 'salary', name: 'salary'},
                     {data: 'experience', name: 'experience'},
                     {data: 'marital_status', name: 'marital_status'},

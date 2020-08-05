@@ -19,11 +19,13 @@
                         <div class="sponsorRegister">
                             <form action="{{url('/sponsor-register')}}" method="POST" enctype="multipart/form-data" class="form-group">
                                 @csrf
-                                <label><i class="fas fa-star-of-life"></i> First Name</label>
-                                <input type="text" name="first_name" value="{{ old('first_name') }}" required class="form-control" placeholder="Your first name">
-
-                                <label><i class="fas fa-star-of-life"></i> Last Name</label>
-                                <input type="text" name="last_name" value="{{ old('last_name') }}" required class="form-control" placeholder="Your last name">
+                                <div>
+                                    <label><i class="fas fa-star-of-life"></i> Name</label>
+                                </div>
+                                <div class="fullName mb-2">
+                                    <input type="text" name="first_name" value="{{ old('first_name') }}" required class="first" placeholder="Your first name">
+                                    <input type="text" name="last_name" value="{{ old('last_name') }}" required class="last" placeholder="Your last name">
+                                </div>
 
                                 <label><i class="fas fa-star-of-life"></i> Country</label>
                                 <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>

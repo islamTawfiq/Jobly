@@ -45,7 +45,7 @@ class Settings extends Model
         if (!empty($this->icon)){
             $attribute =url('storage' .$this->icon) ;
         }else{
-            $attribute = url("design/admin/img/logo.png");
+            $attribute = url("design/admin/img/jooblyFave.jpg");
         }
 
         return $attribute;

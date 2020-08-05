@@ -59,7 +59,7 @@
                 "columns": [
                     {data: 'id' , name: 'id'},
                     {data: 'name' , name: 'name'},
-                    {data: 'country' , name: 'country'},
+                    {data: 'country_name' , name: 'country_name'},
                     {data: 'address' , name: 'address'},
                     {data: 'phone' , name: 'phone'},
                     {

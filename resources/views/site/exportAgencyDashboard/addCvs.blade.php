@@ -90,7 +90,7 @@
 
                                                         <div class="col-lg-6">
                                                             <label>Country</label>
-                                                            <select class="form-control" id="country_id" name="country_id">
+                                                            <select class="form-control selectpicker mb-2" data-live-search="true" id="country_id" name="country_id">
                                                                 <option selected disabled >Choose Country</option>
                                                                 @foreach(\App\Model\Country::all() as $country)
                                                                     <option value="{{$country->id}}" @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>
@@ -150,10 +150,10 @@
 
                                                         <div class="col-lg-6">
                                                             <label>Job</label>
-                                                            <select name="job" class="selectpicker form-control">
+                                                            <select name="job_id" class="selectpicker form-control">
                                                                 <option selected disabled >Select Job</option>
                                                                 @foreach(\App\Model\Job::all() as $job)
-                                                                <option value="{{ $job->id }}" @if (old('job') == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>                                                                @endforeach
+                                                                <option value="{{ $job->id }}" @if (old('job_id') == $job->id) {{ 'selected' }} @endif>{{ $job->title }}</option>                                                                @endforeach
                                                             </select>
                                                         </div>
 

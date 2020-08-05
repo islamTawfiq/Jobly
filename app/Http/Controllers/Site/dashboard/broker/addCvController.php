@@ -30,7 +30,7 @@ class addCvController extends Controller
                 'age'            => 'required|integer',
                 'religion'       => 'required|string',
                 'children'       => 'required|integer',
-                'job'            => 'required|string',
+                'job_id'         => 'required|integer',
                 'salary'         => 'required|integer',
                 'experience'     => 'required|integer',
                 'marital_status' => 'required|string',

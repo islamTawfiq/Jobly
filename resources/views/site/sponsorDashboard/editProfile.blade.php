@@ -49,7 +49,7 @@
                                 @foreach(\App\Model\Country::all() as $country)
                                    <option phonecode="{{ $country->phonecode }}"
                                         value="{{$country->id}}"
-                                        @if ( old('country_id') or $user->country_id == $country->id ) {{ 'selected' }} @endif
+                                        @if ( $user->country_id == $country->id ) {{ 'selected' }} @endif
                                         id="shop-country" >
                                         {{$country->name}}
                                     </option>

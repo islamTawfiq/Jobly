@@ -30,19 +30,19 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-12 filterSelect mb-3">
                                         <label class="ml-1 mb-0">Nationality</label>
-                                        <select class="form-control selectpicker" data-live-search="true" name="country_id">
+                                        <select class="selectpicker" data-live-search="true" name="country_id">
                                             <option selected disabled >Choose Country</option>
                                             @foreach(\App\Model\Country::all() as $country)
-                                                <option {{ request('religion') == $country->id ? 'selected' : ''}} value="{{ $country->id }}">{{ $country->name }}</option>
+                                                <option {{ request('country_id') == $country->id ? 'selected' : ''}} value="{{ $country->id }}">{{ $country->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-sm-6 col-lg-12 filterSelect mb-3">
                                         <label class="ml-1 mb-0">Job Title</label>
-                                        <select class="selectpicker" name="job">
+                                        <select class="selectpicker" name="job_id">
                                             <option selected disabled >Job Title</option>
                                             @foreach(\App\Model\Job::all() as $job)
-                                                <option {{ request('job') == $job->id ? 'selected' : ''}} value="{{ $job->id }}">{{ $job->title }}</option>
+                                                <option {{ request('job_id') == $job->id ? 'selected' : ''}} value="{{ $job->id }}">{{ $job->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>

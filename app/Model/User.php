@@ -5,7 +5,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $appends = ['admin_group_name','user_main_image'];
+    protected $appends = ['admin_group_name','user_main_image','country_name'];
     protected $fillable = [
         'name',
         'first_name',
@@ -86,6 +86,22 @@ class User extends Authenticatable
     public function nanny_reserve()
     {
         return $this->hasMany('App\Model\Nanny', 'reserve_id');
+    }
+
+
+    public function county()
+    {
+        return $this->hasOne(Country::class, 'id', 'country_id');
+    }
+
+    public function getCountryNameAttribute()
+    {
+
+        $attribute = '';
+        if ($this->county) {
+            $attribute = $this->county->name;
+        }
+        return $attribute;
     }
 
 }

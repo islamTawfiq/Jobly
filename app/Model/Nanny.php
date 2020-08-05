@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Nanny extends Model
 {
 
-    protected $appends = ['broker_name','about_nanny','country_name'];
+    protected $appends = ['broker_name','about_nanny','country_name','job_name'];
     protected $fillable = [
         'main_image',
         'name',
@@ -20,7 +20,7 @@ class Nanny extends Model
         'age',
         'religion',
         'children',
-        'job',
+        'job_id',
         'salary',
         'experience',
         'marital_status',
@@ -74,6 +74,20 @@ class Nanny extends Model
         $attribute = '';
         if ($this->county) {
             $attribute = $this->county->name;
+        }
+        return $attribute;
+    }
+    public function job()
+    {
+        return $this->hasOne(Job::class, 'id', 'job_id');
+    }
+
+    public function getJobNameAttribute()
+    {
+
+        $attribute = '';
+        if ($this->job) {
+            $attribute = $this->job->title;
         }
         return $attribute;
     }

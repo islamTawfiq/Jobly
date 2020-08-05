@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>Job:</td>
-                    <td>{{$nanny->job}}</td>
+                    <td>{{$nanny->job_name}}</td>
                 </tr>
                 <tr>
                     <td>Age:</td>

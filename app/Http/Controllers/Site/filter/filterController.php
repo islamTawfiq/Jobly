@@ -14,7 +14,7 @@ class filterController extends Controller
 
 
         $country_id = $request->country_id ? $request->country_id : null;
-        $job = $request->job ? $request->job : null;
+        $job_id = $request->job_id ? $request->job_id : null;
 
         $skills = Skills::get();
 
@@ -24,10 +24,10 @@ class filterController extends Controller
                     return $q->where('country_id', $country_id);
                 });
             }
-        })->where(function ($q) use ($job) {
-            if ($job) {
-                $q->when($job, function ($q, $job) {
-                    return $q->where('job', $job);
+        })->where(function ($q) use ($job_id) {
+            if ($job_id) {
+                $q->when($job_id, function ($q, $job_id) {
+                    return $q->where('job_id', $job_id);
                 });
             }
         })->paginate(2);
@@ -50,7 +50,7 @@ class filterController extends Controller
 
         $country_id = $request->country_id ? $request->country_id : null;
         $religion = $request->religion ? $request->religion : null;
-        $job = $request->job ? $request->job : null;
+        $job_id = $request->job_id ? $request->job_id : null;
         $marital_status = $request->marital_status ? $request->marital_status : null;
         $getSkills = $request->skills ? $request->skills : [];
         $min = $request->min;
@@ -78,10 +78,10 @@ class filterController extends Controller
                         return $q->where('marital_status', $marital_status);
                     });
                 }
-            })->where(function ($q) use ($job) {
-                if ($job) {
-                    $q->when($job, function ($q, $job) {
-                        return $q->where('job', $job);
+            })->where(function ($q) use ($job_id) {
+                if ($job_id) {
+                    $q->when($job_id, function ($q, $job_id) {
+                        return $q->where('job_id', $job_id);
                     });
                 }
             })->where(function ($q) use ($getSkills) {

@@ -64,7 +64,7 @@
                     {data: 'id' , name: 'id'},
                     {data: 'agency_name' , name: 'agency_name'},
                     {data: 'manager_name' , name: 'manager_name'},
-                    {data: 'country' , name: 'country'},
+                    {data: 'country_name' , name: 'country_name'},
                     {data: 'address' , name: 'address'},
                     {data: 'phone' , name: 'phone'},
                     {data: 'telephone' , name: 'telephone'},

@@ -24,7 +24,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-control selectpicker" data-live-search="true" name="job">
+                                    <select class="form-control selectpicker" data-live-search="true" name="job_id">
                                         <option selected disabled >Job Title</option>
                                         @foreach(\App\Model\Job::all() as $job)
                                             <option value="{{ $job->id }}">{{ $job->title }}</option>

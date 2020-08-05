@@ -50,24 +50,26 @@
                             </div>
                         </div>
                     </div>
-                    @if ( auth()->user()->user_type_id != 2 and auth()->user()->user_type_id != 5 )
-                    <span class="watchlist favourit">
-                        <a href="#" class="listing-favorite-icon">
-                            <i class="fas fa-star"></i>
-                            Favourit
-                        </a>
-                    </span>
-                    <span class="watchlist">
-                        <a href="#" class="listing-exclamation-icon text-white">
-                            <i class="fas fa-share-square"></i> Share
-                        </a>
-                    </span>
-                    <span class="watchlist">
-                        <a href="#" class="listing-exclamation-icon text-white">
-                            <i class="fas fa-cloud-download-alt"></i> Download CV
-                        </a>
-                    </span>
-                    @endif
+                    @auth
+                        @if ( auth()->user()->user_type_id != 2 and auth()->user()->user_type_id != 5 )
+                        <span class="watchlist favourit">
+                            <a href="#" class="listing-favorite-icon">
+                                <i class="fas fa-star"></i>
+                                Favourit
+                            </a>
+                        </span>
+                        <span class="watchlist">
+                            <a href="#" class="listing-exclamation-icon text-white">
+                                <i class="fas fa-share-square"></i> Share
+                            </a>
+                        </span>
+                        <span class="watchlist">
+                            <a href="#" class="listing-exclamation-icon text-white">
+                                <i class="fas fa-cloud-download-alt"></i> Download CV
+                            </a>
+                        </span>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@ class CreateNanniesTable extends Migration
             $table->integer('age')->nullable();
             $table->string('religion')->nullable();
             $table->integer('children')->nullable();
-            $table->string('job')->nullable();
+            $table->integer('job_id')->nullable();
             $table->integer('salary')->nullable();
             $table->integer('experience')->nullable();
             $table->string('marital_status')->nullable();
