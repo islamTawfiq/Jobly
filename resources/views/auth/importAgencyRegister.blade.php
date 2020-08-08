@@ -13,7 +13,7 @@
     <main>
         <div class="signUpFamily">
             <div class="container">
-                <p class="h4 mb-3">Import Agency Register</p>
+                <p class="h4 mb-3 agencyReg">Domestic Workers Reqruitment Agency Register</p>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sponsorRegister">
@@ -28,7 +28,7 @@
                                 <label><i class="fas fa-star-of-life"></i> Country</label>
                                 <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
                                     <option selected disabled>Choose Country</option>
-                                    @foreach(\App\Model\Country::all() as $country)
+                                    @foreach(\App\Model\ImportingCountry::all() as $country)
                                        <option phonecode="{{ $country->phonecode }}"
                                                value="{{ $country->id }}"
                                                id="shop-country">{{ $country->name }}

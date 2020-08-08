@@ -9,9 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 text-white ml-2">
-                    <p class="h2">Find Your Nanny</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque molestias unde reiciendis
-                        accusamus laudantium quas. Obcaecati deserunt a consectetur sint!</p>
+                    <p class="h2">Find Your Domestic Workers</p>
+                    <p>Select your demand of demotic workers and get full access to the best workers! A lot of domestic employee’s agencies and sponsors   are looking for new employers, we help them to directly connect with you. It is FREE to subscribe</p>
                 </div>
             </div>
         </div>
@@ -64,25 +63,6 @@
                                             <option {{request('marital_status') == 'Any' ? 'selected' : ''}}>Any</option>
                                         </select>
                                     </div>
-                                    <div class="col-12 filterSelect mb-1 ml-1">
-                                        <p class="mb-2">Skills</p>
-                                        <div class="skills">
-                                            <div class="container">
-                                                <div class="row">
-                                                    {{--  {{ request(skills) }}  --}}
-                                                    <?php $mySkills = request('skills') ? request('skills') : [] ; ?>
-                                                    @foreach ($skills as $skill)
-                                                    <div class="col-4 col-lg-12 custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" name="skills[]" id="{{ $skill->skill }}"
-                                                        {{ in_array( $skill->skill , $mySkills ) ? 'checked' : '' }}
-                                                        value="{{ $skill->skill }}">
-                                                        <label class="custom-control-label" for="{{ $skill->skill }}">{{ $skill->skill }}</label>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-2 col-md-12"></div>
                                     <div class="col-10 col-md-12 filter mt-0">
                                         <div class="row">
@@ -98,6 +78,43 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-12 filterSelect mb-1">
+                                        {{--  <p class="mb-2">Skills</p>  --}}
+                                        <div class="skills">
+
+                                                <div class="row">
+
+
+                                                      <div id="accordion" class="col-12 m-0">
+                                                        <div class="card p-0">
+                                                          <div class="card-header" id="headingOne" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            <h5 class="mb-0" style="font-size: 18px">
+                                                                Show Skills
+                                                            </h5>
+                                                          </div>
+
+                                                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <?php $mySkills = request('skills') ? request('skills') : [] ; ?>
+                                                                @foreach ($skills as $skill)
+                                                                <div class="col-12 col-lg-12 custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" name="skills[]" id="{{ $skill->skill }}"
+                                                                    {{ in_array( $skill->skill , $mySkills ) ? 'checked' : '' }}
+                                                                    value="{{ $skill->skill }}">
+                                                                    <label class="custom-control-label" for="{{ $skill->skill }}">{{ $skill->skill }}</label>
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+
+
+                                                </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <button class="btn btn-primary mb-3 ml-4 ml-lg-0 nannyFilter float-right float-lg-left">Filter</button>
                                 <a href="{{ url()->current() }}" class="btn btn-info mb-3 ml-4 ml-lg-1">Reset</a>

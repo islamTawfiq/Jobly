@@ -61,6 +61,61 @@ $(document).ready(function () {
   });
 
 
+  $('#fileup').change(function(){
+    //here we take the file extension and set an array of valid extensions
+        var res=$('#fileup').val();
+        var arr = res.split("\\");
+        var filename=arr.slice(-1)[0];
+        filextension=filename.split(".");
+        filext="."+filextension.slice(-1)[0];
+        valid=[".docx",".pdf",".doc"];
+    //if file is not valid we show the error icon, the red alert, and hide the submit button
+        if (valid.indexOf(filext.toLowerCase())==-1){
+            $( ".imgupload" ).hide("slow");
+            $( ".imgupload.ok" ).hide("slow");
+            $( ".imgupload.stop" ).show("slow");
+
+            $('#namefile').css({"color":"red","font-weight":700});
+            $('#namefile').html("File "+filename+" is not  pic!");
+        }else{
+            //if file is valid we show the green alert and show the valid submit
+            $( ".imgupload" ).hide("slow");
+            $( ".imgupload.stop" ).hide("slow");
+            $( ".imgupload.ok" ).show("slow");
+
+            $('#namefile').css({"color":"green","font-weight":700});
+            $('#namefile').html(filename);
+        }
+    });
+
+  $('#fileup2').change(function(){
+    //here we take the file extension and set an array of valid extensions
+        var res=$('#fileup2').val();
+        var arr = res.split("\\");
+        var filename=arr.slice(-1)[0];
+        filextension=filename.split(".");
+        filext="."+filextension.slice(-1)[0];
+        valid=[".docx",".pdf",".doc"];
+    //if file is not valid we show the error icon, the red alert, and hide the submit button
+        if (valid.indexOf(filext.toLowerCase())==-1){
+            $( ".imgupload2" ).hide("slow");
+            $( ".imgupload2.ok2" ).hide("slow");
+            $( ".imgupload2.stop2" ).show("slow");
+
+            $('#namefile2').css({"color":"red","font-weight":700});
+            $('#namefile2').html("File "+filename+" is not  pic!");
+        }else{
+            //if file is valid we show the green alert and show the valid submit
+            $( ".imgupload2" ).hide("slow");
+            $( ".imgupload2.stop2" ).hide("slow");
+            $( ".imgupload2.ok2" ).show("slow");
+
+            $('#namefile2').css({"color":"green","font-weight":700});
+            $('#namefile2').html(filename);
+        }
+    });
+
+
   // UnoDropZone.init();
 
   // $(".addNewExperience").click(function(){

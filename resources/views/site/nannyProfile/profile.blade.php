@@ -156,30 +156,34 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-12 personData">
                                     <div class="row">
                                         <div class="col-6">
-                                            <span>Mobile</span>
+                                            <span>Education</span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="spanDetailes">{{$nanny->mobile}}</span>
+                                            <span class="spanDetailes">{{$nanny->education}}</span>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-12 personData">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12 mb-1">
                                             <span>Experience</span>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 text-center">
+                                            <span class="font-weight-bold">{{ $nanny->country_ex }}</span>
+                                        </div>
+                                        <div class="col-6 text-center">
                                             <span class="spanDetailes">{{$nanny->experience}}
                                                 @if ($nanny->experience > 1)
                                                     Years
                                                 @else
                                                     Year
                                                 @endif
-                                            </span>
-                                        </div>
+                                            </span>                                        </div>
                                     </div>
                                 </div>
 
@@ -232,6 +236,9 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <div class="aboutMeDetailes">
+                                            <p style="font-weight: bold" class="btn btn-primary float-right">Sourcing Fees
+                                                 <span style="color: #000"> ( $ {{ $nanny->fees }} )</span>
+                                                </p>
                                             <p class="h4">Who I am</p>
                                             <p>{{$nanny->about}}</p>
                                         </div>
@@ -303,12 +310,12 @@
                                     </a>
                                     <p class="text-muted m-0">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <span>{{ $randomNanny->country }}</span>
+                                        <span>{{$nanny->country_name}}</span>
                                     </p>
                                     <table>
                                         <tr>
                                             <td>Job:</td>
-                                            <td>{{ $randomNanny->job }}</td>
+                                            <td>{{$nanny->job_name}}</td>
                                         </tr>
                                         <tr>
                                             <td>Age:</td>
@@ -326,7 +333,7 @@
                                         </tr>
                                         <tr>
                                             <td>Salary:</td>
-                                            <td>{{ $randomNanny->salary }} QAR</td>
+                                            <td>{{ $randomNanny->salary }} $</td>
                                         </tr>
                                     </table>
                                     <a href="{{ $randomNanny->id }}" class="btn btn-primary mt-1">Details</a>

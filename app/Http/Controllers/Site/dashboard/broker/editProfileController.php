@@ -29,7 +29,7 @@ class editProfileController extends Controller
             'address'         => 'required|string',
             'phone'           => 'required|string',
             'whatsapp'        => 'required|string',
-            'email'           => 'required|email',
+            'email'           => 'sometimes|email',
         ]);
 
         $data['name'] = $data['first_name'] . ' ' . $data['last_name'];

@@ -58,7 +58,7 @@ class RegisterController extends Controller
                 'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
                 'whatsapp'        => 'required|string',
-                'email'           => 'required|email|unique:users,email',
+                'email'           => 'sometimes|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
 
@@ -144,7 +144,7 @@ class RegisterController extends Controller
                 'country_id'      => 'required|string',
                 'address'         => 'required|string',
                 'phone'           => 'required|unique:users,phone',
-                'email'           => 'required|email|unique:users,email',
+                'email'           => 'sometimes|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
 
             ]);

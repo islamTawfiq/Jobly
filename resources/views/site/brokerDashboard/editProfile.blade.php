@@ -106,7 +106,7 @@
                                 'type' => 'text',
                                 'class' => '',
                                 'value' =>  $user->email,
-                                'label' => '* Email',
+                                'label' => ' Email',
                                 'placeholder' => 'Your City',
                                 ])
                         </div>

@@ -1,5 +1,5 @@
 @extends('admin.components.tables.table')
-@section('pageName','Export Agencies')
+@section('pageName','Import Agencies')
 @section('thead')
     <tr>
         <th>Id</th>
@@ -17,11 +17,11 @@
 
     </tr>
 @stop
-{{--  @if (auth()->User()->group_id->agencies_add == 1)
+@if (auth()->User()->group_id->agencies_add == 1)
 @section('modal')
-    @include('admin.users.admins.list.create',['id'=>'createmodal','name'=>trans('create new Agencies'),'action'=>url()->current()])
+    @include('admin.users.agencies.import.create',['id'=>'createmodal','name'=>trans('create new Agency'),'action'=>url()->current()])
 @stop
-@endif  --}}
+@endif
 @section('table_scripts')
     <script>
         $(document).ready(function () {
@@ -48,7 +48,17 @@
                 bInfo: true,
                 pageLength: 15,
                 buttons: [
-
+                    @if (auth()->User()->group->agencies_add == 1)
+                    {
+                        text: "<i class='feather icon-plus'></i>Add New",
+                        action: function () {
+                            $(this).removeClass("btn-secondary");
+                            $(".add-new-data").addClass("show");
+                            $(".overlay-bg").addClass("show");
+                        },
+                        className: "btn btn-white  buttons mb-1  waves-effect waves-light"
+                    },
+                    @endif
                     {extend:'copy',text:'<i class="feather icon-copy"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'csv',text:'<i class="fa fa-file-archive-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
                     {extend:'excel',text:'<i class="fa fa-file-excel-o"></i>',className:'btn btn-white mb-1  waves-effect waves-light'},
@@ -91,14 +101,17 @@
                     {
 
                         "mRender": function (data, type, row) {
-                            var
+                            var data1 = '' ,
                                 data2 = '' ,
                                 data3 = '' ;
+                            @if (auth()->User()->group->agencies_edit == 1 )
+                            var data1 = '<a href="{{url()->current()}}/' + row.id + '/edit" class="action-edit"><i class="feather icon-edit"></i></a>';
+                            @endif
                                 @if (auth()->User()->group->agencies_delete == 1 )
                             var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
                                 @endif
                             var data3 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-status"><i class="feather icon-pause action-status"></i></a>';
-                                return data3 + data2;
+                                return data1 + data3 + data2;
                         }, orderable: false, searchable: false
                     }
                 ],

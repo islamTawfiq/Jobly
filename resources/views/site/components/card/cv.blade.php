@@ -48,13 +48,9 @@
                         @endif
                     </td>
                 </tr>
-                {{--  <tr>
-                    <td>Languages:</td>
-                    <td>English, Arabic</td>
-                </tr>  --}}
                 <tr>
                     <td>Salary:</td>
-                    <td>{{ $nanny->salary }} QAR</td>
+                    <td>{{ $nanny->salary }} $</td>
                 </tr>
             </table>
             <a href="{{url( '/profile/' . $nanny->id )}}" class="btn btn-primary mt-1">Details</a>

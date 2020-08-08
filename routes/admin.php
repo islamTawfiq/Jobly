@@ -40,6 +40,7 @@ Route::resource('nannies','nannies\NanniesController');
 Route::resource('skills','skills\SkillsController');
 Route::resource('jobs','jobs\JobsController');
 Route::resource('countries','countries\CountriesController');
+Route::resource('importing-countries','countries\ImportingCountriesController');
 Route::resource('help','help\helpController');
 
 Route::get('about-us','pages\aboutUs\aboutUsController@index');

@@ -13,7 +13,7 @@
     <main>
         <div class="signUpFamily">
             <div class="container">
-                <p class="h4 mb-3">Export Agency Register</p>
+                <p class="h4 mb-3 agencyReg">Manpower Sourcing Agency Register</p>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sponsorRegister">

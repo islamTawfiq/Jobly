@@ -26,7 +26,11 @@
             @endif
 
             @if (auth()->User()->group_id->skills_show == 1)
-            @include('admin.components.navItems.singleitem', ['url' => url('admin/countries'),'name'=>'Countries','icon'=>'feather icon-circle'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/countries'),'name'=>'Exporting Countries','icon'=>'feather icon-circle'])
+            @endif
+
+            @if (auth()->User()->group_id->skills_show == 1)
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/importing-countries'),'name'=>'Importing Countries','icon'=>'feather icon-circle'])
             @endif
 
             @if (auth()->User()->group_id->nannies_show == 1)

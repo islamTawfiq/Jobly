@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\users\admins;
 
 use App\Http\Controllers\Controller;
 use App\Model\User;
-use Carbon\Carbon;
 use DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

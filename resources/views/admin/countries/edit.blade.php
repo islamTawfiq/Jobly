@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             @include('admin.layout.panels.breadcrumb', ['pageName' => 'Edite Country'.' : '.$item->name ,'items'=>[
            [
-           'name'=>'countries',
+           'name'=>'Exporting Countries',
            'url'=>url('/admin/countries'),
            ]
            ]

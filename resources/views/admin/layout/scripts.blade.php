@@ -11,6 +11,8 @@
 <!-- END: Theme JS-->
 
 <script src="{{url('design/admin/js/scripts/textEditor/summernote.js')}}"></script>
+<script src="{{url('design/site/js/bootstrap-select.min.js')}}"></script>
+<script src="{{url('design/site/js/jpreview.js')}}"></script>
 <script src="{{url('design/admin/vendors/js/pickers/pickadate/picker.js')}}"></script>
 <script src="{{url('design/admin/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
 <script src="{{url('design/admin/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
@@ -27,4 +29,6 @@
 @include('admin.layout.scripts.index')
 <!-- END: inputs JS-->
 <script src="{{url('design/admin/js/main.js')}}"></script>
+<script src="{{url('design/site/js/plug.js')}}"></script>
+
 @yield('main_js')

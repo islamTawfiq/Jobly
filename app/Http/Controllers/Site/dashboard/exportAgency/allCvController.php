@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Site\dashboard\exportAgency;
+namespace App\Http\Controllers\Site\dashboard\broker;
 
 use App\Http\Controllers\Controller;
 use App\Model\Skills;
@@ -17,7 +17,7 @@ class allCvController extends Controller
         $user = Auth()->user();
         $nannies = $user->nannies()->paginate(10);
         $skills = Skills::get();
-        return view('site.exportAgencyDashboard.allCvs', compact('nannies'));
+        return view('site.brokerDashboard.allCvs', compact('nannies'));
     }
 
     public function edit($id)
@@ -28,7 +28,7 @@ class allCvController extends Controller
         $arrSkill = explode( "," , $arrSkill );
         $arrGallery = $nanny->gallery;
         $arrGallery = explode( "," , $arrGallery );
-        return view('site.exportAgencyDashboard.editCv', compact('nanny','skills','arrSkill','arrGallery'));
+        return view('site.brokerDashboard.editCv', compact('nanny','skills','arrSkill','arrGallery'));
     }
 
     public function update(Request $request, $id)
@@ -40,21 +40,24 @@ class allCvController extends Controller
             'main_image'     => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'first_name'     => 'required|string',
             'last_name'      => 'required|string',
-            'mobile'         => 'required|unique:nannies,mobile,' . $id,
             'country_id'     => 'required|integer',
             'city'           => 'required|string',
             'age'            => 'required|integer',
             'religion'       => 'required|string',
-            'children'       => 'required|integer',
+            'children'       => 'required|string',
             'job_id'         => 'required|integer',
-            'salary'         => 'required|integer',
-            'experience'     => 'required|integer',
+            'salary'         => 'required|string',
+            'fees'           => 'required|string',
+            'experience'     => 'required|string',
+            'country_ex'     => 'required|string',
             'marital_status' => 'required|string',
-            // 'education'      => 'required|string',
+            'education'      => 'required|string',
             'height'         => 'required|integer',
             'weight'         => 'required|integer',
             'arabic_lang'    => 'required|string',
             'english_lang'   => 'required|string',
+            'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf',
+            'passport'       => 'sometimes|max:100000|mimes:doc,docx,pdf',
             'about'          => 'required|string',
             'skills'         => 'required',
             'gallery'        => 'sometimes',

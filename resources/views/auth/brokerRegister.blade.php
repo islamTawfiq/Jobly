@@ -41,13 +41,13 @@
                                 <label><i class="fas fa-star-of-life"></i> City</label>
                                 <input type="text" name="address" value="{{ old('address') }}" class="form-control" placeholder="City" required>
 
-                                <label><i class="fas fa-star-of-life"></i> Phone Number</label>
+                                <label><i class="fas fa-star-of-life"></i> Mobile</label>
                                 <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Your phone number" required>
 
                                 <label><i class="fas fa-star-of-life"></i> WhatsApp Number</label>
                                 <input type="number" name="whatsapp" value="{{ old('whatsapp') }}" class="form-control" placeholder="Your whatsapp number" required>
 
-                                <label><i class="fas fa-star-of-life"></i> Email</label>
+                                <label>Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Your email" required>
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>

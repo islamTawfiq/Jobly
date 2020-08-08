@@ -29,7 +29,7 @@ class editProfileController extends Controller
             'address'         => 'required|string',
             'phone'           => 'required|string',
             'telephone'       => 'required|string',
-            'email'           => 'required|email|',
+            'email'           => 'sometimes|email|',
         ]);
 
         $data['name'] = $data['agency_name'];

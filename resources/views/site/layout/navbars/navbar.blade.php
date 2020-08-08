@@ -68,10 +68,10 @@
                 </a>
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                    <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as Broker</a>
-                    <a class="dropdown-item" href="{{ url('/export-agency-register') }}">Sign up as Export Workers</a>
-                    <a class="dropdown-item" href="{{ url('/import-agency-register') }}">Sign up as Import Workers</a>
-                    <a class="dropdown-item" href="{{ url('/sponsor-register') }}">Sign up as Sponsor</a>
+                    <a class="dropdown-item" href="{{ url('/broker-register') }}">Sign up as workers sourcing broker</a>
+                    <a class="dropdown-item" href="{{ url('/export-agency-register') }}">Sign up as workers sourcing agency</a>
+                    <a class="dropdown-item" href="{{ url('/import-agency-register') }}">Sign up as reqruitment agency</a>
+                    <a class="dropdown-item" href="{{ url('/sponsor-register') }}">Sign up as a family sponsorship</a>
                 </div>
             </div>
         @endguest

@@ -33,11 +33,10 @@
                     <div class="col-lg-4">
                         <div class="callUs text-center">
                             <div class="imgCall mb-2">
-                                <img src="{{url('design/site/images/call-answer.png')}}" alt="call us">
+                                <i class="fas fa-headset" style="font-size: 50px; color: #ef7f65"></i>
                             </div>
-                            <p class="h5 mb-4">Call us at</p>
-                            <p class="textCallUs">{!! $item->text !!}</p>
-                            <p class="phoneCall">{!! $item->mobile !!}</p>
+                            <p class="h5 mb-4">Online Support</p>
+                            <img src="{{ url('design/site/images/support.png') }}" style="width: 70%; height: 70%" alt="support">
                         </div>
                     </div>
                 </div>

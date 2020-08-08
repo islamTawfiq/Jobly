@@ -78,7 +78,6 @@
                         }
                     },
                     {data: 'name', name: 'name'},
-                    {data: 'mobile', name: 'mobile'},
                     {data: 'country_name', name: 'country_name'},
                     {data: 'age', name: 'age'},
                     {data: 'religion', name: 'religion'},
@@ -96,12 +95,15 @@
                     {
 
                         "mRender": function (data, type, row) {
-                            var data2 = '';
-
+                            var data1 = '',
+                                data2 = '';
+                                @if (auth()->User()->group->nannies_edit == 1 )
+                                var data1 = '<a href="{{url()->current()}}/' + row.id + '/edit" class="action-edit"><i class="feather icon-edit"></i></a>';
+                                @endif
                                 @if (auth()->User()->group->nannies_delete == 1 )
                             var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
                                 @endif
-                                return  data2;
+                                return data1 + data2;
                         }, orderable: false, searchable: false
                     }
                 ],

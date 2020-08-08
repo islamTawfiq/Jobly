@@ -6,8 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <p class="h5">My CVs</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, modi!</p>
+                        <p class="h5">My CVs Status</p>
                     </div>
                     <div class="col-lg-4 text-lg-right">
                         <div class="addNewCv">

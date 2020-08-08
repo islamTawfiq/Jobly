@@ -29,6 +29,8 @@
     <!-- BEGIN: inputs CSS-->
 
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/css/plugins/tour/tour.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('design/site/css/bootstrap-select.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url('design/site/css/jpreview.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/pickers/pickadate/pickadate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/forms/select/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('design/admin/vendors/css/dropify/dropify.min.css')}}">

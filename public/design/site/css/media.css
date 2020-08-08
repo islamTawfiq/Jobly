@@ -242,6 +242,9 @@
     }
 }
 @media screen and (max-width:575px) {
+    .basicInformation .formCv {
+        padding: 5px 0 !important;
+    }
     .age {
         margin-top: 5px;
     }

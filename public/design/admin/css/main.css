@@ -9,6 +9,14 @@ select.myCustomSelect option {
     color: yellow !important;
 }
 
+.dropdown .btn:not(.btn-sm):not(.btn-lg), .dropdown .btn:not(.btn-sm):not(.btn-lg).dropdown-toggle {
+    padding: 0.85rem 1.5rem;
+    background: #fff !important;
+    color: #888 !important;
+    border: 1px solid #d9d9d9 !important;
+    outline: #d9d9d9 !important;
+}
+
 
 
 

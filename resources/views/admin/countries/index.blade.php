@@ -1,5 +1,5 @@
 @extends('admin.components.tables.table')
-@section('pageName','Countries')
+@section('pageName','Exporting Countries')
 @section('thead')
     <tr>
         <th>Id</th>

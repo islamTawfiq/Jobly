@@ -46,7 +46,7 @@
                             <label>* Country</label>
                             <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
                                 <option selected disabled>Choose Country</option>
-                                @foreach(\App\Model\Country::all() as $country)
+                                @foreach(\App\Model\ImportingCountry::all() as $country)
                                    <option phonecode="{{ $country->phonecode }}"
                                         value="{{$country->id}}"
                                         @if ( $user->country_id == $country->id ) {{ 'selected' }} @endif

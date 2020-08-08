@@ -13,7 +13,8 @@
     <main>
         <div class="signUpFamily">
             <div class="container">
-                <p class="h4 mb-3">Sponsor Register</p>
+                <p class="h4 mb-3" style="display: inline-block">Sponsor Register</p>
+                <span class="newSpan">( we are family, we need to hire )</span>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sponsorRegister">
@@ -30,7 +31,7 @@
                                 <label><i class="fas fa-star-of-life"></i> Country</label>
                                 <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
                                     <option selected disabled>Choose Country</option>
-                                    @foreach(\App\Model\Country::all() as $country)
+                                    @foreach(\App\Model\ImportingCountry::all() as $country)
                                        <option phonecode="{{ $country->phonecode }}"
                                                value="{{ $country->id }}"
                                                id="shop-country">{{ $country->name }}
@@ -42,10 +43,10 @@
                                 <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="City">
 
 
-                                <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
+                                <label><i class="fas fa-star-of-life"></i> Mobile</label>
                                 <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Agency Mobile Number" required>
 
-                                <label><i class="fas fa-star-of-life"></i> Email</label>
+                                <label>Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>

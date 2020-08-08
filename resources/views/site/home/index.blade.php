@@ -5,14 +5,13 @@
 
         @guest
         <div class="letStart text-center">
-            <div class="imgAbs">
+            {{--  <div class="imgAbs">
                 <img src="{{url('design/site/images/abs.png')}}" alt="abs">
-            </div>
+            </div>  --}}
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <p class="h4">Let's Start Now</p>
-                        <p class="pCont">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                        <p class="h4 mb-4">Let's Start Now</p>
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
@@ -20,15 +19,15 @@
                             <p class="h5">I am a Sponsor <br> I want to hire a domestic workers</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>Search for candidates </span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>Interview candidate </span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>Hire applicants from good agency </span>
                             </div>
                             <div class="signStart">
                                 <a href="{{ url('/sponsor-register') }}" class="btn btn-primary">Sign In</a>
@@ -40,18 +39,18 @@
                             <p class="h5">We are Manpower agency <br> We want to join now</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>To show good candidates CVs </span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>To facilities interview for sponsors </span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Lorem ipsum dolor sit amet.</span>
+                                <span>To assist sponsors to get their demand applicants  </span>
                             </div>
                             <div class="signStart">
-                                <a href="{{ url('/agency-register') }}" class="btn btn-primary">Sign In</a>
+                                <a href="{{ url('/import-agency-register') }}" class="btn btn-primary">Sign In</a>
                             </div>
                         </div>
                     </div>
@@ -84,9 +83,14 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="textWhoWeAre">
+
                             <p class="h4">{!! $about->title !!}</p>
-                            <p class="text-muted">{!! $about->body !!}</p>
-                            <a href="{{ url('/about-us') }}" class="btn btn-primary">More</a>
+                            <p class="text-muted">
+                                {!! Str::limit( $about->body , 480) !!}
+                                @if ( strlen( $about->body ) > 480 )
+                                 <a href="{{ url('/about-us') }}" class="btn btn-primary">More</a>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +101,7 @@
         <div class="countNannyProfile">
             <div class="afterBack">
                 <div class="countText">
-                    <p>+ {{ count($nannies) }} Nanny Profile</p>
+                    <p>+ {{ count($nannies) }} Domestic Workers Profile</p>
                 </div>
             </div>
         </div>
@@ -109,8 +113,8 @@
                     <div class="col-lg-5">
                         <div class="textWhoWeAre">
                             <p class="h4">What Our Customers Says</p>
-                            <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt neque
-                                adipisci nulla quasi dolore fugit velit officiis, quia culpa possimus.</p>
+                            <p class="text-muted">We receive many messages of admiration and appreciation for the way the site works.</p>
+                            <p class="text-muted">Your opinion matters to us at info@joobly.net</p>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -131,19 +135,13 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <p>"It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                            with the release of set sheets containing"</p>
+                                        <p>"Joobly website is very supportive throughout the entire recruitment process, it is behind every step of the way knows the knowledgeable about the domestic workers hiring and the interview process."</p>
                                     </div>
                                     <div class="carousel-item">
-                                        <p>"It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                            with the release of set sheets containing"</p>
+                                        <p>"The shortlist of CV’s that Joobly supplied indicated a good understanding of the brief. I  always accessible during the process, we found a good candidate quickly and based on our experience with Joobly, would work with her again"</p>
                                     </div>
                                     <div class="carousel-item">
-                                        <p>"It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                            with the release of set sheets containing"</p>
+                                        <p>"It was a good experience working with this website it consistent in hiring process and the communication was very smooth. I learned easy how to book my desire domestic workers.Joobly working professional."</p>
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#myCustomerSlider" role="button" data-slide="prev">

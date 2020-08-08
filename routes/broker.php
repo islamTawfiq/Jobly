@@ -14,10 +14,12 @@
  Route::get('interviews','interviewsController@index');
 
  Route::resource('all-cvs','allCvController')->except([
-      'store', 'show','destroy'
+     'store', 'show','destroy'
  ]);
  Route::get('all-cvs/{id}', 'allCvController@destroy');
 
+ Route::get('my-payments','myPaymentsController@index');
+ Route::get('my-notification','inboxController@index');
 
 
 

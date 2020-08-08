@@ -32,6 +32,15 @@
             <a href="{{url('/broker-dashboard/interviews')}}"
              class="{{ url()->current() == url('/broker-dashboard/interviews') ? 'active' : '' }}">My Interviews</a>
         </li>
+        <li>
+            <a href="{{url('/broker-dashboard/my-payments')}}"
+             class="{{ url()->current() == url('/broker-dashboard/my-payments') ? 'active' : '' }}">My Payments</a>
+        </li>
+        <li>
+            <a href="{{url('/broker-dashboard/my-notification')}}"
+             class="{{ url()->current() == url('/broker-dashboard/my-notification') ? 'active' : '' }}">My Notification</a>
+        </li>
+
     @endif
     @if (auth()->user()->user_type_id == 5)
         <li>

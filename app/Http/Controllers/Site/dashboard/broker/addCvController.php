@@ -24,29 +24,36 @@ class addCvController extends Controller
                 'main_image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'first_name'     => 'required|string',
                 'last_name'      => 'required|string',
-                'mobile'         => 'required|unique:nannies,mobile',
                 'country_id'     => 'required|integer',
                 'city'           => 'required|string',
                 'age'            => 'required|integer',
                 'religion'       => 'required|string',
-                'children'       => 'required|integer',
+                'children'       => 'required|string',
                 'job_id'         => 'required|integer',
-                'salary'         => 'required|integer',
-                'experience'     => 'required|integer',
+                'salary'         => 'required|string',
+                'fees'           => 'required|string',
+                'experience'     => 'required|string',
+                'country_ex'     => 'required|string',
                 'marital_status' => 'required|string',
-                // 'education'      => 'required|string',
+                'education'      => 'required|string',
                 'height'         => 'required|integer',
                 'weight'         => 'required|integer',
                 'arabic_lang'    => 'required|string',
                 'english_lang'   => 'required|string',
+                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf',
+                'passport'       => 'required|max:100000|mimes:doc,docx,pdf',
                 'about'          => 'required|string',
                 'skills'         => 'required',
-                'gallery'        => 'required',
+                'gallery'        => 'sometimes',
                 'gallery.*'      => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
             $data['broker_id'] = auth()->user()->id;
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
+
             $request->hasFile('main_image') ?  $data['main_image'] = $this->storeFile($request->main_image, 'Nannies') : '';
+
+            $request->hasFile('medical') ?  $data['medical'] = $this->storeFile($request->medical, 'Medical') : '';
+            $request->hasFile('passport') ?  $data['passport'] = $this->storeFile($request->passport, 'Passport') : '';
 
             if($request->hasfile('gallery'))
             {

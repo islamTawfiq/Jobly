@@ -12,7 +12,7 @@
                             <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
-                            <a href="{{url('/filter')}}">Nannies</a>
+                            <a href="{{url('/filter')}}">Domestic Workers</a>
                         </li>
                         <li>
                             <a href="{{url('/about-us')}}">About</a>
@@ -24,6 +24,9 @@
                     <ul class="list-unstyled">
                         <li>
                             <a href="{{url('/contact-us')}}">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="">Local Domestic Workers</a>
                         </li>
                     </ul>
                 </div>
