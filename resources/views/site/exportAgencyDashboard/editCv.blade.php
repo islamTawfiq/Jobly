@@ -225,6 +225,22 @@
                                                                         <option value="Fluent" @if ($nanny->english_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
                                                                     </select>
                                                                 </div>
+
+
+                                                                <div class="col-lg-12">
+                                                                    <span class="star">*</span>
+                                                                    @include('site.components.inputs.text', [
+                                                                    'name' => 'mobile',
+                                                                    'id' => '',
+                                                                    'type' => 'text',
+                                                                    'class' => '',
+                                                                    'value' => $nanny->mobile,
+                                                                    'label' => 'Candidate Active Mobile Number : ( for interview )',
+                                                                    'placeholder' => 'Mobile Number',
+                                                                    'required' => true,
+                                                                    ])
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -239,7 +255,7 @@
                                 <div class="row">
                                     <div class="col-2"></div>
                                     <div class="col-md-4">
-                                        <p class="upfilecv">Medical Test</p>
+                                        <p class="upfilecv">Documents</p>
                                         <div class="center medical">
                                             <h5 class="imgupload"><i class="fa fa-file-image-o"></i></h5>
                                             <h5 class="imgupload ok"><i class="fa fa-check"></i></h5>
@@ -295,8 +311,8 @@
                                 </div>
                             </div>
                             <div class="basicInformation text-center text-lg-left">
-                                <p cla  ss="h5">Gallery</p>
-                                <div class="container mt-2">
+                                <p class="h5 d-block">Gallery <span style="font-size: 15px">(At least one full body picture)</span></p>
+                                 <div class="container mt-2">
                                     <div class="row">
                                         <div class="col-lg-1">
                                             <label for="gallery" class="upload-photo mb-2">

@@ -11,8 +11,6 @@
  Route::get('reject/{id}','clientOrdersController@rejectNanny');
  Route::get('confirm/{id}','clientOrdersController@confirmNanny');
 
- Route::get('interviews','interviewsController@index');
-
  Route::resource('all-cvs','allCvController')->except([
      'store', 'show','destroy'
  ]);

@@ -242,6 +242,12 @@
     }
 }
 @media screen and (max-width:575px) {
+    .regist input.first {
+        width: 25%;
+    }
+    .regist input.last {
+        width: 72%;
+    }
     .basicInformation .formCv {
         padding: 5px 0 !important;
     }

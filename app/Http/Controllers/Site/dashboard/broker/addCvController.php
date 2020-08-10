@@ -29,6 +29,7 @@ class addCvController extends Controller
                 'age'            => 'required|integer',
                 'religion'       => 'required|string',
                 'children'       => 'required|string',
+                'mobile'         => 'required|string',
                 'job_id'         => 'required|integer',
                 'salary'         => 'required|string',
                 'fees'           => 'required|string',
@@ -40,8 +41,8 @@ class addCvController extends Controller
                 'weight'         => 'required|integer',
                 'arabic_lang'    => 'required|string',
                 'english_lang'   => 'required|string',
-                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf',
-                'passport'       => 'required|max:100000|mimes:doc,docx,pdf',
+                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
+                'passport'       => 'required|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
                 'about'          => 'required|string',
                 'skills'         => 'required',
                 'gallery'        => 'sometimes',
@@ -55,18 +56,17 @@ class addCvController extends Controller
             $request->hasFile('medical') ?  $data['medical'] = $this->storeFile($request->medical, 'Medical') : '';
             $request->hasFile('passport') ?  $data['passport'] = $this->storeFile($request->passport, 'Passport') : '';
 
-            if($request->hasfile('gallery'))
+            if($request->hasfile('gallery') && $request->hasfile('gallery') != '' )
             {
-
                 foreach($request->file('gallery') as $image)
                 {
                    $name=$image->getClientOriginalName();
                    $image->move(public_path().'/gallery/', $name);
                    $gallery[] = $name;
                 }
+                $data['gallery'] = implode( "," , $gallery );
             }
 
-            $data['gallery'] = implode( "," , $gallery );
             $data['skills'] = implode( "," , $data['skills'] );
             Nanny::create($data);
             return redirect('/broker-dashboard/all-cvs')->with('success', 'cv created successfully');

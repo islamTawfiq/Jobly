@@ -86,18 +86,30 @@
                                                         ])
                                                     </div>
 
-                                                    <div class="col-xl-12 col-md-12 col-12">
+                                                    <div class="col-3">
                                                         @include('admin.components.inputs.text', [
-                                                        'name' => 'phone',
+                                                        'name' => 'phonecode',
                                                         'id' => 'phonecode',
                                                         'type' => 'number',
                                                         'class' => '',
-                                                        'value' =>  $user->phone,
-                                                        'label' => 'phone',
-                                                        'icon' =>'feather icon-user',
-                                                        'placeholder' => 'phone',
+                                                        'value' => $user->phonecode,
+                                                        'label' => 'Code',
+                                                        'placeholder' => 'Code',
                                                         'disabled' => false,
-                                                        'required' => true,
+                                                        'required' => true
+                                                        ])
+                                                    </div>
+                                                    <div class="col-9">
+                                                        @include('admin.components.inputs.text', [
+                                                        'name' => 'mobileNumber',
+                                                        'id' => '',
+                                                        'type' => 'number',
+                                                        'class' => '',
+                                                        'value' => $user->mobileNumber,
+                                                        'label' => 'Mobile',
+                                                        'placeholder' => 'Your Mobile Number',
+                                                        'disabled' => false,
+                                                        'required' => true
                                                         ])
                                                     </div>
 
@@ -112,7 +124,6 @@
                                                         'icon' =>'feather icon-user',
                                                         'placeholder' => 'telephone',
                                                         'disabled' => false,
-                                                        'required' => true,
                                                         ])
                                                     </div>
 

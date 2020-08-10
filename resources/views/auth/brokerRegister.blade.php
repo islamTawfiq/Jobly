@@ -33,8 +33,10 @@
                                     @foreach(\App\Model\Country::all() as $country)
                                        <option phonecode="{{ $country->phonecode }}"
                                                value="{{ $country->id }}"
+                                               @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif
                                                id="shop-country">{{ $country->name }}
                                       </option>
+
                                     @endforeach
                                 </select>
 
@@ -42,13 +44,16 @@
                                 <input type="text" name="address" value="{{ old('address') }}" class="form-control" placeholder="City" required>
 
                                 <label><i class="fas fa-star-of-life"></i> Mobile</label>
-                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Your phone number" required>
+                                <div class="regist mb-2">
+                                    <input type="text" name="phonecode" value="{{ old('phonecode') }}" id="phonecode" class="first" placeholder="code" required>
+                                    <input type="text" value="{{ old('mobileNumber') }}" name="mobileNumber" class="last" placeholder="Your Mobile Number" required>
+                                </div>
 
-                                <label><i class="fas fa-star-of-life"></i> WhatsApp Number</label>
-                                <input type="number" name="whatsapp" value="{{ old('whatsapp') }}" class="form-control" placeholder="Your whatsapp number" required>
+                                <label> WhatsApp Number</label>
+                                <input type="text" name="whatsapp" value="{{ old('whatsapp') }}" class="form-control" placeholder="Your whatsapp number">
 
                                 <label>Email</label>
-                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Your email" required>
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Your email">
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Your password" required>

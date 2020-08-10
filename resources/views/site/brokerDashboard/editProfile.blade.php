@@ -29,6 +29,7 @@
                                 'value' =>  $user->first_name,
                                 'label' => '* First Name',
                                 'placeholder' => 'Agency name',
+                                'required' => true
                                 ])
                         </div>
                         <div class="col-12">
@@ -40,17 +41,12 @@
                                 'value' =>  $user->last_name,
                                 'label' => '* Last Name',
                                 'placeholder' => 'Last name',
+                                'required' => true
                                 ])
                         </div>
 
                         <div class="col-12">
                             <label>* Country</label>
-                            {{--  <select class="form-control" id="country_id" name="country_id">
-                                <option selected disabled >Choose Country</option>
-                                @foreach(\App\Model\Country::all() as $country)
-                                    <option value="{{$country->id}}" @if ( old('country_id') or $user->country_id == $country->id ) {{ 'selected' }} @endif>{{$country->name}}</option>
-                                @endforeach
-                            </select>  --}}
                             <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
                                 <option selected disabled>Choose Country</option>
                                 @foreach(\App\Model\Country::all() as $country)
@@ -71,31 +67,28 @@
                                 'type' => 'text',
                                 'class' => '',
                                 'value' =>  $user->address,
-                                'label' => '* Address',
-                                'placeholder' => 'Address',
+                                'label' => '* City',
+                                'placeholder' => 'City',
+                                'required' => true
                                 ])
                         </div>
                         <div class="col-12">
-                            @include('site.components.inputs.text', [
-                                'name' => 'phone',
-                                'id' => 'phonecode',
-                                'type' => 'number',
-                                'class' => '',
-                                'value' =>  $user->phone,
-                                'label' => '* Mobile Number',
-                                'placeholder' => 'Mobile Number',
-                                ])
-                            <span class="editMobile">Edit</span>
-                            <span class="float-right needNewConfirm">Need New Confirm</span>
+                            <label>* Mobile</label>
+                            <div class="regist mb-2">
+                                <input type="text" name="phonecode" value="{{ $user->phonecode }}" id="phonecode" class="first" placeholder="code" required>
+                                <input type="text" value="{{ $user->mobileNumber }}" name="mobileNumber" class="last" placeholder="Your Mobile Number" required>
+                                <span class="editMobile">Edit</span>
+                                <span class="float-right needNewConfirm mt-1">Need New Confirm</span>
+                            </div>
                         </div>
                         <div class="col-12">
                             @include('site.components.inputs.text', [
                                 'name' => 'whatsapp',
                                 'id' => '',
-                                'type' => 'number',
+                                'type' => 'text',
                                 'class' => '',
                                 'value' =>  $user->whatsapp,
-                                'label' => '* WhatsApp Number',
+                                'label' => ' WhatsApp Number',
                                 'placeholder' => 'WhatsApp Number',
                                 ])
                         </div>
@@ -107,7 +100,7 @@
                                 'class' => '',
                                 'value' =>  $user->email,
                                 'label' => ' Email',
-                                'placeholder' => 'Your City',
+                                'placeholder' => 'Your Email',
                                 ])
                         </div>
                         <div class="col-12">
@@ -118,7 +111,7 @@
                                 'class' => 'password',
                                 'value' => '',
                                 'label' => 'Change Password',
-                                'placeholder' => trans('Change Password'),
+                                'placeholder' => 'Change Password',
                                 'disabled' => false,
                                 ])
                         </div>
@@ -130,15 +123,10 @@
                                 'class' => '',
                                 'value' => '',
                                 'label' => 'Confirm New Password',
-                                'placeholder' => trans('Confirm New Password'),
+                                'placeholder' => 'Confirm New Password',
                                 'disabled' => false,
                                 ])
                         </div>
-
-                        {{--  <div class="col-12">
-                            <label>Change Password</label>
-                            <input type="password" class="form-control" placeholder="************">
-                        </div>  --}}
                         <div class="col-12 mt-3">
                             <button class="btn btn-primary float-right">Update</button>
                         </div>

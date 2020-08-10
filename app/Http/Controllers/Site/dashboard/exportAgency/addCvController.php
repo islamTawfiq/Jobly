@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Site\dashboard\broker;
+namespace App\Http\Controllers\Site\dashboard\exportAgency;
 
 use App\Http\Controllers\Controller;
 use App\Model\Skills;
@@ -15,7 +15,7 @@ class addCvController extends Controller
     public function index()
     {
         $skills = Skills::get();
-        return view('site.brokerDashboard.addCvs', compact('skills'));
+        return view('site.exportAgencyDashboard.addCvs', compact('skills'));
     }
 
     public  function  addCv (Request $request){
@@ -29,6 +29,7 @@ class addCvController extends Controller
                 'age'            => 'required|integer',
                 'religion'       => 'required|string',
                 'children'       => 'required|string',
+                'mobile'         => 'required|string',
                 'job_id'         => 'required|integer',
                 'salary'         => 'required|string',
                 'fees'           => 'required|string',
@@ -40,8 +41,8 @@ class addCvController extends Controller
                 'weight'         => 'required|integer',
                 'arabic_lang'    => 'required|string',
                 'english_lang'   => 'required|string',
-                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf',
-                'passport'       => 'required|max:100000|mimes:doc,docx,pdf',
+                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
+                'passport'       => 'required|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
                 'about'          => 'required|string',
                 'skills'         => 'required',
                 'gallery'        => 'sometimes',
@@ -69,7 +70,7 @@ class addCvController extends Controller
             $data['gallery'] = implode( "," , $gallery );
             $data['skills'] = implode( "," , $data['skills'] );
             Nanny::create($data);
-            return redirect('/broker-dashboard/all-cvs')->with('success', 'cv created successfully');
+            return redirect('/export-agency-dashboard/all-cvs')->with('success', 'cv created successfully');
         }
 
 

@@ -29,10 +29,6 @@
              class="{{ url()->current() == url('/broker-dashboard/client-orders') ? 'active' : '' }}">Client Orders</a>
         </li>
         <li>
-            <a href="{{url('/broker-dashboard/interviews')}}"
-             class="{{ url()->current() == url('/broker-dashboard/interviews') ? 'active' : '' }}">My Interviews</a>
-        </li>
-        <li>
             <a href="{{url('/broker-dashboard/my-payments')}}"
              class="{{ url()->current() == url('/broker-dashboard/my-payments') ? 'active' : '' }}">My Payments</a>
         </li>
@@ -65,11 +61,6 @@
              class="{{ url()->current() == url('/export-agency-dashboard/client-orders') ? 'active' : '' }}">Client Orders
             </a>
         </li>
-        <li>
-            <a href="{{url('/export-agency-dashboard/interviews')}}"
-             class="{{ url()->current() == url('/export-agency-dashboard/interviews') ? 'active' : '' }}">My Interviews
-            </a>
-        </li>
     @endif
     {{-- Agency --}}
     @if (auth()->user()->user_type_id == 3)
@@ -80,10 +71,6 @@
         <li>
             <a href="{{ url('/import-agency-dashboard/my-orders') }}"
             class="{{ url()->current() == url('/import-agency-dashboard/my-orders') ? 'active' : '' }}">My Orders </a>
-        </li>
-        <li>
-            <a href="{{ url('/import-agency-dashboard/interviews') }}"
-            class="{{ url()->current() == url('/import-agency-dashboard/interviews') ? 'active' : '' }}">My Interviews </a>
         </li>
         <li>
             <a href="{{ url('/import-agency-dashboard/my-package') }}"
@@ -103,10 +90,6 @@
     <li>
         <a href="{{ url('/sponsor-dashboard/my-orders') }}"
         class="{{ url()->current() == url('/sponsor-dashboard/my-orders') ? 'active' : '' }}">My Orders </a>
-    </li>
-    <li>
-        <a href="{{ url('/sponsor-dashboard/interviews') }}"
-        class="{{ url()->current() == url('/sponsor-dashboard/interviews') ? 'active' : '' }}">My Interviews </a>
     </li>
     <li>
         <a href="{{ url('/sponsor-dashboard/my-package') }}"

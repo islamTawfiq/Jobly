@@ -31,6 +31,7 @@
                                     @foreach(\App\Model\Country::all() as $country)
                                        <option phonecode="{{ $country->phonecode }}"
                                                value="{{ $country->id }}"
+                                               @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif
                                                id="shop-country">{{ $country->name }}
                                       </option>
                                     @endforeach
@@ -39,11 +40,14 @@
                                 <label><i class="fas fa-star-of-life"></i> City</label>
                                 <input type="text" name="address" value="{{ old('address') }}" required class="form-control" placeholder="City">
 
-                                <label><i class="fas fa-star-of-life"></i> Mobile Number</label>
-                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Agency Mobile Number" required>
+                                <label><i class="fas fa-star-of-life"></i> Mobile</label>
+                                <div class="regist mb-2">
+                                    <input type="text" name="phonecode" value="{{ old('phonecode') }}" id="phonecode" class="first" placeholder="code" required>
+                                    <input type="text" value="{{ old('mobileNumber') }}" name="mobileNumber" class="last" placeholder="Your Mobile Number" required>
+                                </div>
 
-                                <label><i class="fas fa-star-of-life"></i> Telephone</label>
-                                <input type="number" name="telephone" value="{{ old('telephone') }}" required class="form-control" placeholder="Your Telephone">
+                                <label> Telephone</label>
+                                <input type="text" name="telephone" value="{{ old('telephone') }}" class="form-control" placeholder="Your Telephone">
 
                                 <label><i class="fas fa-star-of-life"></i> Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">

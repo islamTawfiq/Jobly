@@ -1296,7 +1296,8 @@ label.upload-photo {
 .fullName {
     width: 100%;
 }
-.fullName input {
+.fullName input,
+.regist input {
     height: 35px !important;
     line-height: 35px !important;
     font-size: 14px !important;
@@ -1309,17 +1310,16 @@ label.upload-photo {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     font-weight: 400;
     padding: .375rem .75rem;
-    width: 49% !important;
     margin: 0 !important;
 }
 .fullName input.first {
-    /* border-right: 0 !important; */
+    width: 49% !important;
     border-top-left-radius: 16px !important;
     border-bottom-left-radius: 16px !important;
 
 }
 .fullName input.last {
-    /* border-right: 0 !important; */
+    width: 49% !important;
     border-top-right-radius: 16px !important;
     border-bottom-right-radius: 16px !important;
 }
@@ -1420,4 +1420,31 @@ span.star {
 .fees input.usd {
     border: 1px solid #EF7F65 !important;
     padding: 500px !important;
+}
+.phoneCodeLogin .bootstrap-select>.dropdown-toggle {
+    border-radius: 16px !important;
+    height: 35px !important;
+    line-height: 35px !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 4px 7px 8px -14px rgba(0, 0, 0, 0.5) !important;
+}
+.phoneCodeLogin .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+    margin-top: -4px !important;
+}
+
+.regist {
+    width: 100%;
+}
+
+.regist input.first {
+    width: 15%;
+    border-top-left-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+
+}
+.regist input.last {
+    width: 84%;
+    border-top-right-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
 }

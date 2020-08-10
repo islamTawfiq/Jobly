@@ -36,9 +36,9 @@
                     @if ($nannies->count() == 0)
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-3"></div>
-                            <div class="noCvs col-6">
-                                <img src="{{url('design/site/images/no.jpg')}}" alt="">
+                            <div class="col-2"></div>
+                            <div class="noCvs col-12 col-md-8 mt-3 mb-5">
+                                <img src="{{url('design/site/images/no.png')}}" alt="">
                             </div>
                         </div>
                     </div>

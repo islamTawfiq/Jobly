@@ -68,7 +68,7 @@ $(document).ready(function () {
         var filename=arr.slice(-1)[0];
         filextension=filename.split(".");
         filext="."+filextension.slice(-1)[0];
-        valid=[".docx",".pdf",".doc"];
+        valid=[".docx",".pdf",".doc",'.jpeg','.jpg','.png'];
     //if file is not valid we show the error icon, the red alert, and hide the submit button
         if (valid.indexOf(filext.toLowerCase())==-1){
             $( ".imgupload" ).hide("slow");
@@ -76,7 +76,7 @@ $(document).ready(function () {
             $( ".imgupload.stop" ).show("slow");
 
             $('#namefile').css({"color":"red","font-weight":700});
-            $('#namefile').html("File "+filename+" is not  pic!");
+            $('#namefile').html("File "+filename+" is not  valid!");
         }else{
             //if file is valid we show the green alert and show the valid submit
             $( ".imgupload" ).hide("slow");
@@ -84,7 +84,7 @@ $(document).ready(function () {
             $( ".imgupload.ok" ).show("slow");
 
             $('#namefile').css({"color":"green","font-weight":700});
-            $('#namefile').html(filename);
+            // $('#namefile').html(filename);
         }
     });
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
         var filename=arr.slice(-1)[0];
         filextension=filename.split(".");
         filext="."+filextension.slice(-1)[0];
-        valid=[".docx",".pdf",".doc"];
+        valid=[".docx",".pdf",".doc",'.jpeg','.jpg','.png'];
     //if file is not valid we show the error icon, the red alert, and hide the submit button
         if (valid.indexOf(filext.toLowerCase())==-1){
             $( ".imgupload2" ).hide("slow");
@@ -103,7 +103,7 @@ $(document).ready(function () {
             $( ".imgupload2.stop2" ).show("slow");
 
             $('#namefile2').css({"color":"red","font-weight":700});
-            $('#namefile2').html("File "+filename+" is not  pic!");
+            $('#namefile2').html("File "+filename+" is not  valid!");
         }else{
             //if file is valid we show the green alert and show the valid submit
             $( ".imgupload2" ).hide("slow");
@@ -111,7 +111,7 @@ $(document).ready(function () {
             $( ".imgupload2.ok2" ).show("slow");
 
             $('#namefile2').css({"color":"green","font-weight":700});
-            $('#namefile2').html(filename);
+            // $('#namefile2').html(filename);
         }
     });
 

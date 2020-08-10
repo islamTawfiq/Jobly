@@ -24,9 +24,9 @@
                     <div class="col-12" style="margin-bottom: 175px !important">
                         @if ( $nannies->count() == 0 )
                         <div class="row">
-                            <div class="col-3"></div>
-                            <div class="noCvs col-6">
-                                <img src="{{url('design/site/images/no.jpg')}}" alt="">
+                            <div class="col-2"></div>
+                            <div class="noCvs col-12 col-md-8 mt-5">
+                                <img src="{{url('design/site/images/no.png')}}" alt="">
                             </div>
                         </div>
                         @elseif ( $nannies->count() > 0 )

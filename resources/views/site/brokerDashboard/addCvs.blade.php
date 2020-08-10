@@ -229,6 +229,20 @@
                                                                         <option value="Mother tongue" @if (old('english_lang') == "Mother tongue") {{ 'selected' }} @endif>Mother tongue</option>
                                                                     </select>
                                                                 </div>
+
+                                                                <div class="col-lg-12">
+                                                                    <span class="star">*</span>
+                                                                    @include('site.components.inputs.text', [
+                                                                    'name' => 'mobile',
+                                                                    'id' => '',
+                                                                    'type' => 'text',
+                                                                    'class' => '',
+                                                                    'value' => '',
+                                                                    'label' => 'Candidate Active Mobile Number : ( for interview )',
+                                                                    'placeholder' => 'Mobile Number',
+                                                                    'required' => true,
+                                                                    ])
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -243,14 +257,14 @@
                                 <div class="row">
                                     <div class="col-2"></div>
                                     <div class="col-md-4">
-                                        <p class="upfilecv">Medical Test</p>
+                                        <p class="upfilecv">Documents</p>
                                         <div class="center medical">
                                             <h5 class="imgupload"><i class="fa fa-file-image-o"></i></h5>
                                             <h5 class="imgupload ok"><i class="fa fa-check"></i></h5>
                                             <h5 class="imgupload stop"><i class="fa fa-times"></i></h5>
                                             <p id="namefile">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="medical" id="fileup">
+                                            <input type="file" value="" name="medical" multiple id="fileup">
                                         </div>
                                     </div>
 
@@ -262,14 +276,11 @@
                                             <h5 class="imgupload2 stop2"><i class="fa fa-times"></i></h5>
                                             <p id="namefile2">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="passport" id="fileup2">
+                                            <input type="file" value="" multiple name="passport" id="fileup2">
                                         </div>
                                     </div>
 
                                 </div>
-
-
-
 
                                 <div>
                                     @include('site.components.inputs.textarea', [
@@ -302,7 +313,7 @@
                                 </div>
                             </div>
                             <div class="basicInformation text-center text-lg-left">
-                                <p class="h5">Gallery</p>
+                                <p class="h5 d-block">Gallery <span style="font-size: 15px">(At least one full body picture)</span></p>
                                 <div class="container mt-2">
                                     <div class="row">
                                         <div class="col-lg-1">

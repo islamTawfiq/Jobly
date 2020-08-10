@@ -27,19 +27,22 @@ class editProfileController extends Controller
             'last_name'       => 'required|string',
             'country_id'      => 'required|integer',
             'address'         => 'required|string',
-            'phone'           => 'required|string',
-            'whatsapp'        => 'required|string',
-            'email'           => 'sometimes|email',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|unique:users,mobileNumber,'.$user->id,
+            'phone'           => 'unique:users,phone,'.$user->id,
+            'whatsapp'        => 'sometimes|nullable|string',
+            'email'           => 'sometimes|nullable|unique:users,email,'.$user->id,
         ]);
 
         $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
-
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         if ($request->has('password') && request('password') != null) {
             $data['password'] = $request->validate([
                 'password' => 'required|confirmed|min:6',
             ]);
             $data['password'] = Hash::make($request->password);
         }
+
         // if ( $phone != $data['phone'] && $data['phone'] != null ) {
         //     $data['code'] = SendCode::sendCode($data['phone']);
         //     $data['active'] = 0 ;

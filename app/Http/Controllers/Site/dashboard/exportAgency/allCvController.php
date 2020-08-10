@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Site\dashboard\broker;
+namespace App\Http\Controllers\Site\dashboard\exportAgency;
 
 use App\Http\Controllers\Controller;
 use App\Model\Skills;
@@ -17,7 +17,7 @@ class allCvController extends Controller
         $user = Auth()->user();
         $nannies = $user->nannies()->paginate(10);
         $skills = Skills::get();
-        return view('site.brokerDashboard.allCvs', compact('nannies'));
+        return view('site.exportAgencyDashboard.allCvs', compact('nannies'));
     }
 
     public function edit($id)
@@ -28,7 +28,7 @@ class allCvController extends Controller
         $arrSkill = explode( "," , $arrSkill );
         $arrGallery = $nanny->gallery;
         $arrGallery = explode( "," , $arrGallery );
-        return view('site.brokerDashboard.editCv', compact('nanny','skills','arrSkill','arrGallery'));
+        return view('site.exportAgencyDashboard.editCv', compact('nanny','skills','arrSkill','arrGallery'));
     }
 
     public function update(Request $request, $id)
@@ -45,6 +45,7 @@ class allCvController extends Controller
             'age'            => 'required|integer',
             'religion'       => 'required|string',
             'children'       => 'required|string',
+            'mobile'         => 'required|string',
             'job_id'         => 'required|integer',
             'salary'         => 'required|string',
             'fees'           => 'required|string',
@@ -56,8 +57,8 @@ class allCvController extends Controller
             'weight'         => 'required|integer',
             'arabic_lang'    => 'required|string',
             'english_lang'   => 'required|string',
-            'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf',
-            'passport'       => 'sometimes|max:100000|mimes:doc,docx,pdf',
+            'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
+            'passport'       => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
             'about'          => 'required|string',
             'skills'         => 'required',
             'gallery'        => 'sometimes',

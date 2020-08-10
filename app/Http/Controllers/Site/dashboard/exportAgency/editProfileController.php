@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Model\SendCode;
 use App\Model\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class editProfileController extends Controller
@@ -27,13 +26,15 @@ class editProfileController extends Controller
             'manager_name'    => 'required|string',
             'country_id'      => 'required|integer',
             'address'         => 'required|string',
-            'phone'           => 'required|string',
-            'telephone'       => 'required|string',
-            'email'           => 'sometimes|email|',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|unique:users,mobileNumber,'.$user->id,
+            'phone'           => 'unique:users,phone,'.$user->id,
+            'telephone'       => 'sometimes|nullable|string',
+            'email'           => 'required|unique:users,email,'.$user->id,
         ]);
 
         $data['name'] = $data['agency_name'];
-
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         if ($request->has('password') && request('password') != null) {
             $data['password'] = $request->validate([
                 'password' => 'required|confirmed|min:6',

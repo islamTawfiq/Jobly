@@ -20,31 +20,35 @@
                         'id' => '',
                         'type' => 'text',
                         'class' => '',
-                        'label' => 'first name',
+                        'label' => '* first name',
                         'icon' =>'feather icon-user',
                         'placeholder' => 'first name',
                         'disabled' => false,
+                        'required' => true
                         ])
                     </div>
                     <div class="col-xl-12 col-md-12 col-12">
                         @include('admin.components.inputs.text', [
-                        'name' => 'last_name',
+                        'name' => '* last_name',
                         'id' => '',
                         'type' => 'text',
                         'class' => '',
-                        'label' => 'last name',
+                        'label' => '* last name',
                         'icon' =>'feather icon-user',
                         'placeholder' => 'last name',
                         'disabled' => false,
+                        'required' => true
                         ])
                     </div>
 
                     <div class="col-xl-12 col-md-12 col-12">
+                        <label>* Country</label>
                         <select id="countryList" class="form-control selectpicker mb-2" data-live-search="true" name="country_id" required>
                             <option selected disabled>Choose Country</option>
                             @foreach(\App\Model\Country::all() as $country)
                                 <option phonecode="{{ $country->phonecode }}"
                                         value="{{ $country->id }}"
+                                        @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif
                                         id="shop-country">{{ $country->name }}
                                 </option>
                             @endforeach
@@ -57,22 +61,35 @@
                         'id' => '',
                         'type' => 'text',
                         'class' => '',
-                        'label' => 'city',
+                        'label' => '* city',
                         'icon' =>'feather icon-user',
                         'placeholder' => 'city',
                         'disabled' => false,
+                        'required' => true
                         ])
                     </div>
-                    <div class="col-xl-12 col-md-12 col-12">
+                    <div class="col-3">
                         @include('admin.components.inputs.text', [
-                        'name' => 'phone',
+                        'name' => 'phonecode',
                         'id' => 'phonecode',
                         'type' => 'number',
                         'class' => '',
-                        'label' => 'phone',
-                        'icon' =>'feather icon-user',
-                        'placeholder' => 'phone',
+                        'label' => '* Code',
+                        'placeholder' => 'Code',
                         'disabled' => false,
+                        'required' => true
+                        ])
+                    </div>
+                    <div class="col-9">
+                        @include('admin.components.inputs.text', [
+                        'name' => 'mobileNumber',
+                        'id' => '',
+                        'type' => 'number',
+                        'class' => '',
+                        'label' => '* Mobile',
+                        'placeholder' => 'Your Mobile Number',
+                        'disabled' => false,
+                        'required' => true
                         ])
                     </div>
                     <div class="col-xl-12 col-md-12 col-12">
@@ -106,7 +123,7 @@
                         'id' => '',
                         'type' => 'password',
                         'class' => 'password',
-                        'label' =>'password',
+                        'label' =>'* password',
                         'icon' =>'feather icon-lock',
                         'placeholder' => 'password',
                         'disabled' => false,
@@ -119,14 +136,14 @@
                         'id' => '',
                         'type' => 'password',
                         'class' => '',
-                        'label' => 'password confirmation',
+                        'label' => '* password confirmation',
                         'icon' =>'feather icon-lock',
                         'placeholder' => 'password confirmation',
                         'disabled' => false,
                         ])
                     </div>
                     <div class="col-xl-6 col-md-6 col-6">
-                        @include('admin.components.uploud.file', ['name' =>'user_image','label'=>'Image','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'required' => true, 'value'=>''])
+                        @include('admin.components.uploud.file', ['name' =>'user_image','label'=>'* Image','max'=>'5','accept'=>'image/*' , 'disabled' => false, 'required' => true, 'value'=>''])
                     </div>
                 </div>
             </div>

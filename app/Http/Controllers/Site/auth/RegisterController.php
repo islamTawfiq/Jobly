@@ -56,14 +56,17 @@ class RegisterController extends Controller
                 'last_name'       => 'required|string',
                 'country_id'      => 'required|string',
                 'address'         => 'required|string',
-                'phone'           => 'required|unique:users,phone',
-                'whatsapp'        => 'required|string',
-                'email'           => 'sometimes|email|unique:users,email',
+                'phonecode'       => 'required|integer',
+                'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+                'phone'           => 'unique:users,phone',
+                'whatsapp'        => 'sometimes|nullable|string',
+                'email'           => 'sometimes|nullable|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
 
             ]);
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
+            $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 2;
@@ -89,13 +92,16 @@ class RegisterController extends Controller
                 'manager_name'    => 'required|string',
                 'country_id'      => 'required|string',
                 'address'         => 'required|string',
-                'phone'           => 'required|unique:users,phone',
-                'telephone'       => 'required|string',
+                'phonecode'       => 'required|integer',
+                'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+                'phone'           => 'unique:users,phone',
+                'telephone'       => 'sometimes|nullable|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
             ]);
             $data['name'] = $data['agency_name'];
+            $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 3;
@@ -116,13 +122,16 @@ class RegisterController extends Controller
                 'manager_name'    => 'required|string',
                 'country_id'      => 'required|string',
                 'address'         => 'required|string',
-                'phone'           => 'required|unique:users,phone',
-                'telephone'       => 'required|string',
+                'phonecode'       => 'required|integer',
+                'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+                'phone'           => 'unique:users,phone',
+                'telephone'       => 'sometimes|nullable|string',
                 'email'           => 'required|email|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
                 'user_image'      => 'required|nullable|image',
             ]);
             $data['name'] = $data['agency_name'];
+            $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
             $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 5;
@@ -143,12 +152,15 @@ class RegisterController extends Controller
                 'last_name'       => 'required|string',
                 'country_id'      => 'required|string',
                 'address'         => 'required|string',
-                'phone'           => 'required|unique:users,phone',
-                'email'           => 'sometimes|email|unique:users,email',
+                'phonecode'       => 'required|integer',
+                'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+                'phone'           => 'unique:users,phone',
+                'email'           => 'sometimes|nullable|unique:users,email',
                 'password'        => 'required|min:6|confirmed',
 
             ]);
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
+            $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
             $data['password'] = Hash::make($request->password);
             $data['user_type_id'] = 4;
             $data['status'] = 1;

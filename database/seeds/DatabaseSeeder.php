@@ -21,8 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SkillsDB::class);
         $this->call(JobsDB::class);
         $this->call(NannyDB::class);
+        $this->call(ImportCountriesDB::class);
         $this->call(CountriesDB::class);
         $this->call(StatesDB::class);
         $this->call(CitiesDB::class);
+
     }
 }

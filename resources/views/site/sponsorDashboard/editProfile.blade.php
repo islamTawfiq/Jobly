@@ -29,6 +29,7 @@
                                 'value' =>  $user->first_name,
                                 'label' => '* First Name',
                                 'placeholder' => 'First name',
+                                'required' => true
                                 ])
                         </div>
                         <div class="col-12">
@@ -40,6 +41,7 @@
                                 'value' =>  $user->last_name,
                                 'label' => '* Last Name',
                                 'placeholder' => 'Last name',
+                                'required' => true
                                 ])
                         </div>
                         <div class="col-12">
@@ -63,22 +65,19 @@
                                 'type' => 'text',
                                 'class' => '',
                                 'value' =>  $user->address,
-                                'label' => '* Address',
-                                'placeholder' => 'Address',
+                                'label' => '* City',
+                                'placeholder' => 'City',
+                                'required' => true
                                 ])
                         </div>
                         <div class="col-12">
-                            @include('site.components.inputs.text', [
-                                'name' => 'phone',
-                                'id' => 'phonecode',
-                                'type' => 'number',
-                                'class' => '',
-                                'value' =>  $user->phone,
-                                'label' => '* Mobile Number',
-                                'placeholder' => 'Mobile Number',
-                                ])
-                            <span class="editMobile">Edit</span>
-                            <span class="float-right needNewConfirm">Need New Confirm</span>
+                            <label>* Mobile</label>
+                            <div class="regist mb-2">
+                                <input type="text" name="phonecode" value="{{ $user->phonecode }}" id="phonecode" class="first" placeholder="code" required>
+                                <input type="text" value="{{ $user->mobileNumber }}" name="mobileNumber" class="last" placeholder="Your Mobile Number" required>
+                                <span class="editMobile">Edit</span>
+                                <span class="float-right needNewConfirm mt-1">Need New Confirm</span>
+                            </div>
                         </div>
                         <div class="col-12">
                             @include('site.components.inputs.text', [
@@ -88,7 +87,7 @@
                                 'class' => '',
                                 'value' =>  $user->email,
                                 'label' => ' Email',
-                                'placeholder' => 'Your City',
+                                'placeholder' => 'Your Email',
                                 ])
                         </div>
                         <div class="col-12">
@@ -99,7 +98,7 @@
                                 'class' => 'password',
                                 'value' => '',
                                 'label' => 'Change Password',
-                                'placeholder' => trans('Change Password'),
+                                'placeholder' => 'Change Password',
                                 'disabled' => false,
                                 ])
                         </div>
@@ -111,7 +110,7 @@
                                 'class' => '',
                                 'value' => '',
                                 'label' => 'Confirm New Password',
-                                'placeholder' => trans('Confirm New Password'),
+                                'placeholder' => 'Confirm New Password',
                                 'disabled' => false,
                                 ])
                         </div>

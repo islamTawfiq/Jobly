@@ -17,10 +17,16 @@ class JobsDB extends Seeder
         $data['title'] = "Guard";
         Job::create($data);
 
-        $data['title'] = "Servants";
+        $data['title'] = "Domestic Helper";
         Job::create($data);
 
-        $data['title'] = "Cleaning";
+        $data['title'] = "Handyman";
+        Job::create($data);
+
+        $data['title'] = "Hospitality";
+        Job::create($data);
+
+        $data['title'] = "Security";
         Job::create($data);
     }
 }

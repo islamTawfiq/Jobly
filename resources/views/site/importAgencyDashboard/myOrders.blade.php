@@ -8,13 +8,13 @@
         <div class="myOrder">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <p class="h5">You have to choose 3 CVs with $10 to starting the interviews</p>
-                    </div>
+                    </div> --}}
                     @if ($nannies->count() == 0)
-                    <div class="col-3"></div>
-                        <div class="noCvs col-6">
-                            <img src="{{url('design/site/images/no.jpg')}}" alt="">
+                    <div class="col-2"></div>
+                        <div class="noCvs col-8 mt-5 mb-5">
+                            <img src="{{url('design/site/images/no.png')}}" alt="">
                         </div>
                     @endif
                     @foreach ($nannies as $nanny)

@@ -35,14 +35,17 @@ class BrokersController extends Controller
             'last_name'       => 'required|string',
             'country_id'      => 'required|string',
             'address'         => 'required|string',
-            'phone'           => 'required|unique:users,phone',
-            'whatsapp'        => 'required|string',
-            'email'           => 'required|email|unique:users,email',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+            'phone'           => 'unique:users,phone',
+            'whatsapp'        => 'sometimes|nullable|string',
+            'email'           => 'sometimes|nullable|unique:users,email',
             'password'        => 'required|min:6|confirmed',
             'user_image'      => 'required|nullable|image',
 
         ]);
         $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
         $data['password'] = Hash::make($request->password);
         $data['user_type_id'] = 2;
@@ -67,13 +70,15 @@ class BrokersController extends Controller
             'last_name'       => 'required|string',
             'country_id'      => 'required|integer',
             'address'         => 'required|string',
-            'phone'           => 'required|string',
-            'whatsapp'        => 'required|string',
-            'email'           => 'required|email',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|unique:users,mobileNumber,'.$user->id,
+            'phone'           => 'unique:users,phone,'.$user->id,
+            'whatsapp'        => 'sometimes|nullable|string',
+            'email'           => 'sometimes|nullable|unique:users,email,'.$user->id,
         ]);
 
         $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
-
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         if ($request->hasFile('user_image') && request()->has('user_image')) {
             $data['user_image'] = $this->storeFile($request->user_image);
         }

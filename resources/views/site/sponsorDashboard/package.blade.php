@@ -12,10 +12,10 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-4 text-center mb-4 mb-md-0">
                                 <div class="toStart packageSelected">
-                                    <p class="h5">$ 36 One Month</p>
+                                    <p class="h5">$ 10 One Month</p>
                                     <div class="infoStart">
                                         <i class="fas fa-check"></i>
-                                        <span>Interview 12 Nannies</span>
+                                        <span>Interview 3 Nannies</span>
                                     </div>
                                     <div class="signStart mt-md-5">
                                         <a href="JavaScript:void(0);" class="btn btn-primary selected">Selected</a>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-md-6 col-lg-4 text-center">
                                 <div class="toStart">
-                                    <p class="h5">$ 300 One Year</p>
+                                    <p class="h5">$ 150 One Month</p>
                                     <div class="infoStart">
                                         <i class="fas fa-check"></i>
                                         <span>Unlimited Interviews</span>

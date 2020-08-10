@@ -35,13 +35,16 @@ class importAgenciesController extends Controller
             'manager_name'    => 'required|string',
             'country_id'      => 'required|string',
             'address'         => 'required|string',
-            'phone'           => 'required|unique:users,phone',
-            'telephone'       => 'required|string',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|string|unique:users,mobileNumber',
+            'phone'           => 'unique:users,phone',
+            'telephone'       => 'sometimes|nullable|string',
             'email'           => 'required|email|unique:users,email',
             'password'        => 'required|min:6|confirmed',
             'user_image'      => 'required|nullable|image',
         ]);
         $data['name'] = $data['agency_name'];
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         $request->hasFile('user_image') ?  $data['user_image'] = $this->storeFile($request->user_image, 'userImages') : '';
         $data['password'] = Hash::make($request->password);
         $data['user_type_id'] = 3;
@@ -66,13 +69,15 @@ class importAgenciesController extends Controller
             'manager_name'    => 'required|string',
             'country_id'      => 'required|integer',
             'address'         => 'required|string',
-            'phone'           => 'required|string',
-            'telephone'       => 'required|string',
-            'email'           => 'required|email|',
+            'phonecode'       => 'required|integer',
+            'mobileNumber'    => 'required|unique:users,mobileNumber,'.$user->id,
+            'phone'           => 'unique:users,phone,'.$user->id,
+            'telephone'       => 'sometimes|nullable|string',
+            'email'           => 'required|unique:users,email,'.$user->id,
         ]);
 
         $data['name'] = $data['agency_name'];
-
+        $data['phone'] = $data['phonecode'] . $data['mobileNumber'];
         if ($request->has('password') && request('password') != null) {
             $data['password'] = $request->validate([
                 'password' => 'required|confirmed|min:6',

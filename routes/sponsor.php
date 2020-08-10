@@ -10,8 +10,6 @@ Route::get('cancel/{id}','myOrdersController@rejectNanny');
 Route::get('my-package','myPackageController@index');
 Route::get('my-payments','myPaymentsController@index');
 
-Route::get('interviews','interviewsController@index');
-
 Route::get('cancel/{id}','interviewsController@rejectNanny');
 Route::get('aprove/{id}','interviewsController@aproveNanny');
 

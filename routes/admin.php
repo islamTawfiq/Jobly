@@ -31,7 +31,8 @@ Route::resource('import-agencies','users\agencies\importAgenciesController');
 Route::resource('brokers','users\brokers\BrokersController');
 Route::resource('sponsors','users\sponsors\SponsorsController');
 
-Route::post('/agencies/change-status','users\agencies\AgenciesController@ChangeStatus');
+Route::post('/export-agencies/change-status','users\agencies\exportAgenciesController@ChangeStatus');
+Route::post('/import-agencies/change-status','users\agencies\importAgenciesController@ChangeStatus');
 Route::post('/brokers/change-status','users\brokers\BrokersController@ChangeStatus');
 Route::post('/sponsors/change-status','users\sponsors\SponsorsController@ChangeStatus');
 

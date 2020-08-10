@@ -7,12 +7,12 @@
 
                 <div class="col-12 col-lg-4">
                     <div class="gteNanny">
-                        <p class="h3">Get Your Domestic Workers Now</p>
+                        <p class="h3">Get Your Domestic Workers</p>
                         <div class="searchInNannies">
                             <?php $nanny = \App\Model\Nanny::all(); ?>
-                            <p class="h5">Search in {{ count($nanny) }} Domestic Workers and more...</p>
+                            <p class="h5">Search & Hire Domestic Workers</p>
                             <hr>
-                            <form action="{{url('/filter')}}" method="post">
+                            <form action="{{url('/filter')}}" method="post" class="formCv">
                                 @csrf
                                 <div class="mb-lg-3 mb-2">
                                     <select class="form-control selectpicker" data-live-search="true" name="country_id">

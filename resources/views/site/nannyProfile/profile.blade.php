@@ -70,6 +70,24 @@
                         </span>
                         @endif
                     @endauth
+                    @guest
+                    <span class="watchlist favourit">
+                        <a href="{{ url('/login') }}" class="listing-favorite-icon">
+                            <i class="fas fa-star"></i>
+                            Favourit
+                        </a>
+                    </span>
+                    <span class="watchlist">
+                        <a href="{{ url('/login') }}" class="listing-exclamation-icon text-white">
+                            <i class="fas fa-share-square"></i> Share
+                        </a>
+                    </span>
+                    <span class="watchlist">
+                        <a href="{{ url('/login') }}" class="listing-exclamation-icon text-white">
+                            <i class="fas fa-cloud-download-alt"></i> Download CV
+                        </a>
+                    </span>
+                    @endguest
                 </div>
             </div>
         </div>
@@ -263,6 +281,7 @@
                         <div class="gallery">
                             <div class="container">
                                 <div class="row">
+                                    @if ($nanny->gallery != null)
                                     @foreach ($images as $image)
                                         <div class="col-6 col-lg-3">
                                             <a class="openImage" href="{{ url( '/gallery/' . $image) }}">
@@ -270,6 +289,7 @@
                                             </a>
                                         </div>
                                     @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

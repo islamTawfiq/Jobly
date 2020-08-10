@@ -1,9 +1,9 @@
 @if ( $nannies->count() == 0 )
 @if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
 <div class="row">
-    <div class="col-3"></div>
-    <div class="noCvs col-6">
-        <img src="{{url('design/site/images/no.jpg')}}" alt="">
+    {{-- <div class="col-3"></div> --}}
+    <div class="noCvs m-5">
+        <img src="{{url('design/site/images/no.png')}}" alt="">
     </div>
 </div>
 @endif

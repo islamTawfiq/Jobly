@@ -11,12 +11,14 @@
  Route::get('reject/{id}','clientOrdersController@rejectNanny');
  Route::get('confirm/{id}','clientOrdersController@confirmNanny');
 
- Route::get('interviews','interviewsController@index');
-
  Route::resource('all-cvs','allCvController')->except([
       'store', 'show','destroy'
  ]);
  Route::get('all-cvs/{id}', 'allCvController@destroy');
+
+ Route::get('my-payments','myPaymentsController@index');
+ Route::get('my-notification','inboxController@index');
+
 
 
 

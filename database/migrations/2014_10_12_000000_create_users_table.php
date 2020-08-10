@@ -22,11 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('manager_name')->nullable();
             $table->string('country_id')->nullable();
             $table->string('address')->nullable();
+            $table->integer('phonecode')->nullable();
+            $table->string('mobileNumber')->nullable();
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('telephone')->nullable();
             $table->string('user_image')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->integer('user_type_id')->default(0);
             $table->integer('status')->default(0);

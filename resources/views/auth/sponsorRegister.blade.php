@@ -34,6 +34,7 @@
                                     @foreach(\App\Model\ImportingCountry::all() as $country)
                                        <option phonecode="{{ $country->phonecode }}"
                                                value="{{ $country->id }}"
+                                               @if ( old('country_id') == $country->id ) {{ 'selected' }} @endif
                                                id="shop-country">{{ $country->name }}
                                       </option>
                                     @endforeach
@@ -44,10 +45,13 @@
 
 
                                 <label><i class="fas fa-star-of-life"></i> Mobile</label>
-                                <input type="number" name="phone" value="{{ old('phone') }}" id="phonecode" class="form-control" placeholder="Agency Mobile Number" required>
+                                <div class="regist mb-2">
+                                    <input type="text" name="phonecode" value="{{ old('phonecode') }}" id="phonecode" class="first" placeholder="code" required>
+                                    <input type="text" value="{{ old('mobileNumber') }}" name="mobileNumber" class="last" placeholder="Your Mobile Number" required>
+                                </div>
 
                                 <label>Email</label>
-                                <input type="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Your email">
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Your email">
 
                                 <label><i class="fas fa-star-of-life"></i> Password</label>
                                 <input type="password" name="password" required class="form-control" placeholder="Your password">

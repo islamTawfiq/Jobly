@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "262b13315e5868d26cca4f830d8f6d73",
+    "content-hash": "66e5fd040f626c9b220ee588d584b0a3",
     "packages": [
+        {
+            "name": "ahmed-aliraqi/expert-texting-sms",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ahmed-aliraqi/expert-texting-sms.git",
+                "reference": "35c5569d3e8372810cc39bc0f9aea8014160c783"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ahmed-aliraqi/expert-texting-sms/zipball/35c5569d3e8372810cc39bc0f9aea8014160c783",
+                "reference": "35c5569d3e8372810cc39bc0f9aea8014160c783",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aliraqi\\ET\\": "src/ET"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Fathy",
+                    "email": "aliraqi.dev@gmail.com"
+                }
+            ],
+            "description": "ExpertTexting REST API for laravel applications allows you to send text and unicode messages, read unread messages, check your account balance etc. ExpertTexting API is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.",
+            "time": "2017-05-03T16:00:52+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",

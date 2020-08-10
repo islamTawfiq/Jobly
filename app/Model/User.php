@@ -14,6 +14,8 @@ class User extends Authenticatable
         'manager_name',
         'country_id',
         'address',
+        'phonecode',
+        'mobileNumber',
         'phone',
         'whatsapp',
         'telephone',

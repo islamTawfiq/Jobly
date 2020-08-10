@@ -21,12 +21,14 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        request()->validate([
-            'phone' => 'required',
-            'password' => 'required',
+       $data = request()->validate([
+            'mobileNumber'  => 'required',
+            'password'      => 'required',
             ]);
 
-        $credentials = $request->only('phone', 'password');
+
+
+        $credentials = $request->only( 'mobileNumber' ,'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
