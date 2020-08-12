@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-xl-12 col-md-12 col-12">
                         @include('admin.components.inputs.text', [
-                        'name' => '* last_name',
+                        'name' => 'last_name',
                         'id' => '',
                         'type' => 'text',
                         'class' => '',
