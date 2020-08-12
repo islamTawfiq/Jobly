@@ -56,18 +56,17 @@ class addCvController extends Controller
             $request->hasFile('medical') ?  $data['medical'] = $this->storeFile($request->medical, 'Medical') : '';
             $request->hasFile('passport') ?  $data['passport'] = $this->storeFile($request->passport, 'Passport') : '';
 
-            if($request->hasfile('gallery'))
+            if($request->hasfile('gallery') && $request->hasfile('gallery') != '' )
             {
-
                 foreach($request->file('gallery') as $image)
                 {
                    $name=$image->getClientOriginalName();
                    $image->move(public_path().'/gallery/', $name);
                    $gallery[] = $name;
                 }
+                $data['gallery'] = implode( "," , $gallery );
             }
 
-            $data['gallery'] = implode( "," , $gallery );
             $data['skills'] = implode( "," , $data['skills'] );
             Nanny::create($data);
             return redirect('/export-agency-dashboard/all-cvs')->with('success', 'cv created successfully');

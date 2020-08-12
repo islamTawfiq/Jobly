@@ -19,6 +19,8 @@
  Route::get('my-payments','myPaymentsController@index');
  Route::get('my-notification','inboxController@index');
 
+ Route::get('instructions','instructionController@index');
+
 
 
 

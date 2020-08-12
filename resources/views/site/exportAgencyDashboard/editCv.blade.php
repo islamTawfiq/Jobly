@@ -178,11 +178,11 @@
                                                             <label><span class="star">*</span> Education</label>
                                                             <select name="education" class="selectpicker form-control" required>
                                                                 <option selected disabled >Select education</option>
-                                                                <option value="None" @if ($nanny->arabic_lang == "None") {{ 'selected' }} @endif>None</option>
-                                                                <option value="Primary" @if ($nanny->arabic_lang == "Primary") {{ 'selected' }} @endif>Primary</option>
-                                                                <option value="Secondary" @if ($nanny->arabic_lang == "Secondary") {{ 'selected' }} @endif>Secondary</option>
-                                                                <option value="College" @if ($nanny->arabic_lang == "College") {{ 'selected' }} @endif>College</option>
-                                                                <option value="Diploma" @if ($nanny->arabic_lang == "Diploma") {{ 'selected' }} @endif>Diploma</option>
+                                                                <option value="None" @if ($nanny->education == "None") {{ 'selected' }} @endif>None</option>
+                                                                <option value="Primary" @if ($nanny->education == "Primary") {{ 'selected' }} @endif>Primary</option>
+                                                                <option value="Secondary" @if ($nanny->education == "Secondary") {{ 'selected' }} @endif>Secondary</option>
+                                                                <option value="College" @if ($nanny->education == "College") {{ 'selected' }} @endif>College</option>
+                                                                <option value="Diploma" @if ($nanny->education == "Diploma") {{ 'selected' }} @endif>Diploma</option>
                                                             </select>
                                                         </div>
 
@@ -226,7 +226,6 @@
                                                                     </select>
                                                                 </div>
 
-
                                                                 <div class="col-lg-12">
                                                                     <span class="star">*</span>
                                                                     @include('site.components.inputs.text', [
@@ -240,7 +239,6 @@
                                                                     'required' => true,
                                                                     ])
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -312,7 +310,7 @@
                             </div>
                             <div class="basicInformation text-center text-lg-left">
                                 <p class="h5 d-block">Gallery <span style="font-size: 15px">(At least one full body picture)</span></p>
-                                 <div class="container mt-2">
+                                <div class="container mt-2">
                                     <div class="row">
                                         <div class="col-lg-1">
                                             <label for="gallery" class="upload-photo mb-2">
@@ -327,12 +325,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if ($nanny->gallery != null)
                                 @foreach ($arrGallery as $image)
                                 <div class="d-inline ml-3">
                                     {{--  <a href="">X</a>  --}}
                                     <img src="{{ url( 'gallery/' . $image) }}" alt="camera" style="width:100px;height:100px;margin:5px;border-radius:16px">
                                 </div>
                                 @endforeach
+                                @endif
                             </div>
                             <div class="col-12 mt-3">
                                 <button class="btn btn-primary float-right pl-5 pr-5">Update</button>

@@ -13,6 +13,9 @@ Route::get('my-payments','myPaymentsController@index');
 Route::get('cancel/{id}','interviewsController@rejectNanny');
 Route::get('aprove/{id}','interviewsController@aproveNanny');
 
+Route::get('instructions','instructionController@index');
+
+
 
 
 

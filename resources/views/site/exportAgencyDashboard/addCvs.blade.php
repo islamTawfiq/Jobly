@@ -264,7 +264,7 @@
                                             <h5 class="imgupload stop"><i class="fa fa-times"></i></h5>
                                             <p id="namefile">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="medical" id="fileup">
+                                            <input type="file" value="" name="medical" multiple id="fileup">
                                         </div>
                                     </div>
 
@@ -276,7 +276,7 @@
                                             <h5 class="imgupload2 stop2"><i class="fa fa-times"></i></h5>
                                             <p id="namefile2">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="passport" id="fileup2">
+                                            <input type="file" value="" multiple name="passport" id="fileup2">
                                         </div>
                                     </div>
 
@@ -314,7 +314,7 @@
                             </div>
                             <div class="basicInformation text-center text-lg-left">
                                 <p class="h5 d-block">Gallery <span style="font-size: 15px">(At least one full body picture)</span></p>
-                                 <div class="container mt-2">
+                                <div class="container mt-2">
                                     <div class="row">
                                         <div class="col-lg-1">
                                             <label for="gallery" class="upload-photo mb-2">

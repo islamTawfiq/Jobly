@@ -1448,3 +1448,9 @@ span.star {
     border-top-right-radius: 16px !important;
     border-bottom-right-radius: 16px !important;
 }
+
+div.inst p{
+    background: #eee !important; 
+    color: #000 !important;
+    padding: 20px;
+}

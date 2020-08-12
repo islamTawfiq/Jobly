@@ -325,12 +325,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if ($nanny->gallery != null)
                                 @foreach ($arrGallery as $image)
                                 <div class="d-inline ml-3">
                                     {{--  <a href="">X</a>  --}}
                                     <img src="{{ url( 'gallery/' . $image) }}" alt="camera" style="width:100px;height:100px;margin:5px;border-radius:16px">
                                 </div>
                                 @endforeach
+                                @endif
                             </div>
                             <div class="col-12 mt-3">
                                 <button class="btn btn-primary float-right pl-5 pr-5">Update</button>

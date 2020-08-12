@@ -36,6 +36,12 @@
             <a href="{{url('/broker-dashboard/my-notification')}}"
              class="{{ url()->current() == url('/broker-dashboard/my-notification') ? 'active' : '' }}">My Notification</a>
         </li>
+        <li class="text-center">
+            <a href="{{url('/broker-dashboard/instructions')}}"
+             class="{{ url()->current() == url('/broker-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read 
+             <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
+            </a>
+        </li>
 
     @endif
     @if (auth()->user()->user_type_id == 5)
@@ -59,6 +65,12 @@
         <li>
             <a href="{{url('/export-agency-dashboard/client-orders')}}"
              class="{{ url()->current() == url('/export-agency-dashboard/client-orders') ? 'active' : '' }}">Client Orders
+            </a>
+        </li>
+        <li class="text-center">
+            <a href="{{url('/export-agency-dashboard/instructions')}}"
+             class="{{ url()->current() == url('/export-agency-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read 
+             <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
             </a>
         </li>
     @endif
@@ -99,6 +111,12 @@
         <a href="{{ url('/sponsor-dashboard/my-payments') }}"
         class="{{ url()->current() == url('/sponsor-dashboard/my-payments') ? 'active' : '' }}">My Payments </a>
     </li>
+    {{-- <li>
+        <a href="{{url('/sponsor-dashboard/instructions')}}"
+         class="{{ url()->current() == url('/sponsor-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read
+         <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
+        </a>
+    </li> --}}
     @endif
     </ul>
 
