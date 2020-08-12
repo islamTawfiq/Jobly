@@ -91,7 +91,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web','exportAgency'])
             ->prefix('export-agency-dashboard')
-            ->namespace($this->namespace."\Site\dashboard\ExportAgency")
+            ->namespace($this->namespace."\Site\dashboard\exportAgency")
             ->group(base_path('routes/exportAgency.php'));
     }
     protected function mapSponsorRoutes()
