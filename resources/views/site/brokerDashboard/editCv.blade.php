@@ -26,7 +26,7 @@
                                                 @include('site.components.inputs.text', [
                                                     'name' => 'fees',
                                                     'id' => '',
-                                                    'type' => 'text',
+                                                    'type' => 'number',
                                                     'class' => 'usd',
                                                     'value' => $nanny->fees,
                                                     'label' => ' USD currency',
@@ -96,7 +96,7 @@
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'age',
                                                             'id' => '',
-                                                            'type' => 'text',
+                                                            'type' => 'number',
                                                             'class' => '',
                                                             'value' =>  $nanny->age,
                                                             'label' => 'Age',
@@ -116,6 +116,22 @@
                                                             </select>
                                                         </div>
 
+                                                        <div class="col-lg-6 height">
+                                                            <label class="mt-2 mt-lg-2"><span class="star">*</span> Height</label>
+                                                            <input type="number" step=any class="form-control mobile"
+                                                             value="{{isset($nanny->height) && $nanny->height != '' ? $nanny->height : old('height')}}"
+                                                             placeholder="Your Height" name="height">
+                                                            <span class="editMobile">cm</span>
+                                                        </div>
+
+                                                        <div class="col-lg-6 height">
+                                                            <label class="mt-2 mt-lg-2"><span class="star">*</span> Weight</label>
+                                                            <input type="number" step=any class="form-control mobile"
+                                                            value="{{isset($nanny->weight) && $nanny->weight != '' ? $nanny->weight : old('weight')}}"
+                                                            placeholder="Your Weight" name="weight">
+                                                            <span class="editMobile">kg</span>
+                                                        </div>
+
                                                         <div class="col-lg-6">
                                                             <span class="star">*</span>
                                                             <label>Marital Status</label>
@@ -132,12 +148,38 @@
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'children',
                                                             'id' => '',
-                                                            'type' => 'text',
+                                                            'type' => 'number',
                                                             'class' => '',
                                                             'value' => $nanny->children,
                                                             'label' => 'Children',
                                                             'placeholder' => 'Your Children',
                                                             ])
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <span class="star">*</span>
+                                                            @include('site.components.inputs.text', [
+                                                            'name' => 'mobile',
+                                                            'id' => '',
+                                                            'type' => 'number',
+                                                            'class' => '',
+                                                            'value' => $nanny->mobile,
+                                                            'label' => 'Candidate Active Mobile Number : ( for interview )',
+                                                            'placeholder' => 'Mobile Number',
+                                                            'required' => true,
+                                                            ])
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <label><span class="star">*</span> Education</label>
+                                                            <select name="education" class="selectpicker form-control" required>
+                                                                <option selected disabled >Select education</option>
+                                                                <option value="None" @if ($nanny->education == "None") {{ 'selected' }} @endif>None</option>
+                                                                <option value="Primary" @if ($nanny->education == "Primary") {{ 'selected' }} @endif>Primary</option>
+                                                                <option value="Secondary" @if ($nanny->education == "Secondary") {{ 'selected' }} @endif>Secondary</option>
+                                                                <option value="College" @if ($nanny->education == "College") {{ 'selected' }} @endif>College</option>
+                                                                <option value="Diploma" @if ($nanny->education == "Diploma") {{ 'selected' }} @endif>Diploma</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="col-lg-6">
@@ -154,7 +196,7 @@
                                                             @include('site.components.inputs.text', [
                                                             'name' => 'salary',
                                                             'id' => '',
-                                                            'type' => 'text',
+                                                            'type' => 'number',
                                                             'class' => '',
                                                             'value' => $nanny->salary,
                                                             'label' => 'Salary',
@@ -163,43 +205,66 @@
                                                             ])
                                                         </div>
 
-
                                                         <div class="col-lg-6">
                                                             <div>
                                                                 <label><span class="star">*</span> Experience</label>
                                                             </div>
-                                                            <div class="fullName mb-2">
-                                                                <input type="text" name="experience" value="{{ $nanny->experience }}" required class="first" placeholder="Number Of Years">
-                                                                <input type="text" name="country_ex" value="{{ $nanny->country_ex }}" required class="last" placeholder="Country Of Experience">
+                                                            <div class="col-12 col-lg-12 custom-control custom-checkbox">
+                                                                @include('site.components.inputs.check', [
+                                                                    'name' => 'noneExperience',
+                                                                    'id' => 'none',
+                                                                    'class' => '',
+                                                                    'value' => 1,
+                                                                    'label' =>  'None',
+                                                                    'checked' => $nanny->noneExperience,
+                                                                    'required' => false,
+                                                                ])
                                                             </div>
-                                                        </div>
-
-                                                        <div class="col-lg-6">
-                                                            <label><span class="star">*</span> Education</label>
-                                                            <select name="education" class="selectpicker form-control" required>
-                                                                <option selected disabled >Select education</option>
-                                                                <option value="None" @if ($nanny->education == "None") {{ 'selected' }} @endif>None</option>
-                                                                <option value="Primary" @if ($nanny->education == "Primary") {{ 'selected' }} @endif>Primary</option>
-                                                                <option value="Secondary" @if ($nanny->education == "Secondary") {{ 'selected' }} @endif>Secondary</option>
-                                                                <option value="College" @if ($nanny->education == "College") {{ 'selected' }} @endif>College</option>
-                                                                <option value="Diploma" @if ($nanny->education == "Diploma") {{ 'selected' }} @endif>Diploma</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-lg-6 height">
-                                                            <label class="mt-2 mt-lg-2"><span class="star">*</span> Height</label>
-                                                            <input type="text" class="form-control mobile"
-                                                             value="{{isset($nanny->height) && $nanny->height != '' ? $nanny->height : old('height')}}"
-                                                             placeholder="Your Height" name="height">
-                                                            <span class="editMobile">cm</span>
-                                                        </div>
-
-                                                        <div class="col-lg-6 height">
-                                                            <label class="mt-2 mt-lg-2"><span class="star">*</span> Weight</label>
-                                                            <input type="text" class="form-control mobile"
-                                                            value="{{isset($nanny->weight) && $nanny->weight != '' ? $nanny->weight : old('weight')}}"
-                                                            placeholder="Your Weight" name="weight">
-                                                            <span class="editMobile">kg</span>
+                                                            <div class="fullName mb-2">
+                                                                <select name="country_ex1" class="first" required>
+                                                                    <option selected disabled >Select Country</option>
+                                                                    <option value="Oman" @if ($nanny->country_ex1 == "Oman") {{ 'selected' }} @endif>Oman</option>
+                                                                    <option value="Qatar" @if ($nanny->country_ex1 == "Qatar") {{ 'selected' }} @endif>Qatar</option>
+                                                                    <option value="Saudi Arabia" @if ($nanny->country_ex1 == "Saudi Arabia") {{ 'selected' }} @endif>Saudi Arabia</option>
+                                                                    <option value="UAE" @if ($nanny->country_ex1 == "UAE") {{ 'selected' }} @endif>UAE</option>
+                                                                    <option value="Kuwait" @if ($nanny->country_ex1 == "Kuwait") {{ 'selected' }} @endif>Kuwait</option>
+                                                                    <option value="Bahrain" @if ($nanny->country_ex1 == "Bahrain") {{ 'selected' }} @endif>Bahrain</option>
+                                                                    <option value="Lebanon" @if ($nanny->country_ex1 == "Lebanon") {{ 'selected' }} @endif>Lebanon</option>
+                                                                    <option value="Jordan" @if ($nanny->country_ex1 == "Jordan") {{ 'selected' }} @endif>Jordan</option>
+                                                                    <option value="Other" @if ($nanny->country_ex1 == "Other") {{ 'selected' }} @endif>Other</option>
+                                                                </select>
+                                                                <input type="number" step=any name="experience1" value="{{ $nanny->experience1 }}" class="last" placeholder="Years / Months">
+                                                            </div>
+                                                            <div class="fullName mb-2">
+                                                                <select name="country_ex2" class="first" required>
+                                                                    <option selected disabled >Select Country</option>
+                                                                    <option value="Oman" @if ($nanny->country_ex2 == "Oman") {{ 'selected' }} @endif>Oman</option>
+                                                                    <option value="Qatar" @if ($nanny->country_ex2 == "Qatar") {{ 'selected' }} @endif>Qatar</option>
+                                                                    <option value="Saudi Arabia" @if ($nanny->country_ex2 == "Saudi Arabia") {{ 'selected' }} @endif>Saudi Arabia</option>
+                                                                    <option value="UAE" @if ($nanny->country_ex2 == "UAE") {{ 'selected' }} @endif>UAE</option>
+                                                                    <option value="Kuwait" @if ($nanny->country_ex2 == "Kuwait") {{ 'selected' }} @endif>Kuwait</option>
+                                                                    <option value="Bahrain" @if ($nanny->country_ex2 == "Bahrain") {{ 'selected' }} @endif>Bahrain</option>
+                                                                    <option value="Lebanon" @if ($nanny->country_ex2 == "Lebanon") {{ 'selected' }} @endif>Lebanon</option>
+                                                                    <option value="Jordan" @if ($nanny->country_ex2 == "Jordan") {{ 'selected' }} @endif>Jordan</option>
+                                                                    <option value="Other" @if ($nanny->country_ex2 == "Other") {{ 'selected' }} @endif>Other</option>
+                                                                </select>
+                                                                <input type="number" step=any name="experience2" value="{{ $nanny->experience2 }}" class="last" placeholder="Years / Months">
+                                                            </div>
+                                                            <div class="fullName mb-2">
+                                                                <select name="country_ex3" class="first" required>
+                                                                    <option selected disabled >Select Country</option>
+                                                                    <option value="Oman" @if ($nanny->country_ex3 == "Oman") {{ 'selected' }} @endif>Oman</option>
+                                                                    <option value="Qatar" @if ($nanny->country_ex3 == "Qatar") {{ 'selected' }} @endif>Qatar</option>
+                                                                    <option value="Saudi Arabia" @if ($nanny->country_ex3 == "Saudi Arabia") {{ 'selected' }} @endif>Saudi Arabia</option>
+                                                                    <option value="UAE" @if ($nanny->country_ex3 == "UAE") {{ 'selected' }} @endif>UAE</option>
+                                                                    <option value="Kuwait" @if ($nanny->country_ex3 == "Kuwait") {{ 'selected' }} @endif>Kuwait</option>
+                                                                    <option value="Bahrain" @if ($nanny->country_ex3 == "Bahrain") {{ 'selected' }} @endif>Bahrain</option>
+                                                                    <option value="Lebanon" @if ($nanny->country_ex3 == "Lebanon") {{ 'selected' }} @endif>Lebanon</option>
+                                                                    <option value="Jordan" @if ($nanny->country_ex3 == "Jordan") {{ 'selected' }} @endif>Jordan</option>
+                                                                    <option value="Other" @if ($nanny->country_ex3 == "Other") {{ 'selected' }} @endif>Other</option>
+                                                                </select>
+                                                                <input type="number" step=any name="experience3" value="{{ $nanny->experience3 }}" class="last" placeholder="Years / Months">
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-lg-12">
@@ -224,20 +289,6 @@
                                                                         <option value="Excellent" @if ($nanny->english_lang == "Excellent") {{ 'selected' }} @endif>Excellent</option>
                                                                         <option value="Fluent" @if ($nanny->english_lang == "Fluent") {{ 'selected' }} @endif>Fluent</option>
                                                                     </select>
-                                                                </div>
-
-                                                                <div class="col-lg-12">
-                                                                    <span class="star">*</span>
-                                                                    @include('site.components.inputs.text', [
-                                                                    'name' => 'mobile',
-                                                                    'id' => '',
-                                                                    'type' => 'text',
-                                                                    'class' => '',
-                                                                    'value' => $nanny->mobile,
-                                                                    'label' => 'Candidate Active Mobile Number : ( for interview )',
-                                                                    'placeholder' => 'Mobile Number',
-                                                                    'required' => true,
-                                                                    ])
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -8,6 +8,7 @@
            required
            @endif
            name="{{$name}}"
+           type == number ? step=any : ''
            value="{{isset($value) && $value != '' ? $value  : old($name)}}" placeholder="{{$placeholder}}">
     @if (isset($icon))
         <span class="icon-position"><i class="{{$icon}}"></i></span>

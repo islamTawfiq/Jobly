@@ -120,7 +120,7 @@
                                             <span>Age:</span>
                                         </div>
                                         <div class="col-6">
-                                            <span class="spanDetailes">{{$nanny->age}}</span>
+                                            <span class="spanDetailes">{{$nanny->age}} Years</span>
                                         </div>
                                     </div>
                                 </div>
@@ -188,20 +188,78 @@
 
                                 <div class="col-12 personData">
                                     <div class="row">
+                                        <div class="col-6">
+                                            <span>Job</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="spanDetailes">{{$nanny->job_name}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 personData">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <span>Salary</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="spanDetailes">$ {{$nanny->salary}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 personData">
+                                    <div class="row">
                                         <div class="col-12 mb-1">
                                             <span>Experience</span>
                                         </div>
+                                        @if ($nanny->noneExperience == 1)
                                         <div class="col-6 text-center">
-                                            <span class="font-weight-bold">{{ $nanny->country_ex }}</span>
+                                            <span class="font-weight-bold">None</span>
+                                        </div>
+                                        @endif
+                                        @if ($nanny->country_ex1 && $nanny->experience1)
+                                        <div class="col-6 text-center">
+                                            <span class="font-weight-bold">{{ $nanny->country_ex1 }}</span>
                                         </div>
                                         <div class="col-6 text-center">
-                                            <span class="spanDetailes">{{$nanny->experience}}
-                                                @if ($nanny->experience > 1)
+                                            <span class="spanDetailes">{{$nanny->experience1}}
+                                                @if ($nanny->experience1 > 1)
                                                     Years
                                                 @else
                                                     Year
                                                 @endif
-                                            </span>                                        </div>
+                                            </span>
+                                        </div>
+                                        @endif
+                                        @if ($nanny->country_ex2 && $nanny->experience2)
+                                        <div class="col-6 text-center">
+                                            <span class="font-weight-bold">{{ $nanny->country_ex2 }}</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span class="spanDetailes">{{$nanny->experience2}}
+                                                @if ($nanny->experience2 > 1)
+                                                    Years
+                                                @else
+                                                    Year
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @endif
+                                        @if ($nanny->country_ex3 && $nanny->experience3)
+                                        <div class="col-6 text-center">
+                                            <span class="font-weight-bold">{{ $nanny->country_ex3 }}</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span class="spanDetailes">{{$nanny->experience3}}
+                                                @if ($nanny->experience3 > 1)
+                                                    Years
+                                                @else
+                                                    Year
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -310,7 +368,7 @@
 <!-- more nannies -->
 <div class="moreNannies text-center">
     @if ($randomNannies->count() >= 3)
-    <p class="h3 mb-2 mt-2 mb-lg-3 font-weight-bold">More Nannies</p>
+    <p class="h3 mb-2 mt-2 mb-lg-3 font-weight-bold">More Candidates</p>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -339,15 +397,18 @@
                                         </tr>
                                         <tr>
                                             <td>Age:</td>
-                                            <td>{{ $randomNanny->age }}</td>
+                                            <td>{{ $randomNanny->age }} Years</td>
                                         </tr>
                                         <tr>
                                             <td>Experience:</td>
-                                            <td>{{ $randomNanny->experience }}
-                                                @if ($randomNanny->experience > 1)
-                                                     Years
+                                            <?php $experience = $randomNanny->experience1 + $randomNanny->experience2 + $randomNanny->experience3 ?>
+                                            <td>
+                                                @if ($experience > 1)
+                                                    {{ $experience }} Years
+                                                @elseif($experience == 1)
+                                                    {{ $experience }} Year
                                                 @else
-                                                     Year
+                                                      None
                                                 @endif
                                             </td>
                                         </tr>

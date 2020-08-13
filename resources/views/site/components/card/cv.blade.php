@@ -27,10 +27,6 @@
             </p>
             <table>
                 <tr>
-                    <td>broker:</td>
-                    <td>{{$nanny->broker_name}}</td>
-                </tr>
-                <tr>
                     <td>Job:</td>
                     <td>{{$nanny->job_name}}</td>
                 </tr>
@@ -40,11 +36,14 @@
                 </tr>
                 <tr>
                     <td>Experience:</td>
-                    <td>{{$nanny->experience}}
-                        @if ($nanny->experience > 1)
-                            Years
+                    <?php $experience = $nanny->experience1 + $nanny->experience2 + $nanny->experience3 ?>
+                    <td>
+                        @if ($experience > 1)
+                             {{ $experience }} Years
+                        @elseif($experience == 1)
+                             {{ $experience }} Year
                         @else
-                            Year
+                            None
                         @endif
                     </td>
                 </tr>

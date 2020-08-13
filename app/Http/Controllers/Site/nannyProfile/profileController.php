@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site\nannyProfile;
 
 use App\Http\Controllers\Controller;
 use App\Model\Nanny;
+use App\Model\Reservation;
 use Illuminate\Http\Request;
 
 class profileController extends Controller
@@ -25,14 +26,14 @@ class profileController extends Controller
 
     public function reservation(Request $request, $id)
     {
-        $item = Nanny::findorfail($id);
         $data = $request->validate([
             'time'           => 'required|date_format:H:i',
             'date'           => 'required|date',
         ]);
-        $data['reserve_id'] = auth()->user()->id;
+        $data['nanny_id'] = $id;
+        $data['import_id'] = auth()->user()->id;
         $data['status'] = 1;
-        $item->update($data);
+        Reservation::create($data);
         return redirect()->back()->with('success', 'You Confirm the interview, we will give you the feedback shortly');
     }
 

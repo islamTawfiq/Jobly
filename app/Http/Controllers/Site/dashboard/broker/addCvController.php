@@ -26,19 +26,24 @@ class addCvController extends Controller
                 'last_name'      => 'required|string',
                 'country_id'     => 'required|integer',
                 'city'           => 'required|string',
-                'age'            => 'required|integer',
+                'age'            => 'required|string',
                 'religion'       => 'required|string',
                 'children'       => 'required|string',
                 'mobile'         => 'required|string',
                 'job_id'         => 'required|integer',
                 'salary'         => 'required|string',
                 'fees'           => 'required|string',
-                'experience'     => 'required|string',
-                'country_ex'     => 'required|string',
+                'noneExperience' => 'sometimes|nullable|integer',
+                'experience1'    => 'sometimes|nullable|string',
+                'experience2'    => 'sometimes|nullable|string',
+                'experience3'    => 'sometimes|nullable|string',
+                'country_ex1'    => 'sometimes|nullable|string',
+                'country_ex2'    => 'sometimes|nullable|string',
+                'country_ex3'    => 'sometimes|nullable|string',
                 'marital_status' => 'required|string',
                 'education'      => 'required|string',
-                'height'         => 'required|integer',
-                'weight'         => 'required|integer',
+                'height'         => 'required|string',
+                'weight'         => 'required|string',
                 'arabic_lang'    => 'required|string',
                 'english_lang'   => 'required|string',
                 'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
@@ -68,6 +73,9 @@ class addCvController extends Controller
             }
 
             $data['skills'] = implode( "," , $data['skills'] );
+
+            $request->noneExperience  == 1 ? $data['noneExperience'] = '1'  : $data['noneExperience'] = '0';
+            
             Nanny::create($data);
             return redirect('/broker-dashboard/all-cvs')->with('success', 'cv created successfully');
         }

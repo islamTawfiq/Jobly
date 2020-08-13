@@ -6,12 +6,10 @@ Route::PATCH('edit-profile','editProfileController@update');
 
 Route::get('my-orders','myOrdersController@index');
 Route::get('cancel/{id}','myOrdersController@rejectNanny');
+Route::post('notes/{id}','myOrdersController@notes');
 
 Route::get('my-package','myPackageController@index');
 Route::get('my-payments','myPaymentsController@index');
-
-Route::get('cancel/{id}','interviewsController@rejectNanny');
-Route::get('aprove/{id}','interviewsController@aproveNanny');
 
 Route::get('instructions','instructionController@index');
 

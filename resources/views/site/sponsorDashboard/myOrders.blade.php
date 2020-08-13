@@ -23,19 +23,19 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-12 col-md-2 col-lg-1 mr-lg-3">
-                                        <img src="{{ url( 'storage/' . $nanny->main_image) }}" class="mr-3" alt="african">
+                                        <img src="{{ url( 'storage/' . $nanny->workers->main_image) }}" class="mr-3" alt="african">
                                     </div>
                                     <div class="col-12 col-md-10 col-lg-9">
                                         <h5 class="mt-0">You are request an interview with
                                             <span>
-                                                <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->id }}">{{ $nanny->name }}</a>
+                                                <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->workers->id }}">{{ $nanny->workers->name }}</a>
                                             </span>
                                             from
                                             <strong>
-                                            @if ( $nanny->broker->user_type_id == 2 )
-                                                {{ $nanny->broker->name }} (Broker)
-                                            @elseif ( $nanny->broker->user_type_id == 5 )
-                                                {{ $nanny->broker->agency_name }} (Agency)
+                                            @if ( $nanny->workers->broker->user_type_id == 2 )
+                                                {{ $nanny->workers->broker->name }} (Broker)
+                                            @elseif ( $nanny->workers->broker->user_type_id == 5 )
+                                                {{ $nanny->workers->broker->agency_name }} (Agency)
                                             @endif
                                             </strong>
                                         </h5>
@@ -45,64 +45,17 @@
                                         </p>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
-                                        @if($nanny->status == 1)
+                                        @if($nanny->workers->status == 1)
                                             <p class="text-danger" style="font-size: 14px">Your request is still pending approval</p>
                                         @endif
                                         <a href="{{ url('/sponsor-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-primary btnDashboard">Cancel</a>
                                     </div>
-                                    <div class="col-12">
-                                        {{--  <!-- Button trigger modal -->  --}}
-                                        <button type="button" class="btn btn-primary mt-2 mt-md-0" style="font-size: 13px" data-toggle="modal" data-target="#detail-{{ $nanny->id }}">See All Details</button>
-                                        {{--  <!-- Modal -->  --}}
-                                        <div class="modal fade" id="detail-{{ $nanny->id }}" tabindex="-1" role="dialog" aria-labelledby="detailsCenterTitle" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <h5 class="modal-title">All Details</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                              </div>
-                                              <div class="modal-body">
-                                                  @if ($nanny->broker->agency_name)
-                                                  <div>
-                                                    <p class="d-inline-block">Agency Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->agency_name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  @if ($nanny->broker->manager_name)
-                                                  <div>
-                                                    <p class="d-inline-block">Manager Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->manager_name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  @if ($nanny->broker->name)
-                                                  <div>
-                                                    <p class="d-inline-block">Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  <div>
-                                                    <p class="d-inline-block">Mobil Number : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->phone }}</span>
-                                                  </div>
-                                                  @if ($nanny->broker->telephone)
-                                                  <div>
-                                                    <p class="d-inline-block">Telephone : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->telephone }}</span>
-                                                  </div>
-                                                  @endif
-                                                  <div>
-                                                    <p class="d-inline-block">Email : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->broker->email }}</span>
-                                                  </div>
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                    <div class="col-12 m-2">
+                                        <form method="POST" action="{{ url('/sponsor-dashboard/notes/') . '/' . $nanny->id }}">
+                                            @csrf
+                                            <input type="text" name="notes" placeholder="notes" class="form-control">
+                                            <button type="submit" class="btn btn-primary">send</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
