@@ -33,6 +33,7 @@
                             </div>
                         </div>
                     </div>  --}}
+
                     @if ($nannies->count() == 0)
                     <div class="col-12">
                         <div class="row">
@@ -49,81 +50,52 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-12 col-md-2 col-lg-1 mr-lg-3">
-                                        <img src="{{ url( 'storage/' . $nanny->main_image) }}" class="mr-3" alt="african">
+                                        <img src="{{ url( 'storage/' . $nanny->workers->main_image) }}" class="mr-3" alt="african">
                                     </div>
                                     <div class="col-12 col-md-10 col-lg-9">
                                         <h5 class="mt-0">
-                                            @if ( $nanny->reserve->user_type_id == 4 )
-                                                {{ $nanny->reserve->name }} (Sponsor)
-                                            @elseif ( $nanny->reserve->user_type_id == 3 )
-                                                {{ $nanny->reserve->agency_name }} (Agency)
+                                            @if ( $nanny->import->user_type_id == 4 )
+                                                #{{ $nanny->import->id }} (Sponsor)
+                                            @elseif ( $nanny->import->user_type_id == 3 )
+                                                #{{ $nanny->import->id }} (Agency)
                                             @endif
                                                 request an interview with
                                             <span>
-                                                <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->id }}">{{ $nanny->name }}</a>
+                                                <a class="orderedNanny" href="{{ url('profile') . '/' . $nanny->workers->id }}">{{ $nanny->workers->name }}</a>
                                             </span>
                                             .
                                         </h5>
-                                        <p class="mb-0">Interview date & time: <span>{{ $nanny->date }}, {{ $nanny->time }}</span></p>
-                                        <p>Phne Number <span> +{{ $nanny->reserve->phone }}</span></p>
+                                        <p class="mb-0">Interview date & time:
+                                            <span>{{ $nanny->date }} - {{ \Carbon\Carbon::createFromFormat('H:i:s',$nanny->time)->format('g:i a') }}</span>
+                                        </p>
+                                        <div class="font-weight-bold">
+                                            @if ($nanny->status == 2)
+                                                <p class="text-danger">The interview with candidate is canceled</p>
+                                            @elseif ($nanny->status == 3)
+                                                <p class="text-danger">You rejected the request</p>
+                                            @elseif ($nanny->status == 4)
+                                                <p class="text-info">You confirmed the request</p>
+                                            @elseif ($nanny->status == 5)
+                                                <p class="text-danger">Rejected</p>
+                                            @elseif ($nanny->status == 6)
+                                                <p class="text-success">Hired</p>
+                                            @endif
+                                        </div>
                                     </div>
+                                    @if ($nanny->status == 1)
                                     <div class="col-12 text-md-right rightButtons">
                                         <a href="{{ url('/export-agency-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
-                                        <a href="{{ url('/export-agency-dashboard/reject/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
+                                        <a href="{{ url('/export-agency-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
                                     </div>
-                                    <div class="col-12">
-                                        {{--  <!-- Button trigger modal -->  --}}
-                                        <button type="button" class="btn btn-primary mt-2 mt-md-0" style="font-size: 13px" data-toggle="modal" data-target="#details-{{ $nanny->id }}">See All Details</button>
-                                        {{--  <!-- Modal -->  --}}
-                                        <div class="modal fade" id="details-{{ $nanny->id }}" tabindex="-1" role="dialog" aria-labelledby="detailsCenterTitle" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">All Details</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                              </div>
-                                              <div class="modal-body">
-                                                  @if ($nanny->reserve->agency_name)
-                                                  <div>
-                                                    <p class="d-inline-block">Agency Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->agency_name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  @if ($nanny->reserve->manager_name)
-                                                  <div>
-                                                    <p class="d-inline-block">Manager Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->manager_name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  @if ($nanny->reserve->name)
-                                                  <div>
-                                                    <p class="d-inline-block">Name : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->name }}</span>
-                                                  </div>
-                                                  @endif
-                                                  <div>
-                                                    <p class="d-inline-block">Mobil Number : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->phone }}</span>
-                                                  </div>
-                                                  @if ($nanny->reserve->telephone)
-                                                  <div>
-                                                    <p class="d-inline-block">Telephone : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->telephone }}</span>
-                                                  </div>
-                                                  @endif
-                                                  <div>
-                                                    <p class="d-inline-block">Email : </p>
-                                                    <span class="font-weight-bold">{{ $nanny->reserve->email }}</span>
-                                                  </div>
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                              </div>
+                                    @endif
+                                    <div class="col-12 m-2">
+                                        <form method="POST" action="{{ url('/export-agency-dashboard/notes') . '/' . $nanny->nanny_id . '/' . $nanny->import->id }}">
+                                            @csrf
+                                            <div class="field" id="searchform">
+                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
+                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
                                             </div>
-                                          </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

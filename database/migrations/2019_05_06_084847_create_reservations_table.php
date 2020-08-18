@@ -12,7 +12,9 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('import_id')->nullable();
-            $table->integer('nanny_id')->nullable();
+            $table->bigInteger('nanny_id')->unsigned()->nullable();
+            $table->foreign('nanny_id')->references('id')->on('nannies')->onDelete('cascade');
+            $table->integer('broker_id')->nullable();
             $table->text('notes')->nullable();
             $table->date('date')->nullable();
             $table->time('time')->nullable();

@@ -82,12 +82,15 @@ label {
     margin-left: 15px;
 }
 .mySignUpDrop {
-    font-size: 14px !important;
     top: 10px !important;
     left: -20px !important;
+    position: relative;
+}
+.mynotify,
+.mySignUpDrop {
+    font-size: 14px !important;
     border-radius: 8px !important;
     box-shadow: 2px 3px 13px -7px rgba(0, 0, 0, 0.6);
-    position: relative;
 }
 .mySignUpDrop:after {
     content: "";
@@ -103,14 +106,21 @@ label {
 #topNavbarInDashboard .mySignUpDrop:after {
     left: 66%;
 }
-.mySignUpDrop a {
+.mySignUpDrop a,
+.mynotify a {
     color: #6c757d !important;
     font-weight: 400;
 }
-.mySignUpDrop a:not(:last-child) {
+.mynotify a:hover {
+    background: #ef7f65;
+    color: #fff !important;
+}
+.mySignUpDrop a:not(:last-child),
+.mynotify a:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
-.mySignUpDrop a:active {
+.mySignUpDrop a:active,
+.mynotify a:active {
     background: #fff !important;
 }
 /* start find */
@@ -1473,3 +1483,160 @@ div.inst p{
     padding: .375rem .75rem;
     margin: 0 !important;
 }
+.candidate {
+    font-size: 17px !important;
+    font-weight: bold;
+    color: #ef7f65;
+}
+.deleteMessage:hover {
+    font-size: 17px !important;
+    font-weight: bold;
+    color: #ef7f65;
+}
+
+.readAt {
+    background: #e5e5e5 !important;
+
+}
+.field {
+  display:flex;
+  position:realtive;
+  /* margin:5em auto; */
+  flex-direction:row;
+  border-radius: 16px;
+  box-shadow: 2px 3px 13px -3px rgba(0, 0, 0, 0.5);
+}
+.field>input[type=text],
+.field>button {
+  display:block;
+  font:1.2em 'Open sans';
+  font-size: 14px;
+}
+.field>input[type=text] {
+  flex:1;
+  padding:0.6em;
+  border-radius: 16px;
+  border-color: #fff;
+  outline: 0;
+  border:none;
+  position: relative;
+  width: 100%;
+}
+.field>button {
+  padding:0.6em 0.8em;
+  background-color: #819090;
+  color: #fff;
+  border:none;
+  border-radius: 16px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  box-shadow: 2px 3px 13px -3px rgba(0, 0, 0, 0.5) !important;
+  margin-left: -35px;
+  height: 100%;
+  width: 10%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+a.readAt:hover{
+    color: #000 !important;
+}
+.created_at {
+    color: #028ab8;
+    font-size: 12px;
+}
+.button {
+    display: inline-block;
+    position: relative;
+    padding: 2px 5px;
+}
+.button__badge {
+    background-color: #fa3e3e !important;
+    border-radius: 16px !important;
+    color: white !important;
+    padding: 1px 3px !important;
+    font-size: 10px !important;
+    position: absolute !important;
+    top: 0px !important;
+    right: 0px !important;
+}
+
+
+#myNoty {
+    list-style:none;
+    margin: 0px;
+    padding: 0px;
+}
+#myNoty li {
+    margin-right: 5px;
+    font-size: 20px;
+}
+#notification_li
+{
+    position:relative;
+}
+#notificationsBody a {
+    color: #000 !important;
+}
+#notificationContainer
+{
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 30px;
+    margin-left: -170px;
+    width: 400px;
+    z-index: -1;
+    z-index: 9999 !important;
+    display: none; /* Enable this after jquery implementation */
+}
+// Popup Arrow
+#notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid red;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+    margin-left: 188px;
+}
+#notificationTitle
+{
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #ffffff;
+    margin: 0;
+    width: 384px;
+    border-bottom: 1px solid #dddddd;
+}
+#notificationsBody
+{
+    padding: 0px !important;
+    max-height: 300px;
+    overflow: auto;
+    overflow-x : hidden
+}
+#notificationFooter
+{
+    background-color: #e9eaed;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
+}
+#notificationsBody a {
+    border-bottom: 1px solid #e5e5e5 !important;
+    font-weight: normal;
+    font-size: 14px !important;
+}
+#notificationsBody a:active {
+    background-color: #fff;
+  }

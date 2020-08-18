@@ -50,10 +50,10 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $nanny->reserve->name }}
-                                        @if ($nanny->reserve->user_type_id == 3)
+                                        {{ $nanny->broker->name }}
+                                        @if ($nanny->broker->user_type_id == 3)
                                             <span class="text-info">(Agency)</span>
-                                        @elseif($nanny->reserve->user_type_id == 4)
+                                        @elseif($nanny->broker->user_type_id == 4)
                                             <span class="text-info">(Sponsor)</span>
                                         @endif
                                     </td>

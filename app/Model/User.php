@@ -2,9 +2,12 @@
 
 namespace App\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use Notifiable;
+
     protected $appends = ['admin_group_name','user_main_image','country_name'];
     protected $fillable = [
         'name',

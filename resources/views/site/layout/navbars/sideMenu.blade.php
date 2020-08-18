@@ -32,13 +32,14 @@
             <a href="{{url('/broker-dashboard/my-payments')}}"
              class="{{ url()->current() == url('/broker-dashboard/my-payments') ? 'active' : '' }}">My Payments</a>
         </li>
-        <li>
+        <li style="font-size: 14px">
             <a href="{{url('/broker-dashboard/my-notification')}}"
-             class="{{ url()->current() == url('/broker-dashboard/my-notification') ? 'active' : '' }}">My Notification</a>
-        </li>
+             class="{{ url()->current() == url('/broker-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
+             <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
+            </li>
         <li class="text-center">
             <a href="{{url('/broker-dashboard/instructions')}}"
-             class="{{ url()->current() == url('/broker-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read 
+             class="{{ url()->current() == url('/broker-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read
              <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
             </a>
         </li>
@@ -67,9 +68,14 @@
              class="{{ url()->current() == url('/export-agency-dashboard/client-orders') ? 'active' : '' }}">Client Orders
             </a>
         </li>
+        <li style="font-size: 14px">
+            <a href="{{url('/export-agency-dashboard/my-notification')}}"
+             class="{{ url()->current() == url('/export-agency-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
+             <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
+            </li>
         <li class="text-center">
             <a href="{{url('/export-agency-dashboard/instructions')}}"
-             class="{{ url()->current() == url('/export-agency-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read 
+             class="{{ url()->current() == url('/export-agency-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read
              <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
             </a>
         </li>
@@ -92,6 +98,11 @@
             <a href="{{ url('/import-agency-dashboard/my-payments') }}"
             class="{{ url()->current() == url('/import-agency-dashboard/my-payments') ? 'active' : '' }}">My Payments </a>
         </li>
+        <li style="font-size: 14px;">
+            <a href="{{url('/import-agency-dashboard/my-notification')}}"
+             class="{{ url()->current() == url('/import-agency-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
+             <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
+        </li>
     @endif
     {{-- Sponsor --}}
     @if (auth()->user()->user_type_id == 4)
@@ -110,6 +121,11 @@
     <li>
         <a href="{{ url('/sponsor-dashboard/my-payments') }}"
         class="{{ url()->current() == url('/sponsor-dashboard/my-payments') ? 'active' : '' }}">My Payments </a>
+    </li>
+    <li style="font-size: 14px;">
+        <a href="{{url('/sponsor-dashboard/my-notification')}}"
+         class="{{ url()->current() == url('/sponsor-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
+         <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
     </li>
     {{-- <li>
         <a href="{{url('/sponsor-dashboard/instructions')}}"

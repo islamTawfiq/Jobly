@@ -28,7 +28,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ url('/reservation/' . $nanny->id ) }}" method="POST">
+                                        <form action="{{ url('/reservation/' . $nanny->id .'/'. $nanny->broker_id) }}" method="POST">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">

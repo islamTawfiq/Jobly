@@ -24,7 +24,10 @@ Route::get('/profile/{id}','Site\nannyProfile\profileController@index');
 
 Route::group(['middleware' => ['auth']], function () {
     // reservation
-    Route::post('/reservation/{id}','Site\nannyProfile\profileController@reservation');
+    Route::post('/reservation/{id}/{broker_id}','Site\nannyProfile\profileController@reservation');
+
+    Route::get('/new-notification/{id}','Site\home\HomeController@show');
+    Route::get('/new-message/{id}','Site\home\HomeController@showMessage');
 });
 
 Route::get('/login', 'Site\auth\LoginController@ShowLoginPage');

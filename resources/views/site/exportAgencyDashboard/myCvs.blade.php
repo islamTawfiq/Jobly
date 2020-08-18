@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-lg-4 text-lg-right">
                         <div class="addNewCv">
-                            <a href="{{ url()->current() . '/add-cv' }}" class="btn btn-primary"><i
+                            <a href="{{ url('/broker-dashboard/add-cv') }}" class="btn btn-primary"><i
                                     class="fas fa-plus-circle"></i><span>Add New CV</span></a>
                         </div>
                     </div>
@@ -50,10 +50,10 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $nanny->reserve->name }}
-                                        @if ($nanny->reserve->user_type_id == 3)
+                                        {{ $nanny->broker->name }}
+                                        @if ($nanny->broker->user_type_id == 3)
                                             <span class="text-info">(Agency)</span>
-                                        @elseif($nanny->reserve->user_type_id == 4)
+                                        @elseif($nanny->broker->user_type_id == 4)
                                             <span class="text-info">(Sponsor)</span>
                                         @endif
                                     </td>

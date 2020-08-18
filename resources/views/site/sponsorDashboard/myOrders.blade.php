@@ -33,9 +33,9 @@
                                             from
                                             <strong>
                                             @if ( $nanny->workers->broker->user_type_id == 2 )
-                                                {{ $nanny->workers->broker->name }} (Broker)
+                                               #{{ $nanny->workers->broker->id }} (Agent)
                                             @elseif ( $nanny->workers->broker->user_type_id == 5 )
-                                                {{ $nanny->workers->broker->agency_name }} (Agency)
+                                               #{{ $nanny->workers->broker->id }} (Agency)
                                             @endif
                                             </strong>
                                         </h5>
@@ -43,18 +43,39 @@
                                             Interview date & time:
                                             <span>{{ $nanny->date }} - {{ \Carbon\Carbon::createFromFormat('H:i:s',$nanny->time)->format('g:i a') }}</span>
                                         </p>
+                                        <div class="font-weight-bold">
+                                            @if ($nanny->status == 1)
+                                                <p class="text-warning">pending for approval</p>
+                                            @elseif ($nanny->status == 2)
+                                                <p class="text-danger">You canceled the request</p>
+                                            @elseif ($nanny->status == 3)
+                                                <p class="text-danger">We are sorry we can not arrange the interview , please select anther candidate</p>
+                                            @elseif ($nanny->status == 4)
+                                                <p class="text-info">The interview approved</p>
+                                            @elseif ($nanny->status == 5)
+                                                <p class="text-danger">You rejected the candidate</p>
+                                            @elseif ($nanny->status == 6)
+                                                <p class="text-success">Hired</p>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="col-12 text-md-right rightButtons">
-                                        @if($nanny->workers->status == 1)
-                                            <p class="text-danger" style="font-size: 14px">Your request is still pending approval</p>
+                                        @if ($nanny->status == 1)
+                                            <a href="{{ url('/sponsor-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Cancel</a>
+                                        @elseif ($nanny->status == 2 || $nanny->status == 3 || $nanny->status == 5)
+                                            <a href="{{ url('/filter') }}" class="btn btn-info btnDashboard">Choose Another</a>
+                                        @elseif ($nanny->status == 4)
+                                            <a href="{{ url('/sponsor-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard">Book</a>
+                                            <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Reject And Replace</a>
                                         @endif
-                                        <a href="{{ url('/sponsor-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-primary btnDashboard">Cancel</a>
                                     </div>
                                     <div class="col-12 m-2">
-                                        <form method="POST" action="{{ url('/sponsor-dashboard/notes/') . '/' . $nanny->id }}">
+                                        <form method="POST" action="{{ url('/sponsor-dashboard/notes/') . '/' . $nanny->nanny_id . '/' . $nanny->workers->broker->id }}">
                                             @csrf
-                                            <input type="text" name="notes" placeholder="notes" class="form-control">
-                                            <button type="submit" class="btn btn-primary">send</button>
+                                            <div class="field" id="searchform">
+                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
+                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

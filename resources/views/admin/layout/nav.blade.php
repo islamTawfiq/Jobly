@@ -59,6 +59,63 @@
                         </div>
                     </li>
 
+                    <li class="dropdown dropdown-notification nav-item">
+                        <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                            <i class="ficon feather icon-bell"></i>
+                            <span class="badge badge-pill badge-primary badge-up">
+                                {{ count(auth()->user()->unreadNotifications) }}
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                            <li class="dropdown-menu-header">
+                                <div class="dropdown-header m-0 p-2">
+                                    <h3 class="white">{{ count(auth()->user()->unreadNotifications) }}</h3>
+                                    <span class="notification-title">New Notifications</span>
+                                </div>
+                            </li>
+                            <li class="media-list" style="overflow-y: auto">
+                                @foreach (auth()->user()->notifications as $notify)
+                                @if ($notify->type == 'App\Notifications\NewMessage')
+                                <a class="d-flex justify-content-between {{ $notify->read_at == null ? 'readAt' : '' }}" href="{{ url('/admin/new-message') . '/' . $notify->data['data'] }}">
+                                    <div class="media d-flex align-items-start">
+                                        <div class="media-left">
+                                            <i class="feather icon-plus-square font-medium-5 primary"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="primary media-heading">You have new order!</h6>
+                                            <small class="notification-text"> {{ $notify->data['contain'] }}</small>
+                                        </div>
+                                        <small>
+                                            <time class="media-meta"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</time>
+                                            <?php $notify->markAsRead() ?>
+                                        </small>
+                                    </div>
+                                </a>
+                                @else
+                                <a class="d-flex justify-content-between {{ $notify->read_at == null ? 'readAt' : '' }}" href="{{ url('/admin/new-notification') . '/' . $notify->data['data'] }}">
+                                    <div class="media d-flex align-items-start">
+                                        <div class="media-left">
+                                            <i class="feather icon-plus-square font-medium-5 primary"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="primary media-heading">You have new order!</h6>
+                                            <small class="notification-text"> {{ $notify->data['contain'] }}</small>
+                                        </div>
+                                        <small>
+                                            <time class="media-meta"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</time>
+                                            <?php $notify->markAsRead() ?>
+                                        </small>
+                                    </div>
+                                </a>
+                                @endif
+                                @endforeach
+                            </li>
+                            <li class="dropdown-menu-footer">
+                                <a class="dropdown-item p-1 text-center" href="javascript:void(0)">Read all notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">Admin</span><span

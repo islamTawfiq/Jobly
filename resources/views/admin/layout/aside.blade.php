@@ -34,7 +34,7 @@
             @endif
 
             @if (auth()->User()->group_id->nannies_show == 1)
-            @include('admin.components.navItems.singleitem', ['url' => url('admin/help'),'name'=>'Help','icon'=>'feather icon-circle'])
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/reservations'),'name'=>'Reservations','icon'=>'feather icon-circle'])
             @endif
 
             @if (auth()->User()->group_id->nannies_show == 1)

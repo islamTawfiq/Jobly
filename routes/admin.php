@@ -6,6 +6,9 @@
 */
 Route::get('/user/edit','auth\AuthController@edit');
 Route::post('/user/edit','auth\AuthController@update');
+
+Route::get('/new-notification/{id}','notifications\NotifyController@show');
+Route::get('/new-message/{id}','notifications\NotifyController@showMessage');
 /*
 |--------------------------------------------------------------------------
 | Theme Cookie Routes
@@ -43,6 +46,7 @@ Route::resource('jobs','jobs\JobsController');
 Route::resource('countries','countries\CountriesController');
 Route::resource('importing-countries','countries\ImportingCountriesController');
 Route::resource('help','help\helpController');
+Route::resource('reservations','reservations\reservationController');
 
 Route::get('about-us','pages\aboutUs\aboutUsController@index');
 Route::PATCH('about-us','pages\aboutUs\aboutUsController@update');
