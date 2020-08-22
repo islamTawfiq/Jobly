@@ -104,14 +104,16 @@
                             var data1 = '' ,
                                 data2 = '' ,
                                 data3 = '' ;
+                                data4 = '' ;
                             @if (auth()->User()->group->agencies_edit == 1 )
                             var data1 = '<a href="{{url()->current()}}/' + row.id + '/edit" class="action-edit"><i class="feather icon-edit"></i></a>';
                             @endif
-                                @if (auth()->User()->group->agencies_delete == 1 )
+                            @if (auth()->User()->group->agencies_delete == 1 )
                             var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
-                                @endif
+                            @endif
                             var data3 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-status"><i class="feather icon-pause action-status"></i></a>';
-                                return data1 + data3 + data2;
+                            var data4 = '<a href="{{ url("/admin/user") }}/' + row.id + '/send" class="action-edit"><i class="feather icon-send"></i></a>';
+                            return data1 + data3 + data2 + data4;
                         }, orderable: false, searchable: false
                     }
                 ],

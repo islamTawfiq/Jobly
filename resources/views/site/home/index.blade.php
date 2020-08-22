@@ -2,7 +2,6 @@
 @section('content')
     <main>
         <!-- letsStart -->
-
         @guest
         <div class="letStart text-center">
             {{--  <div class="imgAbs">
@@ -11,23 +10,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <p class="h4 mb-4">Let's Start Now</p>
+                        <p class="h4 mb-4">Start Now</p>
                     </div>
-                    <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <div class="toStart">
-                            <p class="h5">I am a Sponsor <br> I want to hire a domestic workers</p>
+                            <p class="h5">{{ $start->family }}</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Search for candidates </span>
+                                <span>{{ $start->family_instruction1 }}</span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Interview candidate </span>
+                                <span>{{ $start->family_instruction2 }}</span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>Hire applicants from good agency </span>
+                                <span>{{ $start->family_instruction3 }}</span>
                             </div>
                             <div class="signStart">
                                 <a href="{{ url('/sponsor-register') }}" class="btn btn-primary">Sign In</a>
@@ -36,21 +34,41 @@
                     </div>
                     <div class="col-md-4">
                         <div class="toStart">
-                            <p class="h5">We are Manpower agency <br> We want to join now</p>
+                            <p class="h5">{{ $start->sourcing }}</p>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>To show good candidates CVs </span>
+                                <span>{{ $start->sourcing_instruction1 }}</span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>To facilities interview for sponsors </span>
+                                <span>{{ $start->sourcing_instruction2 }}</span>
                             </div>
                             <div class="infoStart">
                                 <i class="fas fa-check"></i>
-                                <span>To assist sponsors to get their demand applicants  </span>
+                                <span>{{ $start->sourcing_instruction3 }}</span>
                             </div>
                             <div class="signStart">
-                                <a href="{{ url('/import-agency-register') }}" class="btn btn-primary">Sign In</a>
+                                <a href="{{ url('/export-agency-register') }}" class="btn btn-primary">Sign In</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="toStart">
+                            <p class="h5">{{ $start->agent }}</p>
+                            <div class="infoStart">
+                                <i class="fas fa-check"></i>
+                                <span>{{ $start->agent_instruction1 }}</span>
+                            </div>
+                            <div class="infoStart">
+                                <i class="fas fa-check"></i>
+                                <span>{{ $start->agent_instruction2 }}</span>
+                            </div>
+                            <div class="infoStart">
+                                <i class="fas fa-check"></i>
+                                <span>{{ $start->agent_instruction3 }}</span>
+                            </div>
+                            <div class="signStart">
+                                <a href="{{ url('/broker-register') }}" class="btn btn-primary">Sign In</a>
                             </div>
                         </div>
                     </div>

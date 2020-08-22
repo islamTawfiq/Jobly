@@ -35,25 +35,33 @@
                                 <tr>
                                     <th scope="col">Nanny Name</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Client Name</th>
+                                    <th scope="col">Client</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($nannies as $nanny)
                                 <tr>
-                                    <td>{{ $nanny->name }}</th>
+                                    <td>{{ $nanny->workers->name }}</th>
                                     <td>
-                                        @if ($nanny->status != 3)
-                                            <span class="text-danger">Pending</span>
+                                        @if ($nanny->status == 1)
+                                            <span class="text-warning">Pending</span>
+                                        @elseif($nanny->status == 2)
+                                            <span class="text-danger">Canceled</span>
                                         @elseif($nanny->status == 3)
+                                            <span class="text-danger">You Rejected</span>
+                                        @elseif($nanny->status == 4)
+                                            <span class="text-info">Waiting interview</span>
+                                        @elseif($nanny->status == 5)
+                                            <span class="text-danger">Rejected</span>
+                                        @elseif($nanny->status == 6)
                                             <span class="text-success">Hired</span>
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $nanny->broker->name }}
-                                        @if ($nanny->broker->user_type_id == 3)
+                                        {{-- {{ $nanny->import->name }} --}}
+                                        @if ($nanny->import->user_type_id == 3)
                                             <span class="text-info">(Agency)</span>
-                                        @elseif($nanny->broker->user_type_id == 4)
+                                        @elseif($nanny->import->user_type_id == 4)
                                             <span class="text-info">(Sponsor)</span>
                                         @endif
                                     </td>

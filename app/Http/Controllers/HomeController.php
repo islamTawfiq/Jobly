@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\AboutUs;
 use App\Model\Nanny;
+use App\Model\Link;
+use App\Model\Start;
 
 class HomeController extends Controller
 {
@@ -12,6 +14,7 @@ class HomeController extends Controller
     {
         $nannies = Nanny::get();
         $about = AboutUs::first();
-        return view('site.home.index', compact('nannies','about'));
+        $start = Start::first();
+        return view('site.home.index', compact('nannies','about','start'));
     }
 }

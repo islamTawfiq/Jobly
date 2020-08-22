@@ -297,11 +297,31 @@ footer .linksInFooter i {
     background: #EF7F65;
     padding-top: 30px;
     padding-bottom: 30px;
+    position: relative !important;
+    overflow: hidden;
 }
 .profile .profileInfo a.btnBook {
     background: #fff !important;
     color: #EF7F65 !important;
     font-weight: bold;
+}
+.progress {
+    position: absolute !important;
+    top: 10px;
+    right: -24px;
+    font-size: 14px;
+    height: 30px !important;
+    /* width: 150px !important; */
+    line-height: 30px;
+    padding: 0;
+    background: transparent;
+    margin: 0;
+    background: #028ab8;
+    color: #fff;
+    /* border: 1px solid #000; */
+    text-align: center;
+    padding: 0 40px;
+    transform: rotate(30deg);
 }
 .person {
     margin-top: -130px;

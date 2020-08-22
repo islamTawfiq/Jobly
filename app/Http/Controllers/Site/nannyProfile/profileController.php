@@ -26,7 +26,7 @@ class profileController extends Controller
         $reservation = (Reservation::where('nanny_id',$id))->get();
         // dd($reservation);
 
-        return view('site.nannyProfile.profile', compact('nanny','skills','images','randomNannies'));
+        return view('site.nannyProfile.profile', compact('nanny','skills','images','randomNannies','reservation'));
     }
 
     public function reservation(Request $request, $id, $broker_id)

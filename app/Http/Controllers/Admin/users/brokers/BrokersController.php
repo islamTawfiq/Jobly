@@ -117,4 +117,10 @@ class BrokersController extends Controller
         return response()->json($data['status']);
     }
 
+    public function Send($id){
+        $user = User::findorfail($id);
+        return view('admin.users.brokers.send', compact('user'));    }
+
+
+
 }

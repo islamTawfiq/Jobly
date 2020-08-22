@@ -42,7 +42,7 @@ class aboutUsController extends Controller
        $request->hasFile('img4') ? $data['img4'] = $this->storeFile($request->img4, 'about-us') : '';
 
        $item->update($data);
-       return redirect()->back()->with('success','Salon Have Been Updated Successfully ');
+       return redirect()->back()->with('success','Updated Successfully ');
 
    }
 

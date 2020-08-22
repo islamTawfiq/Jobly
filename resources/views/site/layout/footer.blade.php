@@ -8,14 +8,15 @@
                 <div class="col-4 col-md-2 linksInFooter">
                     <p class="h5">Menu</p>
                     <ul class="list-unstyled">
+                        @foreach (\App\Model\Link::get() as $link)
                         <li>
-                            <a href="{{url('/')}}">Home</a>
+                            <a href="{{url('/')}}">{{ $link->home }}</a>
                         </li>
                         <li>
-                            <a href="{{url('/filter')}}">Domestic Workers</a>
+                            <a href="{{url('/filter')}}">{{ $link->domestic_workers }}</a>
                         </li>
                         <li>
-                            <a href="{{url('/about-us')}}">About</a>
+                            <a href="{{url('/about-us')}}">{{ $link->about }}</a>
                         </li>
                     </ul>
                 </div>
@@ -23,11 +24,12 @@
                     <p class="h5">Quick Link</p>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{url('/contact-us')}}">Contact Us</a>
+                            <a href="{{url('/contact-us')}}">{{ $link->contact }}</a>
                         </li>
                         <li>
-                            <a href="">Local Domestic Workers</a>
+                            <a href="">{{ $link->local_domestic_workers }}</a>
                         </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-4 col-md-2 linksInFooter">

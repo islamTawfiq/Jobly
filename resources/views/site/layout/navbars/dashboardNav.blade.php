@@ -5,13 +5,13 @@
                 <div class="logo">
                     <img src="{{$settings->main_logo}}" alt="logo"/>
                     @if (auth()->user()->user_type_id == 2)
-                    <span> | <strong>Broker Dashboard</strong></span>
+                    <span> | <strong>Sub-agent Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 3)
-                    <span> | <strong>Import Agency Dashboard</strong></span>
+                    <span> | <strong>Reqruitment Agency Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 4)
                     <span> | <strong>Sponsor Dashboard</strong></span>
                     @elseif (auth()->user()->user_type_id == 5)
-                    <span> | <strong>Export Agency Dashboard</strong></span>
+                    <span> | <strong>Sourcing Agency Dashboard</strong></span>
                     @endif
 
                 </div>
@@ -33,17 +33,24 @@
                                 <div id="notificationTitle">Notifications</div>
                                 <div id="notificationsBody" class="notifications">
                                 @foreach (auth()->user()->notifications as $notify)
-                                    @if ($notify->type == 'App\Notifications\NewMessage')
+                                @if ($notify->type == 'App\Notifications\NewMessage')
+                                    @if ( $notify->data['sender'] == 1)
+                                    <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-message') . '/' . $notify->data['data'] }}">
+                                        <span>System send you new message</span> <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
+                                        <?php $notify->markAsRead() ?>
+                                    </a>
+                                    @else
                                     <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-message') . '/' . $notify->data['data'] }}">
                                         {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
                                         <?php $notify->markAsRead() ?>
                                     </a>
-                                    @else
-                                    <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-notification') . '/' . $notify->data['data'] }}">
-                                        {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
-                                        <?php $notify->markAsRead() ?>
-                                    </a>
                                     @endif
+                                @else
+                                <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-notification') . '/' . $notify->data['data'] }}">
+                                    {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
+                                    <?php $notify->markAsRead() ?>
+                                </a>
+                                @endif
                                 @endforeach
                                 </div>
                                 @if(count(auth()->user()->notifications) == 0)

@@ -9,6 +9,10 @@ Route::post('/user/edit','auth\AuthController@update');
 
 Route::get('/new-notification/{id}','notifications\NotifyController@show');
 Route::get('/new-message/{id}','notifications\NotifyController@showMessage');
+
+Route::get('/user/{id}/send','users\SendController@Send');
+Route::post('/user/{id}/send','users\SendController@store');
+
 /*
 |--------------------------------------------------------------------------
 | Theme Cookie Routes
@@ -51,11 +55,30 @@ Route::resource('reservations','reservations\reservationController');
 Route::get('about-us','pages\aboutUs\aboutUsController@index');
 Route::PATCH('about-us','pages\aboutUs\aboutUsController@update');
 
+Route::get('links','links\linksController@index');
+Route::PATCH('links','links\linksController@update');
+
+Route::get('start','start\startController@index');
+Route::PATCH('start','start\startController@update');
+
 Route::get('contact-us','pages\contactUs\contactUsController@index');
 Route::PATCH('contact-us','pages\contactUs\contactUsController@update');
 
+Route::get('find','find\findController@index');
+Route::PATCH('find','find\findController@update');
+
 Route::get('terms&conditions','pages\terms\termsController@index');
 Route::PATCH('terms&conditions','pages\terms\termsController@update');
+
+Route::get('broker-instruction','pages\instructions\instructionController@broker');
+Route::PATCH('broker-instruction','pages\instructions\instructionController@updateBroker');
+
+Route::get('export-instruction','pages\instructions\instructionController@export');
+Route::PATCH('export-instruction','pages\instructions\instructionController@updateExport');
+
+Route::get('sponsor-instruction','pages\instructions\instructionController@sponsor');
+Route::PATCH('sponsor-instruction','pages\instructions\instructionController@updateSponsor');
+
 /*
 |--------------------------------------------------------------------------
 | views Routes

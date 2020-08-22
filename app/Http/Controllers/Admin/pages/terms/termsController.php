@@ -33,7 +33,7 @@ class termsController extends Controller
        ]);
 
        $item->update($data);
-       return redirect()->back()->with('success','Salon Have Been Updated Successfully ');
+       return redirect()->back()->with('success','Updated Successfully ');
 
    }
 

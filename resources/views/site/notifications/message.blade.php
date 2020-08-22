@@ -8,6 +8,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12" style="margin-bottom:90px; margin-top: 90px">
+
+                        @if ($message->send->user_type_id != 1)
                         <div class="requestAnInterview text-center text-md-left" >
                             {{--  Sponsor And Import Agency  --}}
                             @if (auth()->user()->user_type_id == 3 || auth()->user()->user_type_id == 4 )
@@ -105,6 +107,26 @@
                             </div>
                             @endif
                         </div>
+                        @endif
+
+                        {{-- for Admin --}}
+                        @if ($message->send->user_type_id == 1)
+                        <div class="requestAnInterview text-center text-md-left">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <span class="font-weight-bold">System Sent you a message</span>
+                                    </div>
+                                    <div class="col-lg-6 text-lg-right">
+                                        <span class="history">{{ $message->created_at->diffForHumans() }}</span>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mt-2">{{ $message->message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

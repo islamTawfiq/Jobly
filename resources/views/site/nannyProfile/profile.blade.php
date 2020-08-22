@@ -2,6 +2,15 @@
 @section('content')
 
 <div class="profile">
+    @auth
+    @foreach ($reservation as $item)
+    @if ( $item->status == 1 || $item->status == 4 )
+    <div class="progress">
+        <p>in progress</p>
+    </div>
+    @endif
+    @endforeach
+    @endauth
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
@@ -16,6 +25,7 @@
                             'class' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',
                             'reserved' => 'btnBook float-md-right d-block m-2 ml-4 mr-4 m-md-0',
                             ])
+
 
                         <!-- Modal -->
                         <div class="modal fade" id="bookNanny" tabindex="-1" role="dialog" aria-labelledby="bookNannyTitle" aria-hidden="true">

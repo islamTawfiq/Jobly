@@ -14,12 +14,14 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{url('/filter')}}" class="nav-link">Domestic Workers</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Local Domestic Workers</a></li>
-                <li class="nav-item"><a href="{{url('/about-us')}}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{url('/contact-us')}}" class="nav-link">Contact us</a>
+                @foreach (\App\Model\Link::get() as $link)
+                <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">{{ $link->home }}</a></li>
+                <li class="nav-item"><a href="{{url('/filter')}}" class="nav-link">{{ $link->domestic_workers }}</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">{{ $link->local_domestic_workers }}</a></li>
+                <li class="nav-item"><a href="{{url('/about-us')}}" class="nav-link">{{ $link->about }}</a></li>
+                <li class="nav-item"><a href="{{url('/contact-us')}}" class="nav-link">{{ $link->contact }}</a>
                 </li>
+                @endforeach
             </ul>
         </div>
     </nav>
@@ -44,10 +46,17 @@
                             <div id="notificationsBody" class="notifications">
                             @foreach (auth()->user()->notifications as $notify)
                                 @if ($notify->type == 'App\Notifications\NewMessage')
-                                <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-message') . '/' . $notify->data['data'] }}">
-                                    {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
-                                    <?php $notify->markAsRead() ?>
-                                </a>
+                                    @if ( $notify->data['sender'] == 1)
+                                    <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-message') . '/' . $notify->data['data'] }}">
+                                        <span>System send you new message</span> <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
+                                        <?php $notify->markAsRead() ?>
+                                    </a>
+                                    @else
+                                    <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-message') . '/' . $notify->data['data'] }}">
+                                        {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
+                                        <?php $notify->markAsRead() ?>
+                                    </a>
+                                    @endif
                                 @else
                                 <a class="dropdown-item {{ $notify->read_at == null ? 'readAt' : '' }} " href="{{ url('/new-notification') . '/' . $notify->data['data'] }}">
                                     {{ $notify->data['contain'] }} <br> <span class="created_at"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</span>
@@ -84,16 +93,16 @@
                     <a class="dropdown-item" href="{{url('/admin')}}">Admin</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 2 )
-                    <a class="dropdown-item" href="{{url('/broker-dashboard/my-cv')}}">Broker Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/broker-dashboard/my-cv')}}">Dashboard</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 3 )
-                    <a class="dropdown-item" href="{{url('/import-agency-dashboard/edit-profile')}}">Agency Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/import-agency-dashboard/edit-profile')}}">Dashboard</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 4 )
-                    <a class="dropdown-item" href="{{url('/sponsor-dashboard/edit-profile')}}">Sponsor Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/sponsor-dashboard/edit-profile')}}">Dashboard</a>
                     @endif
                     @if ( auth()->user()->user_type_id == 5 )
-                    <a class="dropdown-item" href="{{url('/export-agency-dashboard/edit-profile')}}">Agency Dashboard</a>
+                    <a class="dropdown-item" href="{{url('/export-agency-dashboard/edit-profile')}}">Dashboard</a>
                     @endif
                     <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                 </div>
@@ -108,10 +117,10 @@
                 </a>
 
                 <div class="dropdown-menu mySignUpDrop" aria-labelledby="signUp">
-                    <a class="dropdown-item" href="{{ url('/broker-register') }}">Domestic Workers Sourcing Broker</a>
-                    <a class="dropdown-item" href="{{ url('/export-agency-register') }}">Domestic Workers Sourcing Agency</a>
-                    <a class="dropdown-item" href="{{ url('/import-agency-register') }}">Domestic Workers Recruitment Agency</a>
-                    <a class="dropdown-item" href="{{ url('/sponsor-register') }}">Domestic Workers Sponsorship</a>
+                    <a class="dropdown-item" href="{{ url('/broker-register') }}">{{ $link->sourcing_broker }}</a>
+                    <a class="dropdown-item" href="{{ url('/export-agency-register') }}">{{ $link->sourcing_agency }}</a>
+                    <a class="dropdown-item" href="{{ url('/import-agency-register') }}">{{ $link->recruitment_agency }}</a>
+                    <a class="dropdown-item" href="{{ url('/sponsor-register') }}">{{ $link->sponsorship }}</a>
                 </div>
             </div>
         @endguest

@@ -4,13 +4,13 @@
 
         @include('site.components.dashboard.topMain', ['pageName' => 'Important Instruction'])
 
-        <div class="myOrder">
+        <div class="termsAndCondition">
             <div class="container">
                 <div class="terms">
-                        <h4 class="mb-4">Important instruction & information: </h4>
-                        <p></p>
+                    <p class="h5 mb-3">{!! $item->title !!}</p>
+                    <p>{!! $item->body !!}</p>
                 </div>
-             </div>
+            </div>
         </div>
 
     </main>

@@ -17,6 +17,13 @@
             @include('admin.components.navItems.singleitem', ['url' => url('admin/settings'),'name'=>'Settings','icon'=>'feather icon-settings'])
             @endif
 
+            @if (auth()->User()->group_id->settings_show == 1)
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/links'),'name'=>'Links','icon'=>'feather icon-circle'])
+            @endif
+            @if (auth()->User()->group_id->settings_show == 1)
+            @include('admin.components.navItems.singleitem', ['url' => url('admin/start'),'name'=>"Let's Start",'icon'=>'feather icon-circle'])
+            @endif
+
             @if (auth()->User()->group_id->skills_show == 1)
             @include('admin.components.navItems.singleitem', ['url' => url('admin/skills'),'name'=>'Skills','icon'=>'feather icon-circle'])
             @endif
@@ -89,9 +96,25 @@
                 'icon'=>'feather icon-circle',
                 'url'=>url('admin/contact-us'),
                 ],[
+                    'name'=>'Find',
+                    'icon'=>'feather icon-circle',
+                    'url'=>url('admin/find'),
+                ],[
                 'name'=>'Terms And Conditions',
                 'icon'=>'feather icon-circle',
                 'url'=>url('admin/terms&conditions'),
+                ],[
+                'name'=>'Broker Instruction',
+                'icon'=>'feather icon-circle',
+                'url'=>url('admin/broker-instruction'),
+                ],[
+                'name'=>'Sourcing Agency Instruction',
+                'icon'=>'feather icon-circle',
+                'url'=>url('admin/export-instruction'),
+                ],[
+                'name'=>'Sponsor Instruction',
+                'icon'=>'feather icon-circle',
+                'url'=>url('admin/sponsor-instruction'),
                 ]
                 ]])
             @endif

@@ -127,12 +127,12 @@
          class="{{ url()->current() == url('/sponsor-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
          <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
     </li>
-    {{-- <li>
+    <li>
         <a href="{{url('/sponsor-dashboard/instructions')}}"
          class="{{ url()->current() == url('/sponsor-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read
          <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>
         </a>
-    </li> --}}
+    </li>
     @endif
     </ul>
 

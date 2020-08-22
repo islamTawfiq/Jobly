@@ -24,5 +24,3 @@ Route::get('instructions','instructionController@index');
 
 
 
-
-

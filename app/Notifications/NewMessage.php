@@ -26,6 +26,7 @@ class NewMessage extends Notification
     {
         return [
             'data' => $this->data['id'],
+            'sender' => $this->data['sender_id'],
             'contain' => 'you have new message'
         ];
     }

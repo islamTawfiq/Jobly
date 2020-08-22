@@ -25,7 +25,7 @@
                                 @csrf
                                 <input type="email" name="email" class="form-control" placeholder="Your email">
                                 <textarea class="form-control" name="question" rows="5" placeholder="Your question"></textarea>
-                                <button class="btn btn-primary sendEmail">Send Email</button>
+                                <button class="btn btn-primary sendEmail">Send</button>
                             </form>
                         </div>
                     </div>

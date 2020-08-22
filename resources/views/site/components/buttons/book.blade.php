@@ -4,8 +4,10 @@
     class="btn btn-primary {{ $class }}">Book / Request Interview</a>
     @endif
     @if ( $nanny->status != 0 && $nanny->status != 3 )
-    <a href="JavaScript:void(0);" style="cursor: unset"
-    class="btn btn-primary {{ $reserved }}">Reserved</a>
+    {{-- <a href="JavaScript:void(0);" style="cursor: unset"
+    class="btn btn-primary {{ $reserved }}">Reserved</a> --}}
+    <a href="JavaScript:void(0);" data-toggle="modal" data-target="#bookNanny"
+    class="btn btn-primary {{ $class }}">Book / Request Interview</a>
     @endif
     @if ( $nanny->status == 3 )
     <a href="JavaScript:void(0);" style="cursor: unset; background: #28a745 !important; color: #fff !important; border-color: #28a745 !important"

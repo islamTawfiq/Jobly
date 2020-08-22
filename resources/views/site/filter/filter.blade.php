@@ -9,8 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 text-white ml-2">
-                    <p class="h2">Find Your Domestic Workers</p>
-                    <p>Select your demand of demotic workers and get full access to the best workers! A lot of domestic employee’s agencies and sponsors   are looking for new employers, we help them to directly connect with you. It is FREE to subscribe</p>
+                    <p class="h2">{!! $find->title !!}</p>
+                    <p>{!! $find->body !!}</p>
                 </div>
             </div>
         </div>

@@ -80,12 +80,13 @@
                             var
                                 data3 = '' ,
                                 data2 = '' ;
-
+                                data4 = '' ;
                                 var data3 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-status"><i class="feather icon-pause action-status"></i></a>';
                                 @if (auth()->User()->group->sponsors_delete == 1 )
                                 var data2 = '<a href="javascript:void(0)" data-id="' + row.id + '"  class="action-delete"><i class="feather icon-trash action-delete"></i></a>';
                                 @endif
-                                return data3 + data2;
+                                var data4 = '<a href="{{ url("/admin/user") }}/' + row.id + '/send" class="action-edit"><i class="feather icon-send"></i></a>';
+                                return data3 + data2 + data4;
                         }, orderable: false, searchable: false
                     }
                 ],

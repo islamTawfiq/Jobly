@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\filter;
 
 use App\Http\Controllers\Controller;
+use App\Model\Find;
 use App\Model\Nanny;
 use App\Model\Skills;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class filterController extends Controller
         $job_id = $request->job_id ? $request->job_id : null;
 
         $skills = Skills::get();
+        $find = Find::first();
 
         $nannies = Nanny::where(function ($q) use ($country_id) {
             if ($country_id) {
@@ -41,7 +43,7 @@ class filterController extends Controller
         // $nannies = new \Illuminate\Pagination\LengthAwarePaginator($nannies, $total, 2, $currentPage);
         // return view('site.filter.filter', compact('items','skills','getSkills', 'text'));
         $n = Nanny::with('broker')->get();
-        return view('site.filter.filter', compact('nannies','n','skills'));
+        return view('site.filter.filter', compact('nannies','n','skills','find'));
     }
 
     public function filter(Request $request) {
@@ -112,9 +114,10 @@ class filterController extends Controller
             $view = view('site.components.card.cv', compact('nannies'))->render();
             return response()->json(['html' => $view]);
         } else {
+            $find = Find::first();
             $nannies = Nanny::paginate($countPerPage);
             $n = Nanny::with('broker')->get();
-            return view('site.filter.filter', compact('nannies','n','skills'));
+            return view('site.filter.filter', compact('nannies','n','skills','find'));
         }
 
 

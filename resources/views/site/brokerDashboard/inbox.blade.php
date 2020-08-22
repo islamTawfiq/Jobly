@@ -19,6 +19,8 @@
                     @endif
                     @foreach ($messages as $message)
                     <div class="col-12" @if ($messages->count() == 1) {{ 'style=margin-bottom:100px' }} @endif >
+
+                        @if ($message->send->user_type_id != 1)
                         <div class="requestAnInterview text-center text-md-left">
                             <div class="container">
                                 <div class="row">
@@ -60,6 +62,27 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+
+                        {{-- for Admin --}}
+                        @if ($message->send->user_type_id == 1)
+                        <div class="requestAnInterview text-center text-md-left">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <span class="font-weight-bold">System Sent you a message</span>
+                                    </div>
+                                    <div class="col-lg-6 text-lg-right">
+                                        <span class="history">{{ $message->created_at->diffForHumans() }}</span>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mt-2">{{ $message->message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
                     </div>
                     @endforeach
                 </div>
