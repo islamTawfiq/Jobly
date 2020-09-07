@@ -101,7 +101,7 @@ class filterController extends Controller
                         $q->where('age', '>=', $min)->where('age', '<=', $max);
                     });
                 }
-            })->paginate($countPerPage);
+            })->where('status', '<>' , 3 )->latest()->paginate($countPerPage);
             $nannies = $nannies->unique('id');
             // $query = request()->query();
             // $text = http_build_query($query);
@@ -115,8 +115,10 @@ class filterController extends Controller
             return response()->json(['html' => $view]);
         } else {
             $find = Find::first();
-            $nannies = Nanny::paginate($countPerPage);
+            // $nannies = Nanny::paginate($countPerPage);
+            $nannies = Nanny::where('status', '<>' , 3 )->latest()->paginate($countPerPage);
             $n = Nanny::with('broker')->get();
+            // dd($nannies->toArray());
             return view('site.filter.filter', compact('nannies','n','skills','find'));
         }
 

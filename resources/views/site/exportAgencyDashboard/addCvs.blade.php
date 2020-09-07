@@ -316,7 +316,7 @@
                                             <h5 class="imgupload stop"><i class="fa fa-times"></i></h5>
                                             <p id="namefile">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="medical" multiple id="fileup">
+                                            <input type="file" value="" name="medical[]" multiple id="fileup">
                                         </div>
                                     </div>
 

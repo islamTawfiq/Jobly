@@ -62,12 +62,12 @@
                                             <a href="{{ url('/filter') }}" class="btn btn-info btnDashboard">Choose Another</a>
                                         @elseif ($nanny->status == 4)
                                             @if (auth()->user()->user_type_id == 4)
-                                            <a href="{{ url('/sponsor-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard">Book</a>
-                                            <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Reject And Replace</a>
+                                            <a href="{{ url('/sponsor-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard mb-2">Book</a>
+                                            <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard mb-2">Reject And Replace</a>
                                             @endif
                                             @if (auth()->user()->user_type_id == 3)
-                                            <a href="{{ url('/import-agency-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard">Book</a>
-                                            <a href="{{ url('/import-agency-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Reject And Replace</a>
+                                            <a href="{{ url('/import-agency-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard mb-2">Book</a>
+                                            <a href="{{ url('/import-agency-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard mb-2">Reject And Replace</a>
                                             @endif
                                         @endif
                                     </div>
@@ -80,8 +80,8 @@
                                             @endif
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>
@@ -129,12 +129,12 @@
                                     @if ($nanny->status == 1)
                                     <div class="col-12 text-md-right rightButtons">
                                         @if (auth()->user()->user_type_id == 2)
-                                        <a href="{{ url('/broker-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
-                                        <a href="{{ url('/broker-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
+                                        <a href="{{ url('/broker-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3 mb-2">Confirm the interview</a>
+                                        <a href="{{ url('/broker-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger mb-2">Reject</a>
                                         @endif
                                         @if (auth()->user()->user_type_id == 5)
-                                        <a href="{{ url('/export-agency-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
-                                        <a href="{{ url('/export-agency-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
+                                        <a href="{{ url('/export-agency-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3 mb-2">Confirm the interview</a>
+                                        <a href="{{ url('/export-agency-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger mb-2">Reject</a>
                                         @endif
                                     </div>
                                     @endif
@@ -147,8 +147,8 @@
                                         @endif
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>

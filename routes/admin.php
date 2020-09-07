@@ -7,8 +7,8 @@
 Route::get('/user/edit','auth\AuthController@edit');
 Route::post('/user/edit','auth\AuthController@update');
 
-Route::get('/new-notification/{id}','notifications\NotifyController@show');
-Route::get('/new-message/{id}','notifications\NotifyController@showMessage');
+Route::get('/new-notification/{id}/{reservation_id}','notifications\NotifyController@show');
+Route::get('/new-message/{id}/{message_id}','notifications\NotifyController@showMessage');
 
 Route::get('/user/{id}/send','users\SendController@Send');
 Route::post('/user/{id}/send','users\SendController@store');

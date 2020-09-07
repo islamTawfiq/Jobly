@@ -15,16 +15,29 @@ class NotifyController extends Controller
         $this->middleware('permission:nannies_delete', ['only' => 'destroy']);
     }
 
-    public function show($id)
+    public function show($id , $reservation_id)
     {
-        $nanny = Reservation::find($id);
-        $message = Message::find($id);
-        return view('admin.notifications.notify', compact('nanny','message'));
+        $notification = auth()->user()->notifications()->where('id', $id)->first();
+
+        $nanny = Reservation::find($reservation_id);
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
+        return view('admin.notifications.notify', compact('nanny'));
+
     }
 
-    public function showMessage($id)
+    public function showMessage($id , $message_id)
     {
-        $message = Message::find($id);
+        $notification = auth()->user()->notifications()->where('id', $id)->first();
+
+        $message = Message::find($message_id);
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
         return view('admin.notifications.message', compact('message'));
     }
+
 }

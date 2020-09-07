@@ -103,6 +103,10 @@
              class="{{ url()->current() == url('/import-agency-dashboard/my-notification') ? 'active' : '' }}">My Notification/Inbox</a>
              <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
         </li>
+        <li>
+            <a href="{{ url('/import-agency-dashboard/my-favourite') }}"
+            class="{{ url()->current() == url('/import-agency-dashboard/my-favourite') ? 'active' : '' }}">My Favourite </a>
+        </li>
     @endif
     {{-- Sponsor --}}
     @if (auth()->user()->user_type_id == 4)
@@ -128,6 +132,10 @@
          <span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span>
     </li>
     <li>
+        <a href="{{ url('/sponsor-dashboard/my-favourite') }}"
+        class="{{ url()->current() == url('/sponsor-dashboard/my-favourite') ? 'active' : '' }}">My Favourite </a>
+    </li>
+    <li class="text-center">
         <a href="{{url('/sponsor-dashboard/instructions')}}"
          class="{{ url()->current() == url('/sponsor-dashboard/instructions') ? 'active' : '' }}">Important instruction before you start posting you must read
          <br><i class="fas fa-file-pdf" style="color: #f00; font-size: 35px;"></i>

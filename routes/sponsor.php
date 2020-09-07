@@ -19,6 +19,9 @@ Route::get('my-notification/{id}','inboxController@destroy');
 
 Route::get('instructions','instructionController@index');
 
+Route::get('my-favourite','myFavouriteController@index');
+
+
 
 
 

@@ -2,15 +2,15 @@
 @if( url()->current() == url('/broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') )
 <div class="row">
     {{-- <div class="col-3"></div> --}}
-    <div class="noCvs m-5">
-        <img src="{{url('design/site/images/no.png')}}" alt="">
+    <div class="noCvs">
+        <img src="{{url('design/site/images/we-are-sorry.png')}}" alt="">
     </div>
 </div>
 @endif
 @endif
 
 @foreach ($nannies as $nanny)
-<div class="card  {{ $nannies->count() == 1 ? 'm-5' : '' }}">
+<div class="card  {{ $nannies->count() == 1 ? 'mt-5 mb-5' : '' }}">
     <div class="row">
         <div class="{{ url()->current() == url('broker-dashboard/all-cvs') || url()->current() == url('/export-agency-dashboard/all-cvs') ? '' : 'col-4' }} col-sm-5 col-lg-4 imgCard">
             <a href="{{url( '/profile/' . $nanny->id )}}">
@@ -19,7 +19,7 @@
         </div>
         <div class="col-8 col-sm-7 col-lg-4 cardDetail">
             <a href="{{url( '/profile/' . $nanny->id )}}">
-                <p class="h3 mb-0">{{$nanny->name}}</p>
+                <p class="h4 mb-0">{{$nanny->name}}</p>
             </a>
             <p class="text-muted m-0">
                 <i class="fas fa-map-marker-alt"></i>

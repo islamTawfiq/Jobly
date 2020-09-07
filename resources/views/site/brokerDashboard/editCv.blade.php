@@ -311,7 +311,7 @@
                                             <h5 class="imgupload stop"><i class="fa fa-times"></i></h5>
                                             <p id="namefile">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="medical" id="fileup">
+                                            <input type="file" value="" name="medical[]" multiple id="fileup">
                                         </div>
                                     </div>
 
@@ -323,7 +323,7 @@
                                             <h5 class="imgupload2 stop2"><i class="fa fa-times"></i></h5>
                                             <p id="namefile2">this document appear in CV download</p>
                                             <button type="button" id="btnup2" class="btn btn-primary">Upload</button>
-                                            <input type="file" value="" name="passport" id="fileup2">
+                                            <input type="file" value="" name="passport[]" multiple id="fileup2">
                                         </div>
                                     </div>
 

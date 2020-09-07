@@ -16,6 +16,9 @@ Route::get('my-payments','myPaymentsController@index');
 Route::get('my-notification','inboxController@index');
 Route::get('my-notification/{id}','inboxController@destroy');
 
+Route::get('my-favourite','myFavouriteController@index');
+
+
 
 
 

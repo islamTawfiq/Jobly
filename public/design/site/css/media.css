@@ -2,6 +2,14 @@
     .card .cardDetail::after{
         right: 10px;
     }
+    .topNavbarInDashboard {
+        position: relative;
+    }
+    .ntf {
+        position: absolute;
+        top: 0px;
+        right: 130px;
+    }
 }
 @media screen and (max-width:992px) {
     .navbar-light .navbar-nav .active>.nav-link {
@@ -142,9 +150,45 @@
     .basicInformation .formCv {
         border-left: 0px;
     }
+    .ntf {
+        top: 5px;
+        right: 145px;
+    }
+    i.fa-bell {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width:767px) {
+    #myNoty li {
+        margin-right: 5px;
+    }
+    #notificationLink .button {
+        font-size: 22px;
+    }
+    .ntf {
+        right: 110px;
+    }
+    #notificationContainer {
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+    }
+    #notificationTitle {
+        width: 100%;
+        padding: 20px;
+    }
+    #notificationTitle .closebtn {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: -10px !important;
+        padding: 0 !important;
+    }
     .resultSearch .card .imgCard img {
         height: 150px !important;
     }
@@ -239,6 +283,9 @@
     }
     .carousel-item p {
         font-size: 14px !important;
+    }
+    .field .btn-primary {
+        padding-right: 30px !important;
     }
 }
 @media screen and (max-width:575px) {
@@ -342,6 +389,9 @@
     }
 }
 @media screen and (max-width:415px) {
+    .ntf {
+        right: 85px;
+    }
     .skills label {
         font-size: 9px;
         padding-top: 7px;

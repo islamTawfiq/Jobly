@@ -48,16 +48,10 @@ class Nanny extends Model
         'broker_id',
     ];
 
-
     public function broker()
     {
         return $this->belongsTo('App\Model\User', 'broker_id');
     }
-    public function reserve()
-    {
-        return $this->belongsTo('App\Model\User', 'reserve_id');
-    }
-
 
     public function getBrokerNameAttribute(){
         $attribute='';
@@ -66,6 +60,11 @@ class Nanny extends Model
         }
         return $attribute;
     }
+
+    // public function reserve()
+    // {
+    //     return $this->belongsTo('App\Model\User', 'reserve_id');
+    // }
 
     public function getAboutNannyAttribute(){
         $attribute = Str::words($this->about, 14, '...');
@@ -86,6 +85,7 @@ class Nanny extends Model
         }
         return $attribute;
     }
+
     public function job()
     {
         return $this->hasOne(Job::class, 'id', 'job_id');
@@ -101,10 +101,9 @@ class Nanny extends Model
         return $attribute;
     }
 
-
-
-
-
-
+    // public function likes()
+    // {
+    //     return $this->hasMany(Like::class, 'nanny_id');
+    // }
 
 }

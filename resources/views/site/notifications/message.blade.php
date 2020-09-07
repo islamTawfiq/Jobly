@@ -51,8 +51,8 @@
                                         @endif
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>
@@ -98,8 +98,8 @@
                                         @endif
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>

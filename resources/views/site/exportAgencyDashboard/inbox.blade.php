@@ -11,8 +11,8 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-2"></div>
-                            <div class="noCvs col-12 col-md-8 mt-3 mb-5">
-                                <img src="{{url('design/site/images/no.png')}}" alt="">
+                            <div class="noCvs col-12 col-md-8">
+                                <img src="{{url('design/site/images/we-are-sorry.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -38,22 +38,22 @@
                                              <a class="candidate" href="{{ url('profile') . '/' . $message->workers->id }}">{{ $message->workers->name }}</a>
                                              as {{ $message->workers->job_name }} sent you this message...
                                         </h6>
-                                        <p>{{ $message->message }}</p>
+                                        <p>"{{ $message->message }}"</p>
                                         {{-- <span class="mb-0">Please upload her visa</span> --}}
                                         {{-- <a href="" class="btn btn-primary pt-0 pb-0 pr-2 pl-2">Click here</a> --}}
                                     </div>
                                     <div class="col-12 text-right">
-                                        <p>
+                                        <div>
                                             <a class="deleteMessage" href="{{ url()->current() . '/' . $message->id }}"><i class="fas fa-trash-alt"></i></a>
-                                        </p>
+                                        </div>
                                         <span style="font-size: 14px" class="float-right">{{ $message->created_at->diffForHumans() }}</span>
                                     </div>
                                     <div class="col-12 m-2">
                                         <form method="POST" action="{{ url('/export-agency-dashboard/notes') . '/' . $message->nanny_id . '/' . $message->send->id }}">
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>

@@ -351,8 +351,14 @@ footer .linksInFooter i {
 .personData span {
     font-size: 14px;
 }
-.profile .favourit a {
+.profile .favourit {
     color: yellow;
+}
+.watchlist button {
+    background: transparent !important;
+    border: none;
+    outline: none;
+    color: #fff;
 }
 .profileInfo p span {
     font-size: 15px;
@@ -432,7 +438,7 @@ footer .linksInFooter i {
     border-radius: 16px;
     font-weight: 600;
     margin-right: 10px;
-    margin-bottom: 25px !important;
+    margin-bottom: 250px !important;
 }
 /* start home */
 .overFlow {
@@ -1541,11 +1547,10 @@ div.inst p{
   border:none;
   position: relative;
   width: 100%;
+  padding-left: 25px !important;
 }
 .field>button {
   padding:0.6em 0.8em;
-  background-color: #819090;
-  color: #fff;
   border:none;
   border-radius: 16px !important;
   border-top-left-radius: 0 !important;
@@ -1589,7 +1594,7 @@ a.readAt:hover{
     padding: 0px;
 }
 #myNoty li {
-    margin-right: 5px;
+    margin-right: 42px;
     font-size: 20px;
 }
 #notification_li
@@ -1613,7 +1618,7 @@ a.readAt:hover{
     z-index: 9999 !important;
     display: none; /* Enable this after jquery implementation */
 }
-// Popup Arrow
+/* Popup Arrow */
 #notificationContainer:before {
     content: '';
     display: block;
@@ -1659,4 +1664,6 @@ a.readAt:hover{
 }
 #notificationsBody a:active {
     background-color: #fff;
-  }
+}
+
+

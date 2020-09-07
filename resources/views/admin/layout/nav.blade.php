@@ -74,9 +74,9 @@
                                 </div>
                             </li>
                             <li class="media-list" style="overflow-y: auto">
-                                @foreach (auth()->user()->notifications as $notify)
+                                @foreach (auth()->user()->unreadNotifications as $notify)
                                 @if ($notify->type == 'App\Notifications\NewMessage')
-                                <a class="d-flex justify-content-between {{ $notify->read_at == null ? 'readAt' : '' }}" href="{{ url('/admin/new-message') . '/' . $notify->data['data'] }}">
+                                <a class="d-flex justify-content-between" href="{{ url('/admin/new-message') . '/' . $notify->id . '/' . $notify->data['data'] }}">
                                     <div class="media d-flex align-items-start">
                                         <div class="media-left">
                                             <i class="feather icon-plus-square font-medium-5 primary"></i>
@@ -87,12 +87,11 @@
                                         </div>
                                         <small>
                                             <time class="media-meta"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</time>
-                                            <?php $notify->markAsRead() ?>
                                         </small>
                                     </div>
                                 </a>
                                 @else
-                                <a class="d-flex justify-content-between {{ $notify->read_at == null ? 'readAt' : '' }}" href="{{ url('/admin/new-notification') . '/' . $notify->data['data'] }}">
+                                <a class="d-flex justify-content-between" href="{{ url('/admin/new-notification') . '/' . $notify->id . '/' . $notify->data['data'] }}">
                                     <div class="media d-flex align-items-start">
                                         <div class="media-left">
                                             <i class="feather icon-plus-square font-medium-5 primary"></i>
@@ -103,16 +102,15 @@
                                         </div>
                                         <small>
                                             <time class="media-meta"><i class="fas fa-clock"></i> {{ $notify->created_at->diffForHumans() }}</time>
-                                            <?php $notify->markAsRead() ?>
                                         </small>
                                     </div>
                                 </a>
                                 @endif
                                 @endforeach
                             </li>
-                            <li class="dropdown-menu-footer">
+                            {{--  <li class="dropdown-menu-footer">
                                 <a class="dropdown-item p-1 text-center" href="javascript:void(0)">Read all notifications</a>
-                            </li>
+                            </li>  --}}
                         </ul>
                     </li>
 

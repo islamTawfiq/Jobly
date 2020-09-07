@@ -88,11 +88,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Nanny', 'broker_id');
     }
 
-    public function nanny_reserve()
-    {
-        return $this->hasMany('App\Model\Nanny', 'reserve_id');
-    }
-
+    // public function nanny_reserve()
+    // {
+    //     return $this->hasMany('App\Model\Nanny', 'reserve_id');
+    // }
 
     public function county()
     {
@@ -108,5 +107,10 @@ class User extends Authenticatable
         }
         return $attribute;
     }
+
+    // public function likes()
+    // {
+    //     return $this->hasMany(Like::class, 'user_id');
+    // }
 
 }

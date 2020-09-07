@@ -12,7 +12,6 @@
         <th>Children</th>
         <th>Job</th>
         <th>Salary</th>
-        <th>Experience</th>
         <th>Marital Status</th>
         <th>Height</th>
         <th>Weight</th>
@@ -74,17 +73,17 @@
                         data: 'main_image' ,
                         name: 'main_image',
                         "mRender": function (data, type, row) {
-                            return  '<div class="avatar  avatar-xl"><a target="_blank" href="{{ url("storage/") }} ' + data + '"><img src= "{{ url("storage/") }} ' + data + ' "></a></div>';
+                            return  '<div class="avatar  avatar-xl"><a target="_blank" href="{{ url("/storage/") }}'+data+'"><img src= "{{ url("/storage/") }}'+data+'"></a></div>';
                         }
                     },
                     {data: 'name', name: 'name'},
+                    {data: 'mobile', name: 'mobile'},
                     {data: 'country_name', name: 'country_name'},
                     {data: 'age', name: 'age'},
                     {data: 'religion', name: 'religion'},
                     {data: 'children', name: 'children'},
                     {data: 'job_name', name: 'job_name'},
                     {data: 'salary', name: 'salary'},
-                    {data: 'experience', name: 'experience'},
                     {data: 'marital_status', name: 'marital_status'},
                     {data: 'height', name: 'height'},
                     {data: 'weight', name: 'weight'},

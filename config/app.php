@@ -178,6 +178,8 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Aliraqi\ET\ServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
     ],
@@ -233,6 +235,8 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
         'SMS' => Aliraqi\ET\SMSFasade::class,
+
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
 

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Site\nannyProfile;
 
 use App\Http\Controllers\Controller;
+use App\Model\Like;
 use App\Model\Nanny;
 use App\Model\Reservation;
 use App\Model\User;
 use App\Notifications\AddReservetion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Notification;
 
 class profileController extends Controller
@@ -24,8 +26,13 @@ class profileController extends Controller
         $skills = explode( "," , $nanny->skills );
         $images = explode( "," , $nanny->gallery );
         $reservation = (Reservation::where('nanny_id',$id))->get();
-        // dd($reservation);
-
+            if (Auth::check()) {
+                $likes = Like::where([
+                    'nanny_id'=>$id ,
+                    'user_id'=>auth()->user()->id
+                ])->first();
+                return view('site.nannyProfile.profile', compact('nanny','skills','images','randomNannies','reservation','likes'));
+            }
         return view('site.nannyProfile.profile', compact('nanny','skills','images','randomNannies','reservation'));
     }
 
@@ -52,6 +59,60 @@ class profileController extends Controller
         }
         return redirect()->back()->with('success', 'You Confirm the interview, we will give you the feedback shortly');
     }
+
+    public function download($id)
+    {
+        $nanny = Nanny::findOrFail($id);
+        $skills = explode( "," , $nanny->skills );
+        return view('site.nannyProfile.downloadCv', compact('nanny','skills'));
+    }
+
+    public function like(Request $request)
+    {
+        $like_status = $request->like_status;
+        $nanny_id = $request->nanny_id;
+
+        $like = Like::where([
+            'nanny_id'=>$nanny_id ,
+            'user_id'=>auth()->user()->id
+        ])->first();
+
+        if(!$like) {
+            $new_like = new Like;
+            $new_like->nanny_id = $nanny_id;
+            $new_like->user_id = auth()->user()->id;
+            $new_like->like = 1;
+            $new_like->save();
+
+            $isLike = 1;
+
+        } else {
+            Like::where([
+                'nanny_id'=>$nanny_id ,
+                'user_id'=>auth()->user()->id
+            ])->delete();
+
+            $isLike = 0;
+
+        }
+
+        $response = ['isLike' => $isLike];
+
+        return response()->json($response ,200);
+
+    }
+
+    // public function download($id)
+    // {
+    //     $nanny = Nanny::findOrFail($id);
+    //     // $skills = explode( "," , $nanny->skills );
+    //     $data = ['nanny' => Nanny::findOrFail($id),
+    //              'skills' => explode( "," , $nanny->skills )
+    //             ];
+    //     $pdf = PDF::loadView('site.nannyProfile.downloadCv', $data);
+
+    //     return $pdf->download('codingdriver.pdf');
+    // }
 
 
 }

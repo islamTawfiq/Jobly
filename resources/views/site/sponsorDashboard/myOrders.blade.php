@@ -13,8 +13,8 @@
                     </div> --}}
                     @if ($nannies->count() == 0)
                     <div class="col-2"></div>
-                        <div class="noCvs col-8 mt-5 mb-5">
-                            <img src="{{url('design/site/images/no.png')}}" alt="">
+                        <div class="noCvs col-8">
+                            <img src="{{url('design/site/images/we-are-sorry.png')}}" alt="">
                         </div>
                     @endif
                     @foreach ($nannies as $nanny)
@@ -59,22 +59,22 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-12 text-md-right rightButtons">
+                                    <div class="col-12 text-md-right rightButtons mb-2 mb-md-0">
                                         @if ($nanny->status == 1)
-                                            <a href="{{ url('/sponsor-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Cancel</a>
+                                            <a href="{{ url('/sponsor-dashboard/cancel/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard mb-2">Cancel</a>
                                         @elseif ($nanny->status == 2 || $nanny->status == 3 || $nanny->status == 5)
-                                            <a href="{{ url('/filter') }}" class="btn btn-info btnDashboard">Choose Another</a>
+                                            <a href="{{ url('/filter') }}" class="btn btn-info btnDashboard mb-2">Choose Another</a>
                                         @elseif ($nanny->status == 4)
-                                            <a href="{{ url('/sponsor-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard">Book</a>
-                                            <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard">Reject And Replace</a>
+                                            <a href="{{ url('/sponsor-dashboard/approve/') . '/' . $nanny->id }}" class="btn btn-success btnDashboard mb-2">Book</a>
+                                            <a href="{{ url('/sponsor-dashboard/reject/') . '/' . $nanny->id }}" class="btn btn-danger btnDashboard mb-2">Reject And Replace</a>
                                         @endif
                                     </div>
                                     <div class="col-12 m-2">
                                         <form method="POST" action="{{ url('/sponsor-dashboard/notes/') . '/' . $nanny->nanny_id . '/' . $nanny->workers->broker->id }}">
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>

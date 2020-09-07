@@ -83,7 +83,7 @@
                         data: 'user_image' ,
                         name: 'user_image',
                         "mRender": function (data, type, row) {
-                            return  '<div class="avatar  avatar-xl"><a target="_blank" href="{{ url("storage/") }} ' + data + '"><img src= "{{ url("storage/") }} ' + data + ' "></a></div>';
+                            return  '<div class="avatar  avatar-xl"><a target="_blank" href="{{ url("storage/") }}'+data+'"><img src= "{{ url("storage/") }}'+data+'"></a></div>';
                         }
                     },
                     {

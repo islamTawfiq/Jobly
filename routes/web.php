@@ -21,13 +21,21 @@ Route::get('/countries/getStates', 'Site\countries\CountriesController@getStates
 Route::post('/filter','Site\filter\filterController@filterNanny');
 Route::get('/filter','Site\filter\filterController@filter');
 Route::get('/profile/{id}','Site\nannyProfile\profileController@index');
+// Route::get('/download/{id}','Site\nannyProfile\profileController@download');
+
 
 Route::group(['middleware' => ['auth']], function () {
     // reservation
     Route::post('/reservation/{id}/{broker_id}','Site\nannyProfile\profileController@reservation');
 
-    Route::get('/new-notification/{id}','Site\home\HomeController@show');
-    Route::get('/new-message/{id}','Site\home\HomeController@showMessage');
+    Route::get('/new-notification/{id}/{reservation_id}','Site\home\HomeController@show');
+    Route::get('/new-message/{id}/{message_id}','Site\home\HomeController@showMessage');
+
+    Route::get('/download/{id}','Site\nannyProfile\PDFController@generatePDF');
+
+    Route::post('like','Site\nannyProfile\profileController@like')->name('like');
+
+
 });
 
 Route::get('/login', 'Site\auth\LoginController@ShowLoginPage');

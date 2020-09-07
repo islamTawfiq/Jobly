@@ -46,20 +46,20 @@ class addCvController extends Controller
                 'weight'         => 'required|string',
                 'arabic_lang'    => 'required|string',
                 'english_lang'   => 'required|string',
-                'medical'        => 'sometimes|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
-                'passport'       => 'required|max:100000|mimes:doc,docx,pdf,jpeg,png,jpg',
                 'about'          => 'required|string',
                 'skills'         => 'required',
                 'gallery'        => 'sometimes',
-                'gallery.*'      => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'gallery.*'      => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'passport'       => 'sometimes',
+                'passport.*'     => 'mimes:doc,docx,pdf,jpeg,png,jpg|max:100000',
+                'medical'        => 'sometimes',
+                'medical.*'      => 'mimes:doc,docx,pdf,jpeg,png,jpg|max:100000',
             ]);
+
             $data['broker_id'] = auth()->user()->id;
             $data['name'] = $data['first_name'] . ' ' . $data['last_name'];
 
             $request->hasFile('main_image') ?  $data['main_image'] = $this->storeFile($request->main_image, 'Nannies') : '';
-
-            $request->hasFile('medical') ?  $data['medical'] = $this->storeFile($request->medical, 'Medical') : '';
-            $request->hasFile('passport') ?  $data['passport'] = $this->storeFile($request->passport, 'Passport') : '';
 
             if($request->hasfile('gallery') && $request->hasfile('gallery') != '' )
             {
@@ -70,6 +70,28 @@ class addCvController extends Controller
                    $gallery[] = $name;
                 }
                 $data['gallery'] = implode( "," , $gallery );
+            }
+
+            if($request->hasfile('passport') && $request->hasfile('passport') != '' )
+            {
+                foreach($request->file('passport') as $image)
+                {
+                   $name=$image->getClientOriginalName();
+                   $image->move(public_path().'/passport/', $name);
+                   $passport[] = $name;
+                }
+                $data['passport'] = implode( "," , $passport );
+            }
+
+            if($request->hasfile('medical') && $request->hasfile('medical') != '' )
+            {
+                foreach($request->file('medical') as $image)
+                {
+                   $name=$image->getClientOriginalName();
+                   $image->move(public_path().'/medical/', $name);
+                   $medical[] = $name;
+                }
+                $data['medical'] = implode( "," , $medical );
             }
 
             $data['skills'] = implode( "," , $data['skills'] );

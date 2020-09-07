@@ -105,7 +105,7 @@
                     if (data.html == "") {
                         $('#spinner-main-div').hide();
                         stop();
-                        $("#nannyBody").append('<div class="row"><div class="col-2"></div><div class="noCvs col-8 mt-5 mb-5"><img src="{{url("design/site/images/no.png")}}" alt=""></div></div>');
+                        $("#nannyBody").append('<div class="row"><div class="col-2"></div><div class="noCvs col-8 mt-5 mb-5"><img src="{{url("design/site/images/we-are-sorry.png")}}" alt=""></div></div>');
                     } else {
                         $('#spinner-main-div').hide();
                         $("#nannyBody").empty();

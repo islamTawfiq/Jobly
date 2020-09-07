@@ -1,4 +1,12 @@
 @extends('site.layout.index')
+@section('page_js')
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f44108ab9b91ecf">
+</script>
+
+@include('site.nannyProfile.scripts')
+
+@stop
 @section('content')
 
 <div class="profile">
@@ -62,36 +70,45 @@
                     </div>
                     @auth
                         @if ( auth()->user()->user_type_id != 2 and auth()->user()->user_type_id != 5 )
-                        <span class="watchlist favourit">
-                            <a href="#" class="listing-favorite-icon">
+
+                        <span class="watchlist">
+                            <button
+                            data-nanny-id="{{ $nanny->id }}"
+                            data-like="@if( isset($likes->like_status) )
+                            {{ $likes->like_status }}
+                            @endif"
+                            class="listing-favorite-icon myLike
+                            @if( isset($likes->like_status) )
+                            {{ $likes->like_status }}
+                            @endif">
                                 <i class="fas fa-star"></i>
                                 Favourit
-                            </a>
+                            </button>
                         </span>
-                        <span class="watchlist">
+                        {{--  <span class="watchlist">
                             <a href="#" class="listing-exclamation-icon text-white">
                                 <i class="fas fa-share-square"></i> Share
                             </a>
-                        </span>
+                        </span>  --}}
                         <span class="watchlist">
-                            <a href="#" class="listing-exclamation-icon text-white">
+                            <a href="{{ url('/download/') . '/' . $nanny->id }}" class="listing-exclamation-icon text-white">
                                 <i class="fas fa-cloud-download-alt"></i> Download CV
                             </a>
                         </span>
                         @endif
                     @endauth
                     @guest
-                    <span class="watchlist favourit">
-                        <a href="{{ url('/login') }}" class="listing-favorite-icon">
+                    <span class="watchlist ">
+                        <a href="{{ url('/login') }}" class="listing-favorite-icon text-white">
                             <i class="fas fa-star"></i>
                             Favourit
                         </a>
                     </span>
-                    <span class="watchlist">
+                    {{--  <span class="watchlist">
                         <a href="{{ url('/login') }}" class="listing-exclamation-icon text-white">
                             <i class="fas fa-share-square"></i> Share
                         </a>
-                    </span>
+                    </span>  --}}
                     <span class="watchlist">
                         <a href="{{ url('/login') }}" class="listing-exclamation-icon text-white">
                             <i class="fas fa-cloud-download-alt"></i> Download CV
@@ -324,7 +341,7 @@
                                         <div class="aboutMeDetailes">
                                             <p style="font-weight: bold" class="btn btn-primary float-right">Sourcing Fees
                                                  <span style="color: #000"> ( $ {{ $nanny->fees }} )</span>
-                                                </p>
+                                            </p>
                                             <p class="h4">Who I am</p>
                                             <p>{{$nanny->about}}</p>
                                         </div>
@@ -334,7 +351,9 @@
                                             <p class="h4">key skills & competencies</p>
                                             <div class="mb-2 d-inline-block">
                                                 @foreach ($skills as $skill)
-                                                    <span>{{$skill}}</span>
+                                                    <div class="mb-2 d-inline-block">
+                                                        <span>{{$skill}}</span>
+                                                    </div>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -394,7 +413,7 @@
                                 </div>
                                 <div class="col-7 cardDetail">
                                     <a href="{{ $randomNanny->id }}">
-                                        <p class="h3 mb-0">{{ $randomNanny->name }}</p>
+                                        <p class="h5 mb-0">{{ $randomNanny->name }}</p>
                                     </a>
                                     <p class="text-muted m-0">
                                         <i class="fas fa-map-marker-alt"></i>

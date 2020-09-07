@@ -7,9 +7,9 @@
         <div class="myOrder">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 text-center text-lg-left">
+                    {{--  <div class="col-12 col-lg-6 text-center text-lg-left">
                         <p class="h5 mt-2">You have {{ count($nannies) }} {{ (count($nannies) > 1 ) ? 'requests' : 'request' }} </p>
-                    </div>
+                    </div>  --}}
                     {{--  <div class="col-12 col-lg-6">
                         <div class="requestStatus">
                             <div class="container">
@@ -38,8 +38,8 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-2"></div>
-                            <div class="noCvs col-12 col-md-8 mt-3 mb-5">
-                                <img src="{{url('design/site/images/no.png')}}" alt="">
+                            <div class="noCvs col-12 col-md-8">
+                                <img src="{{url('design/site/images/we-are-sorry.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -84,16 +84,16 @@
                                     </div>
                                     @if ($nanny->status == 1)
                                     <div class="col-12 text-md-right rightButtons">
-                                        <a href="{{ url('/export-agency-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3">Confirm the interview</a>
-                                        <a href="{{ url('/export-agency-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger">Reject</a>
+                                        <a href="{{ url('/export-agency-dashboard/confirm/') . '/' . $nanny->id }}" class="btn btn-success pl-3 pr-3 mb-2">Confirm the interview</a>
+                                        <a href="{{ url('/export-agency-dashboard/reject-request/') . '/' . $nanny->id }}" class="btn btnCancel btn-danger mb-2">Reject</a>
                                     </div>
                                     @endif
                                     <div class="col-12 m-2">
                                         <form method="POST" action="{{ url('/export-agency-dashboard/notes') . '/' . $nanny->nanny_id . '/' . $nanny->import->id }}">
                                             @csrf
                                             <div class="field" id="searchform">
-                                                <input type="text" id="searchterm" name="message" placeholder="notes" class="">
-                                                <button type="submit" id="search" class="btn btn-primary">Reply <i class="far fa-paper-plane"></i></button>
+                                                <input type="text" id="searchterm" name="message" placeholder="Reply">
+                                                <button type="submit" id="search" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                     </div>
